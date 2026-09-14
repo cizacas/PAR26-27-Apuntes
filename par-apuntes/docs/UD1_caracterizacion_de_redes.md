@@ -1,6 +1,7 @@
-# Unidad 1 – Estructura de las redes de datos
+# Unidad 1 – Estructura de las redes de datos <!-- omit from toc -->
 
 **Módulo:** Planificación y Administración de Redes
+
 **RA1:** Reconoce la estructura de las redes de datos identificando sus elementos y principios de funcionamiento.
 
 ---
