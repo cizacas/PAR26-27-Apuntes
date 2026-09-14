@@ -5,30 +5,6 @@
 
 ---
 
-## Índice
-
-1. [Evolución y expansión de las redes de datos](#1-evolución-y-expansión-de-las-redes-de-datos)
-2. [Sistemas de numeración: decimal, binario y hexadecimal](#2-sistemas-de-numeración-decimal-binario-y-hexadecimal)
-3. [Terminología y tipos de redes: LAN, MAN, WAN](#3-terminología-y-tipos-de-redes-lan-man-wan)
-4. [Topologías de red](#4-topologías-de-red)
-5. [Medios de transmisión](#5-medios-de-transmisión)
-6. [Arquitectura de redes y niveles](#6-arquitectura-de-redes-y-niveles)
-7. [Encapsulamiento de la información](#7-encapsulamiento-de-la-información)
-8. [El modelo OSI](#8-el-modelo-osi)
-9. [El modelo TCP/IP](#9-el-modelo-tcpip)
-10. [Protocolos de comunicación](#10-protocolos-de-comunicación)
-11. [Funcionamiento de las pilas de protocolos](#11-funcionamiento-de-las-pilas-de-protocolos)
-12. [Elementos funcionales, físicos y lógicos de una red](#12-elementos-funcionales-físicos-y-lógicos-de-una-red)
-13. [Tecnologías Ethernet](#13-tecnologías-ethernet)
-14. [El modelo OSI y Ethernet](#14-el-modelo-osi-y-ethernet)
-15. [Tipos de cableado Ethernet](#15-tipos-de-cableado-ethernet)
-16. [Tipos de cableado de fibra óptica](#16-tipos-de-cableado-de-fibra-óptica)
-17. [Dispositivos de interconexión de redes](#17-dispositivos-de-interconexión-de-redes)
-18. [El modelo cliente-servidor](#18-el-modelo-cliente-servidor)
-19. [Organismos de estandarización](#19-organismos-de-estandarización)
-
----
-
 ## 1. Evolución y expansión de las redes de datos
 
 *(CE-a: factores que impulsan la continua expansión y evolución de las redes de datos)*
