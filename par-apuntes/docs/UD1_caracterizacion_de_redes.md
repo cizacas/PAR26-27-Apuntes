@@ -5,6 +5,7 @@
 
 ---
 
+
 ## 1. Evolución y expansión de las redes de datos
 
 *(CE-a: factores que impulsan la continua expansión y evolución de las redes de datos)*
@@ -25,7 +26,8 @@ Las redes de datos permiten la comunicación entre dispositivos para compartir i
 
 ## 2. Sistemas de numeración: decimal, binario y hexadecimal
 
-*(CE-g)*
+*(CE-g Se han presentado y descrito los elementos funcionales, físicos y lógicos, de las redes de datos.)*
+
 Las redes de datos trabajan internamente con información binaria. Para interpretar direcciones IP, máscaras de red o direcciones MAC es necesario dominar la conversión entre sistemas.
 
 ### 2.1 Sistema decimal (base 10)
@@ -122,190 +124,79 @@ Ejemplo: 10011100 → 1001 1100 → 9C
 
 ---
 
-## 3. Terminología y tipos de redes: LAN, MAN, WAN
+## 3. Transmisión de Datos
 
-*(CE-c: tipos de red)*
+*(CE-b Se han diferenciado los distintos medios de transmisión utilizados en las redes)*
 
-Una **red de datos** es un conjunto de dispositivos (nodos) interconectados que comparten información y recursos mediante un medio de transmisión y un conjunto de reglas (protocolos).
+### 3.1 El bit
 
-Clasificación según su **extensión geográfica**:
+El **bit** (binary digit) es la unidad mínima de información en los sistemas digitales. Puede tomar dos valores: 0 o 1. Los ordenadores almacenan y transmiten los datos internamente como secuencias de bits que, agrupados en bytes (8 bits) y palabras, representan números, caracteres, instrucciones y cualquier otro tipo de información.
 
-- **LAN (Local Area Network)**: red de área local. Cubre una zona reducida (oficina, edificio, campus). Suele ser propiedad privada de la organización. Alta velocidad y bajo coste. Ejemplo: red de un instituto.
-- **MAN (Metropolitan Area Network)**: red de área metropolitana. Cubre una ciudad o área metropolitana, interconectando varias LAN. Ejemplo: red municipal de una ciudad.
-- **WAN (Wide Area Network)**: red de área extensa. Cubre grandes distancias geográficas (país, continente, mundo). Suele usar infraestructuras de terceros (operadoras de telecomunicaciones). Ejemplo: Internet.
+Cómo se almacenan y transmiten:
+- **Almacenamiento:** físicamente los bits se representan por diferentes estados eléctricos, magnéticos u ópticos según la tecnología (ej.: voltaje alto/bajo en memoria RAM o discos SSD, polarización magnética en discos duros, presencia/ausencia de luz en fibra). Estos estados se organizan en celdas o circuitos y se leen/escriben por el controlador del dispositivo.
 
-Otras clasificaciones adicionales que suelen mencionarse:
+- **Transmisión:** en enlaces eléctricos (par trenzado, coaxial) un bit se codifica como una variación de voltaje o corriente; en fibra óptica, como pulsos de luz; en inalámbricos, como variaciones de amplitud/frecuencia/fase de la portadora. Para mejorar la fiabilidad se usan codificaciones y señales de sincronización, así como técnicas de detección y corrección de errores.
 
-- **PAN (Personal Area Network)**: red de área personal, muy pequeño alcance (Bluetooth, USB).
-- **CAN (Campus Area Network)**: red de campus, interconecta varios edificios cercanos.
-- **SAN (Storage Area Network)**: red de almacenamiento.
+Dispositivos de entrada y salida — qué hacen:
+- Dispositivos de entrada (teclado, ratón, micrófono, sensores): convierten acciones físicas o señales del mundo real en datos binarios que el ordenador puede procesar (ej.: una tecla pulsada → código de carácter → secuencia de bits enviada al sistema operativo).
+- Dispositivos de salida (pantalla, altavoz, impresora, actuadores): reciben datos binarios y los traducen a señales perceptibles por el usuario o por el entorno (ej.: secuencia de píxeles en la GPU → señales eléctricas → luz en la pantalla; datos de audio → DAC → vibración en altavoz).
 
-```mermaid
-graph TB
-    subgraph WAN ["🌍 WAN — país/continente/mundo (ej. Internet)"]
-        subgraph MAN ["🏙️ MAN — ciudad (interconecta varias LAN)"]
-            subgraph CAN ["🏫 CAN — campus (varios edificios)"]
-                subgraph LAN1 ["🏢 LAN — Edificio A (oficina/instituto)"]
-                    P1["📱 PAN<br/>(móvil-auriculares)"]
-                    PC1["💻 PC1"]
-                    PC2["💻 PC2"]
-                end
-                subgraph LAN2 ["🏢 LAN — Edificio B"]
-                    PC3["💻 PC3"]
-                    PC4["💻 PC4"]
-                end
-            end
-        end
-    end
-    style WAN fill:#e0d4f7,stroke:#333,stroke-width:2px
-    style MAN fill:#ffd8b3,stroke:#333,stroke-width:2px
-    style CAN fill:#fff2b3,stroke:#333,stroke-width:2px
-    style LAN1 fill:#d7f5d0,stroke:#333,stroke-width:1px
-    style LAN2 fill:#d7f5d0,stroke:#333,stroke-width:1px
-    style P1 fill:#cde7ff
-    style PC1 fill:#cde7ff
-    style PC2 fill:#cde7ff
-    style PC3 fill:#cde7ff
-    style PC4 fill:#cde7ff
-```
-*Cada tipo de red "engloba" al anterior según su extensión geográfica: varias PAN forman una LAN, varias LAN de un campus forman una CAN, varias CAN/LAN de una ciudad forman una MAN, y el conjunto de redes a nivel mundial forma la WAN (Internet).*
+Almacenamiento dentro del ordenador:
+- En el interior del equipo, todo se guarda en formatos binarios: archivos, programas, tablas y estructuras de datos. Los sistemas de archivos organizan los bytes en bloques y sectores; la memoria principal gestiona celdas direccionables por la CPU.
 
-### Otras clasificaciones de redes
+Ejemplo de código normalizado (ejemplo ilustrativo `u8tf`):
+- Supongamos un esquema de codificación llamado `u8tf` que define un tipo de dato de 8 bits sin signo (u8) seguido de una etiqueta de formato `tf`. Un valor decimal 13 se almacenaría como `00001101` en binario y, usando la notación `u8tf(13)`, quedaría normalizado como `u8tf:00001101` para su transmisión o registro.
 
-- **Según la propiedad**: públicas (accesibles por cualquiera, ej. Internet) o privadas (uso restringido a una organización).
-- **Según el medio de transmisión**: cableadas (guiadas) o inalámbricas (no guiadas).
-- **Según la relación funcional**: redes cliente-servidor o redes entre iguales (peer to peer, P2P).
-- **Según la titularidad de la gestión**: redes de acceso, redes troncales (backbone).
+En la práctica se usan estándares como ASCII/UTF-8 para texto y formatos bien definidos para datos binarios en protocolos y APIs.
 
----
+### 3.2 Métodos de transmisión de datos
 
-## 4. Topologías de red
+Una vez transformados los datos a una serie de bits, en las redes se emplean tres métodos principales para transmitir esas señales:
 
-*(CE-c: topologías)*
+- **Señales eléctricas:** se usan en medios guiados como el par trenzado y el coaxial. Un bit se representa mediante variaciones de voltaje o corriente (por ejemplo, nivel alto = 1, nivel bajo = 0) o mediante esquemas más complejos de codificación (Manchester, NRZ, PAM). 
+  - Ventajas: coste bajo y facilidad de uso en entornos LAN; 
+  - inconvenientes: susceptibilidad a ruido e interferencias, y atenuación en largas distancias.
 
-La **topología** es la disposición física o lógica de los dispositivos y el cableado dentro de una red.
+- **Señales ópticas:** se usan en fibra óptica, donde los bits se codifican como pulsos de luz (presencia/ausencia de pulso o modulaciones de intensidad/fase/frecuencia). 
+  - Ventajas: gran ancho de banda, baja atenuación y resistencia a interferencias electromagnéticas; 
+  - inconvenientes: mayor coste y necesidad de conversión óptico-eléctrica en extremos.
 
-### 4.1 Topología en bus
+- **Señales inalámbricas (radiofrecuencia/microondas):** los bits se transmiten modulando una portadora en parámetros como amplitud, frecuencia o fase (ASK, FSK, PSK, QAM). Se usan en Wi‑Fi, LTE/5G, enlaces punto a punto y satélites. 
+  - Ventajas: movilidad y despliegue sin cableado; 
+  - inconvenientes: mayor vulnerabilidad a la interferencia, pérdida por obstáculos y limitación de espectro/regulación.
 
-Todos los dispositivos se conectan a un único cable central (bus) mediante el cual se transmite la información en ambas direcciones.
-- Ventaja: sencilla y económica, poco cableado.
-- Inconveniente: un fallo en el cable central puede dejar sin comunicación a toda la red; colisiones frecuentes.
+Ejemplo práctico: transmitir el byte `01001101` (ASCII 'M')
+- Por cable UTP (eléctrico): el transmisor genera una serie de voltajes sincronizados que representan cada bit y el receptor reconstrute la secuencia a través del voltaje medido en cada intervalo de bit.
+- Por fibra (óptico): el transmisor usa un láser/LED para emitir pulsos de luz en los intervalos correspondientes a los '1' y silencio para los '0'; el fotodetector del receptor convierte de nuevo la luz en señales eléctricas.
+- Por Wi‑Fi (inalámbrico): los mismos bits se modulaban sobre una portadora RF usando, por ejemplo, QPSK/QAM; la tarjeta inalámbrica del receptor demodula la portadora y recupera la secuencia de bits.
 
-```mermaid
-graph LR
-    BC["🔌 Cable troncal (bus)"]
-    B1["💻 PC1"] --- BC
-    B2["💻 PC2"] --- BC
-    B3["💻 PC3"] --- BC
-    B4["💻 PC4"] --- BC
-    style BC fill:#f9d77e,stroke:#333,stroke-width:2px
-    style B1 fill:#cde7ff
-    style B2 fill:#cde7ff
-    style B3 fill:#cde7ff
-    style B4 fill:#cde7ff
-```
-*Todos los equipos comparten el mismo cable central: si se corta el bus, se pierde la comunicación.*
+En todos los casos, para evitar errores se aplican capas de enlace y transporte que añaden sincronización, codificación de línea, detección y corrección de errores, y protocolos que permiten reenviar paquetes dañados.
 
-### 4.2 Topología en anillo
+### 3.3 Ancho de banda
 
-Los dispositivos se conectan formando un círculo cerrado; la información viaja en un sentido (o en ambos, anillo doble) pasando de nodo en nodo.
-- Ventaja: no hay colisiones si se usa paso de testigo (token).
-- Inconveniente: el fallo de un nodo o del cable puede interrumpir toda la red (salvo con anillo doble redundante).
+El **ancho de banda** es la capacidad máxima de un canal de comunicación para transmitir información en un periodo de tiempo, normalmente expresada en bits por segundo. No debe confundirse con la latencia (retardo): ancho de banda indica cuánto se puede transferir por segundo; latencia indica cuánto tarda en empezar a llegar.
 
-```mermaid
-graph LR
-    R1["💻 PC1"] --> R2["💻 PC2"] --> R3["💻 PC3"] --> R4["💻 PC4"] --> R1
-    style R1 fill:#cde7ff
-    style R2 fill:#cde7ff
-    style R3 fill:#cde7ff
-    style R4 fill:#cde7ff
-    linkStyle default stroke:#333,stroke-width:2px
-```
-*Cada equipo pasa la información al siguiente formando un círculo; la información viaja siempre en el mismo sentido (flechas).*
+Medidas comunes de ancho de banda — unidad, abreviatura y equivalencia:
 
-### 4.3 Topología en estrella
+| Unidad | Abreviatura | Equivalencia |
+|---:|:---:|:---:|
+| bit por segundo | bps | 1 bps = 1 bit/s |
+| kilobit por segundo | kbps | 1 kbps = 10³ bps = 1 000 bps |
+| megabit por segundo | Mbps | 1 Mbps = 10⁶ bps = 1 000 kbps |
+| gigabit por segundo | Gbps | 1 Gbps = 10⁹ bps = 1 000 Mbps |
+| terabit por segundo | Tbps | 1 Tbps = 10¹² bps = 1 000 Gbps |
 
-Todos los dispositivos se conectan a un nodo central (switch o hub).
-- Ventaja: fácil de gestionar y ampliar; el fallo de un equipo no afecta al resto.
-- Inconveniente: si falla el nodo central, toda la red queda inoperativa. Es la topología física más usada actualmente en LAN.
-
-```mermaid
-graph TB
-    S0["🔀 Switch/Hub central"]
-    S1["💻 PC1"] --- S0
-    S2["💻 PC2"] --- S0
-    S3["💻 PC3"] --- S0
-    S4["💻 PC4"] --- S0
-    style S0 fill:#f9d77e,stroke:#333,stroke-width:2px
-    style S1 fill:#cde7ff
-    style S2 fill:#cde7ff
-    style S3 fill:#cde7ff
-    style S4 fill:#cde7ff
-```
-*Todos los equipos se conectan de forma independiente a un nodo central; si falla un cable solo afecta a ese equipo, pero si falla el switch, cae toda la red.*
-
-### 4.4 Topología en árbol
-
-Combinación jerárquica de varias topologías en estrella conectadas entre sí, con un nodo raíz del que parten ramas.
-- Ventaja: escalable, organización jerárquica.
-- Inconveniente: dependencia del nodo raíz o de los nodos superiores.
-
-```mermaid
-graph TB
-    Raiz["🔀 Switch raíz"]
-    Raiz --- Sw1["🔀 Switch 1"]
-    Raiz --- Sw2["🔀 Switch 2"]
-    Sw1 --- A1["💻 PC1"]
-    Sw1 --- A2["💻 PC2"]
-    Sw2 --- A3["💻 PC3"]
-    Sw2 --- A4["💻 PC4"]
-    style Raiz fill:#f9d77e,stroke:#333,stroke-width:2px
-    style Sw1 fill:#ffe1a8
-    style Sw2 fill:#ffe1a8
-    style A1 fill:#cde7ff
-    style A2 fill:#cde7ff
-    style A3 fill:#cde7ff
-    style A4 fill:#cde7ff
-```
-*Varias estrellas encadenadas jerárquicamente desde un switch raíz: fácil de escalar añadiendo nuevas ramas.*
-
-### 4.5 Topología en malla
-
-Cada dispositivo se conecta con varios (o todos) los demás dispositivos.
-- **Malla completa**: todos conectados con todos → máxima redundancia y fiabilidad, pero coste y complejidad elevados.
-- **Malla parcial**: solo algunos nodos tienen múltiples conexiones.
-- Uso típico: redes troncales (backbone), WAN, Internet.
-
-```mermaid
-graph TB
-    M1["💻 PC1"] --- M2["💻 PC2"]
-    M1 --- M3["💻 PC3"]
-    M1 --- M4["💻 PC4"]
-    M2 --- M3
-    M2 --- M4
-    M3 --- M4
-    style M1 fill:#cde7ff
-    style M2 fill:#cde7ff
-    style M3 fill:#cde7ff
-    style M4 fill:#cde7ff
-```
-*Cada equipo tiene un enlace directo con todos los demás: máxima redundancia, pero requiere muchos cables (n·(n-1)/2 enlaces).*
-
-### 4.6 Topología mixta/híbrida
-
-Combinación de varias topologías anteriores según las necesidades de la organización. Es la más habitual en redes reales de tamaño medio-grande.
-
-> **Topología física vs lógica**: la topología física es la disposición real del cableado; la topología lógica es el modo en que realmente viaja la información (p. ej., Ethernet es físicamente estrella pero lógicamente funciona como un bus compartido).
+>Nota: en redes suele usarse la notación decimal (k=10³, M=10⁶), mientras que en almacenamiento a veces aparecen prefijos binarios (KiB, MiB) donde 1 KiB = 2¹⁰ bytes. En la práctica, las velocidades de enlace (ej. 100 Mbps, 1 Gbps) se refieren a la tasa de bits por segundo disponible para transmitir datos.
 
 ---
 
-## 5. Medios de transmisión
+## 4. Medios de transmisión
 
-*(CE-b: distintos medios de transmisión)*
+*(CE-b: Se han diferenciado los distintos medios de transmisión utilizados en las redes.)*
 
 Los medios de transmisión son el soporte físico por el que viaja la información. Se dividen en:
 
-### 5.1 Medios guiados (cableados)
+### 4.1 Medios guiados (cableados)
 
 - **Cable de par trenzado (UTP/STP)**: pares de hilos de cobre trenzados para reducir interferencias. UTP (sin apantallar) y STP (apantallado). Es el más usado en redes LAN Ethernet. Categorías (Cat5e, Cat6, Cat6a, Cat7...) que determinan la velocidad y el ancho de banda soportado.
 
@@ -325,7 +216,7 @@ Los medios de transmisión son el soporte físico por el que viaja la informaci�
 
 - **Fibra óptica**: transmite luz en lugar de señales eléctricas. Máxima velocidad, ancho de banda e inmunidad a interferencias electromagnéticas. Mayor alcance y coste. *(Ver fotos y detalle de conectores en el apartado 16 de este documento.)*
 
-### 5.2 Medios no guiados (inalámbricos)
+### 4.2 Medios no guiados (inalámbricos)
 
 - **Ondas de radiofrecuencia**: Wi-Fi, Bluetooth.
 - **Microondas**: enlaces punto a punto (terrestres o vía satélite).
@@ -342,195 +233,9 @@ Los medios de transmisión son el soporte físico por el que viaja la informaci�
 
 ---
 
-## 6. Arquitectura de redes y niveles
+## 5. Elementos funcionales, físicos y lógicos de una red
 
-*(CE-d: arquitecturas de red y niveles)*
-
-Una **arquitectura de red** es un conjunto de niveles (capas) y protocolos que definen las reglas y estándares necesarios para que los dispositivos de una red se comuniquen entre sí de forma ordenada.
-
-### ¿Por qué en niveles/capas?
-
-- Divide un problema complejo (la comunicación) en partes más simples y manejables.
-- Cada capa realiza una función concreta y ofrece servicios a la capa superior, apoyándose en los servicios de la capa inferior.
-- Permite independencia entre capas: se puede modificar una capa sin afectar a las demás, siempre que se mantenga la interfaz.
-- Facilita la interoperabilidad entre fabricantes distintos.
-- Facilita el diseño, mantenimiento y estandarización.
-
-Las arquitecturas de red más relevantes son el **modelo OSI** (de referencia, teórico) y el **modelo TCP/IP** (el realmente implementado en Internet).
-
----
-
-## 7. Encapsulamiento de la información
-
-Cuando los datos se transmiten a través de las distintas capas de la arquitectura de red, cada capa añade su propia información de control (cabecera, y a veces cola) al bloque de datos recibido de la capa superior. Este proceso se denomina **encapsulamiento**.
-
-Proceso (de emisor a receptor):
-
-1. La capa de **Aplicación** genera los datos.
-2. La capa de **Transporte** añade una cabecera (p. ej. TCP/UDP) → forma un **segmento** (o datagrama en UDP).
-3. La capa de **Red/Internet** añade su cabecera (IP) → forma un **paquete** (datagrama IP).
-4. La capa de **Enlace** añade cabecera y cola (trama Ethernet) → forma una **trama**.
-5. La capa **Física** convierte la trama en **bits** (señales eléctricas, ópticas o de radio) para su transmisión por el medio.
-
-En el receptor se realiza el proceso inverso, llamado **desencapsulamiento**: cada capa retira su cabecera correspondiente y entrega el resto a la capa superior, hasta llegar a la aplicación.
-
-```
-Datos (Aplicación)
- └─ Segmento = Cabecera TCP/UDP + Datos (Transporte)
-     └─ Paquete = Cabecera IP + Segmento (Red)
-         └─ Trama = Cabecera Enlace + Paquete + Cola (Enlace)
-             └─ Bits (Física)
-```
-
-```mermaid
-graph LR
-    A["📄 Datos<br/>(Aplicación)"] --> T["✉️ Segmento<br/>Cab. TCP/UDP + Datos"]
-    T --> R["📦 Paquete<br/>Cab. IP + Segmento"]
-    R --> E["🚚 Trama<br/>Cab. Enlace + Paquete + Cola FCS"]
-    E --> F["📶 Bits<br/>señal eléctrica/óptica/radio"]
-    style A fill:#cde7ff
-    style T fill:#d7f5d0
-    style R fill:#fff2b3
-    style E fill:#ffd8b3
-    style F fill:#e0d4f7
-```
-*Cada capa "empaqueta" los datos de la anterior dentro de un sobre nuevo, añadiendo su propia cabecera (y, en el enlace, también una cola de control de errores).*
-
----
-
-## 8. El modelo OSI
-
-El modelo **OSI (Open Systems Interconnection)** fue desarrollado por la ISO en 1984 como modelo de referencia teórico para la interconexión de sistemas abiertos. Define **7 capas o niveles**:
-
-| Nº | Capa | Función principal | Unidad de datos (PDU) |
-|---|---|---|---|
-| 7 | Aplicación | Provee servicios directamente a las aplicaciones del usuario (correo, web, transferencia de archivos) | Datos |
-| 6 | Presentación | Traduce, cifra y comprime los datos para que sean entendibles entre sistemas distintos | Datos |
-| 5 | Sesión | Establece, mantiene y finaliza las sesiones de comunicación entre aplicaciones | Datos |
-| 4 | Transporte | Comunicación extremo a extremo, control de flujo y errores, fiabilidad (TCP) o rapidez (UDP) | Segmento |
-| 3 | Red | Direccionamiento lógico (IP) y encaminamiento (routing) entre redes distintas | Paquete |
-| 2 | Enlace de datos | Direccionamiento físico (MAC), detección de errores, control de acceso al medio | Trama |
-| 1 | Física | Transmisión de bits por el medio físico (voltajes, luz, ondas), características eléctricas y mecánicas | Bits |
-
-**Regla mnemotécnica** (de arriba a abajo): "*A*ntes de *P*edir *S*iempre *T*ómate un *R*efresco de *E*naldo con *F*resas" → Aplicación, Presentación, Sesión, Transporte, Red, Enlace, Física.
-
-Las capas 5-7 se orientan a la aplicación; las capas 1-4 se orientan al transporte de datos por la red.
-
-```mermaid
-graph TB
-    L7["7️⃣ Aplicación"] --- L6["6️⃣ Presentación"]
-    L6 --- L5["5️⃣ Sesión"]
-    L5 --- L4["4️⃣ Transporte"]
-    L4 --- L3["3️⃣ Red"]
-    L3 --- L2["2️⃣ Enlace de datos"]
-    L2 --- L1["1️⃣ Física"]
-    style L7 fill:#cde7ff
-    style L6 fill:#cde7ff
-    style L5 fill:#cde7ff
-    style L4 fill:#fff2b3
-    style L3 fill:#ffd8b3
-    style L2 fill:#ffd8b3
-    style L1 fill:#ffd8b3
-```
-*Capas 5-7 (azul) orientadas a la aplicación · Capa 4 (amarillo) transición · Capas 1-3 (naranja) orientadas al transporte por la red.*
-
----
-
-## 9. El modelo TCP/IP
-
-El modelo **TCP/IP** es el que realmente se implementa en Internet. Es más práctico y tiene **4 capas** (algunos textos citan una versión de 5 capas separando enlace y física):
-
-| Capa TCP/IP | Capas OSI equivalentes | Protocolos típicos |
-|---|---|---|
-| Aplicación | Aplicación + Presentación + Sesión | HTTP, HTTPS, FTP, SMTP, DNS, Telnet, SSH |
-| Transporte | Transporte | TCP, UDP |
-| Internet (Red) | Red | IP, ICMP, ARP |
-| Acceso a la red (Enlace + Física) | Enlace + Física | Ethernet, Wi-Fi, PPP |
-
-### Comparativa OSI vs TCP/IP
-
-```
-OSI                    TCP/IP
---------------------   ------------------
-Aplicación   ─┐
-Presentación  ├──────► Aplicación
-Sesión       ─┘
-Transporte    ───────► Transporte
-Red           ───────► Internet
-Enlace       ─┐
-Física        ├──────► Acceso a la red
-```
-
-- El modelo OSI es **teórico/de referencia**, más detallado didácticamente.
-- El modelo TCP/IP es **práctico**, el que realmente se usa en Internet.
-
-```mermaid
-graph TB
-    subgraph OSI ["📘 Modelo OSI (7 capas)"]
-    direction TB
-    O7["7️⃣ Aplicación"] --- O6["6️⃣ Presentación"] --- O5["5️⃣ Sesión"] --- O4["4️⃣ Transporte"] --- O3["3️⃣ Red"] --- O2["2️⃣ Enlace"] --- O1["1️⃣ Física"]
-    end
-    subgraph TCPIP ["📗 Modelo TCP/IP (4 capas)"]
-    direction TB
-    T4["Aplicación"] --- T3["Transporte"] --- T2["Internet"] --- T1["Acceso a la red"]
-    end
-    O7 -.-> T4
-    O6 -.-> T4
-    O5 -.-> T4
-    O4 -.-> T3
-    O3 -.-> T2
-    O2 -.-> T1
-    O1 -.-> T1
-    style O7 fill:#cde7ff
-    style O6 fill:#cde7ff
-    style O5 fill:#cde7ff
-    style O4 fill:#fff2b3
-    style O3 fill:#ffd8b3
-    style O2 fill:#ffd8b3
-    style O1 fill:#ffd8b3
-    style T4 fill:#cde7ff
-    style T3 fill:#fff2b3
-    style T2 fill:#ffd8b3
-    style T1 fill:#ffd8b3
-```
-*Las líneas punteadas muestran qué capas de OSI equivalen a cada capa de TCP/IP: 3 capas de OSI (Aplicación+Presentación+Sesión) se agrupan en 1 sola capa de Aplicación en TCP/IP.*
-
----
-
-## 10. Protocolos de comunicación
-
-*(CE-e: concepto de protocolo de comunicación)*
-
-Un **protocolo de comunicación** es un conjunto de normas y reglas que permiten que dos o más dispositivos se comuniquen e intercambien información de manera correcta y ordenada. Define:
-
-- El **formato** de los mensajes (sintaxis).
-- El **significado** de cada campo del mensaje (semántica).
-- El **orden y sincronización** de los intercambios de mensajes (temporización).
-
-Es equivalente a un "idioma" común que deben compartir emisor y receptor para entenderse. Ejemplos: TCP, IP, HTTP, Ethernet, FTP, DNS.
-
----
-
-## 11. Funcionamiento de las pilas de protocolos
-
-*(CE-f)*
-
-Una **pila de protocolos** (protocol stack) es el conjunto ordenado de protocolos que actúan en cada una de las capas de una arquitectura de red, cooperando entre sí para lograr la comunicación completa.
-
-Funcionamiento general:
-
-1. Cada capa de la pila del **emisor** usa su propio protocolo, añade su información de control (encapsulamiento) y pasa los datos a la capa inferior.
-2. Los datos viajan por el medio físico hasta el **receptor**.
-3. En el receptor, cada capa de la pila procesa (desencapsula) la información correspondiente a su nivel y la entrega a la capa superior.
-4. Existe una **comunicación virtual (horizontal)** entre capas del mismo nivel en emisor y receptor (cada capa "habla" con su capa homóloga mediante su protocolo), aunque físicamente los datos bajan y suben por las capas (**comunicación real, vertical**).
-
-Ejemplo con la pila TCP/IP: una petición web (HTTP) se apoya en TCP (transporte fiable), que se apoya en IP (encaminamiento), que se apoya en Ethernet (acceso al medio) para finalmente transmitirse como señales físicas.
-
----
-
-## 12. Elementos funcionales, físicos y lógicos de una red
-
-*(CE-g)*
+*(CE-g Se han presentado y descrito los elementos funcionales, físicos y lógicos, de las redes de datos.)*
 
 ### Elementos físicos (hardware)
 
@@ -598,7 +303,372 @@ Se refiere al papel que desempeña cada elemento dentro de la red (emisor, recep
 
 ---
 
-## 13. Tecnologías Ethernet
+
+## 6. Terminología y tipos de redes: LAN, MAN, WAN
+
+*(CE-c: Se han reconocido los distintos tipos de red y sus topologías)*
+
+Una **red de datos** es un conjunto de dispositivos (nodos) interconectados que comparten información y recursos mediante un medio de transmisión y un conjunto de reglas (protocolos).
+
+Clasificación según su **extensión geográfica**:
+
+- **LAN (Local Area Network)**: red de área local. Cubre una zona reducida (oficina, edificio, campus). Suele ser propiedad privada de la organización. Alta velocidad y bajo coste. Ejemplo: red de un instituto.
+- **MAN (Metropolitan Area Network)**: red de área metropolitana. Cubre una ciudad o área metropolitana, interconectando varias LAN. Ejemplo: red municipal de una ciudad.
+- **WAN (Wide Area Network)**: red de área extensa. Cubre grandes distancias geográficas (país, continente, mundo). Suele usar infraestructuras de terceros (operadoras de telecomunicaciones). Ejemplo: Internet.
+
+Otras clasificaciones adicionales que suelen mencionarse:
+
+- **PAN (Personal Area Network)**: red de área personal, muy pequeño alcance (Bluetooth, USB).
+- **CAN (Campus Area Network)**: red de campus, interconecta varios edificios cercanos.
+- **SAN (Storage Area Network)**: red de almacenamiento.
+
+```mermaid
+graph TB
+    subgraph WAN ["🌍 WAN — país/continente/mundo (ej. Internet)"]
+        subgraph MAN ["🏙️ MAN — ciudad (interconecta varias LAN)"]
+            subgraph CAN ["🏫 CAN — campus (varios edificios)"]
+                subgraph LAN1 ["🏢 LAN — Edificio A (oficina/instituto)"]
+                    P1["📱 PAN<br/>(móvil-auriculares)"]
+                    PC1["💻 PC1"]
+                    PC2["💻 PC2"]
+                end
+                subgraph LAN2 ["🏢 LAN — Edificio B"]
+                    PC3["💻 PC3"]
+                    PC4["💻 PC4"]
+                end
+            end
+        end
+    end
+    style WAN fill:#e0d4f7,stroke:#333,stroke-width:2px
+    style MAN fill:#ffd8b3,stroke:#333,stroke-width:2px
+    style CAN fill:#fff2b3,stroke:#333,stroke-width:2px
+    style LAN1 fill:#d7f5d0,stroke:#333,stroke-width:1px
+    style LAN2 fill:#d7f5d0,stroke:#333,stroke-width:1px
+    style P1 fill:#cde7ff
+    style PC1 fill:#cde7ff
+    style PC2 fill:#cde7ff
+    style PC3 fill:#cde7ff
+    style PC4 fill:#cde7ff
+```
+*Cada tipo de red "engloba" al anterior según su extensión geográfica: varias PAN forman una LAN, varias LAN de un campus forman una CAN, varias CAN/LAN de una ciudad forman una MAN, y el conjunto de redes a nivel mundial forma la WAN (Internet).*
+
+### Otras clasificaciones de redes
+
+- **Según la propiedad**: públicas (accesibles por cualquiera, ej. Internet) o privadas (uso restringido a una organización).
+- **Según el medio de transmisión**: cableadas (guiadas) o inalámbricas (no guiadas).
+- **Según la relación funcional**: redes cliente-servidor o redes entre iguales (peer to peer, P2P).
+- **Según la titularidad de la gestión**: redes de acceso, redes troncales (backbone).
+
+---
+
+## 7. Topologías de red
+
+*(CE-c: Se han reconocido los distintos tipos de red y sus topologías)*
+
+La **topología** es la disposición física o lógica de los dispositivos y el cableado dentro de una red.
+
+### 7.1 Topología en bus
+
+Todos los dispositivos se conectan a un único cable central (bus) mediante el cual se transmite la información en ambas direcciones.
+- Ventaja: sencilla y económica, poco cableado.
+- Inconveniente: un fallo en el cable central puede dejar sin comunicación a toda la red; colisiones frecuentes.
+
+```mermaid
+graph LR
+    BC["🔌 Cable troncal (bus)"]
+    B1["💻 PC1"] --- BC
+    B2["💻 PC2"] --- BC
+    B3["💻 PC3"] --- BC
+    B4["💻 PC4"] --- BC
+    style BC fill:#f9d77e,stroke:#333,stroke-width:2px
+    style B1 fill:#cde7ff
+    style B2 fill:#cde7ff
+    style B3 fill:#cde7ff
+    style B4 fill:#cde7ff
+```
+*Todos los equipos comparten el mismo cable central: si se corta el bus, se pierde la comunicación.*
+
+### 7.2 Topología en anillo
+
+Los dispositivos se conectan formando un círculo cerrado; la información viaja en un sentido (o en ambos, anillo doble) pasando de nodo en nodo.
+- Ventaja: no hay colisiones si se usa paso de testigo (token).
+- Inconveniente: el fallo de un nodo o del cable puede interrumpir toda la red (salvo con anillo doble redundante).
+
+```mermaid
+graph LR
+    R1["💻 PC1"] --> R2["💻 PC2"] --> R3["💻 PC3"] --> R4["💻 PC4"] --> R1
+    style R1 fill:#cde7ff
+    style R2 fill:#cde7ff
+    style R3 fill:#cde7ff
+    style R4 fill:#cde7ff
+    linkStyle default stroke:#333,stroke-width:2px
+```
+*Cada equipo pasa la información al siguiente formando un círculo; la información viaja siempre en el mismo sentido (flechas).*
+
+### 7.3 Topología en estrella
+
+Todos los dispositivos se conectan a un nodo central (switch o hub).
+- Ventaja: fácil de gestionar y ampliar; el fallo de un equipo no afecta al resto.
+- Inconveniente: si falla el nodo central, toda la red queda inoperativa. Es la topología física más usada actualmente en LAN.
+
+```mermaid
+graph TB
+    S0["🔀 Switch/Hub central"]
+    S1["💻 PC1"] --- S0
+    S2["💻 PC2"] --- S0
+    S3["💻 PC3"] --- S0
+    S4["💻 PC4"] --- S0
+    style S0 fill:#f9d77e,stroke:#333,stroke-width:2px
+    style S1 fill:#cde7ff
+    style S2 fill:#cde7ff
+    style S3 fill:#cde7ff
+    style S4 fill:#cde7ff
+```
+*Todos los equipos se conectan de forma independiente a un nodo central; si falla un cable solo afecta a ese equipo, pero si falla el switch, cae toda la red.*
+
+### 7.4 Topología en árbol
+
+Combinación jerárquica de varias topologías en estrella conectadas entre sí, con un nodo raíz del que parten ramas.
+- Ventaja: escalable, organización jerárquica.
+- Inconveniente: dependencia del nodo raíz o de los nodos superiores.
+
+```mermaid
+graph TB
+    Raiz["🔀 Switch raíz"]
+    Raiz --- Sw1["🔀 Switch 1"]
+    Raiz --- Sw2["🔀 Switch 2"]
+    Sw1 --- A1["💻 PC1"]
+    Sw1 --- A2["💻 PC2"]
+    Sw2 --- A3["💻 PC3"]
+    Sw2 --- A4["💻 PC4"]
+    style Raiz fill:#f9d77e,stroke:#333,stroke-width:2px
+    style Sw1 fill:#ffe1a8
+    style Sw2 fill:#ffe1a8
+    style A1 fill:#cde7ff
+    style A2 fill:#cde7ff
+    style A3 fill:#cde7ff
+    style A4 fill:#cde7ff
+```
+*Varias estrellas encadenadas jerárquicamente desde un switch raíz: fácil de escalar añadiendo nuevas ramas.*
+
+### 7.5 Topología en malla
+
+Cada dispositivo se conecta con varios (o todos) los demás dispositivos.
+- **Malla completa**: todos conectados con todos → máxima redundancia y fiabilidad, pero coste y complejidad elevados.
+- **Malla parcial**: solo algunos nodos tienen múltiples conexiones.
+- Uso típico: redes troncales (backbone), WAN, Internet.
+
+```mermaid
+graph TB
+    M1["💻 PC1"] --- M2["💻 PC2"]
+    M1 --- M3["💻 PC3"]
+    M1 --- M4["💻 PC4"]
+    M2 --- M3
+    M2 --- M4
+    M3 --- M4
+    style M1 fill:#cde7ff
+    style M2 fill:#cde7ff
+    style M3 fill:#cde7ff
+    style M4 fill:#cde7ff
+```
+*Cada equipo tiene un enlace directo con todos los demás: máxima redundancia, pero requiere muchos cables (n·(n-1)/2 enlaces).*
+
+### 7.6 Topología mixta/híbrida
+
+Combinación de varias topologías anteriores según las necesidades de la organización. Es la más habitual en redes reales de tamaño medio-grande.
+
+> **Topología física vs lógica**: la topología física es la disposición real del cableado; la topología lógica es el modo en que realmente viaja la información (p. ej., Ethernet es físicamente estrella pero lógicamente funciona como un bus compartido).
+
+---
+
+## 8. Arquitectura de redes y niveles
+
+*(CE-d: Se han descrito las arquitecturas de red y los niveles que las componen.)*
+
+Una **arquitectura de red** es un conjunto de niveles (capas) y protocolos que definen las reglas y estándares necesarios para que los dispositivos de una red se comuniquen entre sí de forma ordenada.
+
+### ¿Por qué en niveles/capas?
+
+- Divide un problema complejo (la comunicación) en partes más simples y manejables.
+- Cada capa realiza una función concreta y ofrece servicios a la capa superior, apoyándose en los servicios de la capa inferior.
+- Permite independencia entre capas: se puede modificar una capa sin afectar a las demás, siempre que se mantenga la interfaz.
+- Facilita la interoperabilidad entre fabricantes distintos.
+- Facilita el diseño, mantenimiento y estandarización.
+
+Las arquitecturas de red más relevantes son el **modelo OSI** (de referencia, teórico) y el **modelo TCP/IP** (el realmente implementado en Internet).
+
+---
+
+## 9. Encapsulamiento de la información
+
+Cuando los datos se transmiten a través de las distintas capas de la arquitectura de red, cada capa añade su propia información de control (cabecera, y a veces cola) al bloque de datos recibido de la capa superior. Este proceso se denomina **encapsulamiento**.
+
+Proceso (de emisor a receptor):
+
+1. La capa de **Aplicación** genera los datos.
+2. La capa de **Transporte** añade una cabecera (p. ej. TCP/UDP) → forma un **segmento** (o datagrama en UDP).
+3. La capa de **Red/Internet** añade su cabecera (IP) → forma un **paquete** (datagrama IP).
+4. La capa de **Enlace** añade cabecera y cola (trama Ethernet) → forma una **trama**.
+5. La capa **Física** convierte la trama en **bits** (señales eléctricas, ópticas o de radio) para su transmisión por el medio.
+
+En el receptor se realiza el proceso inverso, llamado **desencapsulamiento**: cada capa retira su cabecera correspondiente y entrega el resto a la capa superior, hasta llegar a la aplicación.
+
+```
+Datos (Aplicación)
+ └─ Segmento = Cabecera TCP/UDP + Datos (Transporte)
+     └─ Paquete = Cabecera IP + Segmento (Red)
+         └─ Trama = Cabecera Enlace + Paquete + Cola (Enlace)
+             └─ Bits (Física)
+```
+
+```mermaid
+graph LR
+    A["📄 Datos<br/>(Aplicación)"] --> T["✉️ Segmento<br/>Cab. TCP/UDP + Datos"]
+    T --> R["📦 Paquete<br/>Cab. IP + Segmento"]
+    R --> E["🚚 Trama<br/>Cab. Enlace + Paquete + Cola FCS"]
+    E --> F["📶 Bits<br/>señal eléctrica/óptica/radio"]
+    style A fill:#cde7ff
+    style T fill:#d7f5d0
+    style R fill:#fff2b3
+    style E fill:#ffd8b3
+    style F fill:#e0d4f7
+```
+*Cada capa "empaqueta" los datos de la anterior dentro de un sobre nuevo, añadiendo su propia cabecera (y, en el enlace, también una cola de control de errores).*
+
+---
+
+## 10. El modelo OSI
+
+El modelo **OSI (Open Systems Interconnection)** fue desarrollado por la ISO en 1984 como modelo de referencia teórico para la interconexión de sistemas abiertos. Define **7 capas o niveles**:
+
+| Nº | Capa | Función principal | Unidad de datos (PDU) |
+|---|---|---|---|
+| 7 | Aplicación | Provee servicios directamente a las aplicaciones del usuario (correo, web, transferencia de archivos) | Datos |
+| 6 | Presentación | Traduce, cifra y comprime los datos para que sean entendibles entre sistemas distintos | Datos |
+| 5 | Sesión | Establece, mantiene y finaliza las sesiones de comunicación entre aplicaciones | Datos |
+| 4 | Transporte | Comunicación extremo a extremo, control de flujo y errores, fiabilidad (TCP) o rapidez (UDP) | Segmento |
+| 3 | Red | Direccionamiento lógico (IP) y encaminamiento (routing) entre redes distintas | Paquete |
+| 2 | Enlace de datos | Direccionamiento físico (MAC), detección de errores, control de acceso al medio | Trama |
+| 1 | Física | Transmisión de bits por el medio físico (voltajes, luz, ondas), características eléctricas y mecánicas | Bits |
+
+**Regla mnemotécnica** (de arriba a abajo): "*A*ntes de *P*edir *S*iempre *T*ómate un *R*efresco de *E*naldo con *F*resas" → Aplicación, Presentación, Sesión, Transporte, Red, Enlace, Física.
+
+Las capas 5-7 se orientan a la aplicación; las capas 1-4 se orientan al transporte de datos por la red.
+
+```mermaid
+graph TB
+    L7["7️⃣ Aplicación"] --- L6["6️⃣ Presentación"]
+    L6 --- L5["5️⃣ Sesión"]
+    L5 --- L4["4️⃣ Transporte"]
+    L4 --- L3["3️⃣ Red"]
+    L3 --- L2["2️⃣ Enlace de datos"]
+    L2 --- L1["1️⃣ Física"]
+    style L7 fill:#cde7ff
+    style L6 fill:#cde7ff
+    style L5 fill:#cde7ff
+    style L4 fill:#fff2b3
+    style L3 fill:#ffd8b3
+    style L2 fill:#ffd8b3
+    style L1 fill:#ffd8b3
+```
+*Capas 5-7 (azul) orientadas a la aplicación · Capa 4 (amarillo) transición · Capas 1-3 (naranja) orientadas al transporte por la red.*
+
+---
+
+## 11. El modelo TCP/IP
+
+El modelo **TCP/IP** es el que realmente se implementa en Internet. Es más práctico y tiene **4 capas** (algunos textos citan una versión de 5 capas separando enlace y física):
+
+| Capa TCP/IP | Capas OSI equivalentes | Protocolos típicos |
+|---|---|---|
+| Aplicación | Aplicación + Presentación + Sesión | HTTP, HTTPS, FTP, SMTP, DNS, Telnet, SSH |
+| Transporte | Transporte | TCP, UDP |
+| Internet (Red) | Red | IP, ICMP, ARP |
+| Acceso a la red (Enlace + Física) | Enlace + Física | Ethernet, Wi-Fi, PPP |
+
+### Comparativa OSI vs TCP/IP
+
+```
+OSI                    TCP/IP
+--------------------   ------------------
+Aplicación   ─┐
+Presentación  ├──────► Aplicación
+Sesión       ─┘
+Transporte    ───────► Transporte
+Red           ───────► Internet
+Enlace       ─┐
+Física        ├──────► Acceso a la red
+```
+
+- El modelo OSI es **teórico/de referencia**, más detallado didácticamente.
+- El modelo TCP/IP es **práctico**, el que realmente se usa en Internet.
+
+```mermaid
+graph TB
+    subgraph OSI ["📘 Modelo OSI (7 capas)"]
+    direction TB
+    O7["7️⃣ Aplicación"] --- O6["6️⃣ Presentación"] --- O5["5️⃣ Sesión"] --- O4["4️⃣ Transporte"] --- O3["3️⃣ Red"] --- O2["2️⃣ Enlace"] --- O1["1️⃣ Física"]
+    end
+    subgraph TCPIP ["📗 Modelo TCP/IP (4 capas)"]
+    direction TB
+    T4["Aplicación"] --- T3["Transporte"] --- T2["Internet"] --- T1["Acceso a la red"]
+    end
+    O7 -.-> T4
+    O6 -.-> T4
+    O5 -.-> T4
+    O4 -.-> T3
+    O3 -.-> T2
+    O2 -.-> T1
+    O1 -.-> T1
+    style O7 fill:#cde7ff
+    style O6 fill:#cde7ff
+    style O5 fill:#cde7ff
+    style O4 fill:#fff2b3
+    style O3 fill:#ffd8b3
+    style O2 fill:#ffd8b3
+    style O1 fill:#ffd8b3
+    style T4 fill:#cde7ff
+    style T3 fill:#fff2b3
+    style T2 fill:#ffd8b3
+    style T1 fill:#ffd8b3
+```
+*Las líneas punteadas muestran qué capas de OSI equivalen a cada capa de TCP/IP: 3 capas de OSI (Aplicación+Presentación+Sesión) se agrupan en 1 sola capa de Aplicación en TCP/IP.*
+
+---
+
+## 12. Protocolos de comunicación
+
+*(CE-e: Se ha descrito el concepto de protocolo de comunicación.)*
+
+Un **protocolo de comunicación** es un conjunto de normas y reglas que permiten que dos o más dispositivos se comuniquen e intercambien información de manera correcta y ordenada. Define:
+
+- El **formato** de los mensajes (sintaxis).
+- El **significado** de cada campo del mensaje (semántica).
+- El **orden y sincronización** de los intercambios de mensajes (temporización).
+
+Es equivalente a un "idioma" común que deben compartir emisor y receptor para entenderse. Ejemplos: TCP, IP, HTTP, Ethernet, FTP, DNS.
+
+---
+
+## 13. Funcionamiento de las pilas de protocolos
+
+*(CE-f Se ha descrito el funcionamiento de las pilas de protocolos en las distintas arquitecturas de red.)*
+
+Una **pila de protocolos** (protocol stack) es el conjunto ordenado de protocolos que actúan en cada una de las capas de una arquitectura de red, cooperando entre sí para lograr la comunicación completa.
+
+Funcionamiento general:
+
+1. Cada capa de la pila del **emisor** usa su propio protocolo, añade su información de control (encapsulamiento) y pasa los datos a la capa inferior.
+2. Los datos viajan por el medio físico hasta el **receptor**.
+3. En el receptor, cada capa de la pila procesa (desencapsula) la información correspondiente a su nivel y la entrega a la capa superior.
+4. Existe una **comunicación virtual (horizontal)** entre capas del mismo nivel en emisor y receptor (cada capa "habla" con su capa homóloga mediante su protocolo), aunque físicamente los datos bajan y suben por las capas (**comunicación real, vertical**).
+
+Ejemplo con la pila TCP/IP: una petición web (HTTP) se apoya en TCP (transporte fiable), que se apoya en IP (encaminamiento), que se apoya en Ethernet (acceso al medio) para finalmente transmitirse como señales físicas.
+
+---
+
+
+## 14. Tecnologías Ethernet
 
 *(Contenido: tecnologías Ethernet)*
 
@@ -622,7 +692,7 @@ Se refiere al papel que desempeña cada elemento dentro de la red (emisor, recep
 
 ---
 
-## 14. El modelo OSI y Ethernet
+## 15. El modelo OSI y Ethernet
 
 Ethernet se corresponde con las **dos capas inferiores** del modelo OSI:
 
@@ -633,7 +703,7 @@ Ethernet se corresponde con las **dos capas inferiores** del modelo OSI:
 
 ---
 
-## 15. Tipos de cableado Ethernet
+## 16. Tipos de cableado Ethernet
 
 Denominación estándar: **[velocidad][tipo de señal][medio/longitud]**
 
@@ -673,7 +743,7 @@ Denominación estándar: **[velocidad][tipo de señal][medio/longitud]**
 
 ---
 
-## 16. Tipos de cableado de fibra óptica
+## 17. Tipos de cableado de fibra óptica
 
 La **fibra óptica** transmite información en forma de pulsos de luz a través de un núcleo de vidrio o plástico.
 
@@ -715,7 +785,7 @@ La **fibra óptica** transmite información en forma de pulsos de luz a través 
 
 ---
 
-## 17. Dispositivos de interconexión de redes
+## 18. Dispositivos de interconexión de redes
 
 *(CE-h: dispositivos de interconexión según el nivel funcional)*
 
@@ -790,9 +860,9 @@ graph LR
 
 ---
 
-## 18. El modelo cliente-servidor
+## 19. El modelo cliente-servidor
 
-*(CE-i)*
+*(CE-i Se ha descrito el concepto de cliente-servidor.)*
 
 El modelo **cliente-servidor** es un modelo de arquitectura de aplicaciones en red en el que se distinguen dos roles:
 
@@ -823,9 +893,9 @@ En una red **P2P**, cada equipo puede actuar simultáneamente como cliente y com
 
 ---
 
-## 19. Organismos de estandarización
+## 20. Organismos de estandarización
 
-*(CE-j: organismos internacionales)*
+*(CE-j: Se han reconocido los organismos internacionales responsables de desarrollar las características técnicas de los elementos físicos y lógicos en una infraestructura de red)*
 
 La existencia de estándares comunes permite la interoperabilidad entre fabricantes distintos. Los principales organismos son:
 
