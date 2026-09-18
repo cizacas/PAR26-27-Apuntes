@@ -5,64 +5,6 @@
 **RA1:** Reconoce la estructura de las redes de datos identificando sus elementos y principios de funcionamiento.
 
 ---
-## Índice <!-- omit from toc -->
-- [1. Evolución y expansión de las redes de datos](#1-evolución-y-expansión-de-las-redes-de-datos)
-- [2. Sistemas de numeración: decimal, binario y hexadecimal](#2-sistemas-de-numeración-decimal-binario-y-hexadecimal)
-  - [2.1 Sistema decimal (base 10)](#21-sistema-decimal-base-10)
-  - [2.2 Sistema binario (base 2)](#22-sistema-binario-base-2)
-  - [2.3 Sistema hexadecimal (base 16)](#23-sistema-hexadecimal-base-16)
-  - [2.4 Conversión entre sistemas](#24-conversión-entre-sistemas)
-- [3. Transmisión de Datos](#3-transmisión-de-datos)
-  - [3.1 El bit](#31-el-bit)
-  - [3.2 Métodos de transmisión de datos](#32-métodos-de-transmisión-de-datos)
-  - [3.3 Ancho de banda](#33-ancho-de-banda)
-- [4. Medios de transmisión](#4-medios-de-transmisión)
-  - [4.1 Medios guiados (cableados)](#41-medios-guiados-cableados)
-  - [4.2 Medios no guiados (inalámbricos)](#42-medios-no-guiados-inalámbricos)
-  - [Comparativa](#comparativa)
-- [5. Elementos funcionales, físicos y lógicos de una red](#5-elementos-funcionales-físicos-y-lógicos-de-una-red)
-  - [Elementos físicos (hardware)](#elementos-físicos-hardware)
-  - [Elementos lógicos (software)](#elementos-lógicos-software)
-  - [Elementos funcionales](#elementos-funcionales)
-- [6. Terminología y tipos de redes: LAN, MAN, WAN](#6-terminología-y-tipos-de-redes-lan-man-wan)
-  - [Otras clasificaciones de redes](#otras-clasificaciones-de-redes)
-- [7. Topologías de red](#7-topologías-de-red)
-  - [7.1 Topología en bus](#71-topología-en-bus)
-  - [7.2 Topología en anillo](#72-topología-en-anillo)
-  - [7.3 Topología en estrella](#73-topología-en-estrella)
-  - [7.4 Topología en árbol](#74-topología-en-árbol)
-  - [7.5 Topología en malla](#75-topología-en-malla)
-  - [7.6 Topología mixta/híbrida](#76-topología-mixtahíbrida)
-- [8. Arquitectura de redes y niveles](#8-arquitectura-de-redes-y-niveles)
-  - [¿Por qué en niveles/capas?](#por-qué-en-nivelescapas)
-- [9. Encapsulamiento de la información](#9-encapsulamiento-de-la-información)
-- [10. El modelo OSI](#10-el-modelo-osi)
-- [11. El modelo TCP/IP](#11-el-modelo-tcpip)
-  - [Comparativa OSI vs TCP/IP](#comparativa-osi-vs-tcpip)
-- [12. Protocolos de comunicación](#12-protocolos-de-comunicación)
-- [13. Funcionamiento de las pilas de protocolos](#13-funcionamiento-de-las-pilas-de-protocolos)
-- [14. Tecnologías Ethernet](#14-tecnologías-ethernet)
-  - [Evolución de velocidades](#evolución-de-velocidades)
-  - [Características](#características)
-- [15. El modelo OSI y Ethernet](#15-el-modelo-osi-y-ethernet)
-- [16. Tipos de cableado Ethernet](#16-tipos-de-cableado-ethernet)
-  - [Categorías de par trenzado (UTP)](#categorías-de-par-trenzado-utp)
-  - [Normas de conexión (pines RJ-45)](#normas-de-conexión-pines-rj-45)
-- [17. Tipos de cableado de fibra óptica](#17-tipos-de-cableado-de-fibra-óptica)
-  - [Estructura de la fibra](#estructura-de-la-fibra)
-  - [Tipos según el modo de propagación](#tipos-según-el-modo-de-propagación)
-  - [Conectores de fibra más comunes](#conectores-de-fibra-más-comunes)
-  - [Ventajas de la fibra frente al cobre](#ventajas-de-la-fibra-frente-al-cobre)
-- [18. Dispositivos de interconexión de redes](#18-dispositivos-de-interconexión-de-redes)
-  - [El punto de acceso (Access Point, AP)](#el-punto-de-acceso-access-point-ap)
-  - [Dominios de colisión y de difusión](#dominios-de-colisión-y-de-difusión)
-- [19. El modelo cliente-servidor](#19-el-modelo-cliente-servidor)
-  - [Características](#características-1)
-  - [Cliente-servidor frente a P2P (Peer to Peer)](#cliente-servidor-frente-a-p2p-peer-to-peer)
-- [20. Organismos de estandarización](#20-organismos-de-estandarización)
-- [Resumen de conceptos clave](#resumen-de-conceptos-clave)
-
-
 
 ## 1. Evolución y expansión de las redes de datos
 
@@ -134,12 +76,34 @@ Ejemplo: 156 → 10011100
 ```
 Leyendo los restos de abajo a arriba: **10011100**
 
+Ejemplo con parte fraccionaria: 12.625 → 1100,101
+```
+Parte entera: 12 / 2 = 6 r0
+6 / 2 = 3 r0
+3 / 2 = 1 r1
+1 / 2 = 0 r1
+Lectura restos: 1100
+
+Parte fraccionaria: 
+0,625 * 2 = 1,25 -> bit 1
+0.25 * 2 = 0,5   -> bit 0
+0.5 * 2 = 1,0    -> bit 1
+Lectura bits fraccionarios en orden: 101
+Resultado combinado: 1100,101
+```
+
 **Binario → Decimal**: se multiplica cada bit por 2 elevado a la posición (empezando en 0 por la derecha) y se suman.
 
 Ejemplo: 10011100
 ```
 1·2⁷ + 0·2⁶ + 0·2⁵ + 1·2⁴ + 1·2³ + 1·2² + 0·2¹ + 0·2⁰
 = 128 + 0 + 0 + 16 + 8 + 4 + 0 + 0 = 156
+```
+
+Ejemplo con parte fraccionaria: 1100,101
+```
+1·2³ + 1·2² + 0·2¹ + 0·2⁰ + 1·2⁻¹ + 0·2⁻² + 1·2⁻³
+= 8 + 4 + 0 + 0 + 0,5 + 0 + 0,125 = 12,625
 ```
 
 **Decimal → Hexadecimal**: divisiones sucesivas entre 16.
@@ -151,9 +115,22 @@ Ejemplo: 156 → 9C
 ```
 Resultado: **9C**
 
+Ejemplo con parte fraccionaria: 12,625 → C,A
+```
+Parte entera: 12 / 16 = 0 resto 12 -> C
+
+Parte fraccionaria: 0,625 * 16 = 10,0 -> A (10)
+Lectura: C,A
+```
+
 **Hexadecimal → Decimal**: multiplicar cada símbolo por 16 elevado a su posición.
 
 Ejemplo: 9C = 9·16¹ + 12·16⁰ = 144 + 12 = 156
+
+Ejemplo con parte fraccionaria: C,A
+```
+C·16⁰ + A·16⁻¹ = 12 + 10/16 = 12 + 0,625 = 12,625
+```
 
 **Binario ↔ Hexadecimal**: cada dígito hexadecimal equivale exactamente a 4 bits (nibble), por lo que la conversión es directa agrupando de 4 en 4.
 
@@ -177,6 +154,18 @@ Ejemplo: 9C = 9·16¹ + 12·16⁰ = 144 + 12 = 156
 | F   | 1111 |
 
 Ejemplo: 10011100 → 1001 1100 → 9C
+
+Ejemplo con parte fraccionaria: 1100,101 → 1100 , 1010 → C,A
+```
+Parte entera: 1100 -> 1100 = C
+Parte fraccionaria: 101 -> agrupar de 4 hacia la derecha: 1010 (añadimos un 0 a la derecha) = A
+Resultado: 1100,101₂ = C,A₁₆
+```
+
+**Explicación:** para convertir binario fraccionario a hexadecimal, agrupa los bits en bloques de 4 empezando desde el punto decimal: 
+- a la izquierda (parte entera) agrupa hacia la derecha y, si falta, añade ceros a la izquierda del bloque menos significativo; 
+- a la derecha (parte fraccionaria) agrupa hacia la izquierda y añade ceros a la derecha si hace falta para completar 4 bits. Convierte cada nibble a su dígito hexadecimal correspondiente.
+
 
 > **Aplicación práctica**: una dirección IPv4 (32 bits) se representa en 4 octetos decimales separados por puntos (ej. 192.168.1.1), mientras que una dirección MAC (48 bits) se representa en hexadecimal separada por dos puntos o guiones (ej. 00:1A:2B:3C:4D:5E).
 
