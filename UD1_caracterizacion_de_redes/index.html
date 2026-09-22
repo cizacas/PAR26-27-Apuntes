@@ -355,6 +355,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#-a-la-izquierda-parte-entera-agrupa-hacia-la-derecha-y-si-falta-anade-ceros-a-la-izquierda-del-bloque-menos-significativo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        - a la izquierda (parte entera) agrupa hacia la derecha y, si falta, añade ceros a la izquierda del bloque menos significativo;
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#3-transmision-de-datos" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1072,6 +1083,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#-a-la-izquierda-parte-entera-agrupa-hacia-la-derecha-y-si-falta-anade-ceros-a-la-izquierda-del-bloque-menos-significativo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        - a la izquierda (parte entera) agrupa hacia la derecha y, si falta, añade ceros a la izquierda del bloque menos significativo;
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#3-transmision-de-datos" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1749,10 +1771,28 @@
 1   / 2 = 0   resto 1
 </code></pre></div>
 Leyendo los restos de abajo a arriba: <strong>10011100</strong></p>
+<p>Ejemplo con parte fraccionaria: 12.625 → 1100,101
+<div class="highlight"><pre><span></span><code>Parte entera: 12 / 2 = 6 r0
+6 / 2 = 3 r0
+3 / 2 = 1 r1
+1 / 2 = 0 r1
+Lectura restos: 1100
+
+Parte fraccionaria: 
+0,625 * 2 = 1,25 -&gt; bit 1
+0.25 * 2 = 0,5   -&gt; bit 0
+0.5 * 2 = 1,0    -&gt; bit 1
+Lectura bits fraccionarios en orden: 101
+Resultado combinado: 1100,101
+</code></pre></div></p>
 <p><strong>Binario → Decimal</strong>: se multiplica cada bit por 2 elevado a la posición (empezando en 0 por la derecha) y se suman.</p>
 <p>Ejemplo: 10011100
 <div class="highlight"><pre><span></span><code>1·2⁷ + 0·2⁶ + 0·2⁵ + 1·2⁴ + 1·2³ + 1·2² + 0·2¹ + 0·2⁰
 = 128 + 0 + 0 + 16 + 8 + 4 + 0 + 0 = 156
+</code></pre></div></p>
+<p>Ejemplo con parte fraccionaria: 1100,101
+<div class="highlight"><pre><span></span><code>1·2³ + 1·2² + 0·2¹ + 0·2⁰ + 1·2⁻¹ + 0·2⁻² + 1·2⁻³
+= 8 + 4 + 0 + 0 + 0,5 + 0 + 0,125 = 12,625
 </code></pre></div></p>
 <p><strong>Decimal → Hexadecimal</strong>: divisiones sucesivas entre 16.</p>
 <p>Ejemplo: 156 → 9C
@@ -1760,8 +1800,17 @@ Leyendo los restos de abajo a arriba: <strong>10011100</strong></p>
 9   / 16 = 0  resto 9
 </code></pre></div>
 Resultado: <strong>9C</strong></p>
+<p>Ejemplo con parte fraccionaria: 12,625 → C,A
+<div class="highlight"><pre><span></span><code>Parte entera: 12 / 16 = 0 resto 12 -&gt; C
+
+Parte fraccionaria: 0,625 * 16 = 10,0 -&gt; A (10)
+Lectura: C,A
+</code></pre></div></p>
 <p><strong>Hexadecimal → Decimal</strong>: multiplicar cada símbolo por 16 elevado a su posición.</p>
 <p>Ejemplo: 9C = 9·16¹ + 12·16⁰ = 144 + 12 = 156</p>
+<p>Ejemplo con parte fraccionaria: C,A
+<div class="highlight"><pre><span></span><code>C·16⁰ + A·16⁻¹ = 12 + 10/16 = 12 + 0,625 = 12,625
+</code></pre></div></p>
 <p><strong>Binario ↔ Hexadecimal</strong>: cada dígito hexadecimal equivale exactamente a 4 bits (nibble), por lo que la conversión es directa agrupando de 4 en 4.</p>
 <table>
 <thead>
@@ -1838,6 +1887,16 @@ Resultado: <strong>9C</strong></p>
 </tbody>
 </table>
 <p>Ejemplo: 10011100 → 1001 1100 → 9C</p>
+<p>Ejemplo con parte fraccionaria: 1100,101 → 1100 , 1010 → C,A
+<div class="highlight"><pre><span></span><code>Parte entera: 1100 -&gt; 1100 = C
+Parte fraccionaria: 101 -&gt; agrupar de 4 hacia la derecha: 1010 (añadimos un 0 a la derecha) = A
+Resultado: 1100,101₂ = C,A₁₆
+</code></pre></div></p>
+<p><strong>Explicación:</strong> para convertir binario fraccionario a hexadecimal, agrupa los bits en bloques de 4 empezando desde el punto decimal: </p>
+<h2 id="-a-la-izquierda-parte-entera-agrupa-hacia-la-derecha-y-si-falta-anade-ceros-a-la-izquierda-del-bloque-menos-significativo">- a la izquierda (parte entera) agrupa hacia la derecha y, si falta, añade ceros a la izquierda del bloque menos significativo;<a class="headerlink" href="#-a-la-izquierda-parte-entera-agrupa-hacia-la-derecha-y-si-falta-anade-ceros-a-la-izquierda-del-bloque-menos-significativo" title="Permanent link">&para;</a></h2>
+<ul>
+<li>a la derecha (parte fraccionaria) agrupa hacia la izquierda y añade ceros a la derecha si hace falta para completar 4 bits. Convierte cada nibble a su dígito hexadecimal correspondiente.</li>
+</ul>
 <blockquote>
 <p><strong>Aplicación práctica</strong>: una dirección IPv4 (32 bits) se representa en 4 octetos decimales separados por puntos (ej. 192.168.1.1), mientras que una dirección MAC (48 bits) se representa en hexadecimal separada por dos puntos o guiones (ej. 00:1A:2B:3C:4D:5E).</p>
 </blockquote>
@@ -1846,44 +1905,72 @@ Resultado: <strong>9C</strong></p>
 <p><em>(CE-b Se han diferenciado los distintos medios de transmisión utilizados en las redes)</em></p>
 <h3 id="31-el-bit">3.1 El bit<a class="headerlink" href="#31-el-bit" title="Permanent link">&para;</a></h3>
 <p>El <strong>bit</strong> (binary digit) es la unidad mínima de información en los sistemas digitales. Puede tomar dos valores: 0 o 1. Los ordenadores almacenan y transmiten los datos internamente como secuencias de bits que, agrupados en bytes (8 bits) y palabras, representan números, caracteres, instrucciones y cualquier otro tipo de información.</p>
-<p>Cómo se almacenan y transmiten:
-- <strong>Almacenamiento:</strong> físicamente los bits se representan por diferentes estados eléctricos, magnéticos u ópticos según la tecnología (ej.: voltaje alto/bajo en memoria RAM o discos SSD, polarización magnética en discos duros, presencia/ausencia de luz en fibra). Estos estados se organizan en celdas o circuitos y se leen/escriben por el controlador del dispositivo.</p>
+<p><em>Cómo se almacenan y transmiten:</em></p>
 <ul>
-<li><strong>Transmisión:</strong> en enlaces eléctricos (par trenzado, coaxial) un bit se codifica como una variación de voltaje o corriente; en fibra óptica, como pulsos de luz; en inalámbricos, como variaciones de amplitud/frecuencia/fase de la portadora. Para mejorar la fiabilidad se usan codificaciones y señales de sincronización, así como técnicas de detección y corrección de errores.</li>
+<li>
+<p><strong>Almacenamiento:</strong> físicamente los bits se representan por diferentes estados eléctricos, magnéticos u ópticos según la tecnología (ej.: voltaje alto/bajo en memoria RAM o discos SSD, polarización magnética en discos duros, presencia/ausencia de luz en fibra). Estos estados se organizan en celdas o circuitos y se leen/escriben por el controlador del dispositivo.</p>
+</li>
+<li>
+<p><strong>Transmisión:</strong> en enlaces eléctricos (par trenzado, coaxial) un bit se codifica como una variación de voltaje o corriente; en fibra óptica, como pulsos de luz; en inalámbricos, como variaciones de amplitud/frecuencia/fase de la portadora. Para mejorar la fiabilidad se usan codificaciones y señales de sincronización, así como técnicas de detección y corrección de errores.</p>
+</li>
 </ul>
-<p>Dispositivos de entrada y salida — qué hacen:
-- Dispositivos de entrada (teclado, ratón, micrófono, sensores): convierten acciones físicas o señales del mundo real en datos binarios que el ordenador puede procesar (ej.: una tecla pulsada → código de carácter → secuencia de bits enviada al sistema operativo).
-- Dispositivos de salida (pantalla, altavoz, impresora, actuadores): reciben datos binarios y los traducen a señales perceptibles por el usuario o por el entorno (ej.: secuencia de píxeles en la GPU → señales eléctricas → luz en la pantalla; datos de audio → DAC → vibración en altavoz).</p>
-<p>Almacenamiento dentro del ordenador:
-- En el interior del equipo, todo se guarda en formatos binarios: archivos, programas, tablas y estructuras de datos. Los sistemas de archivos organizan los bytes en bloques y sectores; la memoria principal gestiona celdas direccionables por la CPU.</p>
-<p>Ejemplo de código normalizado (ejemplo ilustrativo <code>u8tf</code>):
-- Supongamos un esquema de codificación llamado <code>u8tf</code> que define un tipo de dato de 8 bits sin signo (u8) seguido de una etiqueta de formato <code>tf</code>. Un valor decimal 13 se almacenaría como <code>00001101</code> en binario y, usando la notación <code>u8tf(13)</code>, quedaría normalizado como <code>u8tf:00001101</code> para su transmisión o registro.</p>
+<p><em>Dispositivos de entrada y salida — qué hacen:</em></p>
+<ul>
+<li>
+<p><strong>Dispositivos de entrada (teclado, ratón, micrófono, sensores):</strong> convierten acciones físicas o señales del mundo real en datos binarios que el ordenador puede procesar (ej.: una tecla pulsada → código de carácter → secuencia de bits enviada al sistema operativo).</p>
+</li>
+<li>
+<p><strong>Dispositivos de salida (pantalla, altavoz, impresora, actuadores):</strong> reciben datos binarios y los traducen a señales perceptibles por el usuario o por el entorno (ej.: secuencia de píxeles en la GPU → señales eléctricas → luz en la pantalla; datos de audio → DAC → vibración en altavoz).</p>
+</li>
+</ul>
+<p><em>Almacenamiento dentro del ordenador:</em></p>
+<p>En el interior del equipo, todo se guarda en formatos binarios: archivos, programas, tablas y estructuras de datos. Los sistemas de archivos organizan los bytes en bloques y sectores; la memoria principal gestiona celdas direccionables por la CPU.</p>
+<p><strong>Ejemplo de código normalizado (ejemplo ilustrativo <code>u8tf</code>):</strong></p>
+<p>Supongamos un esquema de codificación llamado <code>u8tf</code> que define un tipo de dato de 8 bits sin signo (u8) seguido de una etiqueta de formato <code>tf</code>. Un valor decimal 13 se almacenaría como <code>00001101</code> en binario y, usando la notación <code>u8tf(13)</code>, quedaría normalizado como <code>u8tf:00001101</code> para su transmisión o registro.</p>
 <p>En la práctica se usan estándares como ASCII/UTF-8 para texto y formatos bien definidos para datos binarios en protocolos y APIs.</p>
 <h3 id="32-metodos-de-transmision-de-datos">3.2 Métodos de transmisión de datos<a class="headerlink" href="#32-metodos-de-transmision-de-datos" title="Permanent link">&para;</a></h3>
 <p>Una vez transformados los datos a una serie de bits, en las redes se emplean tres métodos principales para transmitir esas señales:</p>
 <ul>
-<li><strong>Señales eléctricas:</strong> se usan en medios guiados como el par trenzado y el coaxial. Un bit se representa mediante variaciones de voltaje o corriente (por ejemplo, nivel alto = 1, nivel bajo = 0) o mediante esquemas más complejos de codificación (Manchester, NRZ, PAM). </li>
-<li>Ventajas: coste bajo y facilidad de uso en entornos LAN; </li>
+<li>
+<p><strong>Señales eléctricas:</strong> se usan en medios guiados como el par trenzado y el coaxial. Un bit se representa mediante variaciones de voltaje o corriente (por ejemplo, nivel alto = 1, nivel bajo = 0) o mediante esquemas más complejos de codificación (Manchester, NRZ, PAM).</p>
+</li>
+<li>
+<p>Ventajas: coste bajo y facilidad de uso en entornos LAN; </p>
+</li>
 <li>
 <p>inconvenientes: susceptibilidad a ruido e interferencias, y atenuación en largas distancias.</p>
 </li>
 <li>
-<p><strong>Señales ópticas:</strong> se usan en fibra óptica, donde los bits se codifican como pulsos de luz (presencia/ausencia de pulso o modulaciones de intensidad/fase/frecuencia). </p>
+<p><strong>Señales ópticas:</strong> se usan en fibra óptica, donde los bits se codifican como pulsos de luz (presencia/ausencia de pulso o modulaciones de intensidad/fase/frecuencia).</p>
 </li>
-<li>Ventajas: gran ancho de banda, baja atenuación y resistencia a interferencias electromagnéticas; </li>
+<li>
+<p>Ventajas: gran ancho de banda, baja atenuación y resistencia a interferencias electromagnéticas; </p>
+</li>
 <li>
 <p>inconvenientes: mayor coste y necesidad de conversión óptico-eléctrica en extremos.</p>
 </li>
 <li>
-<p><strong>Señales inalámbricas (radiofrecuencia/microondas):</strong> los bits se transmiten modulando una portadora en parámetros como amplitud, frecuencia o fase (ASK, FSK, PSK, QAM). Se usan en Wi‑Fi, LTE/5G, enlaces punto a punto y satélites. </p>
+<p><strong>Señales inalámbricas (radiofrecuencia/microondas):</strong> los bits se transmiten modulando una portadora en parámetros como amplitud, frecuencia o fase (ASK, FSK, PSK, QAM). Se usan en Wi‑Fi, LTE/5G, enlaces punto a punto y satélites.</p>
 </li>
-<li>Ventajas: movilidad y despliegue sin cableado; </li>
-<li>inconvenientes: mayor vulnerabilidad a la interferencia, pérdida por obstáculos y limitación de espectro/regulación.</li>
+<li>
+<p>Ventajas: movilidad y despliegue sin cableado; </p>
+</li>
+<li>
+<p>inconvenientes: mayor vulnerabilidad a la interferencia, pérdida por obstáculos y limitación de espectro/regulación.</p>
+</li>
 </ul>
-<p>Ejemplo práctico: transmitir el byte <code>01001101</code> (ASCII 'M')
-- Por cable UTP (eléctrico): el transmisor genera una serie de voltajes sincronizados que representan cada bit y el receptor reconstrute la secuencia a través del voltaje medido en cada intervalo de bit.
-- Por fibra (óptico): el transmisor usa un láser/LED para emitir pulsos de luz en los intervalos correspondientes a los '1' y silencio para los '0'; el fotodetector del receptor convierte de nuevo la luz en señales eléctricas.
-- Por Wi‑Fi (inalámbrico): los mismos bits se modulaban sobre una portadora RF usando, por ejemplo, QPSK/QAM; la tarjeta inalámbrica del receptor demodula la portadora y recupera la secuencia de bits.</p>
+<p><strong>Ejemplo práctico: transmitir el byte <code>01001101</code> (ASCII 'M')</strong></p>
+<ul>
+<li>
+<p>Por cable UTP (eléctrico): el transmisor genera una serie de voltajes sincronizados que representan cada bit y el receptor reconstrute la secuencia a través del voltaje medido en cada intervalo de bit.</p>
+</li>
+<li>
+<p>Por fibra (óptico): el transmisor usa un láser/LED para emitir pulsos de luz en los intervalos correspondientes a los '1' y silencio para los '0'; el fotodetector del receptor convierte de nuevo la luz en señales eléctricas.</p>
+</li>
+<li>
+<p>Por Wi‑Fi (inalámbrico): los mismos bits se modulaban sobre una portadora RF usando, por ejemplo, QPSK/QAM; la tarjeta inalámbrica del receptor demodula la portadora y recupera la secuencia de bits.</p>
+</li>
+</ul>
 <p>En todos los casos, para evitar errores se aplican capas de enlace y transporte que añaden sincronización, codificación de línea, detección y corrección de errores, y protocolos que permiten reenviar paquetes dañados.</p>
 <h3 id="33-ancho-de-banda">3.3 Ancho de banda<a class="headerlink" href="#33-ancho-de-banda" title="Permanent link">&para;</a></h3>
 <p>El <strong>ancho de banda</strong> es la capacidad máxima de un canal de comunicación para transmitir información en un periodo de tiempo, normalmente expresada en bits por segundo. No debe confundirse con la latencia (retardo): ancho de banda indica cuánto se puede transferir por segundo; latencia indica cuánto tarda en empezar a llegar.</p>
@@ -2113,9 +2200,15 @@ Resultado: <strong>9C</strong></p>
 <p><em>(CE-c: Se han reconocido los distintos tipos de red y sus topologías)</em></p>
 <p>La <strong>topología</strong> es la disposición física o lógica de los dispositivos y el cableado dentro de una red.</p>
 <h3 id="71-topologia-en-bus">7.1 Topología en bus<a class="headerlink" href="#71-topologia-en-bus" title="Permanent link">&para;</a></h3>
-<p>Todos los dispositivos se conectan a un único cable central (bus) mediante el cual se transmite la información en ambas direcciones.
-- Ventaja: sencilla y económica, poco cableado.
-- Inconveniente: un fallo en el cable central puede dejar sin comunicación a toda la red; colisiones frecuentes.</p>
+<p>Todos los dispositivos se conectan a un único cable central (bus) mediante el cual se transmite la información en ambas direcciones.</p>
+<ul>
+<li>
+<p>Ventaja: sencilla y económica, poco cableado.</p>
+</li>
+<li>
+<p>Inconveniente: un fallo en el cable central puede dejar sin comunicación a toda la red; colisiones frecuentes.</p>
+</li>
+</ul>
 <p><pre class="mermaid"><code>graph LR
     BC["🔌 Cable troncal (bus)"]
     B1["💻 PC1"] --- BC
@@ -2129,9 +2222,15 @@ Resultado: <strong>9C</strong></p>
     style B4 fill:#cde7ff</code></pre>
 <em>Todos los equipos comparten el mismo cable central: si se corta el bus, se pierde la comunicación.</em></p>
 <h3 id="72-topologia-en-anillo">7.2 Topología en anillo<a class="headerlink" href="#72-topologia-en-anillo" title="Permanent link">&para;</a></h3>
-<p>Los dispositivos se conectan formando un círculo cerrado; la información viaja en un sentido (o en ambos, anillo doble) pasando de nodo en nodo.
-- Ventaja: no hay colisiones si se usa paso de testigo (token).
-- Inconveniente: el fallo de un nodo o del cable puede interrumpir toda la red (salvo con anillo doble redundante).</p>
+<p>Los dispositivos se conectan formando un círculo cerrado; la información viaja en un sentido (o en ambos, anillo doble) pasando de nodo en nodo.</p>
+<ul>
+<li>
+<p>Ventaja: no hay colisiones si se usa paso de testigo (token).</p>
+</li>
+<li>
+<p>Inconveniente: el fallo de un nodo o del cable puede interrumpir toda la red (salvo con anillo doble redundante).</p>
+</li>
+</ul>
 <p><pre class="mermaid"><code>graph LR
     R1["💻 PC1"] --&gt; R2["💻 PC2"] --&gt; R3["💻 PC3"] --&gt; R4["💻 PC4"] --&gt; R1
     style R1 fill:#cde7ff
@@ -2141,9 +2240,15 @@ Resultado: <strong>9C</strong></p>
     linkStyle default stroke:#333,stroke-width:2px</code></pre>
 <em>Cada equipo pasa la información al siguiente formando un círculo; la información viaja siempre en el mismo sentido (flechas).</em></p>
 <h3 id="73-topologia-en-estrella">7.3 Topología en estrella<a class="headerlink" href="#73-topologia-en-estrella" title="Permanent link">&para;</a></h3>
-<p>Todos los dispositivos se conectan a un nodo central (switch o hub).
-- Ventaja: fácil de gestionar y ampliar; el fallo de un equipo no afecta al resto.
-- Inconveniente: si falla el nodo central, toda la red queda inoperativa. Es la topología física más usada actualmente en LAN.</p>
+<p>Todos los dispositivos se conectan a un nodo central (switch o hub).</p>
+<ul>
+<li>
+<p>Ventaja: fácil de gestionar y ampliar; el fallo de un equipo no afecta al resto.</p>
+</li>
+<li>
+<p>Inconveniente: si falla el nodo central, toda la red queda inoperativa. Es la topología física más usada actualmente en LAN.</p>
+</li>
+</ul>
 <p><pre class="mermaid"><code>graph TB
     S0["🔀 Switch/Hub central"]
     S1["💻 PC1"] --- S0
@@ -2157,9 +2262,15 @@ Resultado: <strong>9C</strong></p>
     style S4 fill:#cde7ff</code></pre>
 <em>Todos los equipos se conectan de forma independiente a un nodo central; si falla un cable solo afecta a ese equipo, pero si falla el switch, cae toda la red.</em></p>
 <h3 id="74-topologia-en-arbol">7.4 Topología en árbol<a class="headerlink" href="#74-topologia-en-arbol" title="Permanent link">&para;</a></h3>
-<p>Combinación jerárquica de varias topologías en estrella conectadas entre sí, con un nodo raíz del que parten ramas.
-- Ventaja: escalable, organización jerárquica.
-- Inconveniente: dependencia del nodo raíz o de los nodos superiores.</p>
+<p>Combinación jerárquica de varias topologías en estrella conectadas entre sí, con un nodo raíz del que parten ramas.</p>
+<ul>
+<li>
+<p>Ventaja: escalable, organización jerárquica.</p>
+</li>
+<li>
+<p>Inconveniente: dependencia del nodo raíz o de los nodos superiores.</p>
+</li>
+</ul>
 <p><pre class="mermaid"><code>graph TB
     Raiz["🔀 Switch raíz"]
     Raiz --- Sw1["🔀 Switch 1"]
@@ -2177,10 +2288,18 @@ Resultado: <strong>9C</strong></p>
     style A4 fill:#cde7ff</code></pre>
 <em>Varias estrellas encadenadas jerárquicamente desde un switch raíz: fácil de escalar añadiendo nuevas ramas.</em></p>
 <h3 id="75-topologia-en-malla">7.5 Topología en malla<a class="headerlink" href="#75-topologia-en-malla" title="Permanent link">&para;</a></h3>
-<p>Cada dispositivo se conecta con varios (o todos) los demás dispositivos.
-- <strong>Malla completa</strong>: todos conectados con todos → máxima redundancia y fiabilidad, pero coste y complejidad elevados.
-- <strong>Malla parcial</strong>: solo algunos nodos tienen múltiples conexiones.
-- Uso típico: redes troncales (backbone), WAN, Internet.</p>
+<p>Cada dispositivo se conecta con varios (o todos) los demás dispositivos.</p>
+<ul>
+<li>
+<p><strong>Malla completa</strong>: todos conectados con todos → máxima redundancia y fiabilidad, pero coste y complejidad elevados.</p>
+</li>
+<li>
+<p><strong>Malla parcial</strong>: solo algunos nodos tienen múltiples conexiones.</p>
+</li>
+<li>
+<p>Uso típico: redes troncales (backbone), WAN, Internet.</p>
+</li>
+</ul>
 <p><pre class="mermaid"><code>graph TB
     M1["💻 PC1"] --- M2["💻 PC2"]
     M1 --- M3["💻 PC3"]
@@ -2464,9 +2583,15 @@ Física        ├──────► Acceso a la red
 <h2 id="15-el-modelo-osi-y-ethernet">15. El modelo OSI y Ethernet<a class="headerlink" href="#15-el-modelo-osi-y-ethernet" title="Permanent link">&para;</a></h2>
 <p>Ethernet se corresponde con las <strong>dos capas inferiores</strong> del modelo OSI:</p>
 <ul>
-<li><strong>Capa 2 (Enlace de datos)</strong>: se subdivide a su vez en dos subcapas (definidas por IEEE 802):</li>
-<li><strong>LLC (Logical Link Control, 802.2)</strong>: control de enlace lógico, independiente de la tecnología física, gestiona el control de errores y flujo.</li>
-<li><strong>MAC (Media Access Control)</strong>: control de acceso al medio, gestiona el direccionamiento físico (MAC) y el acceso al medio compartido (CSMA/CD).</li>
+<li>
+<p><strong>Capa 2 (Enlace de datos)</strong>: se subdivide a su vez en dos subcapas (definidas por IEEE 802):</p>
+</li>
+<li>
+<p><strong>LLC (Logical Link Control, 802.2)</strong>: control de enlace lógico, independiente de la tecnología física, gestiona el control de errores y flujo.</p>
+</li>
+<li>
+<p><strong>MAC (Media Access Control)</strong>: control de acceso al medio, gestiona el direccionamiento físico (MAC) y el acceso al medio compartido (CSMA/CD).</p>
+</li>
 <li><strong>Capa 1 (Física)</strong>: define las características eléctricas, ópticas, mecánicas y de señalización (tipos de cable, conectores, velocidades).</li>
 </ul>
 <hr />
