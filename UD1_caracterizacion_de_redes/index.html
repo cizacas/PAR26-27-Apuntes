@@ -1936,23 +1936,27 @@ Resultado: 1100,101₂ = C,A₁₆
 <h3 id="32-metodos-de-transmision-de-datos">3.2 Métodos de transmisión de datos<a class="headerlink" href="#32-metodos-de-transmision-de-datos" title="Permanent link">&para;</a></h3>
 <p>Una vez transformados los datos a una serie de bits, en las redes se emplean tres métodos principales para transmitir esas señales:</p>
 <ul>
-<li><strong>Señales eléctricas:</strong> se usan en medios guiados como el par trenzado y el coaxial. Un bit se representa mediante variaciones de voltaje o corriente (por ejemplo, nivel alto = 1, nivel bajo = 0) o mediante esquemas más complejos de codificación (Manchester, NRZ, PAM).</li>
-<li>Ventajas: coste bajo y facilidad de uso en entornos LAN; </li>
 <li>
-<p>inconvenientes: susceptibilidad a ruido e interferencias, y atenuación en largas distancias.</p>
+<p><strong>Señales eléctricas:</strong> se usan en medios guiados como el par trenzado y el coaxial. Un bit se representa mediante variaciones de voltaje o corriente (por ejemplo, nivel alto = 1, nivel bajo = 0) o mediante esquemas más complejos de codificación (Manchester, NRZ, PAM).</p>
+<ul>
+<li>Ventajas: coste bajo y facilidad de uso en entornos LAN; </li>
+<li>inconvenientes: susceptibilidad a ruido e interferencias, y atenuación en largas distancias.</li>
+</ul>
 </li>
 <li>
 <p><strong>Señales ópticas:</strong> se usan en fibra óptica, donde los bits se codifican como pulsos de luz (presencia/ausencia de pulso o modulaciones de intensidad/fase/frecuencia).</p>
-</li>
+<ul>
 <li>Ventajas: gran ancho de banda, baja atenuación y resistencia a interferencias electromagnéticas; </li>
-<li>
-<p>inconvenientes: mayor coste y necesidad de conversión óptico-eléctrica en extremos.</p>
+<li>inconvenientes: mayor coste y necesidad de conversión óptico-eléctrica en extremos.</li>
+</ul>
 </li>
 <li>
 <p><strong>Señales inalámbricas (radiofrecuencia/microondas):</strong> los bits se transmiten modulando una portadora en parámetros como amplitud, frecuencia o fase (ASK, FSK, PSK, QAM). Se usan en Wi‑Fi, LTE/5G, enlaces punto a punto y satélites.</p>
-</li>
+<ul>
 <li>Ventajas: movilidad y despliegue sin cableado; </li>
 <li>inconvenientes: mayor vulnerabilidad a la interferencia, pérdida por obstáculos y limitación de espectro/regulación.</li>
+</ul>
+</li>
 </ul>
 <p><strong>Ejemplo práctico: transmitir el byte <code>01001101</code> (ASCII 'M')</strong></p>
 <ul>
