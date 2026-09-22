@@ -5,6 +5,63 @@
 **RA1:** Reconoce la estructura de las redes de datos identificando sus elementos y principios de funcionamiento.
 
 ---
+## Índice <!-- omit from toc -->
+- [1. Evolución y expansión de las redes de datos](#1-evolución-y-expansión-de-las-redes-de-datos)
+- [2. Sistemas de numeración: decimal, binario y hexadecimal](#2-sistemas-de-numeración-decimal-binario-y-hexadecimal)
+  - [2.1 Sistema decimal (base 10)](#21-sistema-decimal-base-10)
+  - [2.2 Sistema binario (base 2)](#22-sistema-binario-base-2)
+  - [2.3 Sistema hexadecimal (base 16)](#23-sistema-hexadecimal-base-16)
+  - [2.4 Conversión entre sistemas](#24-conversión-entre-sistemas)
+- [3. Transmisión de Datos](#3-transmisión-de-datos)
+  - [3.1 El bit](#31-el-bit)
+  - [3.2 Métodos de transmisión de datos](#32-métodos-de-transmisión-de-datos)
+  - [3.3 Ancho de banda](#33-ancho-de-banda)
+- [4. Medios de transmisión](#4-medios-de-transmisión)
+  - [4.1 Medios guiados (cableados)](#41-medios-guiados-cableados)
+  - [4.2 Medios no guiados (inalámbricos)](#42-medios-no-guiados-inalámbricos)
+  - [Comparativa](#comparativa)
+- [5. Elementos funcionales, físicos y lógicos de una red](#5-elementos-funcionales-físicos-y-lógicos-de-una-red)
+  - [Elementos físicos (hardware)](#elementos-físicos-hardware)
+  - [Elementos lógicos (software)](#elementos-lógicos-software)
+  - [Elementos funcionales](#elementos-funcionales)
+- [6. Terminología y tipos de redes: LAN, MAN, WAN](#6-terminología-y-tipos-de-redes-lan-man-wan)
+  - [Otras clasificaciones de redes](#otras-clasificaciones-de-redes)
+- [7. Topologías de red](#7-topologías-de-red)
+  - [7.1 Topología en bus](#71-topología-en-bus)
+  - [7.2 Topología en anillo](#72-topología-en-anillo)
+  - [7.3 Topología en estrella](#73-topología-en-estrella)
+  - [7.4 Topología en árbol](#74-topología-en-árbol)
+  - [7.5 Topología en malla](#75-topología-en-malla)
+  - [7.6 Topología mixta/híbrida](#76-topología-mixtahíbrida)
+- [8. Arquitectura de redes y niveles](#8-arquitectura-de-redes-y-niveles)
+  - [¿Por qué en niveles/capas?](#por-qué-en-nivelescapas)
+- [9. Encapsulamiento de la información](#9-encapsulamiento-de-la-información)
+- [10. El modelo OSI](#10-el-modelo-osi)
+- [11. El modelo TCP/IP](#11-el-modelo-tcpip)
+  - [Comparativa OSI vs TCP/IP](#comparativa-osi-vs-tcpip)
+- [12. Protocolos de comunicación](#12-protocolos-de-comunicación)
+- [13. Funcionamiento de las pilas de protocolos](#13-funcionamiento-de-las-pilas-de-protocolos)
+- [14. Tecnologías Ethernet](#14-tecnologías-ethernet)
+  - [Evolución de velocidades](#evolución-de-velocidades)
+  - [Características](#características)
+- [15. El modelo OSI y Ethernet](#15-el-modelo-osi-y-ethernet)
+- [16. Tipos de cableado Ethernet](#16-tipos-de-cableado-ethernet)
+  - [Categorías de par trenzado (UTP)](#categorías-de-par-trenzado-utp)
+  - [Normas de conexión (pines RJ-45)](#normas-de-conexión-pines-rj-45)
+- [17. Tipos de cableado de fibra óptica](#17-tipos-de-cableado-de-fibra-óptica)
+  - [Estructura de la fibra](#estructura-de-la-fibra)
+  - [Tipos según el modo de propagación](#tipos-según-el-modo-de-propagación)
+  - [Conectores de fibra más comunes](#conectores-de-fibra-más-comunes)
+  - [Ventajas de la fibra frente al cobre](#ventajas-de-la-fibra-frente-al-cobre)
+- [18. Dispositivos de interconexión de redes](#18-dispositivos-de-interconexión-de-redes)
+  - [El punto de acceso (Access Point, AP)](#el-punto-de-acceso-access-point-ap)
+  - [Dominios de colisión y de difusión](#dominios-de-colisión-y-de-difusión)
+- [19. El modelo cliente-servidor](#19-el-modelo-cliente-servidor)
+  - [Características](#características-1)
+  - [Cliente-servidor frente a P2P (Peer to Peer)](#cliente-servidor-frente-a-p2p-peer-to-peer)
+- [20. Organismos de estandarización](#20-organismos-de-estandarización)
+- [Resumen de conceptos clave](#resumen-de-conceptos-clave)
+
 
 ## 1. Evolución y expansión de las redes de datos
 
@@ -163,7 +220,9 @@ Resultado: 1100,101₂ = C,A₁₆
 ```
 
 **Explicación:** para convertir binario fraccionario a hexadecimal, agrupa los bits en bloques de 4 empezando desde el punto decimal: 
+
 - a la izquierda (parte entera) agrupa hacia la derecha y, si falta, añade ceros a la izquierda del bloque menos significativo; 
+
 - a la derecha (parte fraccionaria) agrupa hacia la izquierda y añade ceros a la derecha si hace falta para completar 4 bits. Convierte cada nibble a su dígito hexadecimal correspondiente.
 
 
@@ -179,20 +238,25 @@ Resultado: 1100,101₂ = C,A₁₆
 
 El **bit** (binary digit) es la unidad mínima de información en los sistemas digitales. Puede tomar dos valores: 0 o 1. Los ordenadores almacenan y transmiten los datos internamente como secuencias de bits que, agrupados en bytes (8 bits) y palabras, representan números, caracteres, instrucciones y cualquier otro tipo de información.
 
-Cómo se almacenan y transmiten:
+*Cómo se almacenan y transmiten:*
+
 - **Almacenamiento:** físicamente los bits se representan por diferentes estados eléctricos, magnéticos u ópticos según la tecnología (ej.: voltaje alto/bajo en memoria RAM o discos SSD, polarización magnética en discos duros, presencia/ausencia de luz en fibra). Estos estados se organizan en celdas o circuitos y se leen/escriben por el controlador del dispositivo.
 
 - **Transmisión:** en enlaces eléctricos (par trenzado, coaxial) un bit se codifica como una variación de voltaje o corriente; en fibra óptica, como pulsos de luz; en inalámbricos, como variaciones de amplitud/frecuencia/fase de la portadora. Para mejorar la fiabilidad se usan codificaciones y señales de sincronización, así como técnicas de detección y corrección de errores.
 
-Dispositivos de entrada y salida — qué hacen:
-- Dispositivos de entrada (teclado, ratón, micrófono, sensores): convierten acciones físicas o señales del mundo real en datos binarios que el ordenador puede procesar (ej.: una tecla pulsada → código de carácter → secuencia de bits enviada al sistema operativo).
-- Dispositivos de salida (pantalla, altavoz, impresora, actuadores): reciben datos binarios y los traducen a señales perceptibles por el usuario o por el entorno (ej.: secuencia de píxeles en la GPU → señales eléctricas → luz en la pantalla; datos de audio → DAC → vibración en altavoz).
+*Dispositivos de entrada y salida — qué hacen:*
 
-Almacenamiento dentro del ordenador:
-- En el interior del equipo, todo se guarda en formatos binarios: archivos, programas, tablas y estructuras de datos. Los sistemas de archivos organizan los bytes en bloques y sectores; la memoria principal gestiona celdas direccionables por la CPU.
+- **Dispositivos de entrada (teclado, ratón, micrófono, sensores):** convierten acciones físicas o señales del mundo real en datos binarios que el ordenador puede procesar (ej.: una tecla pulsada → código de carácter → secuencia de bits enviada al sistema operativo).
+  
+- **Dispositivos de salida (pantalla, altavoz, impresora, actuadores):** reciben datos binarios y los traducen a señales perceptibles por el usuario o por el entorno (ej.: secuencia de píxeles en la GPU → señales eléctricas → luz en la pantalla; datos de audio → DAC → vibración en altavoz).
 
-Ejemplo de código normalizado (ejemplo ilustrativo `u8tf`):
-- Supongamos un esquema de codificación llamado `u8tf` que define un tipo de dato de 8 bits sin signo (u8) seguido de una etiqueta de formato `tf`. Un valor decimal 13 se almacenaría como `00001101` en binario y, usando la notación `u8tf(13)`, quedaría normalizado como `u8tf:00001101` para su transmisión o registro.
+*Almacenamiento dentro del ordenador:*
+
+En el interior del equipo, todo se guarda en formatos binarios: archivos, programas, tablas y estructuras de datos. Los sistemas de archivos organizan los bytes en bloques y sectores; la memoria principal gestiona celdas direccionables por la CPU.
+
+**Ejemplo de código normalizado (ejemplo ilustrativo `u8tf`):**
+
+Supongamos un esquema de codificación llamado `u8tf` que define un tipo de dato de 8 bits sin signo (u8) seguido de una etiqueta de formato `tf`. Un valor decimal 13 se almacenaría como `00001101` en binario y, usando la notación `u8tf(13)`, quedaría normalizado como `u8tf:00001101` para su transmisión o registro.
 
 En la práctica se usan estándares como ASCII/UTF-8 para texto y formatos bien definidos para datos binarios en protocolos y APIs.
 
@@ -200,21 +264,24 @@ En la práctica se usan estándares como ASCII/UTF-8 para texto y formatos bien 
 
 Una vez transformados los datos a una serie de bits, en las redes se emplean tres métodos principales para transmitir esas señales:
 
-- **Señales eléctricas:** se usan en medios guiados como el par trenzado y el coaxial. Un bit se representa mediante variaciones de voltaje o corriente (por ejemplo, nivel alto = 1, nivel bajo = 0) o mediante esquemas más complejos de codificación (Manchester, NRZ, PAM). 
-  - Ventajas: coste bajo y facilidad de uso en entornos LAN; 
-  - inconvenientes: susceptibilidad a ruido e interferencias, y atenuación en largas distancias.
+- **Señales eléctricas:** se usan en medios guiados como el par trenzado y el coaxial. Un bit se representa mediante variaciones de voltaje o corriente (por ejemplo, nivel alto = 1, nivel bajo = 0) o mediante esquemas más complejos de codificación (Manchester, NRZ, PAM).
+    - Ventajas: coste bajo y facilidad de uso en entornos LAN. 
+    - inconvenientes: susceptibilidad a ruido e interferencias, y atenuación en largas distancias.
 
-- **Señales ópticas:** se usan en fibra óptica, donde los bits se codifican como pulsos de luz (presencia/ausencia de pulso o modulaciones de intensidad/fase/frecuencia). 
-  - Ventajas: gran ancho de banda, baja atenuación y resistencia a interferencias electromagnéticas; 
-  - inconvenientes: mayor coste y necesidad de conversión óptico-eléctrica en extremos.
+- **Señales ópticas:** se usan en fibra óptica, donde los bits se codifican como pulsos de luz (presencia/ausencia de pulso o modulaciones de intensidad/fase/frecuencia).
+    - Ventajas: gran ancho de banda, baja atenuación y resistencia a interferencias electromagnéticas. 
+    - inconvenientes: mayor coste y necesidad de conversión óptico-eléctrica en extremos.
 
-- **Señales inalámbricas (radiofrecuencia/microondas):** los bits se transmiten modulando una portadora en parámetros como amplitud, frecuencia o fase (ASK, FSK, PSK, QAM). Se usan en Wi‑Fi, LTE/5G, enlaces punto a punto y satélites. 
-  - Ventajas: movilidad y despliegue sin cableado; 
-  - inconvenientes: mayor vulnerabilidad a la interferencia, pérdida por obstáculos y limitación de espectro/regulación.
+- **Señales inalámbricas (radiofrecuencia/microondas):** los bits se transmiten modulando una portadora en parámetros como amplitud, frecuencia o fase (ASK, FSK, PSK, QAM). Se usan en Wi‑Fi, LTE/5G, enlaces punto a punto y satélites.
+    - Ventajas: movilidad y despliegue sin cableado. 
+    - inconvenientes: mayor vulnerabilidad a la interferencia, pérdida por obstáculos y limitación de espectro/regulación.
 
-Ejemplo práctico: transmitir el byte `01001101` (ASCII 'M')
+**Ejemplo práctico: transmitir el byte `01001101` (ASCII 'M')**
+
 - Por cable UTP (eléctrico): el transmisor genera una serie de voltajes sincronizados que representan cada bit y el receptor reconstrute la secuencia a través del voltaje medido en cada intervalo de bit.
+
 - Por fibra (óptico): el transmisor usa un láser/LED para emitir pulsos de luz en los intervalos correspondientes a los '1' y silencio para los '0'; el fotodetector del receptor convierte de nuevo la luz en señales eléctricas.
+
 - Por Wi‑Fi (inalámbrico): los mismos bits se modulaban sobre una portadora RF usando, por ejemplo, QPSK/QAM; la tarjeta inalámbrica del receptor demodula la portadora y recupera la secuencia de bits.
 
 En todos los casos, para evitar errores se aplican capas de enlace y transporte que añaden sincronización, codificación de línea, detección y corrección de errores, y protocolos que permiten reenviar paquetes dañados.
@@ -417,7 +484,9 @@ La **topología** es la disposición física o lógica de los dispositivos y el 
 ### 7.1 Topología en bus
 
 Todos los dispositivos se conectan a un único cable central (bus) mediante el cual se transmite la información en ambas direcciones.
+
 - Ventaja: sencilla y económica, poco cableado.
+
 - Inconveniente: un fallo en el cable central puede dejar sin comunicación a toda la red; colisiones frecuentes.
 
 ```mermaid
@@ -438,7 +507,9 @@ graph LR
 ### 7.2 Topología en anillo
 
 Los dispositivos se conectan formando un círculo cerrado; la información viaja en un sentido (o en ambos, anillo doble) pasando de nodo en nodo.
+
 - Ventaja: no hay colisiones si se usa paso de testigo (token).
+
 - Inconveniente: el fallo de un nodo o del cable puede interrumpir toda la red (salvo con anillo doble redundante).
 
 ```mermaid
@@ -455,7 +526,9 @@ graph LR
 ### 7.3 Topología en estrella
 
 Todos los dispositivos se conectan a un nodo central (switch o hub).
+
 - Ventaja: fácil de gestionar y ampliar; el fallo de un equipo no afecta al resto.
+
 - Inconveniente: si falla el nodo central, toda la red queda inoperativa. Es la topología física más usada actualmente en LAN.
 
 ```mermaid
@@ -476,7 +549,9 @@ graph TB
 ### 7.4 Topología en árbol
 
 Combinación jerárquica de varias topologías en estrella conectadas entre sí, con un nodo raíz del que parten ramas.
+
 - Ventaja: escalable, organización jerárquica.
+
 - Inconveniente: dependencia del nodo raíz o de los nodos superiores.
 
 ```mermaid
@@ -501,8 +576,11 @@ graph TB
 ### 7.5 Topología en malla
 
 Cada dispositivo se conecta con varios (o todos) los demás dispositivos.
+
 - **Malla completa**: todos conectados con todos → máxima redundancia y fiabilidad, pero coste y complejidad elevados.
+
 - **Malla parcial**: solo algunos nodos tienen múltiples conexiones.
+
 - Uso típico: redes troncales (backbone), WAN, Internet.
 
 ```mermaid
@@ -744,7 +822,9 @@ Ejemplo con la pila TCP/IP: una petición web (HTTP) se apoya en TCP (transporte
 Ethernet se corresponde con las **dos capas inferiores** del modelo OSI:
 
 - **Capa 2 (Enlace de datos)**: se subdivide a su vez en dos subcapas (definidas por IEEE 802):
+  
   - **LLC (Logical Link Control, 802.2)**: control de enlace lógico, independiente de la tecnología física, gestiona el control de errores y flujo.
+  
   - **MAC (Media Access Control)**: control de acceso al medio, gestiona el direccionamiento físico (MAC) y el acceso al medio compartido (CSMA/CD).
 - **Capa 1 (Física)**: define las características eléctricas, ópticas, mecánicas y de señalización (tipos de cable, conectores, velocidades).
 
