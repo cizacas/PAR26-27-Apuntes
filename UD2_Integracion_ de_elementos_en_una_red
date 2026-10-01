@@ -1,0 +1,599 @@
+# Unidad 2 – Integración de elementos en una red <!-- omit from toc -->
+
+**Módulo:** Planificación y Administración de Redes
+
+**RA2:** Integra ordenadores y periféricos en redes cableadas e inalámbricas, evaluando su
+funcionamiento y prestaciones.
+
+---
+
+
+## 1. Medios físicos y estándares para redes cableadas e inalámbricas
+
+*(CE-a: Se han identificado los estándares para redes cableadas e inalámbricas.)*
+
+### 1.1 Definición y función
+
+**El medio físico** es el soporte material o el canal por el que viajan las señales que transportan la información: pares de cobre, fibra óptica o el espacio libre para enlaces inalámbricos. Su selección condiciona la velocidad, la distancia máxima, la fiabilidad y el coste de una red.
+
+### 1.2 Estándares relevantes
+
+- IEEE 802.3 (Ethernet): define capas físicas y de enlace para Ethernet en distintas velocidades (10/100/1000/10G...).
+- IEEE 802.11 (Wi‑Fi): familia de estándares para LAN inalámbrica (802.11a/b/g/n/ac/ax), con bandas 2.4 GHz y 5/6 GHz y diferentes modulaciónes.
+- IEEE 802.15 (Bluetooth y WPAN): comunicaciones de corto alcance.
+- ITU‑T y TIA/EIA: recomendaciones para fibra y cableado estructurado (p. ej. TIA/EIA‑568 para UTP).
+
+### 1.3 Factores físicos que afectan la transmisión
+
+- Atenuación: pérdida de potencia con la distancia (más crítica en cobre que en fibra).
+- Diafonía (crosstalk): acoplo entre pares; mitigado con trenzado y apantallamiento.
+- Interferencias electromagnéticas (EMI): fuentes externas que afectan señales eléctricas.
+- Relación señal‑ruido (SNR): determina la calidad y la capacidad del enlace.
+- Ancho de banda teórico vs. tasa efectiva: overhead de protocolos y retransmisiones reducen rendimiento real.
+
+### 1.4 Selección práctica del medio (criterios)
+
+- Cortas distancias y bajo coste → UTP (Cat5e/Cat6).
+- Enlaces troncales o largas distancias → fibra monomodo.
+- Entornos con mucho ruido eléctrico → fibra óptica.
+- Movilidad o dispositivos móviles → soluciones Wi‑Fi con planificación de canales.
+
+### 1.5 Ejemplo ilustrativo
+
+Para un aula de 25 puestos con servidor local: UTP Cat6 para los puestos (1 Gbps) y fibra multimodo OM3 entre armarios de comunicaciones para permitir 10 Gbps entre switches si se prevé crecimiento.
+
+---
+
+
+## 2. Cables metálicos: tipos, construcción y uso
+
+*(CE-a, CE-j, CE-k: identificación y clasificación de cables metálicos y ópticos según velocidad y distancia.)*
+### 2.1 Coaxial y par trenzado: estructura y propiedades
+
+- Coaxial: conductor central (señal), dieléctrico, malla (blindaje) y cubierta. Uso actual reducido en LAN, aún empleado en TV y redes HFC.
+- Par trenzado (UTP/STP): pares de conductores trenzados para reducir interferencias; STP/FTP añaden apantallamiento para entornos ruidosos.
+
+### 2.1.1 Cable coaxial: estructura y tipos
+
+- Estructura básica (desde el interior hacia fuera):
+	1. Núcleo conductor (busca transportar la señal eléctrica, suele ser cobre sólido o trenzado).
+	2. Dieléctrico (aislante) que separa el conductor del blindaje y mantiene la impedancia característica.
+	3. Blindaje (malla metálica y/o lámina) que protege frente a EMI y reduce la radiación de la señal.
+	4. Cubierta exterior (jacket) que protege mecánicamente el conjunto.
+
+#### Diagrama: corte transversal de un cable coaxial
+
+```mermaid
+graph LR
+		subgraph coaxial[ ]
+		C((Núcleo))
+		D[(Dieléctrico)]
+		M[(Malla / Blindaje)]
+		J[(Cubierta exterior)]
+		end
+		coaxial --> C
+		coaxial --> D
+		coaxial --> M
+		coaxial --> J
+```
+
+ - Tipos comunes: RG‑6 (TV, satélite), RG‑59 (vídeo analógico, corto alcance), RG‑11 (menor atenuación, distancias mayores).
+ - Conectores habituales: BNC (vídeo profesional), F‑type (TV/SAT, roscado) y N/SC para aplicaciones de mayor potencia o RF.
+
+### 2.1.2 Par trenzado: estructura, apantallamientos y clasificación
+
+- Estructura básica: varios pares de conductores trenzados dentro de una cubierta; el trenzado reduce diafonía y mejora inmunidad al ruido.
+- Tipos según apantallamiento:
+	- UTP (Unshielded Twisted Pair): sin apantallamiento, más económico y flexible.
+	- STP (Shielded Twisted Pair): cada par o el conjunto va apantallado (foil/braid) para reducir EMI en entornos ruidosos.
+	- FTP (Foiled Twisted Pair): capa global de lámina que envuelve los pares; mezcla de coste y protección.
+
+#### Diagrama: par trenzado y tipos de apantallamiento
+
+```mermaid
+graph LR
+		subgraph pair[Par trenzado]
+			P1((Conductor A))
+			P2((Conductor B))
+			T[Trenzado]\n(intercambio de posiciones)
+		end
+		subgraph types[Apantallamiento]
+			UTP[UTP \n(no shield)]
+			FTP[FTP \n(foil around pairs)]
+			STP[STP \n(shield per pair or overall)]
+		end
+		pair --> T
+		types --> UTP
+		types --> FTP
+		types --> STP
+```
+
+### 2.2 Categorías UTP y rendimiento (tabla)
+
+| Categoría | Frecuencia aproximada | Velocidad típica | Uso típico |
+|---|---:|---:|---|
+| Cat5e | 100 MHz | 1 Gbps | Redes LAN 1 Gbps hasta 100 m |
+| Cat6 | 250 MHz | 1 Gbps (hasta 100 m) / 10 Gbps (hasta ~55 m) | Redes gigabit, entornos actuales |
+| Cat6a | 500 MHz | 10 Gbps (hasta 100 m) | Centros de datos, enlaces de alto rendimiento |
+| Cat7 / Cat7a | 600–1000 MHz | 10 Gbps y superiores | Entornos con apantallamiento, cableado industrial |
+| Cat8 | hasta 2000 MHz | 25–40 Gbps (corto alcance) | Backbones de rack, data centers (corto alcance) |
+
+**Nota:** la velocidad real depende de transceptores, calidad de crimpado, ruido y longitud del enlace.
+
+### 2.3 Conectores y normas de terminación (par trenzado)
+
+- Conector estándar: RJ‑45 (8P8C). Normas de polarización: T568A y T568B.
+- Selección según categoría: los conectores y jacks certificados para Cat6/Cat6a garantizan parámetros eléctricos mejores (NEXT, propagación, pérdida de retorno).
+
+### 2.4 Ilustraciones y reglas prácticas
+
+- Evitar curvas con radio menor al recomendado por el fabricante (p. ej. 4× el diámetro del cable).
+- No estirar excesivamente el cable al tenderlo; respetar distancia máxima de 100 m para enlaces UTP.
+- Mantener separación respecto a fuentes EMI (cables eléctricos, motores) o usar STP/FTP si no es posible.
+
+### 2.2 Categorías UTP y rendimiento
+
+- Cat5e: soporte habitual de 1 Gbps hasta 100 m.
+- Cat6: mejora en diafonía, soporta 1 Gbps y 10 Gbps en distancias limitadas.
+- Cat6a/Cat7: diseñado para 10 Gbps con mejor margen y apantallamiento.
+
+Parámetros importantes: atenuación, NEXT (Near‑End Crosstalk), PSNEXT y pérdida de retorno.
+
+### 2.3 Conectores y estándares de terminación
+
+- RJ‑45 (8P8C) es el conector estándar para par trenzado; normas T568A y T568B definen el orden de los hilos.
+- BNC es típico en coaxial; fibra usa LC/SC/ST/FC según equipo.
+
+### 2.4 Fibra óptica: monomodo vs multimodo
+
+- Multimodo (MMF, OM1–OM5): núcleo mayor, económicas lámparas/LEDs o láseres VCSEL; adecuadas para enlaces LAN y centros de datos (distancias cortas‑medias).
+- Monomodo (SMF): núcleo fino, láser, usadas en enlaces de larga distancia y troncales.
+
+### 2.5 Ejemplo práctico
+
+Comparación: para un enlace entre armarios a 500 m se elegirá fibra multimodo OM4/OM3 si el presupuesto lo permite para 10 Gbps; para enlaces >2 km usar monomodo.
+
+---
+
+
+## 3. Montaje de cables: directo, cruzado y de consola
+
+*(CE-b, CE-c: montaje de cables y comprobación con instrumentos.)*
+### 3.1 Herramientas y materiales
+
+- Herramientas: pelacables, crimpadora para RJ45, tester de cables, cortacables, destornillador para paneles.
+- Materiales: cable UTP/STP (la categoría elegida), conectores RJ45, manguitos y etiquetas.
+
+### 3.2 Procedimiento detallado (crimpado RJ45)
+
+1. Cortar la cubierta exterior dejando ~3 cm y pelar con cuidado.
+2. Separar y alisar los pares; ordenar según T568B (o T568A si se requiere).
+3. Cortar los conductores de manera uniforme y empujar hasta el tope del conector RJ45.
+4. Insertar el conector en la crimpadora y crimpar firmemente.
+5. Probar con un comprobador de cables: continuidad, mapeo de pares y posible inversión.
+
+### 3.3 Tipos de cable y uso
+
+- Cable directo (straight): mismo orden en ambos extremos — PC ↔ switch.
+- Cable cruzado (crossover): orden invertido en pares TX/RX — usado históricamente PC↔PC o switch↔switch.
+- Cable de consola: normalmente RJ45‑to‑serial o USB‑serial para consola de equipos de red.
+
+### 3.4 Buenas prácticas
+
+- No exceder 100 m en enlaces UTP; evitar curvas cerradas; proteger y etiquetar vías y parches.
+
+### 3.5 Ejemplo de checklist
+
+- Para 10 cables: comprobar continuidad, orden de pines, resistencia de pares < X ohm, prueba funcional con equipo.
+
+---
+
+
+## 4. Comprobación de conectividad con comprobadores
+
+*(CE-c: uso de comprobadores para verificar la conectividad de distintos tipos de cables.)*
+### 4.1 Tipos de comprobadores y funciones
+
+- Testers de bolsillo: verifican continuidad y mapeo rápido de pares.
+- Certificadores profesionales (Fluke): miden NEXT, pérdida, pérdida de retorno y dan un reporte de conformidad con la categoría.
+- Medidores de potencia óptica y fuentes/receivers: miden atenuación en enlaces de fibra.
+
+### 4.2 Interpretación básica de resultados
+
+- Continuidad OK: todos los pares conectados y en orden.
+- Pares abiertos: falta de continuidad en uno o varios conductores.
+- Cortocircuito: unión entre pares; falla grave.
+- Inversión de pares: TX/RX cruzados (puede afectar negociaciones).
+- Pérdida en fibra: expresada en dB; comparar con límites del enlace para garantizar margen.
+
+### 4.3 Ejemplo de informe breve
+
+- Identificador: cable_01
+- Resultado: continuidad OK; resistencia media 0.8 Ω; pérdida óptica N/A.
+
+---
+
+
+## 5. Direccionamiento lógico IP y máscaras de subred
+
+*(CE-d: uso del direccionamiento lógico IP para asignar direcciones y máscaras.)*
+
+### 5.1 Conceptos básicos
+
+- Dirección IP: identificador lógico de **una interfaz en una red** (IPv4/IPv6).
+- Máscara o prefijo: determina la porción de red y la de host (p. ej. /24, /64).
+- Dirección de broadcast (IPv4): dirección para enviar a todos los hosts de la subred.
+- Puerta de enlace (gateway): router que conecta la subred con otras redes.
+- Tabla de enrutamiento: conjunto de rutas que usan los routers/hosts para encaminar paquetes.
+
+### 5.0 Direccionamiento físico: direcciones MAC y ámbito
+
+- Dirección MAC: identificador único de 48 bits (normalmente) asignado a la interfaz de red por el fabricante (formato hex `00:1A:2B:3C:4D:5E`).
+- Ámbito de actuación: la dirección MAC opera en la capa de enlace (OSI capa 2) y se usa para la entrega de tramas en el mismo dominio de broadcast (misma LAN / VLAN).
+ - ARP (Address Resolution Protocol): protocolo de la capa de enlace que resuelve una dirección IPv4 a una dirección MAC dentro de la misma subred mediante solicitudes y respuestas (ARP request/ARP reply).
+	 - ¿Qué es ARP?: ARP es el mecanismo por el que un host descubre la dirección MAC asociada a una dirección IPv4 cuando necesita enviar una trama dentro de la misma LAN. Funciona enviando una petición broadcast y recibiendo una respuesta unicast con la dirección MAC.
+ - OUI y estructura de una MAC: las direcciones MAC suelen tener 48 bits (6 octetos). Los 3 primeros octetos forman el OUI (Organizationally Unique Identifier) que identifica al fabricante; los 3 octetos finales son asignados por el fabricante para cada interfaz.
+	 - Ejemplo: `00:1A:2B:3C:4D:5E` → OUI `00:1A:2B` (fabricante), sufijo `3C:4D:5E` (identificador de interfaz).
+ - Unicidad y casos de duplicado:
+	 - En teoría cada MAC debe ser única. Los fabricantes registran OUIs y generan sufijos para evitar colisiones.
+	 - Casos que provocan duplicados: clonación manual (configuración intencionada), máquinas virtuales que duplican MAC por snapshot/import, dispositivos defectuosos o fabricantes que no respetan el asignamiento, o reutilización en redes virtuales.
+	 - Efectos de duplicado: conflictos de enlace (tramas alternando entre puertos), problemas de ARP, pérdida de conectividad para una o ambas interfaces.
+	 - Mitigación: asignar MACs estáticas válidas en elementos críticos, usar seguridad en switches (port security), gestionar MACs en entornos virtuales y evitar clonar sin control.
+
+#### Comandos útiles para comprobar MAC/ARP
+
+- Windows:
+	- Ver ARP: `arp -a` (muestra asociaciones IP → MAC en caché).
+	- Ver adaptadores y MACs locales: `getmac /v` o `wmic nic where (MACAddress is not null) get MACAddress,Name`.
+	- Forzar renovación DHCP y comprobar: `ipconfig /release` y `ipconfig /renew`.
+- Linux:
+	- Ver vecinos/ARP: `ip neigh` o `arp -n`.
+	- Ver interfaces y MAC locales: `ip link show` o `cat /sys/class/net/<iface>/address`.
+	- Ver tabla de direcciones MAC del switch (si tiene acceso SSH/CLI): `show mac address-table` (Cisco) o comandos equivalentes según fabricante.
+
+Ejemplo rápido (Linux):
+```
+$ ip link show eth0
+2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UP mode DEFAULT group default qlen 1000
+		link/ether 00:1a:2b:3c:4d:5e brd ff:ff:ff:ff:ff:ff
+```
+
+Ejemplo rápido (Windows PowerShell):
+```
+PS> Get-NetAdapter | Format-Table -Auto Name,MacAddress,Status
+```
+- Switches: dispositivos que reenvían tramas usando tablas MAC (CAM) aprendidas por puerto; las direcciones MAC permiten conmutación local sin intervención de routers.
+- Diferencia con IP: la MAC identifica la interfaz física; la IP identifica la interfaz lógica sobre la red y permite enrutamiento entre subredes.
+
+Ejemplo breve: cuando un host A (192.168.1.10) envía un paquete a 192.168.1.20 en la misma VLAN, encapsula el paquete IPv4 dentro de una trama con la MAC destino correspondiente; si no la conoce, envía una ARP request y recibe la MAC en la ARP reply.
+
+### 5.2 Notación y cálculo (IPv4)
+
+- Notación decimal punteada: `192.168.1.10` con máscara `255.255.255.0` equivale a `192.168.1.10/24`.
+- CIDR (Classless Inter-Domain Routing): especifica el prefijo con `/n` donde `n` es bits de red.
+- Cálculo de subredes: dividir el espacio de direcciones incrementando el prefijo; calcular número de hosts útiles = 2^(32 - prefijo) - 2 (salvo subredes especiales).
+
+### 5.3 Ejemplo resuelto: subnetting para 4 VLANs
+
+Requerimientos: VLANs con 50, 20, 10 y 5 hosts. Red disponible: `192.168.0.0/24`.
+
+1) Ordenar por tamaño: 50, 20, 10, 5. Buscar prefijo mínimo que soporte cada VLAN:
+	- 50 hosts → requiere al menos 64 direcciones → prefijo `/26` (62 hosts útiles).
+	- 20 hosts → requiere al menos 32 direcciones → prefijo `/27` (30 hosts útiles).
+	- 10 hosts → requiere al menos 16 direcciones → prefijo `/28` (14 hosts útiles).
+	- 5 hosts → requiere al menos 8 direcciones → prefijo `/29` (6 hosts útiles).
+
+2) Asignación desde `192.168.0.0/24` (ejemplo de tabla):
+	- VLAN A (50): `192.168.0.0/26` → hosts `192.168.0.1`–`192.168.0.62`, broadcast `192.168.0.63`.
+	- VLAN B (20): `192.168.0.64/27` → hosts `192.168.0.65`–`192.168.0.94`, broadcast `192.168.0.95`.
+	- VLAN C (10): `192.168.0.96/28` → hosts `192.168.0.97`–`192.168.0.110`, broadcast `192.168.0.111`.
+	- VLAN D (5):  `192.168.0.112/29` → hosts `192.168.0.113`–`192.168.0.118`, broadcast `192.168.0.119`.
+
+3) Reserva de espacio para futuros: dejar bloques libres a partir de `192.168.0.120/`.
+
+### 5.4 IPv6: notación y consideraciones
+
+- Notación hexadecimal con `:` y compresión de ceros (`2001:db8::1`).
+- Prefijo típico de subred de enlace local: `/64`; para redes internas usar `/64` por compatibilidad.
+- No existe broadcast; se usan multicast y anycast.
+
+### 5.5 Buenas prácticas
+
+- Planificar rangos contiguos por VLAN y documentar en la tabla IP.
+- Reservar direcciones para servidores e infraestructura (DNS, NTP, impresoras).
+- Documentar máscaras y gateways en el mapa lógico.
+
+#### Diagrama: asignación de subredes (visual)
+
+```mermaid
+graph LR
+	A[192.168.0.0/24] --> A1[192.168.0.0/26\n(VLAN A - 62 hosts)]
+	A --> A2[192.168.0.64/27\n(VLAN B - 30 hosts)]
+	A --> A3[192.168.0.96/28\n(VLAN C - 14 hosts)]
+	A --> A4[192.168.0.112/29\n(VLAN D - 6 hosts)]
+	A --> R[Reservado 192.168.0.120/..]
+```
+
+
+## 6. Direccionamiento dinámico: DHCP, DHCPv6 y SLAAC
+
+*(CE-d: uso de sistemas de direccionamiento dinámico.)*
+
+
+### 6.1 Funcionamiento de DHCP (DORA)
+
+- DISCOVER: el cliente broadcast solicita configuración.
+- OFFER: el servidor ofrece una dirección y parámetros.
+- REQUEST: el cliente solicita formalmente la oferta elegida.
+- ACK: el servidor confirma y asigna la configuración.
+
+#### Diagrama: proceso DORA (DHCP)
+
+```mermaid
+sequenceDiagram
+	participant C as Cliente
+	participant B as Broadcast\n(enlace)
+	participant S as Servidor DHCP
+
+	C->>B: DHCPDISCOVER (broadcast)
+	B->>S: entrega DISCOVER
+	S-->>B: DHCPOFFER (broadcast/uni)
+	B->>C: entrega OFFER
+	C->>B: DHCPREQUEST (broadcast)
+	B->>S: entrega REQUEST
+	S-->>B: DHCPACK
+	B->>C: entrega ACK (config aplicada)
+```
+
+### 6.2 Parámetros entregados por DHCP
+
+- Dirección IP, máscara (o prefijo), puerta de enlace, servidores DNS, tiempo de arrendamiento (lease), opciones como NTP, WINS, clases y reservas.
+
+### 6.3 DHCPv6 y SLAAC
+
+- DHCPv6: similar a DHCPv4 pero con diferencias en transporte y opciones; puede actuar en modo estateless (solo opciones) o stateful (asigna direcciones).
+- SLAAC (Stateless Address Autoconfiguration): el host genera su propia dirección a partir del prefijo anunciado por el router (RA). Puede combinarse con DHCPv6 para opciones adicionales.
+
+### 6.4 Ejemplo práctico (DHCP IPv4)
+
+- Scope: `192.168.10.0/24`.
+- Pool: `192.168.10.100`–`192.168.10.200`.
+- Reserva: impresora `192.168.10.30` ligada a MAC.
+- Parámetros: gateway `192.168.10.1`, DNS `192.168.10.10`, lease 8 horas.
+
+Procedimiento de verificación:
+ - Conectar cliente en red y comprobar `ipconfig /renew` (Windows) o `dhclient` (Linux).
+ - Comprobar logs del servidor DHCP y la tabla de leases.
+
+
+## 7. Direcciones IPv6: unicast, anycast y multicast
+
+*(CE-d: conocimiento y uso de direcciones IPv6 y sus tipos.)*
+
+### 7.1 Formato y tipos
+
+- Notación: grupos hexadecimales de 16 bits separados por `:`; compresión de ceros `::` una sola vez por dirección.
+- Prefijos importantes: `fe80::/10` link‑local, `fc00::/7` ULA (Unique Local Address), `2000::/3` global unicast.
+- Tipos: unicast (uno‑a‑uno), multicast (uno‑a‑muchos), anycast (uno‑a‑el más cercano).
+
+### 7.2 Autoconfiguración y comprobación
+
+- SLAAC usa RAs (Router Advertisements) para anunciar prefijos y opciones.
+- DHCPv6 puede complementar SLAAC si se quiere un control centralizado.
+- Comprobaciones: `ip -6 addr`, `ip -6 route`, `ping6`/`ping -6`.
+
+### 7.3 Ejemplo breve
+
+- Configurar interfaz con dirección link‑local automática y comprobar alcance con `ping6 ff02::1%<iface>` para descubrir vecinos en el enlace.
+
+
+## 8. Adaptadores de red: instalación y configuración (alámbricos e inalámbricos)
+
+*(CE-e: configuración de adaptadores de red en distintos sistemas operativos.)*
+
+### 8.1 Tipos de adaptadores y controladores
+
+- Integrados (onboard), tarjeta PCIe, USB‑Ethernet y adaptadores Wi‑Fi (PCIe/USB/M.2).
+- Firmware/driver: importancia de versiones compatibles y firmwares actualizados.
+
+### 8.2 Configuración habitual y parámetros relevantes
+
+- Velocidad/duplex (auto/1000Full/100Half), MTU (p. ej. 1500 o jumbo frames), Wake‑on‑LAN, offloads (TSO, LRO), VLAN tagging en adaptadores avanzados.
+- Priorizar driver del fabricante para funcionalidades avanzadas.
+
+### 8.3 Comandos y verificaciones por SO
+
+- Windows: `ipconfig /all`, `netsh interface show interface`, Device Manager para drivers.
+- Linux: `ip link show`, `ip addr`, `ethtool <iface>` para velocidad/duplex/ethtool options.
+- macOS: `ifconfig`, `networksetup -listallhardwareports`.
+
+### 8.4 Ejemplo práctico: comprobar y configurar en Linux
+
+1. Listar interfaces: `ip link show`.
+2. Comprobar dirección: `ip addr show eth0`.
+3. Forzar 1 Gbps full duplex (si el driver lo permite): `sudo ethtool -s eth0 speed 1000 duplex full autoneg on`.
+4. Comprobar estado físico y estadísticas: `ethtool eth0` y `cat /sys/class/net/eth0/statistics/rx_packets`.
+
+### 8.5 Buenas prácticas
+
+- Documentar versión de driver y firmware al instalar equipos; probar con distintos cables y puertos si hay problemas.
+- Para adaptadores Wi‑Fi, verificar compatibilidad con estándares (802.11ac/ax) y band steering en APs.
+
+
+## 9. Integración de dispositivos en redes cableadas e inalámbricas
+
+*(CE-f, CE-g: integración y comprobación funcional de dispositivos en redes.)*
+
+### 9.1 Procedimiento general de integración
+
+- Preparación: comprobar requisitos (IP, VLAN, puerto switch, cableado) y documentación del dispositivo.
+- Conexión física: comprobar enlace (LED, `ethtool` / Device Manager) y etiquetado del puerto.
+- Configuración inicial: asignar IP (estática o DHCP), nombre de host y parámetros de servicio (DNS, NTP).
+- Pruebas funcionales: ping al gateway, resolución DNS, acceso a servicios (HTTP, SMB, impresión).
+
+### 9.2 Integración de impresoras y periféricos
+
+- Preferir IP estática o reserva DHCP para impresoras y servidores.
+- Configurar drivers y compartir recursos; registrar nombre y IP en DNS interno.
+- Verificaciones: imprimir página de prueba desde Windows/Linux/macOS y comprobar colas de impresión.
+
+### 9.3 Seguridad inalámbrica y políticas
+
+- Protocolos: WEP (obsoleto), WPA2 (AES) y WPA3 (mejoras en protección). Usar WPA2/WPA3 según hardware.
+- Autenticación empresarial: 802.1X con servidor RADIUS para control de acceso por usuario/dispositivo.
+- Segmentación: usar VLANs para separar tráfico invitado y dispositivos IoT.
+
+### 9.4 Ejemplo práctico
+
+- Caso: añadir una impresora de red con IP fija `192.168.20.30`, gateway `192.168.20.1` y DNS `192.168.20.10`.
+	1. Conectar físicamente y comprobar enlace.
+	2. Configurar IP en panel web de la impresora o por consola.
+	3. Registrar en DNS y crear cola de impresión en servidor o en cada estación.
+	4. Realizar prueba de impresión desde un cliente Windows y un cliente Linux.
+
+#### Diagrama: switch y tabla MAC (visual)
+
+```mermaid
+flowchart LR
+		subgraph SW[Switch]
+			P1[Puerto 1]\n(MAC 00:11:22:33:44:55)
+			P2[Puerto 2]\n(MAC AA:BB:CC:DD:EE:FF)
+			P3[Puerto 3]\n(MAC 00:1A:2B:3C:4D:5E)
+		end
+		P1 -->|trama| P2
+		P3 -->|trama| P1
+		style SW fill:#fff7e6,stroke:#333
+```
+
+
+## 10. Comprobación de conectividad entre dispositivos y adaptadores inalámbricos
+
+*(CE-g: comprobación de conectividad entre dispositivos y adaptadores inalámbricos.)*
+
+### 10.1 Herramientas de diagnóstico y comandos
+
+- Ping y traceroute: comprobación básica de alcance y rutas (`ping`, `traceroute`/`tracert`).
+- Información de interfaz: `ip addr`, `ip link`, `ifconfig`, `ipconfig /all`.
+- Wireless: `netsh wlan show interfaces` (Windows), `iw dev wlan0 link` (Linux), `nmcli` para NetworkManager.
+
+### 10.2 Pruebas de rendimiento y métricas
+
+- `iperf3` para ancho de banda (TCP/UDP), `ping` para latencia y pérdida, `mtr` para traza continua.
+- Medir jitter y pérdida con `iperf3 -u` y herramientas específicas de VoIP si se necesita.
+
+### 10.3 Procedimiento de prueba
+
+1. Establecer servidor: `iperf3 -s` en el equipo servidor.
+2. Ejecutar cliente: `iperf3 -c <ip_servidor>` en el equipo cliente.
+3. Repetir pruebas en distintos tiempos y canales (para Wi‑Fi) y promediar resultados.
+
+### 10.4 Ejemplo práctico
+
+- Medir ancho de banda entre PC y servidor a través de AP:
+	- En servidor: `iperf3 -s`.
+	- En cliente: `iperf3 -c 192.168.20.10 -t 30` (30 segundos).
+	- Registrar Mbps y comparar con tasa esperada.
+
+
+## 11. Representación del mapa físico y lógico de una red
+
+*(CE-h: uso de aplicaciones para representar el mapa físico y lógico de una red.)*
+
+### 11.1 Qué incluir en los mapas
+
+- Elementos físicos: racks, switches, paneles de parcheo, armarios, trazado de cables y puertos.
+- Elementos lógicos: VLANs, subredes, puertas de enlace, servidores y servicios.
+- Metadatos: versión de firmware, puertos usados, etiquetas de patch panel y responsables.
+
+### 11.2 Herramientas y formatos recomendados
+
+- draw.io (gratuito), Microsoft Visio (comercial), plantillas Markdown con tablas y mapas embebidos.
+- Exportar en PNG/PDF para documentación y en XML/diagrama para edición posterior.
+
+### 11.3 Ejemplo de tabla asociada al mapa
+
+- Tabla: dispositivo, IP, VLAN, puerto switch, puertos físicos, responsable.
+
+### 11.4 Buenas prácticas
+
+- Mantener versionado del mapa (fecha y autor) y guardar copia en repositorio compartido.
+- Realizar revisiones tras cambios físicos o lógicos significativos.
+
+
+## 12. Monitorización de la red mediante SNMP
+
+*(CE-i: monitorización de la red mediante aplicaciones basadas en SNMP.)*
+
+### 12.1 Fundamentos y versiones
+
+- Componentes: `manager` (herramienta que consulta), `agent` (servicio en el dispositivo), MIB (modelo de información) y OID (identificadores).
+- Versiones: v1/v2c (comunidad, baja seguridad), v3 (autenticación y cifrado — recomendado en entornos sensibles).
+
+### 12.2 Métricas útiles y umbrales
+
+- Interfaces: `ifInOctets`/`ifOutOctets`, errores y drops.
+- Salud de dispositivo: CPU, memoria, temperatura si el equipo lo expone.
+- Umbrales: establecer alertas para utilización > 80% o errores sostenidos.
+
+### 12.3 Herramientas y ejemplos de consultas
+
+- Herramientas: `snmpwalk`, `snmpget`, Zabbix, LibreNMS, Observium, Cacti.
+- Ejemplo: `snmpwalk -v2c -c public 192.168.1.1 IF-MIB::ifDescr`.
+
+### 12.4 Ejemplo práctico de monitorización básica
+
+1. Añadir dispositivo al sistema de monitorización con credenciales SNMPv2c/ community.
+2. Comprobar métricas de interfaz y configurar umbrales de alerta.
+3. Verificar generación de alertas simulando carga o desconectando interfaz.
+
+
+## 13. Cables ópticos: tipos y clasificación según velocidad/distancia
+
+*(CE-j, CE-k: identificación y clasificación de cables ópticos según velocidad y distancia.)*
+
+### 13.1 Tipos y características
+
+- Multimodo (MMF, OM1–OM5): núcleos más grandes, adecuados para enlaces LAN y centros de datos con transceptores VCSEL; OM3/OM4/OM5 para 10 G/40 G/100 G en distancias medias.
+- Monomodo (SMF): núcleo fino, ideal para largas distancias y enlaces troncales (DWDM, 10 G y superiores).
+
+### 13.2 Conectores y pérdidas
+
+- Conectores comunes: LC (pequeño, usado en data center), SC, ST; MPO/MTP para fibras múltiples.
+- Atenuación: se mide en dB; hay que comparar pérdida total con presupuesto de enlace del transceptor.
+
+### 13.3 Pruebas y herramientas
+
+- Medidor de potencia óptica y fuente: medir potencia en Tx/Rx y calcular pérdida.
+- OTDR: diagnóstico de trazado, localización de empalmes/roturas y medida de distancia a fallos.
+
+### 13.4 Buenas prácticas
+
+- Limpiar conectores antes de conectar, evitar dobleces por debajo del radio mínimo, etiquetar fibras y mantener documentación del trazado.
+
+### 13.5 Ejemplo comparativo
+
+- Enlace de 300 m a 10 G: multimodo OM3/OM4 suele ser suficiente.
+- Enlace de 10 km a 10 G: se recomienda monomodo con transceptores apropiados.
+
+## Metodología y actividades
+- Metodología mixta: explicaciones teóricas cortas, laboratorios prácticos, ejercicios de diseño y resolución de problemas.
+- Actividades sugeridas:
+	- Laboratorios de crimpado y verificación de cables.
+	- Talleres de configuración de adaptadores y servicios DHCP.
+	- Prácticas de integración de dispositivos y pruebas de conectividad entre VLANs y WLANs.
+	- Proyecto final: diseñar, montar (simulado o real) y documentar una red pequeña con mapa físico y lógico, direccionamiento IPv4/IPv6, monitorización SNMP y pruebas de rendimiento.
+
+## Evaluación y criterios de comprobación
+- Evaluación continua mediante observación en prácticas, informes técnicos y ejercicios de cálculo de subredes.
+- Pruebas prácticas: montaje y verificación de cables, configuración y verificación de adaptadores, asignación y comprobación de direcciones IP.
+- Proyecto final valorando: corrección técnica, documentación (mapas y tablas IP), resultados de monitorización y pruebas de rendimiento.
+
+## Duración orientativa
+- 25–30 horas lectivas: teoría breve (6–8 h), laboratorios y prácticas (16–20 h), evaluación y proyecto (3–4 h).
+
+## Recursos y herramientas
+- Materiales: cables, crimpadoras, comprobadores, adaptadores de red, puntos de acceso, switch manageable (si es posible), fibras de práctica o simulador.
+- Software: sistemas operativos (Windows/Linux/macOS), Wireshark, iperf, herramientas SNMP (snmpwalk), draw.io, Packet Tracer o GNS3 para simulación.
+
+---
+
