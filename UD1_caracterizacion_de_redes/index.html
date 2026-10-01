@@ -628,6 +628,39 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#definicion-ampliada" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Definición ampliada
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#caracteristicas-de-una-buena-arquitectura-de-red" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Características de una buena arquitectura de red
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aspectos-que-intervienen-en-el-diseno-de-la-arquitectura" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aspectos que intervienen en el diseño de la arquitectura
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#por-que-en-nivelescapas" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -743,6 +776,17 @@
     <span class="md-ellipsis">
       
         Características
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#familia-ieee-802-resumen-de-estandares-8021-a-80222" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Familia IEEE 802 — Resumen de estándares (802.1 a 802.22)
       
     </span>
   </a>
@@ -1362,6 +1406,39 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#definicion-ampliada" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Definición ampliada
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#caracteristicas-de-una-buena-arquitectura-de-red" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Características de una buena arquitectura de red
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aspectos-que-intervienen-en-el-diseno-de-la-arquitectura" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aspectos que intervienen en el diseño de la arquitectura
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#por-que-en-nivelescapas" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1477,6 +1554,17 @@
     <span class="md-ellipsis">
       
         Características
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#familia-ieee-802-resumen-de-estandares-8021-a-80222" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Familia IEEE 802 — Resumen de estándares (802.1 a 802.22)
       
     </span>
   </a>
@@ -2098,11 +2186,25 @@ Resultado: 1100,101₂ = C,A₁₆
 <h3 id="elementos-fisicos-hardware">Elementos físicos (hardware)<a class="headerlink" href="#elementos-fisicos-hardware" title="Permanent link">&para;</a></h3>
 <ul>
 <li><strong>Terminales/hosts</strong>: ordenadores, portátiles, móviles, servidores, impresoras de red.</li>
-<li><strong>Dispositivos de interconexión</strong>: hub, switch, router, punto de acceso, cortafuegos.</li>
-<li><strong>Medios de transmisión</strong>: cables (UTP, fibra) y medios inalámbricos.</li>
+<li>
+<p><strong>Dispositivos de interconexión</strong>: hub, switch, router, punto de acceso, cortafuegos.</p>
+<ul>
+<li>
+<p><strong>DTE (Data Terminal Equipment)</strong>: equipo terminal que genera o consume datos y actúa como origen/destino en un enlace. Ejemplos: PC, router (cuando actúa como terminal en un enlace serial), estaciones de trabajo.</p>
+</li>
+<li>
+<p><strong>DCE (Data Circuit-terminating Equipment / Data Communications Equipment)</strong>: equipo que proporciona la conexión física, señalización y temporización en el enlace; normalmente suministra el reloj. Ejemplos: módems, CSU/DSU, equipos de acceso del proveedor. En enlaces seriales tradicionales el DCE suministra el clock y el DTE se sincroniza a él.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Medios de transmisión</strong>: cables (UTP, fibra) y medios inalámbricos.</p>
+</li>
 <li><strong>Tarjetas de red (NIC)</strong>: adaptadores que permiten a un dispositivo conectarse a la red.</li>
 <li><strong>Conectores y elementos de cableado estructurado</strong>: rosetas, paneles de parcheo, canaletas, armarios de comunicaciones (racks).</li>
 </ul>
+<div style="page-break-before: always;"></div>
+
 <p><pre class="mermaid"><code>graph TB
     PC["🖥️ PC/Terminal"]
     LAP["💻 Portátil"]
@@ -2203,7 +2305,13 @@ Resultado: 1100,101₂ = C,A₁₆
 <li><strong>Según la propiedad</strong>: públicas (accesibles por cualquiera, ej. Internet) o privadas (uso restringido a una organización).</li>
 <li><strong>Según el medio de transmisión</strong>: cableadas (guiadas) o inalámbricas (no guiadas).</li>
 <li><strong>Según la relación funcional</strong>: redes cliente-servidor o redes entre iguales (peer to peer, P2P).</li>
-<li><strong>Según la titularidad de la gestión</strong>: redes de acceso, redes troncales (backbone).</li>
+<li>
+<p><strong>Según la titularidad de la gestión</strong>: redes de acceso, redes troncales (backbone).</p>
+</li>
+<li>
+<p><strong>WLAN (Wireless LAN):</strong> una LAN que utiliza tecnologías inalámbricas (habitualmente Wi‑Fi) para el acceso de los usuarios al medio. Ejemplo: una red de campus donde los ordenadores y móviles se conectan vía puntos de acceso Wi‑Fi a la LAN del edificio.</p>
+</li>
+<li><strong>VLAN (Virtual LAN):</strong> no es un tipo geográfico de red sino una caracterización o segmentación lógica dentro de una misma infraestructura física. Permite agrupar puertos o dispositivos en dominios broadcast separados para mejorar seguridad, rendimiento y gestión. Ejemplo: en un switch gestionable se crean VLAN 10 para Administración y VLAN 20 para Alumnado; ambos usan el mismo cableado físico pero su tráfico se mantiene separado.</li>
 </ul>
 <hr />
 <h2 id="7-topologias-de-red">7. Topologías de red<a class="headerlink" href="#7-topologias-de-red" title="Permanent link">&para;</a></h2>
@@ -2331,6 +2439,27 @@ Resultado: 1100,101₂ = C,A₁₆
 <h2 id="8-arquitectura-de-redes-y-niveles">8. Arquitectura de redes y niveles<a class="headerlink" href="#8-arquitectura-de-redes-y-niveles" title="Permanent link">&para;</a></h2>
 <p><em>(CE-d: Se han descrito las arquitecturas de red y los niveles que las componen.)</em></p>
 <p>Una <strong>arquitectura de red</strong> es un conjunto de niveles (capas) y protocolos que definen las reglas y estándares necesarios para que los dispositivos de una red se comuniquen entre sí de forma ordenada.</p>
+<h3 id="definicion-ampliada">Definición ampliada<a class="headerlink" href="#definicion-ampliada" title="Permanent link">&para;</a></h3>
+<p>Una arquitectura de red establece la estructura funcional y los mecanismos necesarios para intercambiar información entre sistemas heterogéneos. Define qué servicios ofrece cada capa, cómo se intercambian las entidades entre capas y qué protocolos y formatos se utilizan para garantizar interoperabilidad, rendimiento y fiabilidad.</p>
+<h3 id="caracteristicas-de-una-buena-arquitectura-de-red">Características de una buena arquitectura de red<a class="headerlink" href="#caracteristicas-de-una-buena-arquitectura-de-red" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Tolerancia a fallos:</strong> capacidad de mantener el servicio ante fallos parciales (redes redundantes, rutas alternativas, balanceo de carga). Ejemplo: dos enlaces WAN con BGP activo y rutas de respaldo que permiten continuar el servicio si uno falla.</li>
+<li><strong>Escalabilidad:</strong> poder crecer en número de nodos, tráfico o servicios sin degradar de forma inaceptable el rendimiento. Ejemplo: añadir switches de capa de agregación y segmentar en VLANs para soportar más usuarios.</li>
+<li><strong>Calidad de Servicio (QoS):</strong> mecanismos para priorizar tráfico, garantizar ancho de banda, limitar jitter y controlar latencia según clases de servicio. Ejemplo: marcar tráfico VoIP con DSCP alto y aplicar colas prioritarias en los routers.</li>
+<li><strong>Seguridad:</strong> mecanismos de autenticación, autorización, cifrado, y separación de dominios y tráfico para proteger la confidencialidad, integridad y disponibilidad. Ejemplo: VPNs IPsec para conexiones remotas y listas de control de acceso en el firewall.</li>
+<li><strong>Diseño modular y mantenible:</strong> separación clara de funciones por capas y componentes que facilite actualizaciones y gestión. Ejemplo: arquitectura en capas (acceso, agregación, núcleo) con equipos dedicados para cada función.</li>
+</ul>
+<h3 id="aspectos-que-intervienen-en-el-diseno-de-la-arquitectura">Aspectos que intervienen en el diseño de la arquitectura<a class="headerlink" href="#aspectos-que-intervienen-en-el-diseno-de-la-arquitectura" title="Permanent link">&para;</a></h3>
+<p>En el diseño de una arquitectura de red se deben considerar, entre otros, los siguientes aspectos técnicos:</p>
+<ul>
+<li><strong>Acceso al medio:</strong> métodos y tecnologías para que los nodos compartan el medio físico (CSMA/CD, CSMA/CA, switching, accesos punto a punto). Ejemplo: Wi‑Fi usa CSMA/CA para evitar colisiones, mientras que una LAN con switch usa switching full‑duplex.</li>
+<li><strong>Saturación del receptor:</strong> capacidad de los nodos para procesar paquetes entrantes y mecanismos de control de flujo y congestión. Ejemplo: un servidor web con límites de conexión que aplica balanceador para evitar sobrecarga.</li>
+<li><strong>Direccionamiento:</strong> esquema lógico y físico para identificar nodos y servicios (direcciones IP, subredes, VLANs, direcciones MAC). Ejemplo: plan de direccionamiento 10.0.0.0/16 dividido en /24 por departamentos.</li>
+<li><strong>Encaminamiento (routing):</strong> algoritmos y protocolos para seleccionar rutas eficientes y fiables entre emisores y receptores (OSPF, BGP, RIP). Ejemplo: OSPF en la red interna para convergencia rápida y BGP con ISP para redundancia.</li>
+<li><strong>Fragmentación:</strong> manejo de paquetes que superan el tamaño máximo de la trama o MTU y su reensamblado en destino. Ejemplo: ajuste de MTU y uso de Path MTU Discovery para evitar fragmentación en túneles VPN.</li>
+<li><strong>Control de errores:</strong> detección y, cuando sea posible, corrección de errores en tramas y paquetes (FCS, CRC, ARQ). Ejemplo: retransmisión por TCP cuando se detecta pérdida de segmentos.</li>
+<li><strong>Multiplexación:</strong> técnicas para compartir recursos de transporte entre múltiples flujos (TDMA, FDMA, CDMA, multiplexación por paquetes, sockets, puertos). Ejemplo: múltiples conexiones TCP compartiendo la misma interfaz física usando puertos distintos.</li>
+</ul>
 <h3 id="por-que-en-nivelescapas">¿Por qué en niveles/capas?<a class="headerlink" href="#por-que-en-nivelescapas" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Divide un problema complejo (la comunicación) en partes más simples y manejables.</li>
@@ -2492,7 +2621,9 @@ Física        ├──────► Acceso a la red
 <li>El modelo OSI es <strong>teórico/de referencia</strong>, más detallado didácticamente.</li>
 <li>El modelo TCP/IP es <strong>práctico</strong>, el que realmente se usa en Internet.</li>
 </ul>
-<p><pre class="mermaid"><code>graph TB
+<div class="page-break"></div>
+
+<pre class="mermaid"><code>graph TB
     subgraph OSI ["📘 Modelo OSI (7 capas)"]
     direction TB
     O7["7️⃣ Aplicación"] --- O6["6️⃣ Presentación"] --- O5["5️⃣ Sesión"] --- O4["4️⃣ Transporte"] --- O3["3️⃣ Red"] --- O2["2️⃣ Enlace"] --- O1["1️⃣ Física"]
@@ -2519,7 +2650,7 @@ Física        ├──────► Acceso a la red
     style T3 fill:#fff2b3
     style T2 fill:#ffd8b3
     style T1 fill:#ffd8b3</code></pre>
-<em>Las líneas punteadas muestran qué capas de OSI equivalen a cada capa de TCP/IP: 3 capas de OSI (Aplicación+Presentación+Sesión) se agrupan en 1 sola capa de Aplicación en TCP/IP.</em></p>
+<p><em>Las líneas punteadas muestran qué capas de OSI equivalen a cada capa de TCP/IP: 3 capas de OSI (Aplicación+Presentación+Sesión) se agrupan en 1 sola capa de Aplicación en TCP/IP.</em></p>
 <hr />
 <h2 id="12-protocolos-de-comunicacion">12. Protocolos de comunicación<a class="headerlink" href="#12-protocolos-de-comunicacion" title="Permanent link">&para;</a></h2>
 <p><em>(CE-e: Se ha descrito el concepto de protocolo de comunicación.)</em></p>
@@ -2586,9 +2717,134 @@ Física        ├──────► Acceso a la red
 <h3 id="caracteristicas">Características<a class="headerlink" href="#caracteristicas" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Usa el método de acceso al medio <strong>CSMA/CD</strong> (Carrier Sense Multiple Access with Collision Detection) en sus versiones originales con medio compartido (hoy en desuso en redes conmutadas con switches full-duplex, donde no hay colisiones).</li>
-<li>Direccionamiento mediante <strong>direcciones MAC</strong> (48 bits, hexadecimal).</li>
+<li>Direccionamiento mediante <strong>direcciones MAC</strong> (48 bits, hexadecimal). Viene proporcionada por la tarjeta de red y es única para cada tarjeta de red.</li>
 <li>Trama Ethernet: contiene dirección MAC destino, MAC origen, tipo/longitud, datos y <strong>FCS</strong> (Frame Check Sequence) para detección de errores.</li>
 </ul>
+<h3 id="familia-ieee-802-resumen-de-estandares-8021-a-80222">Familia IEEE 802 — Resumen de estándares (802.1 a 802.22)<a class="headerlink" href="#familia-ieee-802-resumen-de-estandares-8021-a-80222" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Norma</th>
+<th>Ámbito</th>
+<th>Descripción breve</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">802.1</td>
+<td>Bridging y LAN/MAN</td>
+<td>Arquitectura y estándares para bridging, VLANs, control de acceso y gestión (incluye 802.1Q VLANs, 802.1D bridging, 802.1X autenticación).</td>
+</tr>
+<tr>
+<td style="text-align: right;">802.2</td>
+<td>LLC (Logical Link Control)</td>
+<td>Subcapa LLC que proporciona servicios de enlace lógico independientes de la tecnología física (control de flujo y multiplexación por SAPs).</td>
+</tr>
+<tr>
+<td style="text-align: right;">802.3</td>
+<td>Ethernet</td>
+<td>Estándar para Ethernet (capa física y MAC). Incluye variantes como 10BASE-T, 100BASE-TX, 1000BASE-T, etc.</td>
+</tr>
+<tr>
+<td style="text-align: right;">802.4</td>
+<td>Token Bus (histórico)</td>
+<td>Estándar para redes con paso de testigo sobre topología tipo bus; en desuso y obsoleto.</td>
+</tr>
+<tr>
+<td style="text-align: right;">802.5</td>
+<td>Token Ring (histórico)</td>
+<td>Estándar para Token Ring de IBM; prácticamente obsoleto hoy.</td>
+</tr>
+<tr>
+<td style="text-align: right;">802.6</td>
+<td>MAN (DQDB)</td>
+<td>Estándar para MAN basado en DQDB (Distributed Queue Dual Bus); de uso muy limitado.</td>
+</tr>
+<tr>
+<td style="text-align: right;">802.7</td>
+<td>Broadband LAN (obsoleto)</td>
+<td>Enfocado a LANs de banda ancha; no ampliamente adoptado.</td>
+</tr>
+<tr>
+<td style="text-align: right;">802.8</td>
+<td>Fiber Optic Inter-Repeater (histórico)</td>
+<td>Especificaciones relacionadas con repetidores de fibra; cedido/obsoleto en la práctica.</td>
+</tr>
+<tr>
+<td style="text-align: right;">802.9</td>
+<td>Integrated Services LAN (ISLAN)</td>
+<td>Integración de servicios voz/datos; propuesta histórica con adopción limitada.</td>
+</tr>
+<tr>
+<td style="text-align: right;">802.10</td>
+<td>Interoperable LAN Security</td>
+<td>Seguridad en LANs (políticas, asociaciones de seguridad); en gran parte histórica.</td>
+</tr>
+<tr>
+<td style="text-align: right;">802.11</td>
+<td>Wireless LAN (Wi‑Fi)</td>
+<td>Estándar Wi‑Fi para WLANs. Incluye variantes 802.11a/b/g/n/ac/ax (Wi‑Fi 6) para distintas capas físicas y mejoras MAC.</td>
+</tr>
+<tr>
+<td style="text-align: right;">802.12</td>
+<td>Demand Priority (100BaseVG)</td>
+<td>Tecnología 100 Mbps alternativa (100BaseVG) con mecanismo de prioridad bajo demanda; no dominante.</td>
+</tr>
+<tr>
+<td style="text-align: right;">802.13</td>
+<td>(reservado)</td>
+<td>Reservado / no utilizado (sin especificación pública ampliamente adoptada).</td>
+</tr>
+<tr>
+<td style="text-align: right;">802.14</td>
+<td>Cable Modem (trabajo histórico)</td>
+<td>Trabajos relacionados con redes de cable; muchas funciones migraron a otros estándares.</td>
+</tr>
+<tr>
+<td style="text-align: right;">802.15</td>
+<td>Wireless Personal Area Networks (WPAN)</td>
+<td>Estándar para redes de área personal inalámbricas (Bluetooth tuvo su propio desarrollo paralelo; 802.15 incluye ZigBee/IEEE 802.15.4).</td>
+</tr>
+<tr>
+<td style="text-align: right;">802.16</td>
+<td>Broadband Wireless MAN (WiMAX)</td>
+<td>Estándar para acceso inalámbrico de banda ancha de área metropolitana (WiMAX).</td>
+</tr>
+<tr>
+<td style="text-align: right;">802.17</td>
+<td>Resilient Packet Ring (RPR)</td>
+<td>Estándar para redes en anillo orientadas a transporte de paquetes con resiliencia (RPR).</td>
+</tr>
+<tr>
+<td style="text-align: right;">802.18</td>
+<td>Radio Regulatory TAG</td>
+<td>Grupo de asesoramiento sobre regulación radioeléctrica para otros comités 802.</td>
+</tr>
+<tr>
+<td style="text-align: right;">802.19</td>
+<td>Coexistence</td>
+<td>Recomendaciones y mecanismos para coexistencia entre tecnologías inalámbricas en el mismo espectro.</td>
+</tr>
+<tr>
+<td style="text-align: right;">802.20</td>
+<td>Mobile Broadband (MBWA)</td>
+<td>Estándar para banda ancha móvil en movimiento; limitada adopción comercial.</td>
+</tr>
+<tr>
+<td style="text-align: right;">802.21</td>
+<td>Media Independent Handover</td>
+<td>Especifica mecanismos para handover entre diferentes tecnologías de enlace (por ejemplo, Wi‑Fi ↔ celular).</td>
+</tr>
+<tr>
+<td style="text-align: right;">802.22</td>
+<td>Wireless Regional Area Network (WRAN)</td>
+<td>Estándar para acceso inalámbrico en bandas TV (TV White Spaces) para cobertura regional rural.</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Nota: algunos comités históricos (802.4, 802.5, 802.7, etc.) están obsoletos o su trabajo fue absorbido por otras iniciativas; 802.3 y 802.11 son los más relevantes hoy en redes LAN y WLAN.</p>
+</blockquote>
 <hr />
 <h2 id="15-el-modelo-osi-y-ethernet">15. El modelo OSI y Ethernet<a class="headerlink" href="#15-el-modelo-osi-y-ethernet" title="Permanent link">&para;</a></h2>
 <p>Ethernet se corresponde con las <strong>dos capas inferiores</strong> del modelo OSI:</p>
@@ -2600,7 +2856,7 @@ Física        ├──────► Acceso a la red
 <p><strong>LLC (Logical Link Control, 802.2)</strong>: control de enlace lógico, independiente de la tecnología física, gestiona el control de errores y flujo.</p>
 </li>
 <li>
-<p><strong>MAC (Media Access Control)</strong>: control de acceso al medio, gestiona el direccionamiento físico (MAC) y el acceso al medio compartido (CSMA/CD).</p>
+<p><strong>MAC (Media Access Control, 802.3 a 802.22)</strong>: control de acceso al medio, gestiona el direccionamiento físico (MAC) y el acceso al medio compartido (CSMA/CD). </p>
 </li>
 <li><strong>Capa 1 (Física)</strong>: define las características eléctricas, ópticas, mecánicas y de señalización (tipos de cable, conectores, velocidades).</li>
 </ul>
@@ -2665,8 +2921,23 @@ Física        ├──────► Acceso a la red
 <td>Fibra óptica multi/monomodo</td>
 <td>300 m / 10 km</td>
 </tr>
+<tr>
+<td>10BASE2 (Thin Ethernet)</td>
+<td>10 Mbps</td>
+<td>Cable coaxial fino (RG‑58)</td>
+<td>~185 m</td>
+</tr>
+<tr>
+<td>10BASE5 (Thick Ethernet)</td>
+<td>10 Mbps</td>
+<td>Cable coaxial grueso (AUI/Thicknet)</td>
+<td>~500 m</td>
+</tr>
 </tbody>
 </table>
+<blockquote>
+<p>Nota: 10BASE2 y 10BASE5 son implementaciones históricas de Ethernet sobre cable coaxial; hoy están obsoletas en la mayoría de despliegues, sustituidas por Ethernet sobre par trenzado y fibra óptica.</p>
+</blockquote>
 <h3 id="categorias-de-par-trenzado-utp">Categorías de par trenzado (UTP)<a class="headerlink" href="#categorias-de-par-trenzado-utp" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
