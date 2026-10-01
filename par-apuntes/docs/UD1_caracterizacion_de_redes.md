@@ -5,63 +5,6 @@
 **RA1:** Reconoce la estructura de las redes de datos identificando sus elementos y principios de funcionamiento.
 
 ---
-## Índice <!-- omit from toc -->
-- [1. Evolución y expansión de las redes de datos](#1-evolución-y-expansión-de-las-redes-de-datos)
-- [2. Sistemas de numeración: decimal, binario y hexadecimal](#2-sistemas-de-numeración-decimal-binario-y-hexadecimal)
-  - [2.1 Sistema decimal (base 10)](#21-sistema-decimal-base-10)
-  - [2.2 Sistema binario (base 2)](#22-sistema-binario-base-2)
-  - [2.3 Sistema hexadecimal (base 16)](#23-sistema-hexadecimal-base-16)
-  - [2.4 Conversión entre sistemas](#24-conversión-entre-sistemas)
-- [3. Transmisión de Datos](#3-transmisión-de-datos)
-  - [3.1 El bit](#31-el-bit)
-  - [3.2 Métodos de transmisión de datos](#32-métodos-de-transmisión-de-datos)
-  - [3.3 Ancho de banda](#33-ancho-de-banda)
-- [4. Medios de transmisión](#4-medios-de-transmisión)
-  - [4.1 Medios guiados (cableados)](#41-medios-guiados-cableados)
-  - [4.2 Medios no guiados (inalámbricos)](#42-medios-no-guiados-inalámbricos)
-  - [Comparativa](#comparativa)
-- [5. Elementos funcionales, físicos y lógicos de una red](#5-elementos-funcionales-físicos-y-lógicos-de-una-red)
-  - [Elementos físicos (hardware)](#elementos-físicos-hardware)
-  - [Elementos lógicos (software)](#elementos-lógicos-software)
-  - [Elementos funcionales](#elementos-funcionales)
-- [6. Terminología y tipos de redes: LAN, MAN, WAN](#6-terminología-y-tipos-de-redes-lan-man-wan)
-  - [Otras clasificaciones de redes](#otras-clasificaciones-de-redes)
-- [7. Topologías de red](#7-topologías-de-red)
-  - [7.1 Topología en bus](#71-topología-en-bus)
-  - [7.2 Topología en anillo](#72-topología-en-anillo)
-  - [7.3 Topología en estrella](#73-topología-en-estrella)
-  - [7.4 Topología en árbol](#74-topología-en-árbol)
-  - [7.5 Topología en malla](#75-topología-en-malla)
-  - [7.6 Topología mixta/híbrida](#76-topología-mixtahíbrida)
-- [8. Arquitectura de redes y niveles](#8-arquitectura-de-redes-y-niveles)
-  - [¿Por qué en niveles/capas?](#por-qué-en-nivelescapas)
-- [9. Encapsulamiento de la información](#9-encapsulamiento-de-la-información)
-- [10. El modelo OSI](#10-el-modelo-osi)
-- [11. El modelo TCP/IP](#11-el-modelo-tcpip)
-  - [Comparativa OSI vs TCP/IP](#comparativa-osi-vs-tcpip)
-- [12. Protocolos de comunicación](#12-protocolos-de-comunicación)
-- [13. Funcionamiento de las pilas de protocolos](#13-funcionamiento-de-las-pilas-de-protocolos)
-- [14. Tecnologías Ethernet](#14-tecnologías-ethernet)
-  - [Evolución de velocidades](#evolución-de-velocidades)
-  - [Características](#características)
-- [15. El modelo OSI y Ethernet](#15-el-modelo-osi-y-ethernet)
-- [16. Tipos de cableado Ethernet](#16-tipos-de-cableado-ethernet)
-  - [Categorías de par trenzado (UTP)](#categorías-de-par-trenzado-utp)
-  - [Normas de conexión (pines RJ-45)](#normas-de-conexión-pines-rj-45)
-- [17. Tipos de cableado de fibra óptica](#17-tipos-de-cableado-de-fibra-óptica)
-  - [Estructura de la fibra](#estructura-de-la-fibra)
-  - [Tipos según el modo de propagación](#tipos-según-el-modo-de-propagación)
-  - [Conectores de fibra más comunes](#conectores-de-fibra-más-comunes)
-  - [Ventajas de la fibra frente al cobre](#ventajas-de-la-fibra-frente-al-cobre)
-- [18. Dispositivos de interconexión de redes](#18-dispositivos-de-interconexión-de-redes)
-  - [El punto de acceso (Access Point, AP)](#el-punto-de-acceso-access-point-ap)
-  - [Dominios de colisión y de difusión](#dominios-de-colisión-y-de-difusión)
-- [19. El modelo cliente-servidor](#19-el-modelo-cliente-servidor)
-  - [Características](#características-1)
-  - [Cliente-servidor frente a P2P (Peer to Peer)](#cliente-servidor-frente-a-p2p-peer-to-peer)
-- [20. Organismos de estandarización](#20-organismos-de-estandarización)
-- [Resumen de conceptos clave](#resumen-de-conceptos-clave)
-
 
 ## 1. Evolución y expansión de las redes de datos
 
@@ -355,9 +298,17 @@ Los medios de transmisión son el soporte físico por el que viaja la informaci�
 
 - **Terminales/hosts**: ordenadores, portátiles, móviles, servidores, impresoras de red.
 - **Dispositivos de interconexión**: hub, switch, router, punto de acceso, cortafuegos.
+  
+    - **DTE (Data Terminal Equipment)**: equipo terminal que genera o consume datos y actúa como origen/destino en un enlace. Ejemplos: PC, router (cuando actúa como terminal en un enlace serial), estaciones de trabajo.
+
+    - **DCE (Data Circuit-terminating Equipment / Data Communications Equipment)**: equipo que proporciona la conexión física, señalización y temporización en el enlace; normalmente suministra el reloj. Ejemplos: módems, CSU/DSU, equipos de acceso del proveedor. En enlaces seriales tradicionales el DCE suministra el clock y el DTE se sincroniza a él.
+  
 - **Medios de transmisión**: cables (UTP, fibra) y medios inalámbricos.
 - **Tarjetas de red (NIC)**: adaptadores que permiten a un dispositivo conectarse a la red.
 - **Conectores y elementos de cableado estructurado**: rosetas, paneles de parcheo, canaletas, armarios de comunicaciones (racks).
+
+<div style="page-break-before: always;"></div>
+
 
 ```mermaid
 graph TB
@@ -472,6 +423,9 @@ graph TB
 - **Según el medio de transmisión**: cableadas (guiadas) o inalámbricas (no guiadas).
 - **Según la relación funcional**: redes cliente-servidor o redes entre iguales (peer to peer, P2P).
 - **Según la titularidad de la gestión**: redes de acceso, redes troncales (backbone).
+
+- **WLAN (Wireless LAN):** una LAN que utiliza tecnologías inalámbricas (habitualmente Wi‑Fi) para el acceso de los usuarios al medio. Ejemplo: una red de campus donde los ordenadores y móviles se conectan vía puntos de acceso Wi‑Fi a la LAN del edificio.
+- **VLAN (Virtual LAN):** no es un tipo geográfico de red sino una caracterización o segmentación lógica dentro de una misma infraestructura física. Permite agrupar puertos o dispositivos en dominios broadcast separados para mejorar seguridad, rendimiento y gestión. Ejemplo: en un switch gestionable se crean VLAN 10 para Administración y VLAN 20 para Alumnado; ambos usan el mismo cableado físico pero su tráfico se mantiene separado.
 
 ---
 
@@ -612,6 +566,27 @@ Combinación de varias topologías anteriores según las necesidades de la organ
 
 Una **arquitectura de red** es un conjunto de niveles (capas) y protocolos que definen las reglas y estándares necesarios para que los dispositivos de una red se comuniquen entre sí de forma ordenada.
 
+### Definición ampliada
+Una arquitectura de red establece la estructura funcional y los mecanismos necesarios para intercambiar información entre sistemas heterogéneos. Define qué servicios ofrece cada capa, cómo se intercambian las entidades entre capas y qué protocolos y formatos se utilizan para garantizar interoperabilidad, rendimiento y fiabilidad.
+
+### Características de una buena arquitectura de red
+- **Tolerancia a fallos:** capacidad de mantener el servicio ante fallos parciales (redes redundantes, rutas alternativas, balanceo de carga). Ejemplo: dos enlaces WAN con BGP activo y rutas de respaldo que permiten continuar el servicio si uno falla.
+- **Escalabilidad:** poder crecer en número de nodos, tráfico o servicios sin degradar de forma inaceptable el rendimiento. Ejemplo: añadir switches de capa de agregación y segmentar en VLANs para soportar más usuarios.
+- **Calidad de Servicio (QoS):** mecanismos para priorizar tráfico, garantizar ancho de banda, limitar jitter y controlar latencia según clases de servicio. Ejemplo: marcar tráfico VoIP con DSCP alto y aplicar colas prioritarias en los routers.
+- **Seguridad:** mecanismos de autenticación, autorización, cifrado, y separación de dominios y tráfico para proteger la confidencialidad, integridad y disponibilidad. Ejemplo: VPNs IPsec para conexiones remotas y listas de control de acceso en el firewall.
+- **Diseño modular y mantenible:** separación clara de funciones por capas y componentes que facilite actualizaciones y gestión. Ejemplo: arquitectura en capas (acceso, agregación, núcleo) con equipos dedicados para cada función.
+
+### Aspectos que intervienen en el diseño de la arquitectura
+En el diseño de una arquitectura de red se deben considerar, entre otros, los siguientes aspectos técnicos:
+
+- **Acceso al medio:** métodos y tecnologías para que los nodos compartan el medio físico (CSMA/CD, CSMA/CA, switching, accesos punto a punto). Ejemplo: Wi‑Fi usa CSMA/CA para evitar colisiones, mientras que una LAN con switch usa switching full‑duplex.
+- **Saturación del receptor:** capacidad de los nodos para procesar paquetes entrantes y mecanismos de control de flujo y congestión. Ejemplo: un servidor web con límites de conexión que aplica balanceador para evitar sobrecarga.
+- **Direccionamiento:** esquema lógico y físico para identificar nodos y servicios (direcciones IP, subredes, VLANs, direcciones MAC). Ejemplo: plan de direccionamiento 10.0.0.0/16 dividido en /24 por departamentos.
+- **Encaminamiento (routing):** algoritmos y protocolos para seleccionar rutas eficientes y fiables entre emisores y receptores (OSPF, BGP, RIP). Ejemplo: OSPF en la red interna para convergencia rápida y BGP con ISP para redundancia.
+- **Fragmentación:** manejo de paquetes que superan el tamaño máximo de la trama o MTU y su reensamblado en destino. Ejemplo: ajuste de MTU y uso de Path MTU Discovery para evitar fragmentación en túneles VPN.
+- **Control de errores:** detección y, cuando sea posible, corrección de errores en tramas y paquetes (FCS, CRC, ARQ). Ejemplo: retransmisión por TCP cuando se detecta pérdida de segmentos.
+- **Multiplexación:** técnicas para compartir recursos de transporte entre múltiples flujos (TDMA, FDMA, CDMA, multiplexación por paquetes, sockets, puertos). Ejemplo: múltiples conexiones TCP compartiendo la misma interfaz física usando puertos distintos.
+
 ### ¿Por qué en niveles/capas?
 
 - Divide un problema complejo (la comunicación) en partes más simples y manejables.
@@ -728,6 +703,8 @@ Física        ├──────► Acceso a la red
 - El modelo OSI es **teórico/de referencia**, más detallado didácticamente.
 - El modelo TCP/IP es **práctico**, el que realmente se usa en Internet.
 
+<div class="page-break"></div>
+
 ```mermaid
 graph TB
     subgraph OSI ["📘 Modelo OSI (7 capas)"]
@@ -757,6 +734,7 @@ graph TB
     style T2 fill:#ffd8b3
     style T1 fill:#ffd8b3
 ```
+
 *Las líneas punteadas muestran qué capas de OSI equivalen a cada capa de TCP/IP: 3 capas de OSI (Aplicación+Presentación+Sesión) se agrupan en 1 sola capa de Aplicación en TCP/IP.*
 
 ---
@@ -812,8 +790,37 @@ Ejemplo con la pila TCP/IP: una petición web (HTTP) se apoya en TCP (transporte
 ### Características
 
 - Usa el método de acceso al medio **CSMA/CD** (Carrier Sense Multiple Access with Collision Detection) en sus versiones originales con medio compartido (hoy en desuso en redes conmutadas con switches full-duplex, donde no hay colisiones).
-- Direccionamiento mediante **direcciones MAC** (48 bits, hexadecimal).
+- Direccionamiento mediante **direcciones MAC** (48 bits, hexadecimal). Viene proporcionada por la tarjeta de red y es única para cada tarjeta de red.
 - Trama Ethernet: contiene dirección MAC destino, MAC origen, tipo/longitud, datos y **FCS** (Frame Check Sequence) para detección de errores.
+
+### Familia IEEE 802 — Resumen de estándares (802.1 a 802.22)
+
+| Norma | Ámbito | Descripción breve |
+|---:|---|---|
+| 802.1 | Bridging y LAN/MAN | Arquitectura y estándares para bridging, VLANs, control de acceso y gestión (incluye 802.1Q VLANs, 802.1D bridging, 802.1X autenticación). |
+| 802.2 | LLC (Logical Link Control) | Subcapa LLC que proporciona servicios de enlace lógico independientes de la tecnología física (control de flujo y multiplexación por SAPs). |
+| 802.3 | Ethernet | Estándar para Ethernet (capa física y MAC). Incluye variantes como 10BASE-T, 100BASE-TX, 1000BASE-T, etc. |
+| 802.4 | Token Bus (histórico) | Estándar para redes con paso de testigo sobre topología tipo bus; en desuso y obsoleto. |
+| 802.5 | Token Ring (histórico) | Estándar para Token Ring de IBM; prácticamente obsoleto hoy. |
+| 802.6 | MAN (DQDB) | Estándar para MAN basado en DQDB (Distributed Queue Dual Bus); de uso muy limitado. |
+| 802.7 | Broadband LAN (obsoleto) | Enfocado a LANs de banda ancha; no ampliamente adoptado. |
+| 802.8 | Fiber Optic Inter-Repeater (histórico) | Especificaciones relacionadas con repetidores de fibra; cedido/obsoleto en la práctica. |
+| 802.9 | Integrated Services LAN (ISLAN) | Integración de servicios voz/datos; propuesta histórica con adopción limitada. |
+| 802.10 | Interoperable LAN Security | Seguridad en LANs (políticas, asociaciones de seguridad); en gran parte histórica. |
+| 802.11 | Wireless LAN (Wi‑Fi) | Estándar Wi‑Fi para WLANs. Incluye variantes 802.11a/b/g/n/ac/ax (Wi‑Fi 6) para distintas capas físicas y mejoras MAC. |
+| 802.12 | Demand Priority (100BaseVG) | Tecnología 100 Mbps alternativa (100BaseVG) con mecanismo de prioridad bajo demanda; no dominante. |
+| 802.13 | (reservado) | Reservado / no utilizado (sin especificación pública ampliamente adoptada). |
+| 802.14 | Cable Modem (trabajo histórico) | Trabajos relacionados con redes de cable; muchas funciones migraron a otros estándares. |
+| 802.15 | Wireless Personal Area Networks (WPAN) | Estándar para redes de área personal inalámbricas (Bluetooth tuvo su propio desarrollo paralelo; 802.15 incluye ZigBee/IEEE 802.15.4). |
+| 802.16 | Broadband Wireless MAN (WiMAX) | Estándar para acceso inalámbrico de banda ancha de área metropolitana (WiMAX). |
+| 802.17 | Resilient Packet Ring (RPR) | Estándar para redes en anillo orientadas a transporte de paquetes con resiliencia (RPR). |
+| 802.18 | Radio Regulatory TAG | Grupo de asesoramiento sobre regulación radioeléctrica para otros comités 802. |
+| 802.19 | Coexistence | Recomendaciones y mecanismos para coexistencia entre tecnologías inalámbricas en el mismo espectro. |
+| 802.20 | Mobile Broadband (MBWA) | Estándar para banda ancha móvil en movimiento; limitada adopción comercial. |
+| 802.21 | Media Independent Handover | Especifica mecanismos para handover entre diferentes tecnologías de enlace (por ejemplo, Wi‑Fi ↔ celular). |
+| 802.22 | Wireless Regional Area Network (WRAN) | Estándar para acceso inalámbrico en bandas TV (TV White Spaces) para cobertura regional rural. |
+
+> Nota: algunos comités históricos (802.4, 802.5, 802.7, etc.) están obsoletos o su trabajo fue absorbido por otras iniciativas; 802.3 y 802.11 son los más relevantes hoy en redes LAN y WLAN.
 
 ---
 
@@ -825,7 +832,7 @@ Ethernet se corresponde con las **dos capas inferiores** del modelo OSI:
   
   - **LLC (Logical Link Control, 802.2)**: control de enlace lógico, independiente de la tecnología física, gestiona el control de errores y flujo.
   
-  - **MAC (Media Access Control)**: control de acceso al medio, gestiona el direccionamiento físico (MAC) y el acceso al medio compartido (CSMA/CD).
+  - **MAC (Media Access Control, 802.3 a 802.22)**: control de acceso al medio, gestiona el direccionamiento físico (MAC) y el acceso al medio compartido (CSMA/CD). 
 - **Capa 1 (Física)**: define las características eléctricas, ópticas, mecánicas y de señalización (tipos de cable, conectores, velocidades).
 
 ---
@@ -844,6 +851,10 @@ Denominación estándar: **[velocidad][tipo de señal][medio/longitud]**
 | 1000BASE-SX | 1 Gbps | Fibra óptica multimodo | ~550 m |
 | 1000BASE-LX | 1 Gbps | Fibra óptica monomodo | ~5 km |
 | 10GBASE-SR/LR | 10 Gbps | Fibra óptica multi/monomodo | 300 m / 10 km |
+| 10BASE2 (Thin Ethernet) | 10 Mbps | Cable coaxial fino (RG‑58) | ~185 m |
+| 10BASE5 (Thick Ethernet) | 10 Mbps | Cable coaxial grueso (AUI/Thicknet) | ~500 m |
+
+> Nota: 10BASE2 y 10BASE5 son implementaciones históricas de Ethernet sobre cable coaxial; hoy están obsoletas en la mayoría de despliegues, sustituidas por Ethernet sobre par trenzado y fibra óptica.
 
 ### Categorías de par trenzado (UTP)
 
@@ -1034,6 +1045,18 @@ La existencia de estándares comunes permite la interoperabilidad entre fabrican
 - **[EIA/TIA](https://tiaonline.org/) (Electronic Industries Alliance / Telecommunications Industry Association)**: definen estándares de cableado estructurado (ej. norma **TIA/EIA-568** para cableado UTP, T568A/T568B).
 - **[ICANN](https://www.icann.org/) (Internet Corporation for Assigned Names and Numbers)**: gestiona la asignación de nombres de dominio y direcciones IP a nivel mundial.
 - **[W3C](https://www.w3.org/) (World Wide Web Consortium)**: estándares relacionados con la web (HTML, CSS, XML...).
+
+### 20.1 AENOR — Asociación Española de Normalización y Certificación
+
+AENOR es el organismo nacional de normalización en España. Entre sus funciones principales destacan:
+
+- Elaborar normas técnicas (UNE) en distintos sectores, incluyendo tecnologías de la información y comunicaciones.
+- Certificar sistemas de gestión (calidad, seguridad de la información, medioambiente, continuidad del negocio, etc.) según normas nacionales e internacionales.
+- Evaluar y certificar productos, servicios y profesionales para garantizar su conformidad con normas y requisitos aplicables.
+- Representar a España en organismos internacionales y europeos de normalización (ISO, CEN), participando en la elaboración de estándares globales.
+- Difundir y formar sobre normas y buenas prácticas para favorecer la interoperabilidad, calidad y seguridad.
+
+En el ámbito de redes y telecomunicaciones, AENOR publica normas UNE relacionadas con cableado, ensayos, requisitos de calidad y seguridad, y puede certificar instalaciones y procesos que aseguren el cumplimiento de esas normas.
 
 ---
 
