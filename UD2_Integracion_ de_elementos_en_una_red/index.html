@@ -1,0 +1,1968 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://cizacas.github.io/PAR26-27-Apuntes/UD2_Integracion_%20de_elementos_en_una_red/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Unidad 2 – Integración de elementos en una red - Planificación y Administración de Redes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#unidad-2-integracion-de-elementos-en-una-red" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href=".." title="Planificación y Administración de Redes" class="md-header__button md-logo" aria-label="Planificación y Administración de Redes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Planificación y Administración de Redes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Unidad 2 – Integración de elementos en una red
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Planificación y Administración de Redes" class="md-nav__button md-logo" aria-label="Planificación y Administración de Redes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Planificación y Administración de Redes
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introducción
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UD1_caracterizacion_de_redes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Unidad 1: Caracterización de Redes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-medios-fisicos-y-estandares-para-redes-cableadas-e-inalambricas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Medios físicos y estándares para redes cableadas e inalámbricas
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Medios físicos y estándares para redes cableadas e inalámbricas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-definicion-y-funcion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 Definición y función
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-estandares-relevantes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 Estándares relevantes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-factores-fisicos-que-afectan-la-transmision" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 Factores físicos que afectan la transmisión
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-seleccion-practica-del-medio-criterios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4 Selección práctica del medio (criterios)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#15-ejemplo-ilustrativo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.5 Ejemplo ilustrativo
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-cables-metalicos-tipos-construccion-y-uso" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Cables metálicos: tipos, construcción y uso
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Cables metálicos: tipos, construcción y uso">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-coaxial-y-par-trenzado-estructura-y-propiedades" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 Coaxial y par trenzado: estructura y propiedades
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#211-cable-coaxial-estructura-y-tipos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1.1 Cable coaxial: estructura y tipos
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.1.1 Cable coaxial: estructura y tipos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagrama-corte-transversal-de-un-cable-coaxial" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagrama: corte transversal de un cable coaxial
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#212-par-trenzado-estructura-apantallamientos-y-clasificacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1.2 Par trenzado: estructura, apantallamientos y clasificación
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.1.2 Par trenzado: estructura, apantallamientos y clasificación">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagrama-par-trenzado-y-tipos-de-apantallamiento" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagrama: par trenzado y tipos de apantallamiento
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-categorias-utp-y-rendimiento-tabla" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Categorías UTP y rendimiento (tabla)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-conectores-y-normas-de-terminacion-par-trenzado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 Conectores y normas de terminación (par trenzado)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-ilustraciones-y-reglas-practicas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 Ilustraciones y reglas prácticas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-categorias-utp-y-rendimiento" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Categorías UTP y rendimiento
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-conectores-y-estandares-de-terminacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 Conectores y estándares de terminación
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-fibra-optica-monomodo-vs-multimodo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 Fibra óptica: monomodo vs multimodo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-ejemplo-practico" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5 Ejemplo práctico
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-montaje-de-cables-directo-cruzado-y-de-consola" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Montaje de cables: directo, cruzado y de consola
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Montaje de cables: directo, cruzado y de consola">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-herramientas-y-materiales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Herramientas y materiales
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-procedimiento-detallado-crimpado-rj45" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 Procedimiento detallado (crimpado RJ45)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-tipos-de-cable-y-uso" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 Tipos de cable y uso
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-buenas-practicas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 Buenas prácticas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35-ejemplo-de-checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.5 Ejemplo de checklist
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-comprobacion-de-conectividad-con-comprobadores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Comprobación de conectividad con comprobadores
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Comprobación de conectividad con comprobadores">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-tipos-de-comprobadores-y-funciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 Tipos de comprobadores y funciones
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-interpretacion-basica-de-resultados" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 Interpretación básica de resultados
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-ejemplo-de-informe-breve" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 Ejemplo de informe breve
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-direccionamiento-logico-ip-y-mascaras-de-subred" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Direccionamiento lógico IP y máscaras de subred
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Direccionamiento lógico IP y máscaras de subred">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-conceptos-basicos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 Conceptos básicos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#50-direccionamiento-fisico-direcciones-mac-y-ambito" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.0 Direccionamiento físico: direcciones MAC y ámbito
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.0 Direccionamiento físico: direcciones MAC y ámbito">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#comandos-utiles-para-comprobar-macarp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comandos útiles para comprobar MAC/ARP
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-notacion-y-calculo-ipv4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 Notación y cálculo (IPv4)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-ejemplo-resuelto-subnetting-para-4-vlans" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 Ejemplo resuelto: subnetting para 4 VLANs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54-ipv6-notacion-y-consideraciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.4 IPv6: notación y consideraciones
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#55-buenas-practicas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.5 Buenas prácticas
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.5 Buenas prácticas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagrama-asignacion-de-subredes-visual" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagrama: asignación de subredes (visual)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-direccionamiento-dinamico-dhcp-dhcpv6-y-slaac" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Direccionamiento dinámico: DHCP, DHCPv6 y SLAAC
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Direccionamiento dinámico: DHCP, DHCPv6 y SLAAC">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-funcionamiento-de-dhcp-dora" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 Funcionamiento de DHCP (DORA)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.1 Funcionamiento de DHCP (DORA)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagrama-proceso-dora-dhcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagrama: proceso DORA (DHCP)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-parametros-entregados-por-dhcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 Parámetros entregados por DHCP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-dhcpv6-y-slaac" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3 DHCPv6 y SLAAC
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#64-ejemplo-practico-dhcp-ipv4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.4 Ejemplo práctico (DHCP IPv4)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-direcciones-ipv6-unicast-anycast-y-multicast" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Direcciones IPv6: unicast, anycast y multicast
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Direcciones IPv6: unicast, anycast y multicast">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-formato-y-tipos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.1 Formato y tipos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-autoconfiguracion-y-comprobacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.2 Autoconfiguración y comprobación
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73-ejemplo-breve" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.3 Ejemplo breve
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-adaptadores-de-red-instalacion-y-configuracion-alambricos-e-inalambricos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Adaptadores de red: instalación y configuración (alámbricos e inalámbricos)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Adaptadores de red: instalación y configuración (alámbricos e inalámbricos)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-tipos-de-adaptadores-y-controladores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.1 Tipos de adaptadores y controladores
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-configuracion-habitual-y-parametros-relevantes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.2 Configuración habitual y parámetros relevantes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#83-comandos-y-verificaciones-por-so" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.3 Comandos y verificaciones por SO
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#84-ejemplo-practico-comprobar-y-configurar-en-linux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.4 Ejemplo práctico: comprobar y configurar en Linux
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#85-buenas-practicas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.5 Buenas prácticas
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-integracion-de-dispositivos-en-redes-cableadas-e-inalambricas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Integración de dispositivos en redes cableadas e inalámbricas
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Integración de dispositivos en redes cableadas e inalámbricas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#91-procedimiento-general-de-integracion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.1 Procedimiento general de integración
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#92-integracion-de-impresoras-y-perifericos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.2 Integración de impresoras y periféricos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#93-seguridad-inalambrica-y-politicas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.3 Seguridad inalámbrica y políticas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#94-ejemplo-practico" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.4 Ejemplo práctico
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9.4 Ejemplo práctico">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagrama-switch-y-tabla-mac-visual" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagrama: switch y tabla MAC (visual)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-comprobacion-de-conectividad-entre-dispositivos-y-adaptadores-inalambricos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Comprobación de conectividad entre dispositivos y adaptadores inalámbricos
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. Comprobación de conectividad entre dispositivos y adaptadores inalámbricos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#101-herramientas-de-diagnostico-y-comandos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.1 Herramientas de diagnóstico y comandos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#102-pruebas-de-rendimiento-y-metricas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.2 Pruebas de rendimiento y métricas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#103-procedimiento-de-prueba" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.3 Procedimiento de prueba
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#104-ejemplo-practico" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.4 Ejemplo práctico
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-representacion-del-mapa-fisico-y-logico-de-una-red" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Representación del mapa físico y lógico de una red
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11. Representación del mapa físico y lógico de una red">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#111-que-incluir-en-los-mapas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.1 Qué incluir en los mapas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#112-herramientas-y-formatos-recomendados" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.2 Herramientas y formatos recomendados
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#113-ejemplo-de-tabla-asociada-al-mapa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.3 Ejemplo de tabla asociada al mapa
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#114-buenas-practicas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.4 Buenas prácticas
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-monitorizacion-de-la-red-mediante-snmp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Monitorización de la red mediante SNMP
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="12. Monitorización de la red mediante SNMP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#121-fundamentos-y-versiones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.1 Fundamentos y versiones
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#122-metricas-utiles-y-umbrales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.2 Métricas útiles y umbrales
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#123-herramientas-y-ejemplos-de-consultas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.3 Herramientas y ejemplos de consultas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#124-ejemplo-practico-de-monitorizacion-basica" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.4 Ejemplo práctico de monitorización básica
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-cables-opticos-tipos-y-clasificacion-segun-velocidaddistancia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. Cables ópticos: tipos y clasificación según velocidad/distancia
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="13. Cables ópticos: tipos y clasificación según velocidad/distancia">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#131-tipos-y-caracteristicas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.1 Tipos y características
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#132-conectores-y-perdidas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.2 Conectores y pérdidas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#133-pruebas-y-herramientas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.3 Pruebas y herramientas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#134-buenas-practicas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.4 Buenas prácticas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#135-ejemplo-comparativo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.5 Ejemplo comparativo
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#metodologia-y-actividades" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Metodología y actividades
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#evaluacion-y-criterios-de-comprobacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Evaluación y criterios de comprobación
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#duracion-orientativa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Duración orientativa
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recursos-y-herramientas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recursos y herramientas
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="unidad-2-integracion-de-elementos-en-una-red">Unidad 2 – Integración de elementos en una red <!-- omit from toc --><a class="headerlink" href="#unidad-2-integracion-de-elementos-en-una-red" title="Permanent link">&para;</a></h1>
+<p><strong>Módulo:</strong> Planificación y Administración de Redes</p>
+<p><strong>RA2:</strong> Integra ordenadores y periféricos en redes cableadas e inalámbricas, evaluando su
+funcionamiento y prestaciones.</p>
+<hr />
+<h2 id="1-medios-fisicos-y-estandares-para-redes-cableadas-e-inalambricas">1. Medios físicos y estándares para redes cableadas e inalámbricas<a class="headerlink" href="#1-medios-fisicos-y-estandares-para-redes-cableadas-e-inalambricas" title="Permanent link">&para;</a></h2>
+<p><em>(CE-a: Se han identificado los estándares para redes cableadas e inalámbricas.)</em></p>
+<h3 id="11-definicion-y-funcion">1.1 Definición y función<a class="headerlink" href="#11-definicion-y-funcion" title="Permanent link">&para;</a></h3>
+<p><strong>El medio físico</strong> es el soporte material o el canal por el que viajan las señales que transportan la información: pares de cobre, fibra óptica o el espacio libre para enlaces inalámbricos. Su selección condiciona la velocidad, la distancia máxima, la fiabilidad y el coste de una red.</p>
+<h3 id="12-estandares-relevantes">1.2 Estándares relevantes<a class="headerlink" href="#12-estandares-relevantes" title="Permanent link">&para;</a></h3>
+<ul>
+<li>IEEE 802.3 (Ethernet): define capas físicas y de enlace para Ethernet en distintas velocidades (10/100/1000/10G...).</li>
+<li>IEEE 802.11 (Wi‑Fi): familia de estándares para LAN inalámbrica (802.11a/b/g/n/ac/ax), con bandas 2.4 GHz y 5/6 GHz y diferentes modulaciónes.</li>
+<li>IEEE 802.15 (Bluetooth y WPAN): comunicaciones de corto alcance.</li>
+<li>ITU‑T y TIA/EIA: recomendaciones para fibra y cableado estructurado (p. ej. TIA/EIA‑568 para UTP).</li>
+</ul>
+<h3 id="13-factores-fisicos-que-afectan-la-transmision">1.3 Factores físicos que afectan la transmisión<a class="headerlink" href="#13-factores-fisicos-que-afectan-la-transmision" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Atenuación: pérdida de potencia con la distancia (más crítica en cobre que en fibra).</li>
+<li>Diafonía (crosstalk): acoplo entre pares; mitigado con trenzado y apantallamiento.</li>
+<li>Interferencias electromagnéticas (EMI): fuentes externas que afectan señales eléctricas.</li>
+<li>Relación señal‑ruido (SNR): determina la calidad y la capacidad del enlace.</li>
+<li>Ancho de banda teórico vs. tasa efectiva: overhead de protocolos y retransmisiones reducen rendimiento real.</li>
+</ul>
+<h3 id="14-seleccion-practica-del-medio-criterios">1.4 Selección práctica del medio (criterios)<a class="headerlink" href="#14-seleccion-practica-del-medio-criterios" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Cortas distancias y bajo coste → UTP (Cat5e/Cat6).</li>
+<li>Enlaces troncales o largas distancias → fibra monomodo.</li>
+<li>Entornos con mucho ruido eléctrico → fibra óptica.</li>
+<li>Movilidad o dispositivos móviles → soluciones Wi‑Fi con planificación de canales.</li>
+</ul>
+<h3 id="15-ejemplo-ilustrativo">1.5 Ejemplo ilustrativo<a class="headerlink" href="#15-ejemplo-ilustrativo" title="Permanent link">&para;</a></h3>
+<p>Para un aula de 25 puestos con servidor local: UTP Cat6 para los puestos (1 Gbps) y fibra multimodo OM3 entre armarios de comunicaciones para permitir 10 Gbps entre switches si se prevé crecimiento.</p>
+<hr />
+<h2 id="2-cables-metalicos-tipos-construccion-y-uso">2. Cables metálicos: tipos, construcción y uso<a class="headerlink" href="#2-cables-metalicos-tipos-construccion-y-uso" title="Permanent link">&para;</a></h2>
+<p><em>(CE-a, CE-j, CE-k: identificación y clasificación de cables metálicos y ópticos según velocidad y distancia.)</em></p>
+<h3 id="21-coaxial-y-par-trenzado-estructura-y-propiedades">2.1 Coaxial y par trenzado: estructura y propiedades<a class="headerlink" href="#21-coaxial-y-par-trenzado-estructura-y-propiedades" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Coaxial: conductor central (señal), dieléctrico, malla (blindaje) y cubierta. Uso actual reducido en LAN, aún empleado en TV y redes HFC.</li>
+<li>Par trenzado (UTP/STP): pares de conductores trenzados para reducir interferencias; STP/FTP añaden apantallamiento para entornos ruidosos.</li>
+</ul>
+<h3 id="211-cable-coaxial-estructura-y-tipos">2.1.1 Cable coaxial: estructura y tipos<a class="headerlink" href="#211-cable-coaxial-estructura-y-tipos" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Estructura básica (desde el interior hacia fuera):<ol>
+<li>Núcleo conductor (busca transportar la señal eléctrica, suele ser cobre sólido o trenzado).</li>
+<li>Dieléctrico (aislante) que separa el conductor del blindaje y mantiene la impedancia característica.</li>
+<li>Blindaje (malla metálica y/o lámina) que protege frente a EMI y reduce la radiación de la señal.</li>
+<li>Cubierta exterior (jacket) que protege mecánicamente el conjunto.</li>
+</ol>
+</li>
+</ul>
+<h4 id="diagrama-corte-transversal-de-un-cable-coaxial">Diagrama: corte transversal de un cable coaxial<a class="headerlink" href="#diagrama-corte-transversal-de-un-cable-coaxial" title="Permanent link">&para;</a></h4>
+<pre class="mermaid"><code>graph LR
+        subgraph coaxial[ ]
+        C((Núcleo))
+        D[(Dieléctrico)]
+        M[(Malla / Blindaje)]
+        J[(Cubierta exterior)]
+        end
+        coaxial --&gt; C
+        coaxial --&gt; D
+        coaxial --&gt; M
+        coaxial --&gt; J</code></pre>
+<ul>
+<li>Tipos comunes: RG‑6 (TV, satélite), RG‑59 (vídeo analógico, corto alcance), RG‑11 (menor atenuación, distancias mayores).</li>
+<li>Conectores habituales: BNC (vídeo profesional), F‑type (TV/SAT, roscado) y N/SC para aplicaciones de mayor potencia o RF.</li>
+</ul>
+<h3 id="212-par-trenzado-estructura-apantallamientos-y-clasificacion">2.1.2 Par trenzado: estructura, apantallamientos y clasificación<a class="headerlink" href="#212-par-trenzado-estructura-apantallamientos-y-clasificacion" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Estructura básica: varios pares de conductores trenzados dentro de una cubierta; el trenzado reduce diafonía y mejora inmunidad al ruido.</li>
+<li>Tipos según apantallamiento:<ul>
+<li>UTP (Unshielded Twisted Pair): sin apantallamiento, más económico y flexible.</li>
+<li>STP (Shielded Twisted Pair): cada par o el conjunto va apantallado (foil/braid) para reducir EMI en entornos ruidosos.</li>
+<li>FTP (Foiled Twisted Pair): capa global de lámina que envuelve los pares; mezcla de coste y protección.</li>
+</ul>
+</li>
+</ul>
+<h4 id="diagrama-par-trenzado-y-tipos-de-apantallamiento">Diagrama: par trenzado y tipos de apantallamiento<a class="headerlink" href="#diagrama-par-trenzado-y-tipos-de-apantallamiento" title="Permanent link">&para;</a></h4>
+<pre class="mermaid"><code>graph LR
+        subgraph pair[Par trenzado]
+            P1((Conductor A))
+            P2((Conductor B))
+            T[Trenzado]\n(intercambio de posiciones)
+        end
+        subgraph types[Apantallamiento]
+            UTP[UTP \n(no shield)]
+            FTP[FTP \n(foil around pairs)]
+            STP[STP \n(shield per pair or overall)]
+        end
+        pair --&gt; T
+        types --&gt; UTP
+        types --&gt; FTP
+        types --&gt; STP</code></pre>
+<h3 id="22-categorias-utp-y-rendimiento-tabla">2.2 Categorías UTP y rendimiento (tabla)<a class="headerlink" href="#22-categorias-utp-y-rendimiento-tabla" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Categoría</th>
+<th style="text-align: right;">Frecuencia aproximada</th>
+<th style="text-align: right;">Velocidad típica</th>
+<th>Uso típico</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cat5e</td>
+<td style="text-align: right;">100 MHz</td>
+<td style="text-align: right;">1 Gbps</td>
+<td>Redes LAN 1 Gbps hasta 100 m</td>
+</tr>
+<tr>
+<td>Cat6</td>
+<td style="text-align: right;">250 MHz</td>
+<td style="text-align: right;">1 Gbps (hasta 100 m) / 10 Gbps (hasta ~55 m)</td>
+<td>Redes gigabit, entornos actuales</td>
+</tr>
+<tr>
+<td>Cat6a</td>
+<td style="text-align: right;">500 MHz</td>
+<td style="text-align: right;">10 Gbps (hasta 100 m)</td>
+<td>Centros de datos, enlaces de alto rendimiento</td>
+</tr>
+<tr>
+<td>Cat7 / Cat7a</td>
+<td style="text-align: right;">600–1000 MHz</td>
+<td style="text-align: right;">10 Gbps y superiores</td>
+<td>Entornos con apantallamiento, cableado industrial</td>
+</tr>
+<tr>
+<td>Cat8</td>
+<td style="text-align: right;">hasta 2000 MHz</td>
+<td style="text-align: right;">25–40 Gbps (corto alcance)</td>
+<td>Backbones de rack, data centers (corto alcance)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Nota:</strong> la velocidad real depende de transceptores, calidad de crimpado, ruido y longitud del enlace.</p>
+<h3 id="23-conectores-y-normas-de-terminacion-par-trenzado">2.3 Conectores y normas de terminación (par trenzado)<a class="headerlink" href="#23-conectores-y-normas-de-terminacion-par-trenzado" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Conector estándar: RJ‑45 (8P8C). Normas de polarización: T568A y T568B.</li>
+<li>Selección según categoría: los conectores y jacks certificados para Cat6/Cat6a garantizan parámetros eléctricos mejores (NEXT, propagación, pérdida de retorno).</li>
+</ul>
+<h3 id="24-ilustraciones-y-reglas-practicas">2.4 Ilustraciones y reglas prácticas<a class="headerlink" href="#24-ilustraciones-y-reglas-practicas" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Evitar curvas con radio menor al recomendado por el fabricante (p. ej. 4× el diámetro del cable).</li>
+<li>No estirar excesivamente el cable al tenderlo; respetar distancia máxima de 100 m para enlaces UTP.</li>
+<li>Mantener separación respecto a fuentes EMI (cables eléctricos, motores) o usar STP/FTP si no es posible.</li>
+</ul>
+<h3 id="22-categorias-utp-y-rendimiento">2.2 Categorías UTP y rendimiento<a class="headerlink" href="#22-categorias-utp-y-rendimiento" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Cat5e: soporte habitual de 1 Gbps hasta 100 m.</li>
+<li>Cat6: mejora en diafonía, soporta 1 Gbps y 10 Gbps en distancias limitadas.</li>
+<li>Cat6a/Cat7: diseñado para 10 Gbps con mejor margen y apantallamiento.</li>
+</ul>
+<p>Parámetros importantes: atenuación, NEXT (Near‑End Crosstalk), PSNEXT y pérdida de retorno.</p>
+<h3 id="23-conectores-y-estandares-de-terminacion">2.3 Conectores y estándares de terminación<a class="headerlink" href="#23-conectores-y-estandares-de-terminacion" title="Permanent link">&para;</a></h3>
+<ul>
+<li>RJ‑45 (8P8C) es el conector estándar para par trenzado; normas T568A y T568B definen el orden de los hilos.</li>
+<li>BNC es típico en coaxial; fibra usa LC/SC/ST/FC según equipo.</li>
+</ul>
+<h3 id="24-fibra-optica-monomodo-vs-multimodo">2.4 Fibra óptica: monomodo vs multimodo<a class="headerlink" href="#24-fibra-optica-monomodo-vs-multimodo" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Multimodo (MMF, OM1–OM5): núcleo mayor, económicas lámparas/LEDs o láseres VCSEL; adecuadas para enlaces LAN y centros de datos (distancias cortas‑medias).</li>
+<li>Monomodo (SMF): núcleo fino, láser, usadas en enlaces de larga distancia y troncales.</li>
+</ul>
+<h3 id="25-ejemplo-practico">2.5 Ejemplo práctico<a class="headerlink" href="#25-ejemplo-practico" title="Permanent link">&para;</a></h3>
+<p>Comparación: para un enlace entre armarios a 500 m se elegirá fibra multimodo OM4/OM3 si el presupuesto lo permite para 10 Gbps; para enlaces &gt;2 km usar monomodo.</p>
+<hr />
+<h2 id="3-montaje-de-cables-directo-cruzado-y-de-consola">3. Montaje de cables: directo, cruzado y de consola<a class="headerlink" href="#3-montaje-de-cables-directo-cruzado-y-de-consola" title="Permanent link">&para;</a></h2>
+<p><em>(CE-b, CE-c: montaje de cables y comprobación con instrumentos.)</em></p>
+<h3 id="31-herramientas-y-materiales">3.1 Herramientas y materiales<a class="headerlink" href="#31-herramientas-y-materiales" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Herramientas: pelacables, crimpadora para RJ45, tester de cables, cortacables, destornillador para paneles.</li>
+<li>Materiales: cable UTP/STP (la categoría elegida), conectores RJ45, manguitos y etiquetas.</li>
+</ul>
+<h3 id="32-procedimiento-detallado-crimpado-rj45">3.2 Procedimiento detallado (crimpado RJ45)<a class="headerlink" href="#32-procedimiento-detallado-crimpado-rj45" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Cortar la cubierta exterior dejando ~3 cm y pelar con cuidado.</li>
+<li>Separar y alisar los pares; ordenar según T568B (o T568A si se requiere).</li>
+<li>Cortar los conductores de manera uniforme y empujar hasta el tope del conector RJ45.</li>
+<li>Insertar el conector en la crimpadora y crimpar firmemente.</li>
+<li>Probar con un comprobador de cables: continuidad, mapeo de pares y posible inversión.</li>
+</ol>
+<h3 id="33-tipos-de-cable-y-uso">3.3 Tipos de cable y uso<a class="headerlink" href="#33-tipos-de-cable-y-uso" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Cable directo (straight): mismo orden en ambos extremos — PC ↔ switch.</li>
+<li>Cable cruzado (crossover): orden invertido en pares TX/RX — usado históricamente PC↔PC o switch↔switch.</li>
+<li>Cable de consola: normalmente RJ45‑to‑serial o USB‑serial para consola de equipos de red.</li>
+</ul>
+<h3 id="34-buenas-practicas">3.4 Buenas prácticas<a class="headerlink" href="#34-buenas-practicas" title="Permanent link">&para;</a></h3>
+<ul>
+<li>No exceder 100 m en enlaces UTP; evitar curvas cerradas; proteger y etiquetar vías y parches.</li>
+</ul>
+<h3 id="35-ejemplo-de-checklist">3.5 Ejemplo de checklist<a class="headerlink" href="#35-ejemplo-de-checklist" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Para 10 cables: comprobar continuidad, orden de pines, resistencia de pares &lt; X ohm, prueba funcional con equipo.</li>
+</ul>
+<hr />
+<h2 id="4-comprobacion-de-conectividad-con-comprobadores">4. Comprobación de conectividad con comprobadores<a class="headerlink" href="#4-comprobacion-de-conectividad-con-comprobadores" title="Permanent link">&para;</a></h2>
+<p><em>(CE-c: uso de comprobadores para verificar la conectividad de distintos tipos de cables.)</em></p>
+<h3 id="41-tipos-de-comprobadores-y-funciones">4.1 Tipos de comprobadores y funciones<a class="headerlink" href="#41-tipos-de-comprobadores-y-funciones" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Testers de bolsillo: verifican continuidad y mapeo rápido de pares.</li>
+<li>Certificadores profesionales (Fluke): miden NEXT, pérdida, pérdida de retorno y dan un reporte de conformidad con la categoría.</li>
+<li>Medidores de potencia óptica y fuentes/receivers: miden atenuación en enlaces de fibra.</li>
+</ul>
+<h3 id="42-interpretacion-basica-de-resultados">4.2 Interpretación básica de resultados<a class="headerlink" href="#42-interpretacion-basica-de-resultados" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Continuidad OK: todos los pares conectados y en orden.</li>
+<li>Pares abiertos: falta de continuidad en uno o varios conductores.</li>
+<li>Cortocircuito: unión entre pares; falla grave.</li>
+<li>Inversión de pares: TX/RX cruzados (puede afectar negociaciones).</li>
+<li>Pérdida en fibra: expresada en dB; comparar con límites del enlace para garantizar margen.</li>
+</ul>
+<h3 id="43-ejemplo-de-informe-breve">4.3 Ejemplo de informe breve<a class="headerlink" href="#43-ejemplo-de-informe-breve" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Identificador: cable_01</li>
+<li>Resultado: continuidad OK; resistencia media 0.8 Ω; pérdida óptica N/A.</li>
+</ul>
+<hr />
+<h2 id="5-direccionamiento-logico-ip-y-mascaras-de-subred">5. Direccionamiento lógico IP y máscaras de subred<a class="headerlink" href="#5-direccionamiento-logico-ip-y-mascaras-de-subred" title="Permanent link">&para;</a></h2>
+<p><em>(CE-d: uso del direccionamiento lógico IP para asignar direcciones y máscaras.)</em></p>
+<h3 id="51-conceptos-basicos">5.1 Conceptos básicos<a class="headerlink" href="#51-conceptos-basicos" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Dirección IP: identificador lógico de <strong>una interfaz en una red</strong> (IPv4/IPv6).</li>
+<li>Máscara o prefijo: determina la porción de red y la de host (p. ej. /24, /64).</li>
+<li>Dirección de broadcast (IPv4): dirección para enviar a todos los hosts de la subred.</li>
+<li>Puerta de enlace (gateway): router que conecta la subred con otras redes.</li>
+<li>Tabla de enrutamiento: conjunto de rutas que usan los routers/hosts para encaminar paquetes.</li>
+</ul>
+<h3 id="50-direccionamiento-fisico-direcciones-mac-y-ambito">5.0 Direccionamiento físico: direcciones MAC y ámbito<a class="headerlink" href="#50-direccionamiento-fisico-direcciones-mac-y-ambito" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Dirección MAC: identificador único de 48 bits (normalmente) asignado a la interfaz de red por el fabricante (formato hex <code>00:1A:2B:3C:4D:5E</code>).</li>
+<li>Ámbito de actuación: la dirección MAC opera en la capa de enlace (OSI capa 2) y se usa para la entrega de tramas en el mismo dominio de broadcast (misma LAN / VLAN).</li>
+<li>ARP (Address Resolution Protocol): protocolo de la capa de enlace que resuelve una dirección IPv4 a una dirección MAC dentro de la misma subred mediante solicitudes y respuestas (ARP request/ARP reply).<ul>
+<li>¿Qué es ARP?: ARP es el mecanismo por el que un host descubre la dirección MAC asociada a una dirección IPv4 cuando necesita enviar una trama dentro de la misma LAN. Funciona enviando una petición broadcast y recibiendo una respuesta unicast con la dirección MAC.</li>
+</ul>
+</li>
+<li>OUI y estructura de una MAC: las direcciones MAC suelen tener 48 bits (6 octetos). Los 3 primeros octetos forman el OUI (Organizationally Unique Identifier) que identifica al fabricante; los 3 octetos finales son asignados por el fabricante para cada interfaz.<ul>
+<li>Ejemplo: <code>00:1A:2B:3C:4D:5E</code> → OUI <code>00:1A:2B</code> (fabricante), sufijo <code>3C:4D:5E</code> (identificador de interfaz).</li>
+</ul>
+</li>
+<li>Unicidad y casos de duplicado:<ul>
+<li>En teoría cada MAC debe ser única. Los fabricantes registran OUIs y generan sufijos para evitar colisiones.</li>
+<li>Casos que provocan duplicados: clonación manual (configuración intencionada), máquinas virtuales que duplican MAC por snapshot/import, dispositivos defectuosos o fabricantes que no respetan el asignamiento, o reutilización en redes virtuales.</li>
+<li>Efectos de duplicado: conflictos de enlace (tramas alternando entre puertos), problemas de ARP, pérdida de conectividad para una o ambas interfaces.</li>
+<li>Mitigación: asignar MACs estáticas válidas en elementos críticos, usar seguridad en switches (port security), gestionar MACs en entornos virtuales y evitar clonar sin control.</li>
+</ul>
+</li>
+</ul>
+<h4 id="comandos-utiles-para-comprobar-macarp">Comandos útiles para comprobar MAC/ARP<a class="headerlink" href="#comandos-utiles-para-comprobar-macarp" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Windows:<ul>
+<li>Ver ARP: <code>arp -a</code> (muestra asociaciones IP → MAC en caché).</li>
+<li>Ver adaptadores y MACs locales: <code>getmac /v</code> o <code>wmic nic where (MACAddress is not null) get MACAddress,Name</code>.</li>
+<li>Forzar renovación DHCP y comprobar: <code>ipconfig /release</code> y <code>ipconfig /renew</code>.</li>
+</ul>
+</li>
+<li>Linux:<ul>
+<li>Ver vecinos/ARP: <code>ip neigh</code> o <code>arp -n</code>.</li>
+<li>Ver interfaces y MAC locales: <code>ip link show</code> o <code>cat /sys/class/net/&lt;iface&gt;/address</code>.</li>
+<li>Ver tabla de direcciones MAC del switch (si tiene acceso SSH/CLI): <code>show mac address-table</code> (Cisco) o comandos equivalentes según fabricante.</li>
+</ul>
+</li>
+</ul>
+<p>Ejemplo rápido (Linux):
+<div class="highlight"><pre><span></span><code>$ ip link show eth0
+2: eth0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc fq_codel state UP mode DEFAULT group default qlen 1000
+        link/ether 00:1a:2b:3c:4d:5e brd ff:ff:ff:ff:ff:ff
+</code></pre></div></p>
+<p>Ejemplo rápido (Windows PowerShell):
+<div class="highlight"><pre><span></span><code>PS&gt; Get-NetAdapter | Format-Table -Auto Name,MacAddress,Status
+</code></pre></div>
+- Switches: dispositivos que reenvían tramas usando tablas MAC (CAM) aprendidas por puerto; las direcciones MAC permiten conmutación local sin intervención de routers.
+- Diferencia con IP: la MAC identifica la interfaz física; la IP identifica la interfaz lógica sobre la red y permite enrutamiento entre subredes.</p>
+<p>Ejemplo breve: cuando un host A (192.168.1.10) envía un paquete a 192.168.1.20 en la misma VLAN, encapsula el paquete IPv4 dentro de una trama con la MAC destino correspondiente; si no la conoce, envía una ARP request y recibe la MAC en la ARP reply.</p>
+<h3 id="52-notacion-y-calculo-ipv4">5.2 Notación y cálculo (IPv4)<a class="headerlink" href="#52-notacion-y-calculo-ipv4" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Notación decimal punteada: <code>192.168.1.10</code> con máscara <code>255.255.255.0</code> equivale a <code>192.168.1.10/24</code>.</li>
+<li>CIDR (Classless Inter-Domain Routing): especifica el prefijo con <code>/n</code> donde <code>n</code> es bits de red.</li>
+<li>Cálculo de subredes: dividir el espacio de direcciones incrementando el prefijo; calcular número de hosts útiles = 2^(32 - prefijo) - 2 (salvo subredes especiales).</li>
+</ul>
+<h3 id="53-ejemplo-resuelto-subnetting-para-4-vlans">5.3 Ejemplo resuelto: subnetting para 4 VLANs<a class="headerlink" href="#53-ejemplo-resuelto-subnetting-para-4-vlans" title="Permanent link">&para;</a></h3>
+<p>Requerimientos: VLANs con 50, 20, 10 y 5 hosts. Red disponible: <code>192.168.0.0/24</code>.</p>
+<p>1) Ordenar por tamaño: 50, 20, 10, 5. Buscar prefijo mínimo que soporte cada VLAN:
+    - 50 hosts → requiere al menos 64 direcciones → prefijo <code>/26</code> (62 hosts útiles).
+    - 20 hosts → requiere al menos 32 direcciones → prefijo <code>/27</code> (30 hosts útiles).
+    - 10 hosts → requiere al menos 16 direcciones → prefijo <code>/28</code> (14 hosts útiles).
+    - 5 hosts → requiere al menos 8 direcciones → prefijo <code>/29</code> (6 hosts útiles).</p>
+<p>2) Asignación desde <code>192.168.0.0/24</code> (ejemplo de tabla):
+    - VLAN A (50): <code>192.168.0.0/26</code> → hosts <code>192.168.0.1</code>–<code>192.168.0.62</code>, broadcast <code>192.168.0.63</code>.
+    - VLAN B (20): <code>192.168.0.64/27</code> → hosts <code>192.168.0.65</code>–<code>192.168.0.94</code>, broadcast <code>192.168.0.95</code>.
+    - VLAN C (10): <code>192.168.0.96/28</code> → hosts <code>192.168.0.97</code>–<code>192.168.0.110</code>, broadcast <code>192.168.0.111</code>.
+    - VLAN D (5):  <code>192.168.0.112/29</code> → hosts <code>192.168.0.113</code>–<code>192.168.0.118</code>, broadcast <code>192.168.0.119</code>.</p>
+<p>3) Reserva de espacio para futuros: dejar bloques libres a partir de <code>192.168.0.120/</code>.</p>
+<h3 id="54-ipv6-notacion-y-consideraciones">5.4 IPv6: notación y consideraciones<a class="headerlink" href="#54-ipv6-notacion-y-consideraciones" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Notación hexadecimal con <code>:</code> y compresión de ceros (<code>2001:db8::1</code>).</li>
+<li>Prefijo típico de subred de enlace local: <code>/64</code>; para redes internas usar <code>/64</code> por compatibilidad.</li>
+<li>No existe broadcast; se usan multicast y anycast.</li>
+</ul>
+<h3 id="55-buenas-practicas">5.5 Buenas prácticas<a class="headerlink" href="#55-buenas-practicas" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Planificar rangos contiguos por VLAN y documentar en la tabla IP.</li>
+<li>Reservar direcciones para servidores e infraestructura (DNS, NTP, impresoras).</li>
+<li>Documentar máscaras y gateways en el mapa lógico.</li>
+</ul>
+<h4 id="diagrama-asignacion-de-subredes-visual">Diagrama: asignación de subredes (visual)<a class="headerlink" href="#diagrama-asignacion-de-subredes-visual" title="Permanent link">&para;</a></h4>
+<pre class="mermaid"><code>graph LR
+    A[192.168.0.0/24] --&gt; A1[192.168.0.0/26\n(VLAN A - 62 hosts)]
+    A --&gt; A2[192.168.0.64/27\n(VLAN B - 30 hosts)]
+    A --&gt; A3[192.168.0.96/28\n(VLAN C - 14 hosts)]
+    A --&gt; A4[192.168.0.112/29\n(VLAN D - 6 hosts)]
+    A --&gt; R[Reservado 192.168.0.120/..]</code></pre>
+<h2 id="6-direccionamiento-dinamico-dhcp-dhcpv6-y-slaac">6. Direccionamiento dinámico: DHCP, DHCPv6 y SLAAC<a class="headerlink" href="#6-direccionamiento-dinamico-dhcp-dhcpv6-y-slaac" title="Permanent link">&para;</a></h2>
+<p><em>(CE-d: uso de sistemas de direccionamiento dinámico.)</em></p>
+<h3 id="61-funcionamiento-de-dhcp-dora">6.1 Funcionamiento de DHCP (DORA)<a class="headerlink" href="#61-funcionamiento-de-dhcp-dora" title="Permanent link">&para;</a></h3>
+<ul>
+<li>DISCOVER: el cliente broadcast solicita configuración.</li>
+<li>OFFER: el servidor ofrece una dirección y parámetros.</li>
+<li>REQUEST: el cliente solicita formalmente la oferta elegida.</li>
+<li>ACK: el servidor confirma y asigna la configuración.</li>
+</ul>
+<h4 id="diagrama-proceso-dora-dhcp">Diagrama: proceso DORA (DHCP)<a class="headerlink" href="#diagrama-proceso-dora-dhcp" title="Permanent link">&para;</a></h4>
+<pre class="mermaid"><code>sequenceDiagram
+    participant C as Cliente
+    participant B as Broadcast\n(enlace)
+    participant S as Servidor DHCP
+
+    C-&gt;&gt;B: DHCPDISCOVER (broadcast)
+    B-&gt;&gt;S: entrega DISCOVER
+    S--&gt;&gt;B: DHCPOFFER (broadcast/uni)
+    B-&gt;&gt;C: entrega OFFER
+    C-&gt;&gt;B: DHCPREQUEST (broadcast)
+    B-&gt;&gt;S: entrega REQUEST
+    S--&gt;&gt;B: DHCPACK
+    B-&gt;&gt;C: entrega ACK (config aplicada)</code></pre>
+<h3 id="62-parametros-entregados-por-dhcp">6.2 Parámetros entregados por DHCP<a class="headerlink" href="#62-parametros-entregados-por-dhcp" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Dirección IP, máscara (o prefijo), puerta de enlace, servidores DNS, tiempo de arrendamiento (lease), opciones como NTP, WINS, clases y reservas.</li>
+</ul>
+<h3 id="63-dhcpv6-y-slaac">6.3 DHCPv6 y SLAAC<a class="headerlink" href="#63-dhcpv6-y-slaac" title="Permanent link">&para;</a></h3>
+<ul>
+<li>DHCPv6: similar a DHCPv4 pero con diferencias en transporte y opciones; puede actuar en modo estateless (solo opciones) o stateful (asigna direcciones).</li>
+<li>SLAAC (Stateless Address Autoconfiguration): el host genera su propia dirección a partir del prefijo anunciado por el router (RA). Puede combinarse con DHCPv6 para opciones adicionales.</li>
+</ul>
+<h3 id="64-ejemplo-practico-dhcp-ipv4">6.4 Ejemplo práctico (DHCP IPv4)<a class="headerlink" href="#64-ejemplo-practico-dhcp-ipv4" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Scope: <code>192.168.10.0/24</code>.</li>
+<li>Pool: <code>192.168.10.100</code>–<code>192.168.10.200</code>.</li>
+<li>Reserva: impresora <code>192.168.10.30</code> ligada a MAC.</li>
+<li>Parámetros: gateway <code>192.168.10.1</code>, DNS <code>192.168.10.10</code>, lease 8 horas.</li>
+</ul>
+<p>Procedimiento de verificación:
+ - Conectar cliente en red y comprobar <code>ipconfig /renew</code> (Windows) o <code>dhclient</code> (Linux).
+ - Comprobar logs del servidor DHCP y la tabla de leases.</p>
+<h2 id="7-direcciones-ipv6-unicast-anycast-y-multicast">7. Direcciones IPv6: unicast, anycast y multicast<a class="headerlink" href="#7-direcciones-ipv6-unicast-anycast-y-multicast" title="Permanent link">&para;</a></h2>
+<p><em>(CE-d: conocimiento y uso de direcciones IPv6 y sus tipos.)</em></p>
+<h3 id="71-formato-y-tipos">7.1 Formato y tipos<a class="headerlink" href="#71-formato-y-tipos" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Notación: grupos hexadecimales de 16 bits separados por <code>:</code>; compresión de ceros <code>::</code> una sola vez por dirección.</li>
+<li>Prefijos importantes: <code>fe80::/10</code> link‑local, <code>fc00::/7</code> ULA (Unique Local Address), <code>2000::/3</code> global unicast.</li>
+<li>Tipos: unicast (uno‑a‑uno), multicast (uno‑a‑muchos), anycast (uno‑a‑el más cercano).</li>
+</ul>
+<h3 id="72-autoconfiguracion-y-comprobacion">7.2 Autoconfiguración y comprobación<a class="headerlink" href="#72-autoconfiguracion-y-comprobacion" title="Permanent link">&para;</a></h3>
+<ul>
+<li>SLAAC usa RAs (Router Advertisements) para anunciar prefijos y opciones.</li>
+<li>DHCPv6 puede complementar SLAAC si se quiere un control centralizado.</li>
+<li>Comprobaciones: <code>ip -6 addr</code>, <code>ip -6 route</code>, <code>ping6</code>/<code>ping -6</code>.</li>
+</ul>
+<h3 id="73-ejemplo-breve">7.3 Ejemplo breve<a class="headerlink" href="#73-ejemplo-breve" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Configurar interfaz con dirección link‑local automática y comprobar alcance con <code>ping6 ff02::1%&lt;iface&gt;</code> para descubrir vecinos en el enlace.</li>
+</ul>
+<h2 id="8-adaptadores-de-red-instalacion-y-configuracion-alambricos-e-inalambricos">8. Adaptadores de red: instalación y configuración (alámbricos e inalámbricos)<a class="headerlink" href="#8-adaptadores-de-red-instalacion-y-configuracion-alambricos-e-inalambricos" title="Permanent link">&para;</a></h2>
+<p><em>(CE-e: configuración de adaptadores de red en distintos sistemas operativos.)</em></p>
+<h3 id="81-tipos-de-adaptadores-y-controladores">8.1 Tipos de adaptadores y controladores<a class="headerlink" href="#81-tipos-de-adaptadores-y-controladores" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Integrados (onboard), tarjeta PCIe, USB‑Ethernet y adaptadores Wi‑Fi (PCIe/USB/M.2).</li>
+<li>Firmware/driver: importancia de versiones compatibles y firmwares actualizados.</li>
+</ul>
+<h3 id="82-configuracion-habitual-y-parametros-relevantes">8.2 Configuración habitual y parámetros relevantes<a class="headerlink" href="#82-configuracion-habitual-y-parametros-relevantes" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Velocidad/duplex (auto/1000Full/100Half), MTU (p. ej. 1500 o jumbo frames), Wake‑on‑LAN, offloads (TSO, LRO), VLAN tagging en adaptadores avanzados.</li>
+<li>Priorizar driver del fabricante para funcionalidades avanzadas.</li>
+</ul>
+<h3 id="83-comandos-y-verificaciones-por-so">8.3 Comandos y verificaciones por SO<a class="headerlink" href="#83-comandos-y-verificaciones-por-so" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Windows: <code>ipconfig /all</code>, <code>netsh interface show interface</code>, Device Manager para drivers.</li>
+<li>Linux: <code>ip link show</code>, <code>ip addr</code>, <code>ethtool &lt;iface&gt;</code> para velocidad/duplex/ethtool options.</li>
+<li>macOS: <code>ifconfig</code>, <code>networksetup -listallhardwareports</code>.</li>
+</ul>
+<h3 id="84-ejemplo-practico-comprobar-y-configurar-en-linux">8.4 Ejemplo práctico: comprobar y configurar en Linux<a class="headerlink" href="#84-ejemplo-practico-comprobar-y-configurar-en-linux" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Listar interfaces: <code>ip link show</code>.</li>
+<li>Comprobar dirección: <code>ip addr show eth0</code>.</li>
+<li>Forzar 1 Gbps full duplex (si el driver lo permite): <code>sudo ethtool -s eth0 speed 1000 duplex full autoneg on</code>.</li>
+<li>Comprobar estado físico y estadísticas: <code>ethtool eth0</code> y <code>cat /sys/class/net/eth0/statistics/rx_packets</code>.</li>
+</ol>
+<h3 id="85-buenas-practicas">8.5 Buenas prácticas<a class="headerlink" href="#85-buenas-practicas" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Documentar versión de driver y firmware al instalar equipos; probar con distintos cables y puertos si hay problemas.</li>
+<li>Para adaptadores Wi‑Fi, verificar compatibilidad con estándares (802.11ac/ax) y band steering en APs.</li>
+</ul>
+<h2 id="9-integracion-de-dispositivos-en-redes-cableadas-e-inalambricas">9. Integración de dispositivos en redes cableadas e inalámbricas<a class="headerlink" href="#9-integracion-de-dispositivos-en-redes-cableadas-e-inalambricas" title="Permanent link">&para;</a></h2>
+<p><em>(CE-f, CE-g: integración y comprobación funcional de dispositivos en redes.)</em></p>
+<h3 id="91-procedimiento-general-de-integracion">9.1 Procedimiento general de integración<a class="headerlink" href="#91-procedimiento-general-de-integracion" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Preparación: comprobar requisitos (IP, VLAN, puerto switch, cableado) y documentación del dispositivo.</li>
+<li>Conexión física: comprobar enlace (LED, <code>ethtool</code> / Device Manager) y etiquetado del puerto.</li>
+<li>Configuración inicial: asignar IP (estática o DHCP), nombre de host y parámetros de servicio (DNS, NTP).</li>
+<li>Pruebas funcionales: ping al gateway, resolución DNS, acceso a servicios (HTTP, SMB, impresión).</li>
+</ul>
+<h3 id="92-integracion-de-impresoras-y-perifericos">9.2 Integración de impresoras y periféricos<a class="headerlink" href="#92-integracion-de-impresoras-y-perifericos" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Preferir IP estática o reserva DHCP para impresoras y servidores.</li>
+<li>Configurar drivers y compartir recursos; registrar nombre y IP en DNS interno.</li>
+<li>Verificaciones: imprimir página de prueba desde Windows/Linux/macOS y comprobar colas de impresión.</li>
+</ul>
+<h3 id="93-seguridad-inalambrica-y-politicas">9.3 Seguridad inalámbrica y políticas<a class="headerlink" href="#93-seguridad-inalambrica-y-politicas" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Protocolos: WEP (obsoleto), WPA2 (AES) y WPA3 (mejoras en protección). Usar WPA2/WPA3 según hardware.</li>
+<li>Autenticación empresarial: 802.1X con servidor RADIUS para control de acceso por usuario/dispositivo.</li>
+<li>Segmentación: usar VLANs para separar tráfico invitado y dispositivos IoT.</li>
+</ul>
+<h3 id="94-ejemplo-practico">9.4 Ejemplo práctico<a class="headerlink" href="#94-ejemplo-practico" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Caso: añadir una impresora de red con IP fija <code>192.168.20.30</code>, gateway <code>192.168.20.1</code> y DNS <code>192.168.20.10</code>.<ol>
+<li>Conectar físicamente y comprobar enlace.</li>
+<li>Configurar IP en panel web de la impresora o por consola.</li>
+<li>Registrar en DNS y crear cola de impresión en servidor o en cada estación.</li>
+<li>Realizar prueba de impresión desde un cliente Windows y un cliente Linux.</li>
+</ol>
+</li>
+</ul>
+<h4 id="diagrama-switch-y-tabla-mac-visual">Diagrama: switch y tabla MAC (visual)<a class="headerlink" href="#diagrama-switch-y-tabla-mac-visual" title="Permanent link">&para;</a></h4>
+<pre class="mermaid"><code>flowchart LR
+        subgraph SW[Switch]
+            P1[Puerto 1]\n(MAC 00:11:22:33:44:55)
+            P2[Puerto 2]\n(MAC AA:BB:CC:DD:EE:FF)
+            P3[Puerto 3]\n(MAC 00:1A:2B:3C:4D:5E)
+        end
+        P1 --&gt;|trama| P2
+        P3 --&gt;|trama| P1
+        style SW fill:#fff7e6,stroke:#333</code></pre>
+<h2 id="10-comprobacion-de-conectividad-entre-dispositivos-y-adaptadores-inalambricos">10. Comprobación de conectividad entre dispositivos y adaptadores inalámbricos<a class="headerlink" href="#10-comprobacion-de-conectividad-entre-dispositivos-y-adaptadores-inalambricos" title="Permanent link">&para;</a></h2>
+<p><em>(CE-g: comprobación de conectividad entre dispositivos y adaptadores inalámbricos.)</em></p>
+<h3 id="101-herramientas-de-diagnostico-y-comandos">10.1 Herramientas de diagnóstico y comandos<a class="headerlink" href="#101-herramientas-de-diagnostico-y-comandos" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Ping y traceroute: comprobación básica de alcance y rutas (<code>ping</code>, <code>traceroute</code>/<code>tracert</code>).</li>
+<li>Información de interfaz: <code>ip addr</code>, <code>ip link</code>, <code>ifconfig</code>, <code>ipconfig /all</code>.</li>
+<li>Wireless: <code>netsh wlan show interfaces</code> (Windows), <code>iw dev wlan0 link</code> (Linux), <code>nmcli</code> para NetworkManager.</li>
+</ul>
+<h3 id="102-pruebas-de-rendimiento-y-metricas">10.2 Pruebas de rendimiento y métricas<a class="headerlink" href="#102-pruebas-de-rendimiento-y-metricas" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>iperf3</code> para ancho de banda (TCP/UDP), <code>ping</code> para latencia y pérdida, <code>mtr</code> para traza continua.</li>
+<li>Medir jitter y pérdida con <code>iperf3 -u</code> y herramientas específicas de VoIP si se necesita.</li>
+</ul>
+<h3 id="103-procedimiento-de-prueba">10.3 Procedimiento de prueba<a class="headerlink" href="#103-procedimiento-de-prueba" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Establecer servidor: <code>iperf3 -s</code> en el equipo servidor.</li>
+<li>Ejecutar cliente: <code>iperf3 -c &lt;ip_servidor&gt;</code> en el equipo cliente.</li>
+<li>Repetir pruebas en distintos tiempos y canales (para Wi‑Fi) y promediar resultados.</li>
+</ol>
+<h3 id="104-ejemplo-practico">10.4 Ejemplo práctico<a class="headerlink" href="#104-ejemplo-practico" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Medir ancho de banda entre PC y servidor a través de AP:<ul>
+<li>En servidor: <code>iperf3 -s</code>.</li>
+<li>En cliente: <code>iperf3 -c 192.168.20.10 -t 30</code> (30 segundos).</li>
+<li>Registrar Mbps y comparar con tasa esperada.</li>
+</ul>
+</li>
+</ul>
+<h2 id="11-representacion-del-mapa-fisico-y-logico-de-una-red">11. Representación del mapa físico y lógico de una red<a class="headerlink" href="#11-representacion-del-mapa-fisico-y-logico-de-una-red" title="Permanent link">&para;</a></h2>
+<p><em>(CE-h: uso de aplicaciones para representar el mapa físico y lógico de una red.)</em></p>
+<h3 id="111-que-incluir-en-los-mapas">11.1 Qué incluir en los mapas<a class="headerlink" href="#111-que-incluir-en-los-mapas" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Elementos físicos: racks, switches, paneles de parcheo, armarios, trazado de cables y puertos.</li>
+<li>Elementos lógicos: VLANs, subredes, puertas de enlace, servidores y servicios.</li>
+<li>Metadatos: versión de firmware, puertos usados, etiquetas de patch panel y responsables.</li>
+</ul>
+<h3 id="112-herramientas-y-formatos-recomendados">11.2 Herramientas y formatos recomendados<a class="headerlink" href="#112-herramientas-y-formatos-recomendados" title="Permanent link">&para;</a></h3>
+<ul>
+<li>draw.io (gratuito), Microsoft Visio (comercial), plantillas Markdown con tablas y mapas embebidos.</li>
+<li>Exportar en PNG/PDF para documentación y en XML/diagrama para edición posterior.</li>
+</ul>
+<h3 id="113-ejemplo-de-tabla-asociada-al-mapa">11.3 Ejemplo de tabla asociada al mapa<a class="headerlink" href="#113-ejemplo-de-tabla-asociada-al-mapa" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Tabla: dispositivo, IP, VLAN, puerto switch, puertos físicos, responsable.</li>
+</ul>
+<h3 id="114-buenas-practicas">11.4 Buenas prácticas<a class="headerlink" href="#114-buenas-practicas" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Mantener versionado del mapa (fecha y autor) y guardar copia en repositorio compartido.</li>
+<li>Realizar revisiones tras cambios físicos o lógicos significativos.</li>
+</ul>
+<h2 id="12-monitorizacion-de-la-red-mediante-snmp">12. Monitorización de la red mediante SNMP<a class="headerlink" href="#12-monitorizacion-de-la-red-mediante-snmp" title="Permanent link">&para;</a></h2>
+<p><em>(CE-i: monitorización de la red mediante aplicaciones basadas en SNMP.)</em></p>
+<h3 id="121-fundamentos-y-versiones">12.1 Fundamentos y versiones<a class="headerlink" href="#121-fundamentos-y-versiones" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Componentes: <code>manager</code> (herramienta que consulta), <code>agent</code> (servicio en el dispositivo), MIB (modelo de información) y OID (identificadores).</li>
+<li>Versiones: v1/v2c (comunidad, baja seguridad), v3 (autenticación y cifrado — recomendado en entornos sensibles).</li>
+</ul>
+<h3 id="122-metricas-utiles-y-umbrales">12.2 Métricas útiles y umbrales<a class="headerlink" href="#122-metricas-utiles-y-umbrales" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Interfaces: <code>ifInOctets</code>/<code>ifOutOctets</code>, errores y drops.</li>
+<li>Salud de dispositivo: CPU, memoria, temperatura si el equipo lo expone.</li>
+<li>Umbrales: establecer alertas para utilización &gt; 80% o errores sostenidos.</li>
+</ul>
+<h3 id="123-herramientas-y-ejemplos-de-consultas">12.3 Herramientas y ejemplos de consultas<a class="headerlink" href="#123-herramientas-y-ejemplos-de-consultas" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Herramientas: <code>snmpwalk</code>, <code>snmpget</code>, Zabbix, LibreNMS, Observium, Cacti.</li>
+<li>Ejemplo: <code>snmpwalk -v2c -c public 192.168.1.1 IF-MIB::ifDescr</code>.</li>
+</ul>
+<h3 id="124-ejemplo-practico-de-monitorizacion-basica">12.4 Ejemplo práctico de monitorización básica<a class="headerlink" href="#124-ejemplo-practico-de-monitorizacion-basica" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Añadir dispositivo al sistema de monitorización con credenciales SNMPv2c/ community.</li>
+<li>Comprobar métricas de interfaz y configurar umbrales de alerta.</li>
+<li>Verificar generación de alertas simulando carga o desconectando interfaz.</li>
+</ol>
+<h2 id="13-cables-opticos-tipos-y-clasificacion-segun-velocidaddistancia">13. Cables ópticos: tipos y clasificación según velocidad/distancia<a class="headerlink" href="#13-cables-opticos-tipos-y-clasificacion-segun-velocidaddistancia" title="Permanent link">&para;</a></h2>
+<p><em>(CE-j, CE-k: identificación y clasificación de cables ópticos según velocidad y distancia.)</em></p>
+<h3 id="131-tipos-y-caracteristicas">13.1 Tipos y características<a class="headerlink" href="#131-tipos-y-caracteristicas" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Multimodo (MMF, OM1–OM5): núcleos más grandes, adecuados para enlaces LAN y centros de datos con transceptores VCSEL; OM3/OM4/OM5 para 10 G/40 G/100 G en distancias medias.</li>
+<li>Monomodo (SMF): núcleo fino, ideal para largas distancias y enlaces troncales (DWDM, 10 G y superiores).</li>
+</ul>
+<h3 id="132-conectores-y-perdidas">13.2 Conectores y pérdidas<a class="headerlink" href="#132-conectores-y-perdidas" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Conectores comunes: LC (pequeño, usado en data center), SC, ST; MPO/MTP para fibras múltiples.</li>
+<li>Atenuación: se mide en dB; hay que comparar pérdida total con presupuesto de enlace del transceptor.</li>
+</ul>
+<h3 id="133-pruebas-y-herramientas">13.3 Pruebas y herramientas<a class="headerlink" href="#133-pruebas-y-herramientas" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Medidor de potencia óptica y fuente: medir potencia en Tx/Rx y calcular pérdida.</li>
+<li>OTDR: diagnóstico de trazado, localización de empalmes/roturas y medida de distancia a fallos.</li>
+</ul>
+<h3 id="134-buenas-practicas">13.4 Buenas prácticas<a class="headerlink" href="#134-buenas-practicas" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Limpiar conectores antes de conectar, evitar dobleces por debajo del radio mínimo, etiquetar fibras y mantener documentación del trazado.</li>
+</ul>
+<h3 id="135-ejemplo-comparativo">13.5 Ejemplo comparativo<a class="headerlink" href="#135-ejemplo-comparativo" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Enlace de 300 m a 10 G: multimodo OM3/OM4 suele ser suficiente.</li>
+<li>Enlace de 10 km a 10 G: se recomienda monomodo con transceptores apropiados.</li>
+</ul>
+<h2 id="metodologia-y-actividades">Metodología y actividades<a class="headerlink" href="#metodologia-y-actividades" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Metodología mixta: explicaciones teóricas cortas, laboratorios prácticos, ejercicios de diseño y resolución de problemas.</li>
+<li>Actividades sugeridas:<ul>
+<li>Laboratorios de crimpado y verificación de cables.</li>
+<li>Talleres de configuración de adaptadores y servicios DHCP.</li>
+<li>Prácticas de integración de dispositivos y pruebas de conectividad entre VLANs y WLANs.</li>
+<li>Proyecto final: diseñar, montar (simulado o real) y documentar una red pequeña con mapa físico y lógico, direccionamiento IPv4/IPv6, monitorización SNMP y pruebas de rendimiento.</li>
+</ul>
+</li>
+</ul>
+<h2 id="evaluacion-y-criterios-de-comprobacion">Evaluación y criterios de comprobación<a class="headerlink" href="#evaluacion-y-criterios-de-comprobacion" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Evaluación continua mediante observación en prácticas, informes técnicos y ejercicios de cálculo de subredes.</li>
+<li>Pruebas prácticas: montaje y verificación de cables, configuración y verificación de adaptadores, asignación y comprobación de direcciones IP.</li>
+<li>Proyecto final valorando: corrección técnica, documentación (mapas y tablas IP), resultados de monitorización y pruebas de rendimiento.</li>
+</ul>
+<h2 id="duracion-orientativa">Duración orientativa<a class="headerlink" href="#duracion-orientativa" title="Permanent link">&para;</a></h2>
+<ul>
+<li>25–30 horas lectivas: teoría breve (6–8 h), laboratorios y prácticas (16–20 h), evaluación y proyecto (3–4 h).</li>
+</ul>
+<h2 id="recursos-y-herramientas">Recursos y herramientas<a class="headerlink" href="#recursos-y-herramientas" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Materiales: cables, crimpadoras, comprobadores, adaptadores de red, puntos de acceso, switch manageable (si es posible), fibras de práctica o simulador.</li>
+<li>Software: sistemas operativos (Windows/Linux/macOS), Wireshark, iperf, herramientas SNMP (snmpwalk), draw.io, Packet Tracer o GNS3 para simulación.</li>
+</ul>
+<hr />
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": [], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@11/mermaid.min.js"></script>
+      
+        <script src="../javascript/mermaid.js"></script>
+      
+    
+  </body>
+</html>

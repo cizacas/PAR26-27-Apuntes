@@ -2,14 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://cizacas.github.io/PAR26-27-Apuntes/</loc>
-         <lastmod>2026-10-01</lastmod>
+         <lastmod>2026-10-04</lastmod>
     </url>
     <url>
          <loc>https://cizacas.github.io/PAR26-27-Apuntes/UD1_caracterizacion_de_redes/</loc>
-         <lastmod>2026-10-01</lastmod>
+         <lastmod>2026-10-04</lastmod>
+    </url>
+    <url>
+         <loc>https://cizacas.github.io/PAR26-27-Apuntes/UD2_Integracion_%20de_elementos_en_una_red/</loc>
+         <lastmod>2026-10-04</lastmod>
     </url>
     <url>
          <loc>https://cizacas.github.io/PAR26-27-Apuntes/desarrollo/</loc>
-         <lastmod>2026-10-01</lastmod>
+         <lastmod>2026-10-04</lastmod>
     </url>
 </urlset>
