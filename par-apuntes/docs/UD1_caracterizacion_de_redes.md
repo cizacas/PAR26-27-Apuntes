@@ -830,10 +830,11 @@ Ethernet se corresponde con las **dos capas inferiores** del modelo OSI:
 
 - **Capa 2 (Enlace de datos)**: se subdivide a su vez en dos subcapas (definidas por IEEE 802):
   
-  - **LLC (Logical Link Control, 802.2)**: control de enlace lógico, independiente de la tecnología física, gestiona el control de errores y flujo.
+    - **LLC (Logical Link Control, 802.2)**: control de enlace lógico, independiente de la tecnología física, gestiona el control de errores y flujo.
   
-  - **MAC (Media Access Control, 802.3 a 802.22)**: control de acceso al medio, gestiona el direccionamiento físico (MAC) y el acceso al medio compartido (CSMA/CD). 
-- **Capa 1 (Física)**: define las características eléctricas, ópticas, mecánicas y de señalización (tipos de cable, conectores, velocidades).
+    - **MAC (Media Access Control, 802.3 a 802.22)**: control de acceso al medio, gestiona el direccionamiento físico (MAC) y el acceso al medio compartido (CSMA/CD). 
+
+-  **Capa 1 (Física)**: define las características eléctricas, ópticas, mecánicas y de señalización (tipos de cable, conectores, velocidades).
 
 ---
 
