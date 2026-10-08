@@ -25,11 +25,11 @@ funcionamiento y prestaciones.
 
 ### 1.3 Factores físicos que afectan la transmisión
 
-- Atenuación: pérdida de potencia con la distancia (más crítica en cobre que en fibra).
-- Diafonía (crosstalk): acoplo entre pares; mitigado con trenzado y apantallamiento.
-- Interferencias electromagnéticas (EMI): fuentes externas que afectan señales eléctricas.
-- Relación señal‑ruido (SNR): determina la calidad y la capacidad del enlace.
-- Ancho de banda teórico vs. tasa efectiva: overhead de protocolos y retransmisiones reducen rendimiento real.
+- **Atenuación:** pérdida de potencia con la distancia (más crítica en cobre que en fibra).
+- **Diafonía (crosstalk):** acoplo entre pares; mitigado con trenzado y apantallamiento.
+- **Interferencias electromagnéticas (EMI):** fuentes externas que afectan señales eléctricas.
+- **Relación señal‑ruido (SNR):** determina la calidad y la capacidad del enlace.
+- **Ancho de banda teórico vs. tasa efectiva:** overhead de protocolos y retransmisiones reducen rendimiento real.
 
 ### 1.4 Selección práctica del medio (criterios)
 
@@ -38,8 +38,7 @@ funcionamiento y prestaciones.
 - Entornos con mucho ruido eléctrico → fibra óptica.
 - Movilidad o dispositivos móviles → soluciones Wi‑Fi con planificación de canales.
 
-### 1.5 Ejemplo ilustrativo
-
+**Ejemplo de estructura**
 Para un aula de 25 puestos con servidor local: UTP Cat6 para los puestos (1 Gbps) y fibra multimodo OM3 entre armarios de comunicaciones para permitir 10 Gbps entre switches si se prevé crecimiento.
 
 ---
@@ -50,15 +49,15 @@ Para un aula de 25 puestos con servidor local: UTP Cat6 para los puestos (1 Gbps
 *(CE-a, CE-j, CE-k: identificación y clasificación de cables metálicos y ópticos según velocidad y distancia.)*
 ### 2.1 Coaxial y par trenzado: estructura y propiedades
 
-- Coaxial: conductor central (señal), dieléctrico, malla (blindaje) y cubierta. Uso actual reducido en LAN, aún empleado en TV y redes HFC.
-- Par trenzado (UTP/STP): pares de conductores trenzados para reducir interferencias; STP/FTP añaden apantallamiento para entornos ruidosos.
+- **Coaxial:** conductor central (señal), dieléctrico, malla (blindaje) y cubierta. Uso actual reducido en LAN, aún empleado en TV y redes HFC.
+- **Par trenzado (UTP/STP):** pares de conductores trenzados para reducir interferencias; **STP/FTP** añaden apantallamiento para entornos ruidosos.
 
 ### 2.1.1 Cable coaxial: estructura y tipos
 
 - Estructura básica (desde el interior hacia fuera):
 	1. Núcleo conductor (busca transportar la señal eléctrica, suele ser cobre sólido o trenzado).
-	2. Dieléctrico (aislante) que separa el conductor del blindaje y mantiene la impedancia característica.
-	3. Blindaje (malla metálica y/o lámina) que protege frente a EMI y reduce la radiación de la señal.
+	2. Dieléctrico (es el material aislante) que separa el conductor del blindaje. Evita el contacto eléctrico entre conductor y blindaje y controla las propiedades eléctricas del conjunto
+	3. Blindaje (malla metálica y/o lámina) que protege frente a interferencias electromagnéticas(EMI) y reduce la radiación de la señal.
 	4. Cubierta exterior (jacket) que protege mecánicamente el conjunto.
 
 #### Diagrama: corte transversal de un cable coaxial
@@ -77,16 +76,18 @@ graph LR
 		coaxial --> J
 ```
 
- - Tipos comunes: RG‑6 (TV, satélite), RG‑59 (vídeo analógico, corto alcance), RG‑11 (menor atenuación, distancias mayores).
- - Conectores habituales: BNC (vídeo profesional), F‑type (TV/SAT, roscado) y N/SC para aplicaciones de mayor potencia o RF.
+ - **Tipos comunes:** RG‑6 (TV, satélite), RG‑59 (vídeo analógico, corto alcance), RG‑11 (menor atenuación, distancias mayores).
+ - **Conectores habituales:** BNC (vídeo profesional), F‑type (TV/SAT, roscado) y N/SC para aplicaciones de mayor potencia o RF.
 
 ### 2.1.2 Par trenzado: estructura, apantallamientos y clasificación
 
-- Estructura básica: varios pares de conductores trenzados dentro de una cubierta; el trenzado reduce diafonía y mejora inmunidad al ruido.
-- Tipos según apantallamiento:
-	- UTP (Unshielded Twisted Pair): sin apantallamiento, más económico y flexible.
-	- STP (Shielded Twisted Pair): cada par o el conjunto va apantallado (foil/braid) para reducir EMI en entornos ruidosos.
-	- FTP (Foiled Twisted Pair): capa global de lámina que envuelve los pares; mezcla de coste y protección.
+- **Estructura básica:** varios pares de conductores trenzados dentro de una cubierta; el trenzado reduce diafonía y mejora inmunidad al ruido.
+- **Tipos según apantallamiento:**
+	- `UTP (Unshielded Twisted Pair):` par trenzado sin apantallamiento, más económico y flexible. Usado en redes Ethernet; no lleva lámina ni malla de protección (por eso "unshielded").
+	- `STP (Shielded Twisted Pair):`Par trenzado con apantallamiento; cada par o el conjunto ica de pares lleva una lámina apantallado (foil/braid) para reducir EMI en entornos ruidosos.
+	- `FTP (Foiled Twisted Pair):` par trenzado con una lámina metálica (foil) envolviendo todos los pares; capa global de lámina que envuelve los pares; mezcla de coste y protección.
+    
+	- **Distinción:** a diferencia de `STP`, `FTP` suele proteger el conjunto de pares con una lámina única (no necesariamente tiene malla por par).
 
 #### Diagrama: par trenzado y tipos de apantallamiento
 
@@ -130,95 +131,47 @@ graph LR
 - Evitar curvas con radio menor al recomendado por el fabricante (p. ej. 4× el diámetro del cable).
 - No estirar excesivamente el cable al tenderlo; respetar distancia máxima de 100 m para enlaces UTP.
 - Mantener separación respecto a fuentes EMI (cables eléctricos, motores) o usar STP/FTP si no es posible.
-
+ 
 ### 2.2 Categorías UTP y rendimiento
 
-- Cat5e: soporte habitual de 1 Gbps hasta 100 m.
-- Cat6: mejora en diafonía, soporta 1 Gbps y 10 Gbps en distancias limitadas.
-- Cat6a/Cat7: diseñado para 10 Gbps con mejor margen y apantallamiento.
+- **Cat5e:** soporte habitual de 1 Gbps hasta 100 m.
+- **Cat6:** mejora en diafonía, soporta 1 Gbps y 10 Gbps en distancias limitadas.
+- **Cat6a/Cat7:** diseñado para 10 Gbps con mejor margen y apantallamiento.
 
 Parámetros importantes: atenuación, NEXT (Near‑End Crosstalk), PSNEXT y pérdida de retorno.
+**Atenuación:** pérdida de potencia de la señal al propagarse por el medio; se expresa en dB por unidad de longitud (p. ej. dB/100 m). A mayor atenuación, menor amplitud de la señal en el receptor y más ruido relativo.
+
+**NEXT (Near‑End Crosstalk):** diafonía medida en el extremo cercano (near end) entre pares dentro del mismo cable; cuantifica la señal interferente que llega al receptor en el mismo extremo que transmite la señal interferente. Se mide en dB; mayor NEXT = mejor aislamiento.
+
+**PSNEXT (Power Sum NEXT):** suma de las diafonías (NEXT) de varios pares interferentes considerada como una potencia total; refleja el efecto conjunto de todas las parejas que interfieren sobre un par victimizado. Se usa para comprobar rendimiento cuando hay múltiples pares activos.
+
+**Pérdida de retorno (Return Loss):** medida de la energía reflejada por desadaptaciones de impedancia a lo largo del enlace; se expresa en dB (positivo). Alta pérdida de retorno (valores grandes en dB) significa pocas reflexiones y buena adaptación; baja pérdida de retorno indica reflexiones que degradan la señal.
+
+Los instrumentos que miden estos parámetros:
+- Certificador/medidor de cable (p. ej. Fluke): mide atenuación, NEXT y PSNEXT, pérdida de retorno, longitud y mapeo de pares; entrega reportes de conformidad por categoría.
+- Tester de pares / comprobador de continuidad: comprueba continuidad, cortocircuitos e inversión (no suele medir NEXT ni pérdida de retorno).
+
 
 ### 2.3 Conectores y estándares de terminación
 
-- RJ‑45 (8P8C) es el conector estándar para par trenzado; normas T568A y T568B definen el orden de los hilos.
-- BNC es típico en coaxial; fibra usa LC/SC/ST/FC según equipo.
+- **RJ‑45** (8P8C) es el conector estándar para par trenzado; normas T568A y T568B definen el orden de los hilos.
+-**BNC** es típico en coaxial; fibra usa LC/SC/ST/FC según equipo.
 
 ### 2.4 Fibra óptica: monomodo vs multimodo
 
-- Multimodo (MMF, OM1–OM5): núcleo mayor, económicas lámparas/LEDs o láseres VCSEL; adecuadas para enlaces LAN y centros de datos (distancias cortas‑medias).
-- Monomodo (SMF): núcleo fino, láser, usadas en enlaces de larga distancia y troncales.
+- **Multimodo (MMF, OM1–OM5):** núcleo mayor, económicas lámparas/LEDs o láseres VCSEL; adecuadas para enlaces LAN y centros de datos (distancias cortas‑medias).
+- **Monomodo (SMF):** núcleo fino, láser, usadas en enlaces de larga distancia y troncales.
 
-### 2.5 Ejemplo práctico
-
+**Ejemplo**
 Comparación: para un enlace entre armarios a 500 m se elegirá fibra multimodo OM4/OM3 si el presupuesto lo permite para 10 Gbps; para enlaces >2 km usar monomodo.
 
 ---
 
-
-## 3. Montaje de cables: directo, cruzado y de consola
-
-*(CE-b, CE-c: montaje de cables y comprobación con instrumentos.)*
-### 3.1 Herramientas y materiales
-
-- Herramientas: pelacables, crimpadora para RJ45, tester de cables, cortacables, destornillador para paneles.
-- Materiales: cable UTP/STP (la categoría elegida), conectores RJ45, manguitos y etiquetas.
-
-### 3.2 Procedimiento detallado (crimpado RJ45)
-
-1. Cortar la cubierta exterior dejando ~3 cm y pelar con cuidado.
-2. Separar y alisar los pares; ordenar según T568B (o T568A si se requiere).
-3. Cortar los conductores de manera uniforme y empujar hasta el tope del conector RJ45.
-4. Insertar el conector en la crimpadora y crimpar firmemente.
-5. Probar con un comprobador de cables: continuidad, mapeo de pares y posible inversión.
-
-### 3.3 Tipos de cable y uso
-
-- Cable directo (straight): mismo orden en ambos extremos — PC ↔ switch.
-- Cable cruzado (crossover): orden invertido en pares TX/RX — usado históricamente PC↔PC o switch↔switch.
-- Cable de consola: normalmente RJ45‑to‑serial o USB‑serial para consola de equipos de red.
-
-### 3.4 Buenas prácticas
-
-- No exceder 100 m en enlaces UTP; evitar curvas cerradas; proteger y etiquetar vías y parches.
-
-### 3.5 Ejemplo de checklist
-
-- Para 10 cables: comprobar continuidad, orden de pines, resistencia de pares < X ohm, prueba funcional con equipo.
-
----
-
-
-## 4. Comprobación de conectividad con comprobadores
-
-*(CE-c: uso de comprobadores para verificar la conectividad de distintos tipos de cables.)*
-### 4.1 Tipos de comprobadores y funciones
-
-- Testers de bolsillo: verifican continuidad y mapeo rápido de pares.
-- Certificadores profesionales (Fluke): miden NEXT, pérdida, pérdida de retorno y dan un reporte de conformidad con la categoría.
-- Medidores de potencia óptica y fuentes/receivers: miden atenuación en enlaces de fibra.
-
-### 4.2 Interpretación básica de resultados
-
-- Continuidad OK: todos los pares conectados y en orden.
-- Pares abiertos: falta de continuidad en uno o varios conductores.
-- Cortocircuito: unión entre pares; falla grave.
-- Inversión de pares: TX/RX cruzados (puede afectar negociaciones).
-- Pérdida en fibra: expresada en dB; comparar con límites del enlace para garantizar margen.
-
-### 4.3 Ejemplo de informe breve
-
-- Identificador: cable_01
-- Resultado: continuidad OK; resistencia media 0.8 Ω; pérdida óptica N/A.
-
----
-
-
-## 5. Direccionamiento lógico IP y máscaras de subred
+## 3. Direccionamiento lógico IP y máscaras de subred
 
 *(CE-d: uso del direccionamiento lógico IP para asignar direcciones y máscaras.)*
 
-### 5.1 Conceptos básicos
+### 3.1 Conceptos básicos
 
 - Dirección IP: identificador lógico de **una interfaz en una red** (IPv4/IPv6).
 - Máscara o prefijo: determina la porción de red y la de host (p. ej. /24, /64).
@@ -226,7 +179,7 @@ Comparación: para un enlace entre armarios a 500 m se elegirá fibra multimodo 
 - Puerta de enlace (gateway): router que conecta la subred con otras redes.
 - Tabla de enrutamiento: conjunto de rutas que usan los routers/hosts para encaminar paquetes.
 
-### 5.0 Direccionamiento físico: direcciones MAC y ámbito
+### 3.2 Direccionamiento físico: direcciones MAC y ámbito
 
 - Dirección MAC: identificador único de 48 bits (normalmente) asignado a la interfaz de red por el fabricante (formato hex `00:1A:2B:3C:4D:5E`).
 - Ámbito de actuación: la dirección MAC opera en la capa de enlace (OSI capa 2) y se usa para la entrega de tramas en el mismo dominio de broadcast (misma LAN / VLAN).
@@ -267,13 +220,13 @@ PS> Get-NetAdapter | Format-Table -Auto Name,MacAddress,Status
 
 Ejemplo breve: cuando un host A (192.168.1.10) envía un paquete a 192.168.1.20 en la misma VLAN, encapsula el paquete IPv4 dentro de una trama con la MAC destino correspondiente; si no la conoce, envía una ARP request y recibe la MAC en la ARP reply.
 
-### 5.2 Notación y cálculo (IPv4)
+### 3.3 Notación y cálculo (IPv4)
 
 - Notación decimal punteada: `192.168.1.10` con máscara `255.255.255.0` equivale a `192.168.1.10/24`.
 - CIDR (Classless Inter-Domain Routing): especifica el prefijo con `/n` donde `n` es bits de red.
 - Cálculo de subredes: dividir el espacio de direcciones incrementando el prefijo; calcular número de hosts útiles = 2^(32 - prefijo) - 2 (salvo subredes especiales).
 
-### 5.3 Ejemplo resuelto: subnetting para 4 VLANs
+### 3.4 Ejemplo resuelto: subnetting para 4 VLANs
 
 Requerimientos: VLANs con 50, 20, 10 y 5 hosts. Red disponible: `192.168.0.0/24`.
 
