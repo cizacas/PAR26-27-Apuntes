@@ -18,18 +18,48 @@ funcionamiento y prestaciones.
 
 ### 1.2 Estándares relevantes
 
-- IEEE 802.3 (Ethernet): define capas físicas y de enlace para Ethernet en distintas velocidades (10/100/1000/10G...).
-- IEEE 802.11 (Wi‑Fi): familia de estándares para LAN inalámbrica (802.11a/b/g/n/ac/ax), con bandas 2.4 GHz y 5/6 GHz y diferentes modulaciónes.
-- IEEE 802.15 (Bluetooth y WPAN): comunicaciones de corto alcance.
-- ITU‑T y TIA/EIA: recomendaciones para fibra y cableado estructurado (p. ej. TIA/EIA‑568 para UTP).
+- **IEEE 802.3 (Ethernet):** define capas físicas y de enlace para Ethernet en distintas velocidades (10/100/1000/10G...).
+- **IEEE 802.11 (Wi‑Fi):** familia de estándares para LAN inalámbrica (802.11a/b/g/n/ac/ax), con bandas 2.4 GHz y 5/6 GHz y diferentes modulaciónes.
+- **IEEE 802.15 (Bluetooth y WPAN):** comunicaciones de corto alcance.
+- **ITU‑T y TIA/EIA:** recomendaciones para fibra y cableado estructurado (p. ej. TIA/EIA‑568 para UTP).
 
 ### 1.3 Factores físicos que afectan la transmisión
 
-- **Atenuación:** pérdida de potencia con la distancia (más crítica en cobre que en fibra).
-- **Diafonía (crosstalk):** acoplo entre pares; mitigado con trenzado y apantallamiento.
+En una transmisión de información puede haber problemas producidos por cualquiera de las partes que intervienen (emisor, receptor, canal, información..).
+
+Los problemas más difíciles de solucionar son los relacionados con la naturaleza de la señal a transmitir y del medio empleado, generalmente problemas de `tipo electromagnético`.
+
+Las **perturbaciones** en la transmisión de una señal eléctrica consisten en pérdidas de información ocurridas en el transporte de la señal desde el emisor hasta el receptor. Estas perturbaciones son inevitables, pues existen una serie de factores que afectan a la calidad de las señales transmitidas los cuales provocan que estas nunca sean iguales a las señales recibidas.
+
+El **efecto de las perturbaciones** varía según la naturaleza analógica o digital de las señales. Mientras en las `señales digitales` se reduce la velocidad de transmisión al aumentar la tasa de errores de bits, el efecto en una `señal analógica` consiste en que esta línea de transmisión introduce variaciones de amplitud y frecuencia, lo que degrada la calidad de la señal.
+
+Las principales perturbaciones son:
+- **Atenuación:** Es la pérdida de amplitud de la señal. El medio por el que viajan las señales puede ofrecer cierta resistencia, que hace que las señales pierdan algo de energía. Para recuperar la amplitud original se usan repetidores en señales digitales o amplificadores en señales analógicas. Depende de la distancia y la frecuencia. Es la pérdida de potencia con la distancia (más crítica en cobre que en fibra).
+
+![atenuación](img/atenuacion.png)
+
+- **Distorsión:**
+Es un cambio de forma en la señal. Cuando una señal es compuesta, como las digitales, cada componente tiene su propia velocidad de propagación y puede alcanzar el destino en diferentes instantes de tiempo. Las componentes más lentas sufren un desfase. Esto puede hacer que la lectura de la señal por el receptor sea distinta.
+![distorsion](img/distorsion.png)
+
+- **Ruido:**
+Es la aparición de nuevas señales que no pertenecen a la transmisión. Puede ser:
+
+  - **Ruido térmico:** se debe a la agitación térmica de los electrones que forman el propio cable. Es inevitable.
+  - **Diafonía(crosstalk):** cuando dos cables están próximos y las señales de uno son recibidas por el otro. Se denomina también acoplo entre pares; mitigado con trenzado y apantallamiento.
+  - **Ruido impulsivo:** consiste en pulsos aleatorios de bastante amplitud y corta duración. Ocurren al encender o apagar ciertos dispositivos.
+  - **Ruido inducido:** perturbación causada por interferencias electromagnéticas externas que inducen señales no deseadas en el cable, por ejemplo, las generadas por motores o electrodomésticos..
+
+![ruido](img/ruido.png)
+
 - **Interferencias electromagnéticas (EMI):** fuentes externas que afectan señales eléctricas.
 - **Relación señal‑ruido (SNR):** determina la calidad y la capacidad del enlace.
 - **Ancho de banda teórico vs. tasa efectiva:** overhead de protocolos y retransmisiones reducen rendimiento real.
+  - **Ancho de banda:** Define la capacidad máxima disponible para transmitir bits. Se puede definir como la diferencia entre la frecuencia máxima y mínima de las señales que se pueden transmitir por un canal. Se suele expresar en hercios (Hz) o sus múltiplos (KHz, MHz…).
+  - **Tasa de transferencia o velocidad de transmisión:** Son los bits (de datos y de control) por segundo que se transmiten. Permite cuantificar la velocidad a la que pueden transmitirse los datos por un canal. Se mide en bits por segundo (bps) o sus múltiplos (kbps, Mbps…).
+  - **La tasa de transferencia efectiva:** son los bits de datos transferidos por segundo (sin los bits de control).
+
+La tasa de transferencia nunca es mayor que el ancho de banda. Esto se debe a las limitaciones impuestas por los medios de transmisión, medios de interconexión, topologías y todos los dispositivos y aplicaciones que operan en la red.
 
 ### 1.4 Selección práctica del medio (criterios)
 
@@ -49,32 +79,21 @@ Para un aula de 25 puestos con servidor local: UTP Cat6 para los puestos (1 Gbps
 *(CE-a, CE-j, CE-k: identificación y clasificación de cables metálicos y ópticos según velocidad y distancia.)*
 ### 2.1 Coaxial y par trenzado: estructura y propiedades
 
-- **Coaxial:** conductor central (señal), dieléctrico, malla (blindaje) y cubierta. Uso actual reducido en LAN, aún empleado en TV y redes HFC.
+- **Coaxial:** conductor central (señal), dieléctrico, malla (blindaje) y cubierta. Uso actual reducido en LAN, aún empleado en TV y redes HFC(híbridas de fibra y coaxial) combinan ambos medios:
+  - La `fibra optica` lleva la señal desde la central del operador hasta un nodo cercano a los usuarios
+  - Desde ese nodo, el `cable coaxial` distribuye la señal a las viviendas o locales.
+  - Se usan habitualmente en redes de televisión por cable y para ofrecer acceso a Internet. La fibra permite cubrir largas distancias con poca pérdida, y el coaxial aprovecha el cableado ya instalado en la zona
 - **Par trenzado (UTP/STP):** pares de conductores trenzados para reducir interferencias; **STP/FTP** añaden apantallamiento para entornos ruidosos.
 
 ### 2.1.1 Cable coaxial: estructura y tipos
 
 - Estructura básica (desde el interior hacia fuera):
-	1. Núcleo conductor (busca transportar la señal eléctrica, suele ser cobre sólido o trenzado).
+	1. Conductor central o nucleo conductor (busca transportar la señal eléctrica, suele ser cobre sólido o trenzado).
 	2. Dieléctrico (es el material aislante) que separa el conductor del blindaje. Evita el contacto eléctrico entre conductor y blindaje y controla las propiedades eléctricas del conjunto
 	3. Blindaje (malla metálica y/o lámina) que protege frente a interferencias electromagnéticas(EMI) y reduce la radiación de la señal.
 	4. Cubierta exterior (jacket) que protege mecánicamente el conjunto.
 
-#### Diagrama: corte transversal de un cable coaxial
-
-```mermaid
-graph LR
-		subgraph coaxial[ ]
-		C((Núcleo))
-		D[(Dieléctrico)]
-		M[(Malla / Blindaje)]
-		J[(Cubierta exterior)]
-		end
-		coaxial --> C
-		coaxial --> D
-		coaxial --> M
-		coaxial --> J
-```
+![coaxial ](img/coaxial.png)
 
  - **Tipos comunes:** RG‑6 (TV, satélite), RG‑59 (vídeo analógico, corto alcance), RG‑11 (menor atenuación, distancias mayores).
  - **Conectores habituales:** BNC (vídeo profesional), F‑type (TV/SAT, roscado) y N/SC para aplicaciones de mayor potencia o RF.
@@ -82,6 +101,14 @@ graph LR
 ### 2.1.2 Par trenzado: estructura, apantallamientos y clasificación
 
 - **Estructura básica:** varios pares de conductores trenzados dentro de una cubierta; el trenzado reduce diafonía y mejora inmunidad al ruido.
+- Es el medio guiado más barato y más usado.
+- Es actualmente el tipo de cable más común en redes de área local.
+- Cada cable de este tipo está compuesto por una serie de pares de cables trenzados. Los pares se trenzan de forma helicoidal para reducir la diafonía o interferencia entre pares adyacentes.
+- El cable típico en las redes de área local y en la conexión final de equipos es el de 4 pares. Los cables multipar pueden tener 25, 50, 100, 200 y 300 pares.
+- Las normativas de cableado estructurado clasifican los diferentes tipos de cable de pares trenzados en categorías de acuerdo con sus características para la transmisión de datos, las cuales vienen fijadas fundamentalmente por la densidad de trenzado del cable (número de vueltas por metro) y los materiales utilizados en el recubrimiento aislante. 
+
+![partrenzado](img/partrenzado.png)
+
 - **Tipos según apantallamiento:**
 	- `UTP (Unshielded Twisted Pair):` par trenzado sin apantallamiento, más económico y flexible. Usado en redes Ethernet; no lleva lámina ni malla de protección (por eso "unshielded").
 	- `STP (Shielded Twisted Pair):`Par trenzado con apantallamiento; cada par o el conjunto ica de pares lleva una lámina apantallado (foil/braid) para reducir EMI en entornos ruidosos.
@@ -89,27 +116,10 @@ graph LR
     
 	- **Distinción:** a diferencia de `STP`, `FTP` suele proteger el conjunto de pares con una lámina única (no necesariamente tiene malla por par).
 
-#### Diagrama: par trenzado y tipos de apantallamiento
+![tipos](img/utp-stp-ftp.png)
 
-```mermaid
-graph LR
-		subgraph pair[Par trenzado]
-			P1((Conductor A))
-			P2((Conductor B))
-			T[Trenzado]\n(intercambio de posiciones)
-		end
-		subgraph types[Apantallamiento]
-			UTP[UTP \n(no shield)]
-			FTP[FTP \n(foil around pairs)]
-			STP[STP \n(shield per pair or overall)]
-		end
-		pair --> T
-		types --> UTP
-		types --> FTP
-		types --> STP
-```
 
-### 2.2 Categorías UTP y rendimiento (tabla)
+### 2.2 Categorías UTP y rendimiento 
 
 | Categoría | Frecuencia aproximada | Velocidad típica | Uso típico |
 |---|---:|---:|---|
@@ -120,6 +130,8 @@ graph LR
 | Cat8 | hasta 2000 MHz | 25–40 Gbps (corto alcance) | Backbones de rack, data centers (corto alcance) |
 
 **Nota:** la velocidad real depende de transceptores, calidad de crimpado, ruido y longitud del enlace.
+
+![categoria](img/categoria.png)
 
 ### 2.3 Conectores y normas de terminación (par trenzado)
 
@@ -148,8 +160,8 @@ Parámetros importantes: atenuación, NEXT (Near‑End Crosstalk), PSNEXT y pér
 **Pérdida de retorno (Return Loss):** medida de la energía reflejada por desadaptaciones de impedancia a lo largo del enlace; se expresa en dB (positivo). Alta pérdida de retorno (valores grandes en dB) significa pocas reflexiones y buena adaptación; baja pérdida de retorno indica reflexiones que degradan la señal.
 
 Los instrumentos que miden estos parámetros:
-- Certificador/medidor de cable (p. ej. Fluke): mide atenuación, NEXT y PSNEXT, pérdida de retorno, longitud y mapeo de pares; entrega reportes de conformidad por categoría.
-- Tester de pares / comprobador de continuidad: comprueba continuidad, cortocircuitos e inversión (no suele medir NEXT ni pérdida de retorno).
+- **Certificador/medidor de cable (p. ej. Fluke):** mide atenuación, NEXT y PSNEXT, pérdida de retorno, longitud y mapeo de pares; entrega reportes de conformidad por categoría.
+- **Tester de pares / comprobador de continuidad:** comprueba continuidad, cortocircuitos e inversión (no suele medir NEXT ni pérdida de retorno).
 
 
 ### 2.3 Conectores y estándares de terminación
@@ -159,35 +171,69 @@ Los instrumentos que miden estos parámetros:
 
 ### 2.4 Fibra óptica: monomodo vs multimodo
 
-- **Multimodo (MMF, OM1–OM5):** núcleo mayor, económicas lámparas/LEDs o láseres VCSEL; adecuadas para enlaces LAN y centros de datos (distancias cortas‑medias).
-- **Monomodo (SMF):** núcleo fino, láser, usadas en enlaces de larga distancia y troncales.
+**Un sistema de transmisión por fibra óptica** consta principalmente de tres partes:
+- **Elemento transmisor:** encargado de generar el haz luminoso. Ej.: led, láser…
+- **Medio físico de transmisión:** responsable de guiar la luz desde el origen al destino. Es el cable de fibra óptica.
+- **Elemento receptor:** Es el que recibe la señal y la transforma de forma adecuada para su procesamiento. Son fotodiodos o fotodetectores.
+
+![fibra](img/fibra.png)
+
+El **cable de fibra óptica** es el medio físico utilizado para transportar la luz, de forma que transmita información binaria. Principalmente, se compone de tres partes:
+- **El núcleo:** está formado por una o varias fibras muy finas de cristal o plástico.
+- **El revestimiento:** rodea al núcleo y permite la refracción de la luz. Está hecho de cristal o plástico de diferentes propiedades ópticas distintas a las del núcleo.
+- **El recubrimiento o cubierta:** constituida de material plástico o similar. Se encarga de proteger al conjunto de golpes, abrasiones, humedades, etc.
+
+![cable fibra](img/cablefibra.png)
+
+#### Tipos de fibras ópticas:
+
+- **Multimodo (MMF, OM1–OM5):** es aquella en la que los haces de luz pueden circular por más de un modo o camino. Esto supone que no llegan todos a la vez. Una fibra multimodo puede tener más de mil modos de propagación de luz. Se usa comúnmente en aplicaciones de corta distancia, menores a 2 km, como redes informáticas. Es simple de diseñar y económico lámparas/LEDs o láseres VCSEL; adecuadas para enlaces LAN y centros de datos (distancias cortas‑medias). 
+
+- **Monomodo (SMF):** es una fibra óptica en la que solo se propaga un modo de luz. Se logra reduciendo el diámetro del núcleo de la fibra hasta un tamaño que solo permite un modo de propagación. Su transmisión es paralela al eje de la fibra. A diferencia de las fibras multimodo, las fibras monomodo permiten alcanzar grandes distancias (hasta 400 km) y transmitir elevadas tasas de información (10 Gbit/s). Se utilizan en televisión por cable, Internet y teléfono.núcleo fino, láser, usadas en enlaces de larga distancia y troncales.
 
 **Ejemplo**
 Comparación: para un enlace entre armarios a 500 m se elegirá fibra multimodo OM4/OM3 si el presupuesto lo permite para 10 Gbps; para enlaces >2 km usar monomodo.
 
+![tipos fibra](img/TiposFibra.png)
 ---
+### 2.5 Ventajas de la fibra óptica
+1. Una banda de paso muy ancha, lo que permite velocidades muy elevadas (Gbps).
+2. Pequeño tamaño, por lo tanto, ocupa poco espacio.
+3. Gran ligereza, el peso es bajo, unas nueve veces menos que el de un cable convencional.
+4. Inmunidad total a las perturbaciones de origen electromagnético, lo que implica una calidad de transmisión muy buena.
+5. Gran seguridad: la intrusión en una fibra óptica es fácilmente detectable por el debilitamiento de la energía lumínica en recepción. Además, no irradia nada, lo que es interesante para aplicaciones que requieren alto nivel de confidencialidad.
+6. No produce interferencias.
+7. Insensibilidad a las señales parásitas, lo que permite utilizarla en medios industriales fuertemente perturbados (por ejemplo, en los túneles del metro). Ello permite la coexistencia por los mismos conductos con los cables de energía eléctrica.
+8. Atenuación muy pequeña, lo que permite salvar grandes distancias sin elementos activos intermedios.
+9. Gran resistencia mecánica, al calor, al frío y a la corrosión.
+10. Facilidad para localizar los cortes, lo que permite detectar rápidamente el lugar donde se hará la reparación de la avería, simplificando la labor de mantenimiento.
 
-## 3. Direccionamiento lógico IP y máscaras de subred
+## 3. Direccionamiento  físico / lógico IP y máscaras de subred
+
+Para poder identificar de forma única los diferentes dispositivos dentro de una red informática se utiliza un mecanismo de identificación llamado direccionamiento.
+En una red de ordenadores hay dos tipos de direcciones: 
+- direcciones físicas 
+- direcciones lógicas
 
 *(CE-d: uso del direccionamiento lógico IP para asignar direcciones y máscaras.)*
 
 ### 3.1 Conceptos básicos
 
-- Dirección IP: identificador lógico de **una interfaz en una red** (IPv4/IPv6).
-- Máscara o prefijo: determina la porción de red y la de host (p. ej. /24, /64).
-- Dirección de broadcast (IPv4): dirección para enviar a todos los hosts de la subred.
-- Puerta de enlace (gateway): router que conecta la subred con otras redes.
-- Tabla de enrutamiento: conjunto de rutas que usan los routers/hosts para encaminar paquetes.
+- **Dirección IP:** identificador lógico de **una interfaz en una red** (IPv4/IPv6).
+- **Máscara o prefijo:** determina la porción de red y la de host (p. ej. /24, /64).
+- **Dirección de broadcast (IPv4):** dirección para enviar a todos los hosts de la subred.
+- **Puerta de enlace (gateway):** router que conecta la subred con otras redes.
+- **Tabla de enrutamiento:** conjunto de rutas que usan los routers/hosts para encaminar paquetes.
 
 ### 3.2 Direccionamiento físico: direcciones MAC y ámbito
 
-- Dirección MAC: identificador único de 48 bits (normalmente) asignado a la interfaz de red por el fabricante (formato hex `00:1A:2B:3C:4D:5E`).
-- Ámbito de actuación: la dirección MAC opera en la capa de enlace (OSI capa 2) y se usa para la entrega de tramas en el mismo dominio de broadcast (misma LAN / VLAN).
- - ARP (Address Resolution Protocol): protocolo de la capa de enlace que resuelve una dirección IPv4 a una dirección MAC dentro de la misma subred mediante solicitudes y respuestas (ARP request/ARP reply).
-	 - ¿Qué es ARP?: ARP es el mecanismo por el que un host descubre la dirección MAC asociada a una dirección IPv4 cuando necesita enviar una trama dentro de la misma LAN. Funciona enviando una petición broadcast y recibiendo una respuesta unicast con la dirección MAC.
- - OUI y estructura de una MAC: las direcciones MAC suelen tener 48 bits (6 octetos). Los 3 primeros octetos forman el OUI (Organizationally Unique Identifier) que identifica al fabricante; los 3 octetos finales son asignados por el fabricante para cada interfaz.
+- **Dirección MAC(Media Access Control):** identificador único de 48 bits (normalmente) asignado a la interfaz de red por el fabricante (formato hex `00:1A:2B:3C:4D:5E`).
+- **Ámbito de actuación:** la dirección MAC opera en la capa de enlace (OSI capa 2) y se usa para la entrega de tramas en el mismo dominio de broadcast (misma LAN / VLAN). Estas direcciones son válidas unicamente en el ámbito local.
+ - **ARP (Address Resolution Protocol):** protocolo de la capa de enlace que resuelve una dirección IPv4 a una dirección MAC dentro de la misma subred mediante solicitudes y respuestas (ARP request/ARP reply).
+	 - `¿Qué es ARP?:` ARP es el mecanismo por el que un host descubre la dirección MAC asociada a una dirección IPv4 cuando necesita enviar una trama dentro de la misma LAN. Funciona enviando una petición broadcast y recibiendo una respuesta unicast con la dirección MAC.
+ - **Estructura de una MAC:** las direcciones MAC suelen tener 48 bits (6 octetos). Los 3 primeros octetos forman el OUI (Organizationally Unique Identifier) que identifica al fabricante; los 3 octetos finales son asignados por el fabricante para cada interfaz.
 	 - Ejemplo: `00:1A:2B:3C:4D:5E` → OUI `00:1A:2B` (fabricante), sufijo `3C:4D:5E` (identificador de interfaz).
- - Unicidad y casos de duplicado:
+ - **Unicidad y casos de duplicado:**
 	 - En teoría cada MAC debe ser única. Los fabricantes registran OUIs y generan sufijos para evitar colisiones.
 	 - Casos que provocan duplicados: clonación manual (configuración intencionada), máquinas virtuales que duplican MAC por snapshot/import, dispositivos defectuosos o fabricantes que no respetan el asignamiento, o reutilización en redes virtuales.
 	 - Efectos de duplicado: conflictos de enlace (tramas alternando entre puertos), problemas de ARP, pérdida de conectividad para una o ambas interfaces.
@@ -204,27 +250,153 @@ Comparación: para un enlace entre armarios a 500 m se elegirá fibra multimodo 
 	- Ver interfaces y MAC locales: `ip link show` o `cat /sys/class/net/<iface>/address`.
 	- Ver tabla de direcciones MAC del switch (si tiene acceso SSH/CLI): `show mac address-table` (Cisco) o comandos equivalentes según fabricante.
 
-Ejemplo rápido (Linux):
+**Ejemplo rápido (Linux):**
 ```
 $ ip link show eth0
 2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UP mode DEFAULT group default qlen 1000
 		link/ether 00:1a:2b:3c:4d:5e brd ff:ff:ff:ff:ff:ff
 ```
 
-Ejemplo rápido (Windows PowerShell):
+**Ejemplo rápido (Windows PowerShell):**
 ```
 PS> Get-NetAdapter | Format-Table -Auto Name,MacAddress,Status
 ```
 - Switches: dispositivos que reenvían tramas usando tablas MAC (CAM) aprendidas por puerto; las direcciones MAC permiten conmutación local sin intervención de routers.
 - Diferencia con IP: la MAC identifica la interfaz física; la IP identifica la interfaz lógica sobre la red y permite enrutamiento entre subredes.
 
-Ejemplo breve: cuando un host A (192.168.1.10) envía un paquete a 192.168.1.20 en la misma VLAN, encapsula el paquete IPv4 dentro de una trama con la MAC destino correspondiente; si no la conoce, envía una ARP request y recibe la MAC en la ARP reply.
+**Ejemplo:** cuando un host A (192.168.1.10) envía un paquete a 192.168.1.20 en la misma VLAN, encapsula el paquete IPv4 dentro de una trama con la MAC destino correspondiente; si no la conoce, envía una ARP request y recibe la MAC en la ARP reply.
 
-### 3.3 Notación y cálculo (IPv4)
+### 3.3 Direccionamiento lógico (IPv4)
 
-- Notación decimal punteada: `192.168.1.10` con máscara `255.255.255.0` equivale a `192.168.1.10/24`.
-- CIDR (Classless Inter-Domain Routing): especifica el prefijo con `/n` donde `n` es bits de red.
-- Cálculo de subredes: dividir el espacio de direcciones incrementando el prefijo; calcular número de hosts útiles = 2^(32 - prefijo) - 2 (salvo subredes especiales).
+Una **dirección lógica** identifica de forma única una interfaz de red o tarjeta de red, en un ámbito local o global, es decir, es utilizada por los dispositivos para comunicarse con otros dispositivos de la misma red local o fuera de ella.
+
+La dirección IP puede cambiar, debido a los cambios de red o por un cambio en la asignación automática (protocolo DHCP). A esta forma de asignación de dirección IP se le denomina también dirección **IP dinámica**.
+
+Los sitios de Internet que por su naturaleza necesitan estar permanentemente conectados, generalmente tienen la necesidad de una dirección IP fija (comúnmente, **IP fija o IP estática**). 
+Esta no cambia con el tiempo. Los servidores de correo, DNS, FTP públicos y servidores de páginas web necesariamente deben contar con una dirección IP fija o estática, ya que de esta forma se permite su localización en la red. Asignada manualmente por un administrador de red.
+
+Una dirección IP no identifica a un ordenador en la red, sino a una interfaz de red. Es posible que un mismo equipo pueda tener varias direcciones IP, una por interfaz de red, para estar conectado a varias redes diferentes de manera simultánea.
+
+**Formato de direcciones ip**
+
+Una dirección IPv4 es `un número binario de 32 bits`. Pero la notación empleada es un número decimal con puntos. Se dividen los 32 bits en 4 octetos (grupos de 8 bits), escribiendo cada uno de ellos en base decimal, separados por puntos.
+
+```text
+11001100.00110011.10101010.01010101
+
+204.51.170.85
+```
+Las direcciones IP constan de dos partes:
+- *Identificador de red:* determina la red en la que se encuentra el dispositivo.
+- *Identificador de host:* determina el host dentro de la red.
+Todos los hosts de una misma red tienen el mismo identificador de red. Las redes grandes tendrán un identificador de red pequeño y las redes pequeñas tendrán un identificador de red grande.
+
+**Máscara de red**
+La máscara de red se emplea para diferenciar la parte de dirección IP correspondiente al identificador de red de la parte correspondiente al identificador de host.
+Es un número de 32 bits que define en las posiciones a 1 el identificador de red, y en las posiciones a 0 el identificador de host.
+
+```text
+	11001100.00110011.10101010.01010101 Dirección ip
+AND 11111111.11111111.11111111.00000000 Máscara de red
+	11001100.00110011.10101010.00000000  Dirección de Red
+    -------------------------- --------
+    identificador de red       id. equipo
+```
+- **Notación decimal punteada:** Dirección ip `204.51.170.85`  con máscara de red `255.255.255.0` 
+- **Notación CIDR(Classless Inter-Domain Routing):** especifica el prefijo con `/n` donde `n` es bits de red. Que consite en situar un sufijo a continuación de la dirección IP, indicando cuántos bits de la máscara de red están a 1  Dirección ip `204.51.170.85/24`
+
+**Clases de direcciones ip**
+Aunque el identificador de red puede tener una longitud en bits variable, en un principio se establecieron una serie de máscaras de red concretas. Así surgen las clases de direcciones:
+
+| Clase | Rango de direcciones IPv4 | Máscara predeterminada | Descripción |
+|---|---|---|---|
+| **A** | 0.0.0.0–127.255.255.255 | 255.0.0.0 (`/8`) | Históricamente destinada a redes muy grandes. El bloque `127.0.0.0/8` se reserva para *loopback* y `0.0.0.0/8` tiene usos especiales. |
+| **B** | 128.0.0.0–191.255.255.255 | 255.255.0.0 (`/16`) | Históricamente destinada a redes medianas o grandes. |
+| **C** | 192.0.0.0–223.255.255.255 | 255.255.255.0 (`/24`) | Históricamente destinada a redes pequeñas. |
+| **D** | 224.0.0.0–239.255.255.255 | No tiene | Direcciones de *multicast*, usadas para enviar datos a un grupo de dispositivos. |
+| **E** | 240.0.0.0–255.255.255.255 | No tiene | Reservada para usos experimentales y especiales; no se asigna normalmente a equipos. |
+
+Las clases son un sistema **histórico** de direccionamiento. Hoy se utiliza **CIDR**, que permite definir redes con prefijos como `/20` o `/27`, sin depender de clases.
+
+**Direcciones IPv4 públicas y privadas**
+
+*Las direcciones privadas* se utilizan dentro de redes locales y no se enrutan directamente por Internet. Los rangos privados definidos para IPv4 son:
+
+| Bloque privado | Rango de direcciones | Prefijo |
+|---|---|---|
+| `10.0.0.0` | `10.0.0.0`–`10.255.255.255` | `/8` |
+| `172.16.0.0` | `172.16.0.0`–`172.31.255.255` | `/12` |
+| `192.168.0.0` | `192.168.0.0`–`192.168.255.255` | `/16` |
+
+*Las direcciones públicas* pueden enrutarse por Internet. No todas las direcciones que no pertenecen a los rangos privados son públicas, ya que también existen bloques reservados para otros usos especiales. Para que los dispositivos con direcciones privadas puedan acceder a Internet, normalmente se utiliza **NAT**, que traduce sus direcciones a una dirección pública.
+
+**NAT(Network Address Translation)**
+
+La aparición de `los enrutadores` con la cualidad **NAT** permite que se puedan utilizar varias direcciones privadas detrás del router consumiendo solamente una dirección pública de cara a Internet. Esta es una de las medidas que intenta solucionar el problema de la escasez de IPv4.
+
+Este mecanismo permite intercambiar información entre dos redes que a priori son incompatibles, por ejemplo, una LAN y una WAN.
+
+El funcionamiento se basa en el cambio de direcciones origen en cada paquete en tiempo real al pasar por el router. Ello se almacena en una tabla para que el dispositivo pueda recordar los cambios y así devolver la información a quien la generó cuando haya respuesta.
+
+![mapaejemplo](img/mapaejemplo.png)
+
+**Subredes IPv4**
+`Las subredes` son un método para poder crear varios dominios de difusión a partir de una dirección de red, lo cual ayudará a segmentar la red.
+
+`Las subredes IPv4` se crean utilizando uno o más de los bits de host como bits de red. Se amplía la máscara de red para tomar prestados algunos bits de la parte de host de la dirección, con el fin de obtener bits de red adicionales. Cuantos más bits de host se tomen prestados, mayor será la cantidad de subredes que puedan definirse, y se dispondrá de menos direcciones de host por subred.
+
+Los bits solo se pueden tomar prestados de la parte de host. El proveedor de servicios determina la parte de red de la dirección, la cual no se puede modificar.
+
+```text
+Ej.: Red 192.168.1.0/24
+Tiene 24 bits en la parte de red y 8 bits en la parte de host -> máscara: 255.255.255.0 ó /24.
+Dirección: 	192.	168.	1.		0000   0000
+Máscara: 	255.	255.	255.	0000   0000
+			Parte de red			Parte de host
+```
+Si se toma prestado un bit de la posición más significativa (más a la izquierda) de la parte de host de la dirección IP, se amplía la parte de red a 25 bits.
+
+Esto crea 2 subredes que se identifican mediante un 0 en el bit prestado para la primera red, y un 1 en el bit prestado para la segunda red.
+
+La máscara de subred para ambas redes utiliza un 1 en la posición del bit que se ha tomado prestado para indicar que ahora este bit pertenece a la parte de red.
+
+```text
+Dirección:       192.168.1.    	0  000   0000	Red: 192.168.1.0/24
+Máscara:        255.255.255.	0  000   0000	Mask: 255.255.255.0
+
+Red 0:	        192.	168.1.	0  000   0000	Red: 192.168.1.0/25
+Máscara:       255.	255.255.	1  000   0000	Mask: 255.255.255.128
+
+Red 1:            192.168.1.	1  000   0000	Red: 192.168.1.128/25
+Máscara:       255.255.255.		1  000   0000	Mask: 255.255.255.128
+
+```
+**Reglas para cada una de las subredes**
+
+- *Dirección de red:* todos los bits de la parte de host de la dirección son 0.
+- *Primera dirección de host:* Todos los bits de la parte de host de la dirección son 0 excepto el bit más a la derecha que es 1.
+- *Última dirección de host:* Todos los bits de la parte de host de la dirección son 1 excepto el bit más a la derecha que es 0.
+- *Dirección de difusión:* Todos los bits de la parte de host de la dirección son 1.
+
+```text
+Dirección de red (Red 0):	192.  168.  1.  0  000  0000  =  192.168.1.0/25
+Primera dirección de host:	192.  168.  1.  0  000  0001  =  192.168.1.1
+Última dirección de host:	192.  168.  1.  0  111  1110  =  192.168.1.126
+Dirección de difusión:		192.  168.  1.  0  111  1111  =  192.168.1.127
+Dirección de red (Red 1):	192.  168.  1.  1  000  0000  =  192.168.1.128/25
+Primera dirección de host:	192.  168.  1.  1  000  0001  =  192.168.1.129
+Última dirección de host:	192.  168.  1.  1  111  1110  =  192.168.1.254
+Dirección de difusión:		192.  168.  1.  1  111  1111  =  192.168.1.255
+```
+**Fórmulas para la división en subredes**
+Es posible determinar matemáticamente el número de subredes creadas, así como el número de host por subred teniendo en cuenta el número de bits que se ha tomado prestado para crear las subredes.
+- *Cálculo de subredes:*  2^n (n = número de bits que se han tomado prestados)
+- *Cálculo de hosts:*  2^n – 2 (n = número de bits restantes del campo de host)
+
+Restamos 2 puesto que los hosts no pueden utilizar la dirección de red ni la dirección de difusión de una subred, luego las 2 direcciones no son válidas para la asignación de host.
+
+En IPv4, las subredes deben ser identificadas por la dirección de red y una máscara de subred.
+
 
 ### 3.4 Ejemplo resuelto: subnetting para 4 VLANs
 
@@ -244,6 +416,17 @@ Requerimientos: VLANs con 50, 20, 10 y 5 hosts. Red disponible: `192.168.0.0/24`
 
 3) Reserva de espacio para futuros: dejar bloques libres a partir de `192.168.0.120/`.
 
+
+```mermaid
+graph LR
+	A["192.168.0.0/24"] --> A1["192.168.0.0/26 (VLAN A - 62 hosts)"]
+	A --> A2["192.168.0.64/27 (VLAN B - 30 hosts)"]
+	A --> A3["192.168.0.96/28 (VLAN C - 14 hosts)"]
+	A --> A4["192.168.0.112/29 (VLAN D - 6 hosts)"]
+	A --> R["Reservado: 192.168.0.120-192.168.0.255"]
+```
+
+
 ### 5.4 IPv6: notación y consideraciones
 
 - Notación hexadecimal con `:` y compresión de ceros (`2001:db8::1`).
@@ -260,11 +443,11 @@ Requerimientos: VLANs con 50, 20, 10 y 5 hosts. Red disponible: `192.168.0.0/24`
 
 ```mermaid
 graph LR
-	A[192.168.0.0/24] --> A1[192.168.0.0/26\n(VLAN A - 62 hosts)]
-	A --> A2[192.168.0.64/27\n(VLAN B - 30 hosts)]
-	A --> A3[192.168.0.96/28\n(VLAN C - 14 hosts)]
-	A --> A4[192.168.0.112/29\n(VLAN D - 6 hosts)]
-	A --> R[Reservado 192.168.0.120/..]
+	A["192.168.0.0/24"] --> A1["192.168.0.0/26 (VLAN A - 62 hosts)"]
+	A --> A2["192.168.0.64/27 (VLAN B - 30 hosts)"]
+	A --> A3["192.168.0.96/28 (VLAN C - 14 hosts)"]
+	A --> A4["192.168.0.112/29 (VLAN D - 6 hosts)"]
+	A --> R["Reservado: 192.168.0.120-192.168.0.255"]
 ```
 
 
@@ -549,4 +732,3 @@ flowchart LR
 - Software: sistemas operativos (Windows/Linux/macOS), Wireshark, iperf, herramientas SNMP (snmpwalk), draw.io, Packet Tracer o GNS3 para simulación.
 
 ---
-
