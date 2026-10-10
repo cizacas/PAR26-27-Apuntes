@@ -239,7 +239,7 @@ En una red de ordenadores hay dos tipos de direcciones:
 	 - Efectos de duplicado: conflictos de enlace (tramas alternando entre puertos), problemas de ARP, pérdida de conectividad para una o ambas interfaces.
 	 - Mitigación: asignar MACs estáticas válidas en elementos críticos, usar seguridad en switches (port security), gestionar MACs en entornos virtuales y evitar clonar sin control.
 
-#### Comandos útiles para comprobar MAC/ARP
+#### **Comandos útiles para comprobar MAC/ARP**
 
 - Windows:
 	- Ver ARP: `arp -a` (muestra asociaciones IP → MAC en caché).
@@ -277,7 +277,7 @@ Esta no cambia con el tiempo. Los servidores de correo, DNS, FTP públicos y ser
 
 Una dirección IP no identifica a un ordenador en la red, sino a una interfaz de red. Es posible que un mismo equipo pueda tener varias direcciones IP, una por interfaz de red, para estar conectado a varias redes diferentes de manera simultánea.
 
-**Formato de direcciones ip**
+#### **Formato de direcciones ip**
 
 Una dirección IPv4 es `un número binario de 32 bits`. Pero la notación empleada es un número decimal con puntos. Se dividen los 32 bits en 4 octetos (grupos de 8 bits), escribiendo cada uno de ellos en base decimal, separados por puntos.
 
@@ -291,7 +291,7 @@ Las direcciones IP constan de dos partes:
 - *Identificador de host:* determina el host dentro de la red.
 Todos los hosts de una misma red tienen el mismo identificador de red. Las redes grandes tendrán un identificador de red pequeño y las redes pequeñas tendrán un identificador de red grande.
 
-**Máscara de red**
+#### **Máscara de red**
 La máscara de red se emplea para diferenciar la parte de dirección IP correspondiente al identificador de red de la parte correspondiente al identificador de host.
 Es un número de 32 bits que define en las posiciones a 1 el identificador de red, y en las posiciones a 0 el identificador de host.
 
@@ -305,7 +305,7 @@ AND 11111111.11111111.11111111.00000000 Máscara de red
 - **Notación decimal punteada:** Dirección ip `204.51.170.85`  con máscara de red `255.255.255.0` 
 - **Notación CIDR(Classless Inter-Domain Routing):** especifica el prefijo con `/n` donde `n` es bits de red. Que consite en situar un sufijo a continuación de la dirección IP, indicando cuántos bits de la máscara de red están a 1  Dirección ip `204.51.170.85/24`
 
-**Clases de direcciones ip**
+#### **Clases de direcciones ip**
 Aunque el identificador de red puede tener una longitud en bits variable, en un principio se establecieron una serie de máscaras de red concretas. Así surgen las clases de direcciones:
 
 | Clase | Rango de direcciones IPv4 | Máscara predeterminada | Descripción |
@@ -318,7 +318,7 @@ Aunque el identificador de red puede tener una longitud en bits variable, en un 
 
 Las clases son un sistema **histórico** de direccionamiento. Hoy se utiliza **CIDR**, que permite definir redes con prefijos como `/20` o `/27`, sin depender de clases.
 
-**Direcciones IPv4 públicas y privadas**
+#### **Direcciones IPv4 públicas y privadas**
 
 *Las direcciones privadas* se utilizan dentro de redes locales y no se enrutan directamente por Internet. Los rangos privados definidos para IPv4 son:
 
@@ -330,7 +330,7 @@ Las clases son un sistema **histórico** de direccionamiento. Hoy se utiliza **C
 
 *Las direcciones públicas* pueden enrutarse por Internet. No todas las direcciones que no pertenecen a los rangos privados son públicas, ya que también existen bloques reservados para otros usos especiales. Para que los dispositivos con direcciones privadas puedan acceder a Internet, normalmente se utiliza **NAT**, que traduce sus direcciones a una dirección pública.
 
-**NAT(Network Address Translation)**
+#### **NAT(Network Address Translation)**
 
 La aparición de `los enrutadores` con la cualidad **NAT** permite que se puedan utilizar varias direcciones privadas detrás del router consumiendo solamente una dirección pública de cara a Internet. Esta es una de las medidas que intenta solucionar el problema de la escasez de IPv4.
 
@@ -340,7 +340,7 @@ El funcionamiento se basa en el cambio de direcciones origen en cada paquete en 
 
 ![mapaejemplo](img/mapaejemplo.png)
 
-**Subredes IPv4**
+#### **Subredes IPv4**
 `Las subredes` son un método para poder crear varios dominios de difusión a partir de una dirección de red, lo cual ayudará a segmentar la red.
 
 `Las subredes IPv4` se crean utilizando uno o más de los bits de host como bits de red. Se amplía la máscara de red para tomar prestados algunos bits de la parte de host de la dirección, con el fin de obtener bits de red adicionales. Cuantos más bits de host se tomen prestados, mayor será la cantidad de subredes que puedan definirse, y se dispondrá de menos direcciones de host por subred.
@@ -371,7 +371,7 @@ Red 1:            192.168.1.	1  000   0000	Red: 192.168.1.128/25
 Máscara:       255.255.255.		1  000   0000	Mask: 255.255.255.128
 
 ```
-**Reglas para cada una de las subredes**
+#### **Reglas para cada una de las subredes**
 
 - *Dirección de red:* todos los bits de la parte de host de la dirección son 0.
 - *Primera dirección de host:* Todos los bits de la parte de host de la dirección son 0 excepto el bit más a la derecha que es 1.
@@ -388,7 +388,7 @@ Primera dirección de host:	192.  168.  1.  1  000  0001  =  192.168.1.129
 Última dirección de host:	192.  168.  1.  1  111  1110  =  192.168.1.254
 Dirección de difusión:		192.  168.  1.  1  111  1111  =  192.168.1.255
 ```
-**Fórmulas para la división en subredes**
+#### **Fórmulas para la división en subredes**
 Es posible determinar matemáticamente el número de subredes creadas, así como el número de host por subred teniendo en cuenta el número de bits que se ha tomado prestado para crear las subredes.
 - *Cálculo de subredes:*  2^n (n = número de bits que se han tomado prestados)
 - *Cálculo de hosts:*  2^n – 2 (n = número de bits restantes del campo de host)
@@ -398,7 +398,115 @@ Restamos 2 puesto que los hosts no pueden utilizar la dirección de red ni la di
 En IPv4, las subredes deben ser identificadas por la dirección de red y una máscara de subred.
 
 
-### 3.4 Ejemplo resuelto: subnetting para 4 VLANs
+### 3.4 Ejemplos
+
+Si queremos **crear subredes (subnetting)** tener más redes y menos host por red
+
+Ejemplo: 192.168.0.0/24 -> 192.168.0.0/26, hemos tomado 2 bits de la parte del host para crear subredes
+y el número de subredes es 2^2=4 subredes y host para cada subred, 8-2=6 bits para host 2^6 = 64 direcciones, 64-2= 62 hosts
+
+En `24`
+```text
+11111111.11111111.11111111.00000000
+255.255.255.0
+8 bits
+2^8 -2 =254
+```
+
+En `26`
+
+```text
+11111111.11111111.11111111.11000000
+255.255.255.192
+6 bits
+2^6 -2 =62 
+```
+y ¿las subredes que aparecen? calculamos el salto 256- 192 =64, por tanto las subredes empiezan en 0, 64, 128 y 192
+
+```text 
+
+subred 1
+Red:       192.168.0.0/26
+Hosts:     192.168.0.1 - 192.168.0.62
+Broadcast: 192.168.0.63
+
+subred 2
+Red:       192.168.0.64/26
+Hosts:     192.168.0.65 - 192.168.0.126
+Broadcast: 192.168.0.127
+
+subred 3
+Red:       192.168.0.128/26
+Hosts:     192.168.0.129 - 192.168.0.190
+Broadcast: 192.168.0.191
+
+subred 4
+Red:       192.168.0.192/26
+Hosts:     192.168.0.193 - 192.168.0.254
+Broadcast: 192.168.0.255
+```
+
+Ahora vamos a **crear superredes (supperneting o agregación CIDR)**
+
+Ejemplo: 192.168.0.0/24 -> 192.168.0.0/26  La dirección 192.168.0.0/24  tiene 24 bits de red y 8 bits de host,  permite direccionar 254 hosts (2^8-2).(las dos que se restan son la dirección de red y la de broadcast) 
+Con CIDR se consigue que esta dirección de red identifique a más de 254 hosts.
+
+Para pasar de `/24` a `/22`, quitamos 2 bits de la parte de red y los añadimos a la parte de host
+
+En `/24`
+
+```text
+11111111.11111111.11111111.00000000
+255.255.255.0
+8 bits
+2^8 -2 =254
+```
+En `/22`
+
+```text
+11111111.11111111.11111100.00000000
+255.255.252.0
+10 bits
+2^10 -2 =1022 hosts
+```
+
+Al ser una red `/22` observa que e el tercer octeto los dos últimos bits forman parte de los hosts, por ello el tamaño del bloque es 256-252=4. 2^(24-22)=4 Podemos afirmar que cada red `/22` abarca 4 redes `/24` consecutivas
+Una red 192.168.0.0/22 engloba exactamente a las siguientes cuatro redes `/24`
+
+```text
+192.168.0.0/24
+192.168.1.0/24
+192.168.2.0/24
+192.168.3.0/24
+```text
+
+Las redes `/22` empiezan cada 4 valores del tercer octeto
+
+```text
+192.168.0.0/22
+192.168.4.0/22
+192.168.8.0/22
+192.168.12.0/22
+...
+```
+Para la red 192.168.0.0/22
+- Dirección de red: 192.168.0.0
+- Primer host: 192.168.0.1
+- Último host: 192.168.3.254
+- Broadcast: 192.168.3.255
+
+*Cálculo del número de hosts*
+
+32 bits dirección de red  - 22 bits identificar la red = 10 bits
+2^10=1024 direcciones
+1024 -2 =1022 host utilizables
+
+**Regla fácil para recordar**
+- De /24 a /26: robas bits a los hosts → más redes, menos hosts.
+- De /24 a /22: robas bits a la red → menos redes, más hosts.
+
+
+**subnetting para 4 VLANs**
 
 Requerimientos: VLANs con 50, 20, 10 y 5 hosts. Red disponible: `192.168.0.0/24`.
 
@@ -426,44 +534,236 @@ graph LR
 	A --> R["Reservado: 192.168.0.120-192.168.0.255"]
 ```
 
+### 3.5 Direccionamiento lógico IPv6
 
-### 5.4 IPv6: notación y consideraciones
+*(CE-d: conocimiento y uso de direcciones IPv6 y sus tipos.)*
 
-- Notación hexadecimal con `:` y compresión de ceros (`2001:db8::1`).
-- Prefijo típico de subred de enlace local: `/64`; para redes internas usar `/64` por compatibilidad.
-- No existe broadcast; se usan multicast y anycast.
+**IPv6** surge para solucionar el problema de escasez de direcciones IPv4 en Internet.
 
-### 5.5 Buenas prácticas
+Una dirección lógica IPv6 consta de 128 bits, agrupados en 8 segmentos de 16 bits cada uno (8 hextetos), separados por dos puntos y representados en formato hexadecimal.
 
-- Planificar rangos contiguos por VLAN y documentar en la tabla IP.
-- Reservar direcciones para servidores e infraestructura (DNS, NTP, impresoras).
-- Documentar máscaras y gateways en el mapa lógico.
+``` text
+8888:9999:AAAA:BBBB:CCCC:DDDD:EEEE:FFFF(16)
+```
+#### **Reglas para reducir la notación de direcciones IPv6:**
+- Se puede omitir cualquier 0 a la izquierda de un hexteto.
+    - 01AB -> 1AB
+    - 0B00 -> B00
+    - 0003 -> 3
+- Se pueden omitir segmentos compuestos por solo ceros UNA VEZ y remplazar por ::
+    - 2001:0DB7:0000:0000:1111:0000:0000:0200
+    -> 2001:DB7:0:0:1111:0:0:200
+	-> 2001:DB7::1111:0:0:200   o bien 2001:DB7:0:0:1111::200
 
-#### Diagrama: asignación de subredes (visual)
+**Ejemplo de transformación de direcciones IPv6 a notación abreviada**
 
-```mermaid
-graph LR
-	A["192.168.0.0/24"] --> A1["192.168.0.0/26 (VLAN A - 62 hosts)"]
-	A --> A2["192.168.0.64/27 (VLAN B - 30 hosts)"]
-	A --> A3["192.168.0.96/28 (VLAN C - 14 hosts)"]
-	A --> A4["192.168.0.112/29 (VLAN D - 6 hosts)"]
-	A --> R["Reservado: 192.168.0.120-192.168.0.255"]
+```text
+FE80:0000:0000:0000:0123:0123:ABCD:EFFF
+	FE80::123:123:ABCD:EFFF
+FFF1:0000:0000:0000:0000:0000:0000:0001
+	FFF1::1
+FF02:0000:0000:0000:FF00:0000:0000:0202
+	FF02::FF00:0:0:202
+0000:0000:0000:0000:0000:0000:0000:0001
+	::1
+0000:0000:0000:0000:0000:0000:0000:0000
+	::
 ```
 
+#### **Reglas para convertir una dirección IPv4 a IPv6**
 
-## 6. Direccionamiento dinámico: DHCP, DHCPv6 y SLAAC
+- La IPv6 empieza por 0000:0000:0000:0000:0000:FFFF -> ::FFFF
+- Se transforma la IPv4 a hexadecimal y se divide en dos hextetos:
+
+```text
+    - 192.168.1.125
+    - 1100 0000 . 1010 1000 . 0000 0001  . 0111 1101
+    -    C 0         A 8    :    0 1     .    7 D
+```
+- Concatenamos la primera parte de la IPv6 con la IPv4 en hexadecimal:
+```text
+    - 0000:0000:0000:0000:0000:FFFF:C0A8:017D
+```
+- Transformamos la IPv6 a notación abreviada:
+```text
+    - ::FFFF:C0A8:17D
+```
+#### **Tipos de direccionamiento IPv6 según su forma de entrega : unicast, anycast y multicast**
+
+- **Unicast:** identifica a una interfaz de red de un único nodo. Cuando se envía un paquete a una dirección unicast, solo un nodo lo recibirá.
+Ejemplos:
+- Global Unicast (2000::/3)
+- Unique Local Address (fc00::/7)
+- Link-Local (fe80::/10)
+- Loopback (::1)
+
+- **Multicast:** identifica a un grupo de interfaces, generalmente de distintos nodos. Cuando se envía un paquete a una dirección multicast, todos los nodos del grupo lo recibirán.
+Ejemplo:
+- ff00::/8
+
+- **Anycast:** identifica a un grupo de interfaces, pero cuando se envía un paquete a una dirección anycast, solo el nodo más cercano al remitente lo recibirá.
+Usos habituales:
+- Servidores DNS.
+- Balanceo de carga.
+- Servicios distribuidos.
+
+
+#### **Direcciones reservadas y especiales IPv6**
+
+| Prefijo IPv6 | Nombre | Descripción | tipo |
+|-------------|---------|-------------|------|
+| ::/128 | Dirección no especificada | Indica ausencia de dirección. Se utiliza durante la autoconfiguración antes de obtener una dirección válida. | Especial |
+| ::1/128 | Loopback | Permite que un equipo se comunique consigo mismo. Equivale a 127.0.0.1 en IPv4. |Unicast |
+| fe80::/10 | Link-Local | Se configura automáticamente en las interfaces IPv6. Solo es válida dentro del enlace o red local y no se enruta. | Unicast |
+| fc00::/7 | Unique Local Address (ULA) | Direcciones privadas para redes internas. Equivalen aproximadamente a las redes privadas de IPv4. | Unicast |
+| 2000::/3 | Global Unicast | Direcciones públicas enrutables en Internet. | Unicast|
+| ff00::/8 | Multicast | Direcciones utilizadas para enviar tráfico a grupos de dispositivos. Sustituyen al broadcast de IPv4. | Multicast |
+| 2001:db8::/32 | Documentación | Reservadas para ejemplos, documentación y material educativo. | Especial |
+
+
+#### **Configuración automática en IPv6**
+
+- **SLAAC (Stateless Address Autoconfiguration):** Permite que un dispositivo genere automáticamente su dirección IPv6 a partir del prefijo anunciado por el router.
+- **Router Advertisement (RA):** Mensajes enviados por los routers IPv6 para anunciar:
+    - Prefijo de red.
+    - Puerta de enlace predeterminada.
+    - Información para la autoconfiguración. Como indicaciones sobre si debe usarse DHCPv6
+- **DHCPv6:** Permite proporcionar de forma centralizada:
+    - Direcciones IPv6.
+    - Servidores DNS.
+    - Otros parámetros de configuración.
+- **SLAAC + DHCPv6:** Es habitual utilizar ambos mecanismos:
+    - SLAAC para obtener la dirección IPv6.
+    - DHCPv6 para obtener información adicional, como los servidores DNS.
+
+*¿Cómo funciona SLAAC?*
+1. El equipo se conecta a la red.
+2. Descubre que hay un router IPv6.
+3. El router envía un Router Advertisement (RA). 
+4. En ese RA anuncia un prefijo, por ejemplo:
+	```text
+	2001:db8:1:100::/64
+	```
+5. El equipo genera automáticamente el resto de la dirección siendo el resultado:
+   ```text
+   2001:db8:1:100:abcd:1234:5678:9abc
+   ```
+   Sin que nadie la haya configurado manualmente
+
+#### **Comandos útiles**
+- Comprobaciones: `ip -6 addr`, `ip -6 route`, `ping6`/`ping -6`.
+
+
+## 4. Direccionamiento dinámico: DHCP, DHCPv6 y SLAAC
 
 *(CE-d: uso de sistemas de direccionamiento dinámico.)*
 
+### 4.1 Métodos de asignación de direcciones IP mediante DHCP
 
-### 6.1 Funcionamiento de DHCP (DORA)
+- **Asignación manual o estática (Reserva)**
+El administrador asocia una dirección IP concreta a un cliente determinado, normalmente mediante su dirección MAC.
 
-- DISCOVER: el cliente broadcast solicita configuración.
-- OFFER: el servidor ofrece una dirección y parámetros.
-- REQUEST: el cliente solicita formalmente la oferta elegida.
-- ACK: el servidor confirma y asigna la configuración.
+Características:
+- Siempre recibe la misma dirección IP.
+- Permite controlar qué equipos obtienen dirección.
+- Habitual en servidores, impresoras y dispositivos de red.
 
-#### Diagrama: proceso DORA (DHCP)
+- **Asignación automática**
+El servidor DHCP asigna una dirección IP permanente al cliente la primera vez que la solicita.
+
+Características:
+- La dirección queda reservada para ese cliente.
+- No suele reutilizarse para otros equipos.
+- Actualmente es poco utilizada.
+
+- **Asignación dinámica**
+El servidor DHCP asigna una dirección IP durante un tiempo determinado (lease o concesión).
+
+Características:
+- Las direcciones IP pueden reutilizarse.
+- Es el método más utilizado actualmente.
+- Permite gestionar eficientemente grandes cantidades de dispositivos.
+
+- **APIPA (Automatic Private IP Addressing)**
+Si un cliente configurado para obtener una dirección mediante DHCP no encuentra ningún servidor DHCP disponible, Windows puede asignarse automáticamente una dirección del rango:
+
+```text
+169.254.0.1 - 169.254.255.254
+Máscara:
+255.255.0.0 (/16)
+```
+Características:
+- Permite la comunicación local entre equipos de la misma red.
+- No proporciona acceso a otras redes ni a Internet.
+- Indica habitualmente un problema con el servidor DHCP o la conectividad de red.
+
+### 4.2 Opciones de configuración que puede proporcionar un servidor DHCP
+
+- ✅ **Máscara de subred**
+  - Muy utilizada actualmente.
+  - Define qué parte de la dirección IP identifica la red y qué parte identifica el host.
+
+- ✅ **Puerta de enlace predeterminada (Default Gateway)**
+  - Muy utilizada actualmente.
+  - Permite la comunicación con otras redes e Internet.
+
+- ✅ **Dirección de los servidores DNS**
+  - Muy utilizada actualmente.
+  - Permite resolver nombres de dominio a direcciones IP.
+
+- ✅ **Nombre de dominio DNS**
+  - Muy utilizado actualmente.
+  - Permite completar automáticamente nombres de host dentro de una organización.
+
+- ✅ **MTU (Maximum Transmission Unit)**
+  - Sigue existiendo y puede configurarse mediante DHCP.
+  - Se utiliza en entornos específicos donde es necesario ajustar el tamaño máximo de los paquetes.
+
+- ✅ **MTU (Maximum Transmission Unit)**
+  - Sigue existiendo y puede configurarse mediante DHCP.
+  - Se utiliza en entornos específicos donde es necesario ajustar el tamaño máximo de los paquetes.
+
+- ✅ **Servidores NTP (Network Time Protocol)**
+  - Muy utilizados actualmente.
+  - Permiten sincronizar la hora de equipos y servidores.
+
+- ✅ **Servidor TFTP**
+  - Sigue utilizándose en determinados entornos.
+  - Muy común en arranque por red (PXE), teléfonos IP, routers y switches.
+
+- ⚠️ **Dirección de Broadcast**
+  - Poco utilizada actualmente como opción DHCP.
+  - Los sistemas operativos suelen calcularla automáticamente a partir de la IP y la máscara.
+
+- ⚠️ **Tiempo máximo de espera de ARP**
+  - Poco habitual en redes modernas.
+  - Normalmente se configura en el sistema operativo o en los dispositivos de red.
+
+- ❌ **Servidores NIS (Network Information Service)**
+  - Tecnología antigua de sistemas Unix.
+  - Prácticamente en desuso.
+
+- ❌ **Dominios NIS**
+  - Asociados al servicio NIS.
+  - Prácticamente en desuso.
+
+- ❌ **Servidor SMTP**
+  - Muy poco habitual como opción DHCP.
+  - Las aplicaciones de correo suelen configurarlo directamente.
+
+- ❌ **Servidor WINS (Windows Internet Name Service)**
+  - Tecnología heredada de Microsoft basada en NetBIOS.
+  - Prácticamente sustituida por DNS.
+
+
+### 4.3 Funcionamiento de DHCP (DORA)
+
+- **DISCOVER:** el cliente broadcast solicita configuración.
+- **OFFER:** el servidor ofrece una dirección y parámetros.
+- **REQUEST:** el cliente solicita formalmente la oferta elegida.
+- **ACK:** el servidor confirma y asigna la configuración.
+
+#### **Diagrama: proceso DORA (DHCP)**
 
 ```mermaid
 sequenceDiagram
@@ -481,46 +781,10 @@ sequenceDiagram
 	B->>C: entrega ACK (config aplicada)
 ```
 
-### 6.2 Parámetros entregados por DHCP
+### 4.4 DHCPv6 y SLAAC
 
-- Dirección IP, máscara (o prefijo), puerta de enlace, servidores DNS, tiempo de arrendamiento (lease), opciones como NTP, WINS, clases y reservas.
-
-### 6.3 DHCPv6 y SLAAC
-
-- DHCPv6: similar a DHCPv4 pero con diferencias en transporte y opciones; puede actuar en modo estateless (solo opciones) o stateful (asigna direcciones).
-- SLAAC (Stateless Address Autoconfiguration): el host genera su propia dirección a partir del prefijo anunciado por el router (RA). Puede combinarse con DHCPv6 para opciones adicionales.
-
-### 6.4 Ejemplo práctico (DHCP IPv4)
-
-- Scope: `192.168.10.0/24`.
-- Pool: `192.168.10.100`–`192.168.10.200`.
-- Reserva: impresora `192.168.10.30` ligada a MAC.
-- Parámetros: gateway `192.168.10.1`, DNS `192.168.10.10`, lease 8 horas.
-
-Procedimiento de verificación:
- - Conectar cliente en red y comprobar `ipconfig /renew` (Windows) o `dhclient` (Linux).
- - Comprobar logs del servidor DHCP y la tabla de leases.
-
-
-## 7. Direcciones IPv6: unicast, anycast y multicast
-
-*(CE-d: conocimiento y uso de direcciones IPv6 y sus tipos.)*
-
-### 7.1 Formato y tipos
-
-- Notación: grupos hexadecimales de 16 bits separados por `:`; compresión de ceros `::` una sola vez por dirección.
-- Prefijos importantes: `fe80::/10` link‑local, `fc00::/7` ULA (Unique Local Address), `2000::/3` global unicast.
-- Tipos: unicast (uno‑a‑uno), multicast (uno‑a‑muchos), anycast (uno‑a‑el más cercano).
-
-### 7.2 Autoconfiguración y comprobación
-
-- SLAAC usa RAs (Router Advertisements) para anunciar prefijos y opciones.
-- DHCPv6 puede complementar SLAAC si se quiere un control centralizado.
-- Comprobaciones: `ip -6 addr`, `ip -6 route`, `ping6`/`ping -6`.
-
-### 7.3 Ejemplo breve
-
-- Configurar interfaz con dirección link‑local automática y comprobar alcance con `ping6 ff02::1%<iface>` para descubrir vecinos en el enlace.
+- **DHCPv6:** similar a DHCPv4 pero con diferencias en transporte y opciones; puede actuar en modo estateless (solo opciones) o stateful (asigna direcciones).
+- **SLAAC (Stateless Address Autoconfiguration):** el host genera su propia dirección a partir del prefijo anunciado por el router (RA). Puede combinarse con DHCPv6 para opciones adicionales.
 
 
 ## 8. Adaptadores de red: instalación y configuración (alámbricos e inalámbricos)
