@@ -175,6 +175,7 @@ Los instrumentos que miden estos parámetros:
 ### 2.6 Fibra óptica: monomodo vs multimodo
 
 **Un sistema de transmisión por fibra óptica** consta principalmente de tres partes:
+
 - **Elemento transmisor:** encargado de generar el haz luminoso. Ej.: led, láser…
 - **Medio físico de transmisión:** responsable de guiar la luz desde el origen al destino. Es el cable de fibra óptica.
 - **Elemento receptor:** Es el que recibe la señal y la transforma de forma adecuada para su procesamiento. Son fotodiodos o fotodetectores.
@@ -182,6 +183,7 @@ Los instrumentos que miden estos parámetros:
 ![fibra](img/fibra.png)
 
 El **cable de fibra óptica** es el medio físico utilizado para transportar la luz, de forma que transmita información binaria. Principalmente, se compone de tres partes:
+
 - **El núcleo:** está formado por una o varias fibras muy finas de cristal o plástico.
 - **El revestimiento:** rodea al núcleo y permite la refracción de la luz. Está hecho de cristal o plástico de diferentes propiedades ópticas distintas a las del núcleo.
 - **El recubrimiento o cubierta:** constituida de material plástico o similar. Se encarga de proteger al conjunto de golpes, abrasiones, humedades, etc.
@@ -364,6 +366,7 @@ Cómo pueden autenticarse y acceder los usuarios a una WLAN:
 - **WPA/WPA2/WPA3 Enterprise (802.1X + RADIUS):** autenticación individual mediante servidor RADIUS y EAP. Soporta métodos como EAP‑PEAP (usuario/contraseña) y EAP‑TLS (certificados), y permite aplicar políticas (VLAN, tiempo, etc.).
 
 Buenas prácticas de seguridad:
+
 - Evitar WEP y TKIP (obsoletos).
 - Preferir WPA2‑Enterprise o WPA3 cuando sea posible.
 - En captive portals usar HTTPS y, si procede, un túnel VPN para proteger credenciales.
@@ -375,6 +378,7 @@ Buenas prácticas de seguridad:
 
 Para poder identificar de forma única los diferentes dispositivos dentro de una red informática se utiliza un mecanismo de identificación llamado direccionamiento.
 En una red de ordenadores hay dos tipos de direcciones: 
+
 - direcciones físicas 
 - direcciones lógicas
 
@@ -434,6 +438,7 @@ $ ip link show eth0
 ```shell
 PS> Get-NetAdapter | Format-Table -Auto Name,MacAddress,Status
 ```
+
 - *Switches:* dispositivos que reenvían tramas usando tablas MAC (CAM) aprendidas por puerto; las direcciones MAC permiten conmutación local sin intervención de routers.
 - *Diferencia con IP:* la MAC identifica la interfaz física; la IP identifica la interfaz lógica sobre la red y permite enrutamiento entre subredes.
 
@@ -462,6 +467,7 @@ Una dirección IPv4 es `un número binario de 32 bits`. Pero la notación emplea
 204.51.170.85
 ```
 Las direcciones IP constan de dos partes:
+
 - *Identificador de red:* determina la red en la que se encuentra el dispositivo.
 - *Identificador de host:* determina el host dentro de la red.
 Todos los hosts de una misma red tienen el mismo identificador de red. Las redes grandes tendrán un identificador de red pequeño y las redes pequeñas tendrán un identificador de red grande.
@@ -478,6 +484,7 @@ AND 11111111.11111111.11111111.00000000 Máscara de red
     -------------------------- --------
     identificador de red       id. equipo
 ```
+
 - **Notación decimal punteada:** Dirección ip `204.51.170.85`  con máscara de red `255.255.255.0` 
 - **Notación CIDR(Classless Inter-Domain Routing):** especifica el prefijo con `/n` donde `n` es bits de red. Que consite en situar un sufijo a continuación de la dirección IP, indicando cuántos bits de la máscara de red están a 1. Dirección ip `204.51.170.85/24`
 
@@ -571,6 +578,7 @@ Dirección de difusión:		192.  168.  1.  1  111  1111  =  192.168.1.255
 **Fórmulas para la división en subredes**
 
 Es posible determinar matemáticamente el número de subredes creadas, así como el número de host por subred teniendo en cuenta el número de bits que se ha tomado prestado para crear las subredes.
+
 - *Cálculo de subredes:*  2^n (n = número de bits que se han tomado prestados)
 - *Cálculo de hosts:*  2^n – 2 (n = número de bits restantes del campo de host)
 
@@ -671,6 +679,7 @@ Las redes `/22` empiezan cada 4 valores del tercer octeto
 ...
 ```
 Para la red 192.168.0.0/22
+
 - Dirección de red: 192.168.0.0
 - Primer host: 192.168.0.1
 - Último host: 192.168.3.254
@@ -683,6 +692,7 @@ Para la red 192.168.0.0/22
 1024 -2 =1022 host utilizables
 
 **Regla fácil para recordar**
+
 - De /24 a /26: robas bits a los hosts → más redes, menos hosts.
 - De /24 a /22: robas bits a la red → menos redes, más hosts.
 
@@ -728,6 +738,7 @@ Una dirección lógica IPv6 consta de 128 bits, agrupados en 8 segmentos de 16 b
 ```
 
 #### 5.2.1 Reglas para reducir la notación de direcciones IPv6:
+
 - Se puede omitir cualquier 0 a la izquierda de un hexteto.
     - 01AB -> 1AB
     - 0B00 -> B00
@@ -762,10 +773,12 @@ FF02:0000:0000:0000:FF00:0000:0000:0202
     - 1100 0000 . 1010 1000 . 0000 0001  . 0111 1101
     -    C 0         A 8    :    0 1     .    7 D
 ```
+
 - Concatenamos la primera parte de la IPv6 con la IPv4 en hexadecimal:
 ```text
     - 0000:0000:0000:0000:0000:FFFF:C0A8:017D
 ```
+
 - Transformamos la IPv6 a notación abreviada:
 ```text
     - ::FFFF:C0A8:17D
@@ -834,6 +847,7 @@ Usos habituales:
    Sin que nadie la haya configurado manualmente
 
 #### 5.2.7 Comandos útiles
+
 - Comprobaciones: `ip -6 addr`, `ip -6 route`, `ping6`/`ping -6`.
 
 ---
@@ -987,6 +1001,7 @@ Por ejemplo, un adaptador USB‑Ethernet se conecta al ordenador por USB y a la 
 ### 7.2 Adaptadores alámbricos
 
 Este tipo de adaptadores son los utilizados para conectar los equipos a las redes de cable, a través de conectores BNC (en desuso), RJ45 o de fibra óptica. Hay varios tipos:
+
 - Tarjeta interna PCI
 - Tarjeta interna PCI- express
 - Adaptador USB. Alternativa a las tarjetas internas, más fácil de instalar 
@@ -1013,6 +1028,7 @@ La puerta de enlace y el DNS suelen ser necesarios para comunicarse con otras re
 Los **adaptadores inalámbricos** se utilizan para el mismo fin que los alámbricos, pero sin necesidad de conectar ningún tipo de cable. Son más cómodos de instalar y más sencillos de configurar.
 
 Tipos de adaptador (por conexión al equipo):
+
 - Tarjeta PCMCIA. Prácticamente en desuso.
 - Tarjeta interna PCI‑Express.
 - Adaptador USB. Versión para el acceso inalámbrico a través de USB.
@@ -1064,6 +1080,7 @@ sequenceDiagram
 ```
 
 > Notas:
+
 - El AP (o switch) actúa como "authenticator" y no conoce las credenciales: las reenvía al servidor RADIUS.
 - El secreto compartido RADIUS (shared secret) se usa entre AP y RADIUS para proteger mensajes (no sustituye a EAP/TLS en la autenticación cliente‑servidor).
 - EAP‑TLS usa certificados mutuos y proporciona el mayor nivel de confianza.
@@ -1090,6 +1107,7 @@ sequenceDiagram
 ### 7.4  parámetros avanzados del adaptador
 
 Normalmente se dejan con los valores predeterminados.
+
 - **Velocidad y dúplex:** indican la velocidad del enlace y si puede transmitir y recibir simultáneamente. 1000Full significa 1 Gbit/s en modo full-duplex; 100Half, 100 Mbit/s en half-duplex. En general se deja autonegociación para que el adaptador y el switch acuerden la mejor configuración.
 - **MTU:** tamaño máximo de la unidad de datos que se transmite por la red. En Ethernet suele ser 1500 bytes. Los jumbo frames permiten tamaños mayores, pero solo funcionan correctamente si todos los equipos y enlaces del trayecto los admiten y están configurados igual.
 - **Wake-on-LAN (WoL):** permite encender o reactivar un equipo a través de la red, normalmente mediante un paquete mágico. Requiere compatibilidad del adaptador, la placa base y la configuración de energía.
@@ -1152,6 +1170,7 @@ Received Access-Accept Id 182 from 127.0.0.1:1812
 
 *(CE-i: monitorización de la red mediante aplicaciones basadas en SNMP.)*
 La **monitorización** de una red es el análisis del estado de los recursos. Para analizar los recursos de una red debemos estructurar nuestro estudio en partes diferenciadas.
+
 - Establecer que parámetros queremos monitorizar.
 - Conocer los métodos para acceder a los parámetros monitorizados.
 - Gestionar la información recopilada de los parámetros monitorizados.
