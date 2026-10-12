@@ -1035,14 +1035,14 @@ Es un cambio de forma en la señal. Cuando una señal es compuesta, como las dig
 </li>
 <li>
 <p><strong>Ruido:</strong>
-Es la aparición de nuevas señales que no pertenecen a la transmisión. Puede ser:</p>
-</li>
-<li>
-<p><strong>Ruido térmico:</strong> se debe a la agitación térmica de los electrones que forman el propio cable. Es inevitable.</p>
-</li>
-<li><strong>Diafonía(crosstalk):</strong> cuando dos cables están próximos y las señales de uno son recibidas por el otro. Se denomina también acoplo entre pares; mitigado con trenzado y apantallamiento.</li>
+  Es la aparición de nuevas señales que no pertenecen a la transmisión. Puede ser:</p>
+<ul>
+<li><strong>Ruido térmico:</strong> se debe a la agitación térmica de los electrones que forman el propio cable. Es inevitable.</li>
+<li><strong>Diafonía (crosstalk):</strong> cuando dos cables están próximos y las señales de uno son recibidas por el otro. Se denomina también acoplo entre pares; mitigado con trenzado y apantallamiento.</li>
 <li><strong>Ruido impulsivo:</strong> consiste en pulsos aleatorios de bastante amplitud y corta duración. Ocurren al encender o apagar ciertos dispositivos.</li>
-<li><strong>Ruido inducido:</strong> perturbación causada por interferencias electromagnéticas externas que inducen señales no deseadas en el cable, por ejemplo, las generadas por motores o electrodomésticos..</li>
+<li><strong>Ruido inducido:</strong> perturbación causada por interferencias electromagnéticas externas que inducen señales no deseadas en el cable, por ejemplo, las generadas por motores o electrodomésticos.</li>
+</ul>
+</li>
 </ul>
 <div align="center">
     <img src="../img/ruido.png" alt="ruido" width="500">
@@ -1051,10 +1051,12 @@ Es la aparición de nuevas señales que no pertenecen a la transmisión. Puede s
 <ul>
 <li><strong>Interferencias electromagnéticas (EMI):</strong> fuentes externas que afectan señales eléctricas.</li>
 <li><strong>Relación señal‑ruido (SNR):</strong> determina la calidad y la capacidad del enlace.</li>
-<li><strong>Ancho de banda teórico vs. tasa efectiva:</strong> overhead de protocolos y retransmisiones reducen rendimiento real.</li>
+<li><strong>Ancho de banda teórico vs. tasa efectiva:</strong> overhead de protocolos y retransmisiones reducen rendimiento real.<ul>
 <li><strong>Ancho de banda:</strong> Define la capacidad máxima disponible para transmitir bits. Se puede definir como la diferencia entre la frecuencia máxima y mínima de las señales que se pueden transmitir por un canal. Se suele expresar en hercios (Hz) o sus múltiplos (KHz, MHz…).</li>
 <li><strong>Tasa de transferencia o velocidad de transmisión:</strong> Son los bits (de datos y de control) por segundo que se transmiten. Permite cuantificar la velocidad a la que pueden transmitirse los datos por un canal. Se mide en bits por segundo (bps) o sus múltiplos (kbps, Mbps…).</li>
 <li><strong>La tasa de transferencia efectiva:</strong> son los bits de datos transferidos por segundo (sin los bits de control).</li>
+</ul>
+</li>
 </ul>
 <p>La tasa de transferencia nunca es mayor que el ancho de banda. Esto se debe a las limitaciones impuestas por los medios de transmisión, medios de interconexión, topologías y todos los dispositivos y aplicaciones que operan en la red.</p>
 <h3 id="14-seleccion-practica-del-medio-criterios">1.4 Selección práctica del medio (criterios)<a class="headerlink" href="#14-seleccion-practica-del-medio-criterios" title="Permanent link">&para;</a></h3>
@@ -1071,10 +1073,12 @@ Para un aula de 25 puestos con servidor local: UTP Cat6 para los puestos (1 Gbps
 <p><em>(CE-a, CE-j, CE-k: identificación y clasificación de cables metálicos y ópticos según velocidad y distancia.)</em></p>
 <h3 id="21-coaxial-y-par-trenzado-estructura-y-propiedades">2.1 Coaxial y par trenzado: estructura y propiedades<a class="headerlink" href="#21-coaxial-y-par-trenzado-estructura-y-propiedades" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Coaxial:</strong> conductor central (señal), dieléctrico, malla (blindaje) y cubierta. Uso actual reducido en LAN, aún empleado en TV y redes HFC(híbridas de fibra y coaxial) combinan ambos medios:</li>
+<li><strong>Coaxial:</strong> conductor central (señal), dieléctrico, malla (blindaje) y cubierta. Uso actual reducido en LAN, aún empleado en TV y redes HFC(híbridas de fibra y coaxial) combinan ambos medios:<ul>
 <li>La <code>fibra optica</code> lleva la señal desde la central del operador hasta un nodo cercano a los usuarios</li>
 <li>Desde ese nodo, el <code>cable coaxial</code> distribuye la señal a las viviendas o locales.</li>
 <li>Se usan habitualmente en redes de televisión por cable y para ofrecer acceso a Internet. La fibra permite cubrir largas distancias con poca pérdida, y el coaxial aprovecha el cableado ya instalado en la zona</li>
+</ul>
+</li>
 <li><strong>Par trenzado (UTP/STP):</strong> pares de conductores trenzados para reducir interferencias; <strong>STP/FTP</strong> añaden apantallamiento para entornos ruidosos.</li>
 </ul>
 <h3 id="211-cable-coaxial-estructura-y-tipos">2.1.1 Cable coaxial: estructura y tipos<a class="headerlink" href="#211-cable-coaxial-estructura-y-tipos" title="Permanent link">&para;</a></h3>
@@ -1788,28 +1792,32 @@ FF02:0000:0000:0000:FF00:0000:0000:0202
 </code></pre></div></p>
 <h4 id="523-tipos-de-direccionamiento-ipv6-segun-su-forma-de-entrega-unicast-anycast-y-multicast">5.2.3 Tipos de direccionamiento IPv6 según su forma de entrega : unicast, anycast y multicast<a class="headerlink" href="#523-tipos-de-direccionamiento-ipv6-segun-su-forma-de-entrega-unicast-anycast-y-multicast" title="Permanent link">&para;</a></h4>
 <ul>
-<li><strong>Unicast:</strong> identifica a una interfaz de red de un único nodo. Cuando se envía un paquete a una dirección unicast, solo un nodo lo recibirá.
-Ejemplos:</li>
+<li>
+<p><strong>Unicast:</strong> identifica a una interfaz de red de un único nodo. Cuando se envía un paquete a una dirección unicast, solo un nodo lo recibirá.
+Ejemplos:</p>
+<ul>
 <li>Global Unicast (2000::/3)</li>
 <li>Unique Local Address (fc00::/7)</li>
 <li>Link-Local (fe80::/10)</li>
-<li>
-<p>Loopback (::1)</p>
+<li>Loopback (::1)</li>
+</ul>
 </li>
 <li>
 <p><strong>Multicast:</strong> identifica a un grupo de interfaces, generalmente de distintos nodos. Cuando se envía un paquete a una dirección multicast, todos los nodos del grupo lo recibirán.
 Ejemplo:</p>
-</li>
-<li>
-<p>ff00::/8</p>
+<ul>
+<li>ff00::/8</li>
+</ul>
 </li>
 <li>
 <p><strong>Anycast:</strong> identifica a un grupo de interfaces, pero cuando se envía un paquete a una dirección anycast, solo el nodo más cercano al remitente lo recibirá.
 Usos habituales:</p>
-</li>
+<ul>
 <li>Servidores DNS.</li>
 <li>Balanceo de carga.</li>
 <li>Servicios distribuidos.</li>
+</ul>
+</li>
 </ul>
 <h4 id="524-direcciones-reservadas-y-especiales-ipv6">5.2.4 Direcciones reservadas y especiales IPv6<a class="headerlink" href="#524-direcciones-reservadas-y-especiales-ipv6" title="Permanent link">&para;</a></h4>
 <table>
@@ -1907,30 +1915,32 @@ Usos habituales:</p>
 <p><em>(CE-d: uso de sistemas de direccionamiento dinámico.)</em></p>
 <h3 id="61-metodos-de-asignacion-de-direcciones-ip-mediante-dhcp">6.1 Métodos de asignación de direcciones IP mediante DHCP<a class="headerlink" href="#61-metodos-de-asignacion-de-direcciones-ip-mediante-dhcp" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Asignación manual o estática (Reserva):</strong> el administrador asocia una dirección IP concreta a un cliente determinado, normalmente mediante su dirección MAC.
-Características:</li>
+<li>
+<p><strong>Asignación manual o estática (Reserva):</strong> el administrador asocia una dirección IP concreta a un cliente determinado, normalmente mediante su dirección MAC.
+  Características:</p>
+<ul>
 <li>Siempre recibe la misma dirección IP.</li>
 <li>Permite controlar qué equipos obtienen dirección.</li>
-<li>
-<p>Habitual en servidores, impresoras y dispositivos de red.</p>
+<li>Habitual en servidores, impresoras y dispositivos de red.</li>
+</ul>
 </li>
 <li>
 <p><strong>Asignación automática:</strong> el servidor DHCP asigna una dirección IP permanente al cliente la primera vez que la solicita.
-Características:</p>
-</li>
+  Características:</p>
+<ul>
 <li>La dirección queda reservada para ese cliente.</li>
 <li>No suele reutilizarse para otros equipos.</li>
-<li>
-<p>Actualmente es poco utilizada.</p>
+<li>Actualmente es poco utilizada.</li>
+</ul>
 </li>
 <li>
 <p><strong>Asignación dinámica:</strong> el servidor DHCP asigna una dirección IP durante un tiempo determinado (lease o concesión).
-Características:</p>
-</li>
+  Características:</p>
+<ul>
 <li>Las direcciones IP pueden reutilizarse.</li>
 <li>Es el método más utilizado actualmente.</li>
-<li>
-<p>Permite gestionar eficientemente grandes cantidades de dispositivos.</p>
+<li>Permite gestionar eficientemente grandes cantidades de dispositivos.</li>
+</ul>
 </li>
 <li>
 <p><strong>APIPA (Automatic Private IP Addressing):</strong> si un cliente configurado para obtener una dirección mediante DHCP no encuentra ningún servidor DHCP disponible, Windows puede asignarse automáticamente una dirección del rango:
@@ -1938,108 +1948,114 @@ Características:</p>
 Máscara:
 255.255.0.0 (/16)
 </code></pre></div>
-Características:</p>
-</li>
+  Características:</p>
+<ul>
 <li>Permite la comunicación local entre equipos de la misma red.</li>
 <li>No proporciona acceso a otras redes ni a Internet.</li>
 <li>Indica habitualmente un problema con el servidor DHCP o la conectividad de red.</li>
 </ul>
+</li>
+</ul>
 <h3 id="62-opciones-de-configuracion-que-puede-proporcionar-un-servidor-dhcp">6.2 Opciones de configuración que puede proporcionar un servidor DHCP<a class="headerlink" href="#62-opciones-de-configuracion-que-puede-proporcionar-un-servidor-dhcp" title="Permanent link">&para;</a></h3>
 <ul>
-<li>✅ <strong>Máscara de subred</strong></li>
-<li>Muy utilizada actualmente.</li>
 <li>
-<p>Define qué parte de la dirección IP identifica la red y qué parte identifica el host.</p>
+<p>✅ <strong>Máscara de subred</strong></p>
+<ul>
+<li>Muy utilizada actualmente.</li>
+<li>Define qué parte de la dirección IP identifica la red y qué parte identifica el host.</li>
+</ul>
 </li>
 <li>
 <p>✅ <strong>Puerta de enlace predeterminada (Default Gateway)</strong></p>
-</li>
+<ul>
 <li>Muy utilizada actualmente.</li>
-<li>
-<p>Permite la comunicación con otras redes e Internet.</p>
+<li>Permite la comunicación con otras redes e Internet.</li>
+</ul>
 </li>
 <li>
 <p>✅ <strong>Dirección de los servidores DNS</strong></p>
-</li>
+<ul>
 <li>Muy utilizada actualmente.</li>
-<li>
-<p>Permite resolver nombres de dominio a direcciones IP.</p>
+<li>Permite resolver nombres de dominio a direcciones IP.</li>
+</ul>
 </li>
 <li>
 <p>✅ <strong>Nombre de dominio DNS</strong></p>
-</li>
+<ul>
 <li>Muy utilizado actualmente.</li>
-<li>
-<p>Permite completar automáticamente nombres de host dentro de una organización.</p>
+<li>Permite completar automáticamente nombres de host dentro de una organización.</li>
+</ul>
 </li>
 <li>
 <p>✅ <strong>MTU (Maximum Transmission Unit)</strong></p>
-</li>
+<ul>
 <li>Sigue existiendo y puede configurarse mediante DHCP.</li>
-<li>
-<p>Se utiliza en entornos específicos donde es necesario ajustar el tamaño máximo de los paquetes.</p>
+<li>Se utiliza en entornos específicos donde es necesario ajustar el tamaño máximo de los paquetes.</li>
+</ul>
 </li>
 <li>
 <p>✅ <strong>MTU (Maximum Transmission Unit)</strong></p>
-</li>
+<ul>
 <li>Sigue existiendo y puede configurarse mediante DHCP.</li>
-<li>
-<p>Se utiliza en entornos específicos donde es necesario ajustar el tamaño máximo de los paquetes.</p>
+<li>Se utiliza en entornos específicos donde es necesario ajustar el tamaño máximo de los paquetes.</li>
+</ul>
 </li>
 <li>
 <p>✅ <strong>Servidores NTP (Network Time Protocol)</strong></p>
-</li>
+<ul>
 <li>Muy utilizados actualmente.</li>
-<li>
-<p>Permiten sincronizar la hora de equipos y servidores.</p>
+<li>Permiten sincronizar la hora de equipos y servidores.</li>
+</ul>
 </li>
 <li>
 <p>✅ <strong>Servidor TFTP</strong></p>
-</li>
+<ul>
 <li>Sigue utilizándose en determinados entornos.</li>
-<li>
-<p>Muy común en arranque por red (PXE), teléfonos IP, routers y switches.</p>
+<li>Muy común en arranque por red (PXE), teléfonos IP, routers y switches.</li>
+</ul>
 </li>
 <li>
 <p>⚠️ <strong>Dirección de Broadcast</strong></p>
-</li>
+<ul>
 <li>Poco utilizada actualmente como opción DHCP.</li>
-<li>
-<p>Los sistemas operativos suelen calcularla automáticamente a partir de la IP y la máscara.</p>
+<li>Los sistemas operativos suelen calcularla automáticamente a partir de la IP y la máscara.</li>
+</ul>
 </li>
 <li>
 <p>⚠️ <strong>Tiempo máximo de espera de ARP</strong></p>
-</li>
+<ul>
 <li>Poco habitual en redes modernas.</li>
-<li>
-<p>Normalmente se configura en el sistema operativo o en los dispositivos de red.</p>
+<li>Normalmente se configura en el sistema operativo o en los dispositivos de red.</li>
+</ul>
 </li>
 <li>
 <p>❌ <strong>Servidores NIS (Network Information Service)</strong></p>
-</li>
+<ul>
 <li>Tecnología antigua de sistemas Unix.</li>
-<li>
-<p>Prácticamente en desuso.</p>
+<li>Prácticamente en desuso.</li>
+</ul>
 </li>
 <li>
 <p>❌ <strong>Dominios NIS</strong></p>
-</li>
+<ul>
 <li>Asociados al servicio NIS.</li>
-<li>
-<p>Prácticamente en desuso.</p>
+<li>Prácticamente en desuso.</li>
+</ul>
 </li>
 <li>
 <p>❌ <strong>Servidor SMTP</strong></p>
-</li>
+<ul>
 <li>Muy poco habitual como opción DHCP.</li>
-<li>
-<p>Las aplicaciones de correo suelen configurarlo directamente.</p>
+<li>Las aplicaciones de correo suelen configurarlo directamente.</li>
+</ul>
 </li>
 <li>
 <p>❌ <strong>Servidor WINS (Windows Internet Name Service)</strong></p>
-</li>
+<ul>
 <li>Tecnología heredada de Microsoft basada en NetBIOS.</li>
 <li>Prácticamente sustituida por DNS.</li>
+</ul>
+</li>
 </ul>
 <h3 id="63-funcionamiento-de-dhcp-dora">6.3 Funcionamiento de DHCP (DORA)<a class="headerlink" href="#63-funcionamiento-de-dhcp-dora" title="Permanent link">&para;</a></h3>
 <ul>
