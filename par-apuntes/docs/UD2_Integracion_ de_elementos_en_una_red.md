@@ -45,12 +45,12 @@ Es un cambio de forma en la señal. Cuando una señal es compuesta, como las dig
 ![distorsion](img/distorsion.png)
 
 - **Ruido:**
-Es la aparición de nuevas señales que no pertenecen a la transmisión. Puede ser:
+  Es la aparición de nuevas señales que no pertenecen a la transmisión. Puede ser:
 
-  - **Ruido térmico:** se debe a la agitación térmica de los electrones que forman el propio cable. Es inevitable.
-  - **Diafonía(crosstalk):** cuando dos cables están próximos y las señales de uno son recibidas por el otro. Se denomina también acoplo entre pares; mitigado con trenzado y apantallamiento.
-  - **Ruido impulsivo:** consiste en pulsos aleatorios de bastante amplitud y corta duración. Ocurren al encender o apagar ciertos dispositivos.
-  - **Ruido inducido:** perturbación causada por interferencias electromagnéticas externas que inducen señales no deseadas en el cable, por ejemplo, las generadas por motores o electrodomésticos..
+    - **Ruido térmico:** se debe a la agitación térmica de los electrones que forman el propio cable. Es inevitable.
+    - **Diafonía (crosstalk):** cuando dos cables están próximos y las señales de uno son recibidas por el otro. Se denomina también acoplo entre pares; mitigado con trenzado y apantallamiento.
+    - **Ruido impulsivo:** consiste en pulsos aleatorios de bastante amplitud y corta duración. Ocurren al encender o apagar ciertos dispositivos.
+    - **Ruido inducido:** perturbación causada por interferencias electromagnéticas externas que inducen señales no deseadas en el cable, por ejemplo, las generadas por motores o electrodomésticos.
 <div align="center">
 	<img src="../img/ruido.png" alt="ruido" width="500">
 </div>
@@ -58,9 +58,9 @@ Es la aparición de nuevas señales que no pertenecen a la transmisión. Puede s
 - **Interferencias electromagnéticas (EMI):** fuentes externas que afectan señales eléctricas.
 - **Relación señal‑ruido (SNR):** determina la calidad y la capacidad del enlace.
 - **Ancho de banda teórico vs. tasa efectiva:** overhead de protocolos y retransmisiones reducen rendimiento real.
-  - **Ancho de banda:** Define la capacidad máxima disponible para transmitir bits. Se puede definir como la diferencia entre la frecuencia máxima y mínima de las señales que se pueden transmitir por un canal. Se suele expresar en hercios (Hz) o sus múltiplos (KHz, MHz…).
-  - **Tasa de transferencia o velocidad de transmisión:** Son los bits (de datos y de control) por segundo que se transmiten. Permite cuantificar la velocidad a la que pueden transmitirse los datos por un canal. Se mide en bits por segundo (bps) o sus múltiplos (kbps, Mbps…).
-  - **La tasa de transferencia efectiva:** son los bits de datos transferidos por segundo (sin los bits de control).
+    - **Ancho de banda:** Define la capacidad máxima disponible para transmitir bits. Se puede definir como la diferencia entre la frecuencia máxima y mínima de las señales que se pueden transmitir por un canal. Se suele expresar en hercios (Hz) o sus múltiplos (KHz, MHz…).
+    - **Tasa de transferencia o velocidad de transmisión:** Son los bits (de datos y de control) por segundo que se transmiten. Permite cuantificar la velocidad a la que pueden transmitirse los datos por un canal. Se mide en bits por segundo (bps) o sus múltiplos (kbps, Mbps…).
+    - **La tasa de transferencia efectiva:** son los bits de datos transferidos por segundo (sin los bits de control).
 
 La tasa de transferencia nunca es mayor que el ancho de banda. Esto se debe a las limitaciones impuestas por los medios de transmisión, medios de interconexión, topologías y todos los dispositivos y aplicaciones que operan en la red.
 
@@ -83,18 +83,18 @@ Para un aula de 25 puestos con servidor local: UTP Cat6 para los puestos (1 Gbps
 ### 2.1 Coaxial y par trenzado: estructura y propiedades
 
 - **Coaxial:** conductor central (señal), dieléctrico, malla (blindaje) y cubierta. Uso actual reducido en LAN, aún empleado en TV y redes HFC(híbridas de fibra y coaxial) combinan ambos medios:
-  - La `fibra optica` lleva la señal desde la central del operador hasta un nodo cercano a los usuarios
-  - Desde ese nodo, el `cable coaxial` distribuye la señal a las viviendas o locales.
-  - Se usan habitualmente en redes de televisión por cable y para ofrecer acceso a Internet. La fibra permite cubrir largas distancias con poca pérdida, y el coaxial aprovecha el cableado ya instalado en la zona
+    - La `fibra optica` lleva la señal desde la central del operador hasta un nodo cercano a los usuarios
+    - Desde ese nodo, el `cable coaxial` distribuye la señal a las viviendas o locales.
+    - Se usan habitualmente en redes de televisión por cable y para ofrecer acceso a Internet. La fibra permite cubrir largas distancias con poca pérdida, y el coaxial aprovecha el cableado ya instalado en la zona
 - **Par trenzado (UTP/STP):** pares de conductores trenzados para reducir interferencias; **STP/FTP** añaden apantallamiento para entornos ruidosos.
 
 ### 2.1.1 Cable coaxial: estructura y tipos
 
 - Estructura básica (desde el interior hacia fuera):
-	1. Conductor central o nucleo conductor (busca transportar la señal eléctrica, suele ser cobre sólido o trenzado).
-	2. Dieléctrico (es el material aislante) que separa el conductor del blindaje. Evita el contacto eléctrico entre conductor y blindaje y controla las propiedades eléctricas del conjunto
-	3. Blindaje (malla metálica y/o lámina) que protege frente a interferencias electromagnéticas(EMI) y reduce la radiación de la señal.
-	4. Cubierta exterior (jacket) que protege mecánicamente el conjunto.
+    1. Conductor central o nucleo conductor (busca transportar la señal eléctrica, suele ser cobre sólido o trenzado).
+    2. Dieléctrico (es el material aislante) que separa el conductor del blindaje. Evita el contacto eléctrico entre conductor y blindaje y controla las propiedades eléctricas del conjunto
+    3. Blindaje (malla metálica y/o lámina) que protege frente a interferencias electromagnéticas(EMI) y reduce la radiación de la señal.
+    4. Cubierta exterior (jacket) que protege mecánicamente el conjunto.
 <div align="center">
 	<img src="../img/coaxial.png" alt="coaxial" width="300">
 </div>
@@ -115,11 +115,11 @@ Para un aula de 25 puestos con servidor local: UTP Cat6 para los puestos (1 Gbps
 </div>
 
 - **Tipos según apantallamiento:**
-	- `UTP (Unshielded Twisted Pair):` par trenzado sin apantallamiento, más económico y flexible. Usado en redes Ethernet; no lleva lámina ni malla de protección (por eso "unshielded").
-	- `STP (Shielded Twisted Pair):`Par trenzado con apantallamiento; cada par o el conjunto ica de pares lleva una lámina apantallado (foil/braid) para reducir EMI en entornos ruidosos.
-	- `FTP (Foiled Twisted Pair):` par trenzado con una lámina metálica (foil) envolviendo todos los pares; capa global de lámina que envuelve los pares; mezcla de coste y protección.
+    - `UTP (Unshielded Twisted Pair):` par trenzado sin apantallamiento, más económico y flexible. Usado en redes Ethernet; no lleva lámina ni malla de protección (por eso "unshielded").
+    - `STP (Shielded Twisted Pair):`Par trenzado con apantallamiento; cada par o el conjunto ica de pares lleva una lámina apantallado (foil/braid) para reducir EMI en entornos ruidosos.
+    - `FTP (Foiled Twisted Pair):` par trenzado con una lámina metálica (foil) envolviendo todos los pares; capa global de lámina que envuelve los pares; mezcla de coste y protección.
     
-	- **Distinción:** a diferencia de `STP`, `FTP` suele proteger el conjunto de pares con una lámina única (no necesariamente tiene malla por par).
+    - **Distinción:** a diferencia de `STP`, `FTP` suele proteger el conjunto de pares con una lámina única (no necesariamente tiene malla por par).
 
 ![tipos](img/utp-stp-ftp.png)
 
@@ -415,13 +415,13 @@ A partir de las capas del modelo OSI es posible determinar qué dispositivos ext
 ### 4.4 Comandos útiles para comprobar MAC/ARP
 
 - Windows:
-	- Ver ARP: `arp -a` (muestra asociaciones IP → MAC en caché).
-	- Ver adaptadores y MACs locales: `getmac /v` o `wmic nic where (MACAddress is not null) get MACAddress,Name`.
-	- Forzar renovación DHCP y comprobar: `ipconfig /release` y `ipconfig /renew`.
+    - Ver ARP: `arp -a` (muestra asociaciones IP → MAC en caché).
+    - Ver adaptadores y MACs locales: `getmac /v` o `wmic nic where (MACAddress is not null) get MACAddress,Name`.
+    - Forzar renovación DHCP y comprobar: `ipconfig /release` y `ipconfig /renew`.
 - Linux:
-	- Ver vecinos/ARP: `ip neigh` o `arp -n`.
-	- Ver interfaces y MAC locales: `ip link show` o `cat /sys/class/net/<iface>/address`.
-	- Ver tabla de direcciones MAC del switch (si tiene acceso SSH/CLI): `show mac address-table` (Cisco) o comandos equivalentes según fabricante.
+    - Ver vecinos/ARP: `ip neigh` o `arp -n`.
+    - Ver interfaces y MAC locales: `ip link show` o `cat /sys/class/net/<iface>/address`.
+    - Ver tabla de direcciones MAC del switch (si tiene acceso SSH/CLI): `show mac address-table` (Cisco) o comandos equivalentes según fabricante.
 
 **Ejemplo Linux:**
 ```
@@ -692,16 +692,16 @@ Para la red 192.168.0.0/22
 Requerimientos: VLANs con 50, 20, 10 y 5 hosts. Red disponible: `192.168.0.0/24`.
 
 1) Ordenar por tamaño: 50, 20, 10, 5. Buscar prefijo mínimo que soporte cada VLAN:
-	- 50 hosts → requiere al menos 64 direcciones → prefijo `/26` (62 hosts útiles).
-	- 20 hosts → requiere al menos 32 direcciones → prefijo `/27` (30 hosts útiles).
-	- 10 hosts → requiere al menos 16 direcciones → prefijo `/28` (14 hosts útiles).
-	- 5 hosts → requiere al menos 8 direcciones → prefijo `/29` (6 hosts útiles).
+    - 50 hosts → requiere al menos 64 direcciones → prefijo `/26` (62 hosts útiles).
+    - 20 hosts → requiere al menos 32 direcciones → prefijo `/27` (30 hosts útiles).
+    - 10 hosts → requiere al menos 16 direcciones → prefijo `/28` (14 hosts útiles).
+    - 5 hosts → requiere al menos 8 direcciones → prefijo `/29` (6 hosts útiles).
 
 2) Asignación desde `192.168.0.0/24` (ejemplo de tabla):
-	- VLAN A (50): `192.168.0.0/26` → hosts `192.168.0.1`–`192.168.0.62`, broadcast `192.168.0.63`.
-	- VLAN B (20): `192.168.0.64/27` → hosts `192.168.0.65`–`192.168.0.94`, broadcast `192.168.0.95`.
-	- VLAN C (10): `192.168.0.96/28` → hosts `192.168.0.97`–`192.168.0.110`, broadcast `192.168.0.111`.
-	- VLAN D (5):  `192.168.0.112/29` → hosts `192.168.0.113`–`192.168.0.118`, broadcast `192.168.0.119`.
+    - VLAN A (50): `192.168.0.0/26` → hosts `192.168.0.1`–`192.168.0.62`, broadcast `192.168.0.63`.
+    - VLAN B (20): `192.168.0.64/27` → hosts `192.168.0.65`–`192.168.0.94`, broadcast `192.168.0.95`.
+    - VLAN C (10): `192.168.0.96/28` → hosts `192.168.0.97`–`192.168.0.110`, broadcast `192.168.0.111`.
+    - VLAN D (5):  `192.168.0.112/29` → hosts `192.168.0.113`–`192.168.0.118`, broadcast `192.168.0.119`.
 
 3) Reserva de espacio para futuros: dejar bloques libres a partir de `192.168.0.120/`.
 
@@ -775,20 +775,20 @@ FF02:0000:0000:0000:FF00:0000:0000:0202
 
 - **Unicast:** identifica a una interfaz de red de un único nodo. Cuando se envía un paquete a una dirección unicast, solo un nodo lo recibirá.
 Ejemplos:
-  - Global Unicast (2000::/3)
-  - Unique Local Address (fc00::/7)
-  - Link-Local (fe80::/10)
-  - Loopback (::1)
+    - Global Unicast (2000::/3)
+    - Unique Local Address (fc00::/7)
+    - Link-Local (fe80::/10)
+    - Loopback (::1)
 
 - **Multicast:** identifica a un grupo de interfaces, generalmente de distintos nodos. Cuando se envía un paquete a una dirección multicast, todos los nodos del grupo lo recibirán.
 Ejemplo:
-  - ff00::/8
+    - ff00::/8
 
 - **Anycast:** identifica a un grupo de interfaces, pero cuando se envía un paquete a una dirección anycast, solo el nodo más cercano al remitente lo recibirá.
 Usos habituales:
-  - Servidores DNS.
-  - Balanceo de carga.
-  - Servicios distribuidos.
+    - Servidores DNS.
+    - Balanceo de carga.
+    - Servicios distribuidos.
 
 
 #### 5.2.4 Direcciones reservadas y especiales IPv6
@@ -846,22 +846,22 @@ Usos habituales:
 ### 6.1 Métodos de asignación de direcciones IP mediante DHCP
 
 - **Asignación manual o estática (Reserva):** el administrador asocia una dirección IP concreta a un cliente determinado, normalmente mediante su dirección MAC.
-Características:
-  - Siempre recibe la misma dirección IP.
-  - Permite controlar qué equipos obtienen dirección.
-  - Habitual en servidores, impresoras y dispositivos de red.
+  Características:
+    - Siempre recibe la misma dirección IP.
+    - Permite controlar qué equipos obtienen dirección.
+    - Habitual en servidores, impresoras y dispositivos de red.
 
 - **Asignación automática:** el servidor DHCP asigna una dirección IP permanente al cliente la primera vez que la solicita.
-Características:
-  - La dirección queda reservada para ese cliente.
-  - No suele reutilizarse para otros equipos.
-  - Actualmente es poco utilizada.
+  Características:
+    - La dirección queda reservada para ese cliente.
+    - No suele reutilizarse para otros equipos.
+    - Actualmente es poco utilizada.
 
 - **Asignación dinámica:** el servidor DHCP asigna una dirección IP durante un tiempo determinado (lease o concesión).
-Características:
-  - Las direcciones IP pueden reutilizarse.
-  - Es el método más utilizado actualmente.
-  - Permite gestionar eficientemente grandes cantidades de dispositivos.
+  Características:
+    - Las direcciones IP pueden reutilizarse.
+    - Es el método más utilizado actualmente.
+    - Permite gestionar eficientemente grandes cantidades de dispositivos.
 
 - **APIPA (Automatic Private IP Addressing):** si un cliente configurado para obtener una dirección mediante DHCP no encuentra ningún servidor DHCP disponible, Windows puede asignarse automáticamente una dirección del rango:
 	```text
@@ -869,68 +869,68 @@ Características:
 	Máscara:
 	255.255.0.0 (/16)
 	```
-Características:
-  - Permite la comunicación local entre equipos de la misma red.
-  - No proporciona acceso a otras redes ni a Internet.
-  - Indica habitualmente un problema con el servidor DHCP o la conectividad de red.
+  Características:
+    - Permite la comunicación local entre equipos de la misma red.
+    - No proporciona acceso a otras redes ni a Internet.
+    - Indica habitualmente un problema con el servidor DHCP o la conectividad de red.
 
 ### 6.2 Opciones de configuración que puede proporcionar un servidor DHCP
 
 - ✅ **Máscara de subred**
-  - Muy utilizada actualmente.
-  - Define qué parte de la dirección IP identifica la red y qué parte identifica el host.
+    - Muy utilizada actualmente.
+    - Define qué parte de la dirección IP identifica la red y qué parte identifica el host.
 
 - ✅ **Puerta de enlace predeterminada (Default Gateway)**
-  - Muy utilizada actualmente.
-  - Permite la comunicación con otras redes e Internet.
+    - Muy utilizada actualmente.
+    - Permite la comunicación con otras redes e Internet.
 
 - ✅ **Dirección de los servidores DNS**
-  - Muy utilizada actualmente.
-  - Permite resolver nombres de dominio a direcciones IP.
+    - Muy utilizada actualmente.
+    - Permite resolver nombres de dominio a direcciones IP.
 
 - ✅ **Nombre de dominio DNS**
-  - Muy utilizado actualmente.
-  - Permite completar automáticamente nombres de host dentro de una organización.
+    - Muy utilizado actualmente.
+    - Permite completar automáticamente nombres de host dentro de una organización.
 
 - ✅ **MTU (Maximum Transmission Unit)**
-  - Sigue existiendo y puede configurarse mediante DHCP.
-  - Se utiliza en entornos específicos donde es necesario ajustar el tamaño máximo de los paquetes.
+    - Sigue existiendo y puede configurarse mediante DHCP.
+    - Se utiliza en entornos específicos donde es necesario ajustar el tamaño máximo de los paquetes.
 
 - ✅ **MTU (Maximum Transmission Unit)**
-  - Sigue existiendo y puede configurarse mediante DHCP.
-  - Se utiliza en entornos específicos donde es necesario ajustar el tamaño máximo de los paquetes.
+    - Sigue existiendo y puede configurarse mediante DHCP.
+    - Se utiliza en entornos específicos donde es necesario ajustar el tamaño máximo de los paquetes.
 
 - ✅ **Servidores NTP (Network Time Protocol)**
-  - Muy utilizados actualmente.
-  - Permiten sincronizar la hora de equipos y servidores.
+    - Muy utilizados actualmente.
+    - Permiten sincronizar la hora de equipos y servidores.
 
 - ✅ **Servidor TFTP**
-  - Sigue utilizándose en determinados entornos.
-  - Muy común en arranque por red (PXE), teléfonos IP, routers y switches.
+    - Sigue utilizándose en determinados entornos.
+    - Muy común en arranque por red (PXE), teléfonos IP, routers y switches.
 
 - ⚠️ **Dirección de Broadcast**
-  - Poco utilizada actualmente como opción DHCP.
-  - Los sistemas operativos suelen calcularla automáticamente a partir de la IP y la máscara.
+    - Poco utilizada actualmente como opción DHCP.
+    - Los sistemas operativos suelen calcularla automáticamente a partir de la IP y la máscara.
 
 - ⚠️ **Tiempo máximo de espera de ARP**
-  - Poco habitual en redes modernas.
-  - Normalmente se configura en el sistema operativo o en los dispositivos de red.
+    - Poco habitual en redes modernas.
+    - Normalmente se configura en el sistema operativo o en los dispositivos de red.
 
 - ❌ **Servidores NIS (Network Information Service)**
-  - Tecnología antigua de sistemas Unix.
-  - Prácticamente en desuso.
+    - Tecnología antigua de sistemas Unix.
+    - Prácticamente en desuso.
 
 - ❌ **Dominios NIS**
-  - Asociados al servicio NIS.
-  - Prácticamente en desuso.
+    - Asociados al servicio NIS.
+    - Prácticamente en desuso.
 
 - ❌ **Servidor SMTP**
-  - Muy poco habitual como opción DHCP.
-  - Las aplicaciones de correo suelen configurarlo directamente.
+    - Muy poco habitual como opción DHCP.
+    - Las aplicaciones de correo suelen configurarlo directamente.
 
 - ❌ **Servidor WINS (Windows Internet Name Service)**
-  - Tecnología heredada de Microsoft basada en NetBIOS.
-  - Prácticamente sustituida por DNS.
+    - Tecnología heredada de Microsoft basada en NetBIOS.
+    - Prácticamente sustituida por DNS.
 
 
 ### 6.3 Funcionamiento de DHCP (DORA)
