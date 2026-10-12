@@ -1716,12 +1716,9 @@ Una red 192.168.0.0/22 engloba exactamente a las siguientes cuatro redes <code>/
 192.168.1.0/24
 192.168.2.0/24
 192.168.3.0/24
-```text
-
-Las redes `/22` empiezan cada 4 valores del tercer octeto
-
-```text
-192.168.0.0/22
+</code></pre></div>
+Las redes <code>/22</code> empiezan cada 4 valores del tercer octeto</p>
+<p><div class="highlight"><pre><span></span><code>192.168.0.0/22
 192.168.4.0/22
 192.168.8.0/22
 192.168.12.0/22
@@ -1745,17 +1742,29 @@ Para la red 192.168.0.0/22</p>
 </ul>
 <p><strong>Otro ejemplo: subnetting para 4 VLANs</strong></p>
 <p>Requerimientos: VLANs con 50, 20, 10 y 5 hosts. Red disponible: <code>192.168.0.0/24</code>.</p>
-<p>1) Ordenar por tamaño: 50, 20, 10, 5. Buscar prefijo mínimo que soporte cada VLAN:
-    - 50 hosts → requiere al menos 64 direcciones → prefijo <code>/26</code> (62 hosts útiles).
-    - 20 hosts → requiere al menos 32 direcciones → prefijo <code>/27</code> (30 hosts útiles).
-    - 10 hosts → requiere al menos 16 direcciones → prefijo <code>/28</code> (14 hosts útiles).
-    - 5 hosts → requiere al menos 8 direcciones → prefijo <code>/29</code> (6 hosts útiles).</p>
-<p>2) Asignación desde <code>192.168.0.0/24</code> (ejemplo de tabla):
-    - VLAN A (50): <code>192.168.0.0/26</code> → hosts <code>192.168.0.1</code>–<code>192.168.0.62</code>, broadcast <code>192.168.0.63</code>.
-    - VLAN B (20): <code>192.168.0.64/27</code> → hosts <code>192.168.0.65</code>–<code>192.168.0.94</code>, broadcast <code>192.168.0.95</code>.
-    - VLAN C (10): <code>192.168.0.96/28</code> → hosts <code>192.168.0.97</code>–<code>192.168.0.110</code>, broadcast <code>192.168.0.111</code>.
-    - VLAN D (5):  <code>192.168.0.112/29</code> → hosts <code>192.168.0.113</code>–<code>192.168.0.118</code>, broadcast <code>192.168.0.119</code>.</p>
-<p>3) Reserva de espacio para futuros: dejar bloques libres a partir de <code>192.168.0.120/</code>.</p>
+<ol>
+<li>
+<p>Ordenar por tamaño: 50, 20, 10, 5. Buscar prefijo mínimo que soporte cada VLAN:</p>
+<ul>
+<li>50 hosts → requiere al menos 64 direcciones → prefijo <code>/26</code> (62 hosts útiles).</li>
+<li>20 hosts → requiere al menos 32 direcciones → prefijo <code>/27</code> (30 hosts útiles).</li>
+<li>10 hosts → requiere al menos 16 direcciones → prefijo <code>/28</code> (14 hosts útiles).</li>
+<li>5 hosts → requiere al menos 8 direcciones → prefijo <code>/29</code> (6 hosts útiles).</li>
+</ul>
+</li>
+<li>
+<p>Asignación desde <code>192.168.0.0/24</code> (ejemplo de tabla):</p>
+<ul>
+<li>VLAN A (50): <code>192.168.0.0/26</code> → hosts <code>192.168.0.1</code>–<code>192.168.0.62</code>, broadcast <code>192.168.0.63</code>.</li>
+<li>VLAN B (20): <code>192.168.0.64/27</code> → hosts <code>192.168.0.65</code>–<code>192.168.0.94</code>, broadcast <code>192.168.0.95</code>.</li>
+<li>VLAN C (10): <code>192.168.0.96/28</code> → hosts <code>192.168.0.97</code>–<code>192.168.0.110</code>, broadcast <code>192.168.0.111</code>.</li>
+<li>VLAN D (5):  <code>192.168.0.112/29</code> → hosts <code>192.168.0.113</code>–<code>192.168.0.118</code>, broadcast <code>192.168.0.119</code>.</li>
+</ul>
+</li>
+<li>
+<p>Reserva de espacio para futuros: dejar bloques libres a partir de <code>192.168.0.120/</code>.</p>
+</li>
+</ol>
 <pre class="mermaid"><code>graph LR
     A["192.168.0.0/24"] --&gt; A1["192.168.0.0/26 (VLAN A - 62 hosts)"]
     A --&gt; A2["192.168.0.64/27 (VLAN B - 30 hosts)"]
