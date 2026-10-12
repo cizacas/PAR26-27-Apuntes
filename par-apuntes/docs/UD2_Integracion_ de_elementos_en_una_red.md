@@ -8,6 +8,7 @@ funcionamiento y prestaciones.
 ---
 
 
+
 ## 1. Medios físicos y estándares para redes cableadas e inalámbricas
 
 *(CE-a: Se han identificado los estándares para redes cableadas e inalámbricas.)*
@@ -34,6 +35,7 @@ Las **perturbaciones** en la transmisión de una señal eléctrica consisten en 
 El **efecto de las perturbaciones** varía según la naturaleza analógica o digital de las señales. Mientras en las `señales digitales` se reduce la velocidad de transmisión al aumentar la tasa de errores de bits, el efecto en una `señal analógica` consiste en que esta línea de transmisión introduce variaciones de amplitud y frecuencia, lo que degrada la calidad de la señal.
 
 Las principales perturbaciones son:
+
 - **Atenuación:** Es la pérdida de amplitud de la señal. El medio por el que viajan las señales puede ofrecer cierta resistencia, que hace que las señales pierdan algo de energía. Para recuperar la amplitud original se usan repetidores en señales digitales o amplificadores en señales analógicas. Depende de la distancia y la frecuencia. Es la pérdida de potencia con la distancia (más crítica en cobre que en fibra).
 
 ![atenuación](img/atenuacion.png)
@@ -49,8 +51,9 @@ Es la aparición de nuevas señales que no pertenecen a la transmisión. Puede s
   - **Diafonía(crosstalk):** cuando dos cables están próximos y las señales de uno son recibidas por el otro. Se denomina también acoplo entre pares; mitigado con trenzado y apantallamiento.
   - **Ruido impulsivo:** consiste en pulsos aleatorios de bastante amplitud y corta duración. Ocurren al encender o apagar ciertos dispositivos.
   - **Ruido inducido:** perturbación causada por interferencias electromagnéticas externas que inducen señales no deseadas en el cable, por ejemplo, las generadas por motores o electrodomésticos..
-
-![ruido](img/ruido.png)
+<div align="center">
+	<img src="img/ruido.png" alt="ruido" width="500">
+</div>
 
 - **Interferencias electromagnéticas (EMI):** fuentes externas que afectan señales eléctricas.
 - **Relación señal‑ruido (SNR):** determina la calidad y la capacidad del enlace.
@@ -92,8 +95,9 @@ Para un aula de 25 puestos con servidor local: UTP Cat6 para los puestos (1 Gbps
 	2. Dieléctrico (es el material aislante) que separa el conductor del blindaje. Evita el contacto eléctrico entre conductor y blindaje y controla las propiedades eléctricas del conjunto
 	3. Blindaje (malla metálica y/o lámina) que protege frente a interferencias electromagnéticas(EMI) y reduce la radiación de la señal.
 	4. Cubierta exterior (jacket) que protege mecánicamente el conjunto.
-
-![coaxial ](img/coaxial.png)
+<div align="center">
+	<img src="img/coaxial.png" alt="coaxial" width="300">
+</div>
 
  - **Tipos comunes:** RG‑6 (TV, satélite), RG‑59 (vídeo analógico, corto alcance), RG‑11 (menor atenuación, distancias mayores).
  - **Conectores habituales:** BNC (vídeo profesional), F‑type (TV/SAT, roscado) y N/SC para aplicaciones de mayor potencia o RF.
@@ -106,8 +110,9 @@ Para un aula de 25 puestos con servidor local: UTP Cat6 para los puestos (1 Gbps
 - Cada cable de este tipo está compuesto por una serie de pares de cables trenzados. Los pares se trenzan de forma helicoidal para reducir la diafonía o interferencia entre pares adyacentes.
 - El cable típico en las redes de área local y en la conexión final de equipos es el de 4 pares. Los cables multipar pueden tener 25, 50, 100, 200 y 300 pares.
 - Las normativas de cableado estructurado clasifican los diferentes tipos de cable de pares trenzados en categorías de acuerdo con sus características para la transmisión de datos, las cuales vienen fijadas fundamentalmente por la densidad de trenzado del cable (número de vueltas por metro) y los materiales utilizados en el recubrimiento aislante. 
-
-![partrenzado](img/partrenzado.png)
+<div align="center">
+	<img src="img/partrenzado.png" alt="partrenzado" width="300">
+</div>
 
 - **Tipos según apantallamiento:**
 	- `UTP (Unshielded Twisted Pair):` par trenzado sin apantallamiento, más económico y flexible. Usado en redes Ethernet; no lleva lámina ni malla de protección (por eso "unshielded").
@@ -131,45 +136,43 @@ Para un aula de 25 puestos con servidor local: UTP Cat6 para los puestos (1 Gbps
 
 **Nota:** la velocidad real depende de transceptores, calidad de crimpado, ruido y longitud del enlace.
 
-![categoria](img/categoria.png)
+#### 2.2.1 Parámetros importantes: atenuación, NEXT (Near‑End Crosstalk), PSNEXT y pérdida de retorno.
+
+- **Atenuación:** pérdida de potencia de la señal al propagarse por el medio; se expresa en dB por unidad de longitud (p. ej. dB/100 m). A mayor atenuación, menor amplitud de la señal en el receptor y más ruido relativo.
+
+- **NEXT (Near‑End Crosstalk):** diafonía medida en el extremo cercano (near end) entre pares dentro del mismo cable; cuantifica la señal interferente que llega al receptor en el mismo extremo que transmite la señal interferente. Se mide en dB; mayor NEXT = mejor aislamiento.
+
+- **PSNEXT (Power Sum NEXT):** suma de las diafonías (NEXT) de varios pares interferentes considerada como una potencia total; refleja el efecto conjunto de todas las parejas que interfieren sobre un par victimizado. Se usa para comprobar rendimiento cuando hay múltiples pares activos.
+
+- **Pérdida de retorno (Return Loss):** medida de la energía reflejada por desadaptaciones de impedancia a lo largo del enlace; se expresa en dB (positivo). Alta pérdida de retorno (valores grandes en dB) significa pocas reflexiones y buena adaptación; baja pérdida de retorno indica reflexiones que degradan la señal.
+
+Los instrumentos que miden estos parámetros:
+
+- **Certificador/medidor de cable (p. ej. Fluke):** mide atenuación, NEXT y PSNEXT, pérdida de retorno, longitud y mapeo de pares; entrega reportes de conformidad por categoría.
+- **Tester de pares / comprobador de continuidad:** comprueba continuidad, cortocircuitos e inversión (no suele medir NEXT ni pérdida de retorno).
+<div align="center">
+	<img src="img/categoria.png" alt="categoria" width="500">
+</div>
 
 ### 2.3 Conectores y normas de terminación (par trenzado)
 
 - Conector estándar: RJ‑45 (8P8C). Normas de polarización: T568A y T568B.
 - Selección según categoría: los conectores y jacks certificados para Cat6/Cat6a garantizan parámetros eléctricos mejores (NEXT, propagación, pérdida de retorno).
 
-### 2.4 Ilustraciones y reglas prácticas
+### 2.4 Reglas prácticas
 
 - Evitar curvas con radio menor al recomendado por el fabricante (p. ej. 4× el diámetro del cable).
 - No estirar excesivamente el cable al tenderlo; respetar distancia máxima de 100 m para enlaces UTP.
 - Mantener separación respecto a fuentes EMI (cables eléctricos, motores) o usar STP/FTP si no es posible.
  
-### 2.2 Categorías UTP y rendimiento
 
-- **Cat5e:** soporte habitual de 1 Gbps hasta 100 m.
-- **Cat6:** mejora en diafonía, soporta 1 Gbps y 10 Gbps en distancias limitadas.
-- **Cat6a/Cat7:** diseñado para 10 Gbps con mejor margen y apantallamiento.
-
-Parámetros importantes: atenuación, NEXT (Near‑End Crosstalk), PSNEXT y pérdida de retorno.
-**Atenuación:** pérdida de potencia de la señal al propagarse por el medio; se expresa en dB por unidad de longitud (p. ej. dB/100 m). A mayor atenuación, menor amplitud de la señal en el receptor y más ruido relativo.
-
-**NEXT (Near‑End Crosstalk):** diafonía medida en el extremo cercano (near end) entre pares dentro del mismo cable; cuantifica la señal interferente que llega al receptor en el mismo extremo que transmite la señal interferente. Se mide en dB; mayor NEXT = mejor aislamiento.
-
-**PSNEXT (Power Sum NEXT):** suma de las diafonías (NEXT) de varios pares interferentes considerada como una potencia total; refleja el efecto conjunto de todas las parejas que interfieren sobre un par victimizado. Se usa para comprobar rendimiento cuando hay múltiples pares activos.
-
-**Pérdida de retorno (Return Loss):** medida de la energía reflejada por desadaptaciones de impedancia a lo largo del enlace; se expresa en dB (positivo). Alta pérdida de retorno (valores grandes en dB) significa pocas reflexiones y buena adaptación; baja pérdida de retorno indica reflexiones que degradan la señal.
-
-Los instrumentos que miden estos parámetros:
-- **Certificador/medidor de cable (p. ej. Fluke):** mide atenuación, NEXT y PSNEXT, pérdida de retorno, longitud y mapeo de pares; entrega reportes de conformidad por categoría.
-- **Tester de pares / comprobador de continuidad:** comprueba continuidad, cortocircuitos e inversión (no suele medir NEXT ni pérdida de retorno).
-
-
-### 2.3 Conectores y estándares de terminación
+### 2.5 Conectores y estándares de terminación
 
 - **RJ‑45** (8P8C) es el conector estándar para par trenzado; normas T568A y T568B definen el orden de los hilos.
--**BNC** es típico en coaxial; fibra usa LC/SC/ST/FC según equipo.
+- **BNC** es típico en coaxial; 
+- **LC/SC/ST/FC** según equipo son típicos en fibra óptica.
 
-### 2.4 Fibra óptica: monomodo vs multimodo
+### 2.6 Fibra óptica: monomodo vs multimodo
 
 **Un sistema de transmisión por fibra óptica** consta principalmente de tres partes:
 - **Elemento transmisor:** encargado de generar el haz luminoso. Ej.: led, láser…
@@ -182,10 +185,11 @@ El **cable de fibra óptica** es el medio físico utilizado para transportar la 
 - **El núcleo:** está formado por una o varias fibras muy finas de cristal o plástico.
 - **El revestimiento:** rodea al núcleo y permite la refracción de la luz. Está hecho de cristal o plástico de diferentes propiedades ópticas distintas a las del núcleo.
 - **El recubrimiento o cubierta:** constituida de material plástico o similar. Se encarga de proteger al conjunto de golpes, abrasiones, humedades, etc.
+<div align="center">
+	<img src="img/cablefibra.png" alt="cable fibra" width="300">
+</div>
 
-![cable fibra](img/cablefibra.png)
-
-#### Tipos de fibras ópticas:
+#### 2.6.1 Tipos de fibras ópticas:
 
 - **Multimodo (MMF, OM1–OM5):** es aquella en la que los haces de luz pueden circular por más de un modo o camino. Esto supone que no llegan todos a la vez. Una fibra multimodo puede tener más de mil modos de propagación de luz. Se usa comúnmente en aplicaciones de corta distancia, menores a 2 km, como redes informáticas. Es simple de diseñar y económico lámparas/LEDs o láseres VCSEL; adecuadas para enlaces LAN y centros de datos (distancias cortas‑medias). 
 
@@ -194,9 +198,10 @@ El **cable de fibra óptica** es el medio físico utilizado para transportar la 
 **Ejemplo**
 Comparación: para un enlace entre armarios a 500 m se elegirá fibra multimodo OM4/OM3 si el presupuesto lo permite para 10 Gbps; para enlaces >2 km usar monomodo.
 
-![tipos fibra](img/TiposFibra.png)
----
-### 2.5 Ventajas de la fibra óptica
+<img src="img/TiposFibra.png" alt="tipos de fibra" width="700">
+
+
+### 2.6.2 Ventajas de la fibra óptica
 1. Una banda de paso muy ancha, lo que permite velocidades muy elevadas (Gbps).
 2. Pequeño tamaño, por lo tanto, ocupa poco espacio.
 3. Gran ligereza, el peso es bajo, unas nueve veces menos que el de un cable convencional.
@@ -208,16 +213,172 @@ Comparación: para un enlace entre armarios a 500 m se elegirá fibra multimodo 
 9. Gran resistencia mecánica, al calor, al frío y a la corrosión.
 10. Facilidad para localizar los cortes, lo que permite detectar rápidamente el lugar donde se hará la reparación de la avería, simplificando la labor de mantenimiento.
 
-## 3. Direccionamiento  físico / lógico IP y máscaras de subred
+---
+
+## 3. Conexión inalámbrica
+
+### 3.1 Según  el Medio físico: radiofrecuencia, microondas, infrarrojos
+
+- **Ondas de radio (RF):** Las ondas de radio son fáciles de generar, pueden viajar a largas distancias, atraviesan edificios y viajan en todas las direcciones. Usada por Wi‑Fi (2.4/5/6 GHz). Buena penetración en interiores y usada para la mayoría de WLAN.
+- **Microondas:** Las microondas, además de su aplicación en hornos microondas, permiten transmisiones tanto con antenas terrestres como con satélites. Frecuencias más altas para enlaces punto a punto (backhaul). Requieren línea de vista para largos enlaces y ofrecen alta capacidad.
+
+  > Nota — "línea de vista" (LOS): significa que debe existir una trayectoria visual despejada entre las antenas emisora y receptora, sin obstáculos significativos en el eje principal. Además de la vista directa, es importante respetar la zona de Fresnel (un espacio elíptico alrededor del eje de la señal) para evitar pérdidas por difracción; en enlaces muy largos también hay que tener en cuenta la curvatura terrestre y por tanto elevar las antenas (torres/polos) para mantener la LOS y la zona de Fresnel despejada.
+
+- **Infrarrojos (IR):** es un tipo de radiación de mayor longitud de onda que la luz visible. No atraviesan objetos sólidos.
+comunicaciones ópticas de corto alcance y línea de vista; muy poco usadas en WLAN modernas. Se utilizan en comunicación de corto alcance, como en control remoto de electrodomésticos o el puerto de infrarrojos de ordenadores portátiles.
+No es necesario obtener una licencia del gobierno para operar con sistemas de transmisión infrarrojos.
+
+### 3.2 Tipos de conexión inalámbrica (modos de funcionamiento)
+
+Un **AP** (*Access Point*, **punto de acceso**) es el dispositivo que permite que los equipos inalámbricos se conecten a una red. Recibe las tramas por Wi-Fi y las reenvía a la red cableada, y también hace el recorrido inverso. Por ejemplo, un portátil asociado al AP puede comunicarse con un servidor conectado al switch.
+
+El AP **no es necesariamente un router**: su función principal es proporcionar acceso inalámbrico a una red existente. En los equipos domésticos es habitual que un mismo aparato integre varias funciones: router, switch, AP y, a veces, módem. En los diagramas de este apartado, `AP` significa únicamente **punto de acceso Wi-Fi**.
+
+Importante para prácticas y diseño de red:
+
+- **Modo infraestructura (BSS / ESS):** el más común. Los clientes se conectan a uno o varios puntos de acceso (AP); los APs pueden estar gestionados por un controlador o actuar como entidades independientes. En ESS (Extended Service Set) varios AP conectados forman una misma red con roaming.
+- **Modo ad‑hoc (IBSS, peer‑to‑peer):** dispositivos se comunican directamente entre sí sin AP. Útil para conexiones puntuales o entornos sin infraestructura.
+- **Modo mesh (802.11s u otras implementaciones):** nodos inalámbricos interconectados formando una malla que reenvía tráfico entre ellos; útil para desplegar redes inalámbricas distribuidas y resilientes.
+
+Cada modo tiene implicaciones en seguridad, gestión (RADIUS/802.1X normalmente en infraestructura) y en la forma de medir/analizar la cobertura y el roaming.
+
+#### 3.2.1 Diagramas: modos y topologías
+
+En estos diagramas conviene separar dos ideas:
+
+- **Modo de funcionamiento:** indica cómo se comunican los dispositivos: mediante un AP (infraestructura), directamente entre ellos (ad-hoc) o a través de varios nodos que reenvían tráfico (mesh).
+- **Topología:** indica cómo se organizan y conectan esos dispositivos: una celda, varias celdas conectadas, una malla o un enlace punto a punto/punto a multipunto.
+
+Una **celda inalámbrica** es el área de cobertura de radio de un AP. En una celda única hay un solo AP y todas las estaciones asociadas a él comparten el mismo BSS (*Basic Service Set*). Las estaciones no se conectan entre sí directamente: envían las tramas al AP, que las entrega a la estación destino o a la red cableada.
+
+| Diagrama | Modo o topología | ¿Hay AP? | Comunicación principal | Uso habitual |
+|---|---|---:|---|---|
+| Celda única | Infraestructura, un BSS | Sí, uno | Estación ↔ AP | Aula, vivienda o pequeña oficina |
+| ESS / roaming | Infraestructura, varios BSS | Sí, varios | Estación ↔ AP más cercano | Edificios con cobertura amplia |
+| Ad-hoc / IBSS | Comunicación directa | No | Estación ↔ estación | Conexión temporal sin infraestructura |
+| Mesh | Infraestructura distribuida | Nodos mesh | Nodo ↔ nodo; un nodo reenvía | Zonas donde no es práctico cablear todos los AP |
+| PTP / PMP | Topología de radioenlace | Antenas de enlace | Sitio ↔ sitio o sitio ↔ varios sitios | Interconexión de edificios o backhaul |
+
+**Cómo leer los diagramas:** `wifi` representa un enlace inalámbrico entre una estación y un AP o entre dos nodos; `cable` representa la red de distribución cableada; y `mesh` representa un enlace inalámbrico entre nodos que pueden reenviar tráfico. El círculo de cobertura de un AP no se dibuja a escala: solo sirve para identificar la celda.
+
+**1. Celda única (un AP, un BSS)**
+
+El bloque delimitado representa una única celda. El AP es el punto central de la comunicación y las estaciones son los dispositivos clientes.
+
+```mermaid
+flowchart LR
+  subgraph C[Una celda / BSS]
+    AP[AP]
+    STA1[Estación A]
+    STA2[Estación B]
+    STA1 -. wifi .-> AP
+    STA2 -. wifi .-> AP
+  end
+  AP -- cable --> LAN[Red cableada]
+```
+
+**2. ESS y roaming (varios BSS con el mismo SSID)**
+
+Cada AP crea su propia celda o BSS. Al estar conectados a la misma red de distribución y anunciar normalmente el mismo SSID, una estación puede pasar de un AP a otro al desplazarse. El cambio de AP es el **roaming**; las celdas suelen solaparse para evitar zonas sin cobertura.
+
+```mermaid
+flowchart LR
+  subgraph LAN[Red cableada]
+    R[Router/Switch]
+  end
+  subgraph C1[Celda 1 / BSS 1]
+    AP1[AP1<br/>SSID: Aula]
+    STA1[Estación A]
+    STA1 -. wifi .-> AP1
+  end
+  subgraph C2[Celda 2 / BSS 2]
+    AP2[AP2<br/>SSID: Aula]
+    STA2[Estación B]
+    STA2 -. wifi .-> AP2
+  end
+  AP1 -- cable --> R
+  AP2 -- cable --> R
+```
+
+**3. Ad-hoc (IBSS, peer-to-peer)**
+
+No existe AP ni red de distribución. Las estaciones forman un IBSS y se comunican directamente. Por eso no es una “celda con AP”: todos los dispositivos participan como iguales. Es apropiado para una conexión puntual, pero ofrece menos control y capacidad de gestión que el modo infraestructura.
+
+```mermaid
+flowchart LR
+  STA1[Estación A]
+  STA2[Estación B]
+  STA3[Estación C]
+  STA1 -. wifi directo .- STA2
+  STA2 -. wifi directo .- STA3
+  STA1 -. wifi directo .- STA3
+```
+
+**4. Mesh (malla inalámbrica)**
+
+Los nodos mesh forman una red inalámbrica entre ellos. Un nodo puede actuar como punto de acceso para las estaciones y, al mismo tiempo, reenviar el tráfico hacia otro nodo hasta alcanzar la red cableada. La malla puede tener varios caminos; si falla un enlace, la red puede buscar otro recorrido, según la implementación.
+
+```mermaid
+flowchart LR
+  LAN[Red cableada] -- cable --> Node1[Mesh1<br/>puerta de enlace]
+  Node1 -. mesh .- Node2[Mesh2]
+  Node2 -. mesh .- Node3[Mesh3]
+  Node3 -. mesh .- Node1
+  STA1[Estación] -. wifi .-> Node2
+```
+
+**5. Radioenlaces: PTP y PMP**
+
+Estos enlaces describen una topología de interconexión o *backhaul*, no un modo de asociación de clientes Wi-Fi:
+
+- **PTP (*Point-to-Point*):** una antena conecta directamente dos sedes.
+- **PMP (*Point-to-Multipoint*):** una antena central conecta con varias sedes remotas.
+
+En ambos casos suele ser necesaria la línea de vista (LOS). Las antenas transportan el tráfico entre redes; los equipos de cada sede proporcionan después el acceso local.
+
+```mermaid
+flowchart LR
+  R1[Router<br/>Sede A] -- cable --> SiteA[Antena A]
+  SiteA -. microwave PTP / LOS .- SiteB[Antena B]
+  SiteB -- cable --> R2[Router<br/>Sede B]
+```
+
+En un enlace PMP, una antena central da servicio a varias sedes:
+
+```mermaid
+flowchart LR
+  R0[Router<br/>Sede central] -- cable --> Hub[Antena central]
+  Hub -. microwave PMP / LOS .- S1[Antena remota 1]
+  Hub -. microwave PMP / LOS .- S2[Antena remota 2]
+  S1 -- cable --> R1[Router<br/>Sede remota 1]
+  S2 -- cable --> R2[Router<br/>Sede remota 2]
+```
+
+### 3.3 Tipos de autenticación y acceso en WLAN
+
+Cómo pueden autenticarse y acceder los usuarios a una WLAN:
+
+- **Acceso abierto (Open):** el SSID está visible y no se requiere clave para asociarse. Es práctico para redes públicas pero poco seguro.
+- **Portal web / Captive portal:** tras la asociación, el usuario es redirigido a una página web para autenticarse o aceptar condiciones. Usado para invitados y redes públicas.
+- **WPA/WPA2/WPA3 PSK:** autenticación mediante clave compartida (pre‑shared key). Adecuado para entornos domésticos o pequeños grupos.
+- **WPA/WPA2/WPA3 Enterprise (802.1X + RADIUS):** autenticación individual mediante servidor RADIUS y EAP. Soporta métodos como EAP‑PEAP (usuario/contraseña) y EAP‑TLS (certificados), y permite aplicar políticas (VLAN, tiempo, etc.).
+
+Buenas prácticas de seguridad:
+- Evitar WEP y TKIP (obsoletos).
+- Preferir WPA2‑Enterprise o WPA3 cuando sea posible.
+- En captive portals usar HTTPS y, si procede, un túnel VPN para proteger credenciales.
+- Asegurar el servidor RADIUS y usar shared secrets fuertes.
+
+## 4. Direccionamiento  físico: Mac, ARP, dominios de broadcast y colisión 
+
+*(CE-d: uso del direccionamiento lógico IP para asignar direcciones y máscaras.)*
 
 Para poder identificar de forma única los diferentes dispositivos dentro de una red informática se utiliza un mecanismo de identificación llamado direccionamiento.
 En una red de ordenadores hay dos tipos de direcciones: 
 - direcciones físicas 
 - direcciones lógicas
 
-*(CE-d: uso del direccionamiento lógico IP para asignar direcciones y máscaras.)*
-
-### 3.1 Conceptos básicos
+### 4.1 Conceptos básicos
 
 - **Dirección IP:** identificador lógico de **una interfaz en una red** (IPv4/IPv6).
 - **Máscara o prefijo:** determina la porción de red y la de host (p. ej. /24, /64).
@@ -225,7 +386,7 @@ En una red de ordenadores hay dos tipos de direcciones:
 - **Puerta de enlace (gateway):** router que conecta la subred con otras redes.
 - **Tabla de enrutamiento:** conjunto de rutas que usan los routers/hosts para encaminar paquetes.
 
-### 3.2 Direccionamiento físico: direcciones MAC y ámbito
+### 4.2 Direccionamiento físico: direcciones MAC y ámbito
 
 - **Dirección MAC(Media Access Control):** identificador único de 48 bits (normalmente) asignado a la interfaz de red por el fabricante (formato hex `00:1A:2B:3C:4D:5E`).
 - **Ámbito de actuación:** la dirección MAC opera en la capa de enlace (OSI capa 2) y se usa para la entrega de tramas en el mismo dominio de broadcast (misma LAN / VLAN). Estas direcciones son válidas unicamente en el ámbito local.
@@ -233,13 +394,25 @@ En una red de ordenadores hay dos tipos de direcciones:
 	 - `¿Qué es ARP?:` ARP es el mecanismo por el que un host descubre la dirección MAC asociada a una dirección IPv4 cuando necesita enviar una trama dentro de la misma LAN. Funciona enviando una petición broadcast y recibiendo una respuesta unicast con la dirección MAC.
  - **Estructura de una MAC:** las direcciones MAC suelen tener 48 bits (6 octetos). Los 3 primeros octetos forman el OUI (Organizationally Unique Identifier) que identifica al fabricante; los 3 octetos finales son asignados por el fabricante para cada interfaz.
 	 - Ejemplo: `00:1A:2B:3C:4D:5E` → OUI `00:1A:2B` (fabricante), sufijo `3C:4D:5E` (identificador de interfaz).
- - **Unicidad y casos de duplicado:**
-	 - En teoría cada MAC debe ser única. Los fabricantes registran OUIs y generan sufijos para evitar colisiones.
-	 - Casos que provocan duplicados: clonación manual (configuración intencionada), máquinas virtuales que duplican MAC por snapshot/import, dispositivos defectuosos o fabricantes que no respetan el asignamiento, o reutilización en redes virtuales.
-	 - Efectos de duplicado: conflictos de enlace (tramas alternando entre puertos), problemas de ARP, pérdida de conectividad para una o ambas interfaces.
-	 - Mitigación: asignar MACs estáticas válidas en elementos críticos, usar seguridad en switches (port security), gestionar MACs en entornos virtuales y evitar clonar sin control.
+ - **Unicidad y casos de duplicado:** en teoría cada MAC debe ser única. Los fabricantes registran OUIs y generan sufijos para evitar colisiones.
+	 - *Casos que provocan duplicados:* clonación manual (configuración intencionada), máquinas virtuales que duplican MAC por snapshot/import, dispositivos defectuosos o fabricantes que no respetan el asignamiento, o reutilización en redes virtuales.
+	 - *Efectos de duplicado:* conflictos de enlace (tramas alternando entre puertos), problemas de ARP, pérdida de conectividad para una o ambas interfaces.
+	 - *Mitigación:* asignar MACs estáticas válidas en elementos críticos, usar seguridad en switches (port security), gestionar MACs en entornos virtuales y evitar clonar sin control.
 
-#### **Comandos útiles para comprobar MAC/ARP**
+### 4.3 Dominios de colisión y de difusión(broadcast)
+
+- **Un dominio de colisión** es el segmento donde dos transmisiones simultáneas pueden interferir. Los switches separan los dominios por puerto; en una red conmutada y full-duplex normalmente no hay colisiones. Las colisiones se producián en redes Ehternet antiguas con `hubs` donde varios equipos compartían el mismo medio y podían transmitir a la vez. También podía ocurrir en `Ehternet half-duplex`.
+
+- **Un dominio de difusión** es el conjunto de dispositivos que reciben una trama broadcast de capa 2. Una VLAN delimita uno; para comunicar dominios distintos hace falta un router o un dispositivo de capa 3.
+
+A partir de las capas del modelo OSI es posible determinar qué dispositivos extienden o componen los dominios de colisión y difusión. 
+1. Dispositivos de la capa 1 OSI (concentradores y repetidores) reenvían todos los datos transmitidos en el medio, por lo tanto, extienden los dominios de colisión. 
+2. Dispositivos de la capa 2 y 3 OSI (conmutadores o swiches) segmentan los dominios de colisión. 
+3. Dispositivos de la capa 3 OSI (routers) segmentan los dominios de colisión y difusión (broadcast). 
+
+![dominios](img/dominios.png)
+
+### 4.4 Comandos útiles para comprobar MAC/ARP
 
 - Windows:
 	- Ver ARP: `arp -a` (muestra asociaciones IP → MAC en caché).
@@ -250,23 +423,23 @@ En una red de ordenadores hay dos tipos de direcciones:
 	- Ver interfaces y MAC locales: `ip link show` o `cat /sys/class/net/<iface>/address`.
 	- Ver tabla de direcciones MAC del switch (si tiene acceso SSH/CLI): `show mac address-table` (Cisco) o comandos equivalentes según fabricante.
 
-**Ejemplo rápido (Linux):**
+**Ejemplo Linux:**
 ```
 $ ip link show eth0
 2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UP mode DEFAULT group default qlen 1000
 		link/ether 00:1a:2b:3c:4d:5e brd ff:ff:ff:ff:ff:ff
 ```
 
-**Ejemplo rápido (Windows PowerShell):**
-```
+**Ejemplo Windows PowerShell:**
+```shell
 PS> Get-NetAdapter | Format-Table -Auto Name,MacAddress,Status
 ```
-- Switches: dispositivos que reenvían tramas usando tablas MAC (CAM) aprendidas por puerto; las direcciones MAC permiten conmutación local sin intervención de routers.
-- Diferencia con IP: la MAC identifica la interfaz física; la IP identifica la interfaz lógica sobre la red y permite enrutamiento entre subredes.
+- *Switches:* dispositivos que reenvían tramas usando tablas MAC (CAM) aprendidas por puerto; las direcciones MAC permiten conmutación local sin intervención de routers.
+- *Diferencia con IP:* la MAC identifica la interfaz física; la IP identifica la interfaz lógica sobre la red y permite enrutamiento entre subredes.
 
 **Ejemplo:** cuando un host A (192.168.1.10) envía un paquete a 192.168.1.20 en la misma VLAN, encapsula el paquete IPv4 dentro de una trama con la MAC destino correspondiente; si no la conoce, envía una ARP request y recibe la MAC en la ARP reply.
 
-### 3.3 Direccionamiento lógico (IPv4)
+## 5 Direccionamiento lógico (IPv4/IPv6)
 
 Una **dirección lógica** identifica de forma única una interfaz de red o tarjeta de red, en un ámbito local o global, es decir, es utilizada por los dispositivos para comunicarse con otros dispositivos de la misma red local o fuera de ella.
 
@@ -277,7 +450,9 @@ Esta no cambia con el tiempo. Los servidores de correo, DNS, FTP públicos y ser
 
 Una dirección IP no identifica a un ordenador en la red, sino a una interfaz de red. Es posible que un mismo equipo pueda tener varias direcciones IP, una por interfaz de red, para estar conectado a varias redes diferentes de manera simultánea.
 
-#### **Formato de direcciones ip**
+### 5.1 Direccionamiento lógico IPv4
+
+#### 5.1.1 Formato de direcciones ip
 
 Una dirección IPv4 es `un número binario de 32 bits`. Pero la notación empleada es un número decimal con puntos. Se dividen los 32 bits en 4 octetos (grupos de 8 bits), escribiendo cada uno de ellos en base decimal, separados por puntos.
 
@@ -291,22 +466,24 @@ Las direcciones IP constan de dos partes:
 - *Identificador de host:* determina el host dentro de la red.
 Todos los hosts de una misma red tienen el mismo identificador de red. Las redes grandes tendrán un identificador de red pequeño y las redes pequeñas tendrán un identificador de red grande.
 
-#### **Máscara de red**
+#### 5.1.2 Máscara de red
+
 La máscara de red se emplea para diferenciar la parte de dirección IP correspondiente al identificador de red de la parte correspondiente al identificador de host.
 Es un número de 32 bits que define en las posiciones a 1 el identificador de red, y en las posiciones a 0 el identificador de host.
 
 ```text
 	11001100.00110011.10101010.01010101 Dirección ip
 AND 11111111.11111111.11111111.00000000 Máscara de red
-	11001100.00110011.10101010.00000000  Dirección de Red
+	11001100.00110011.10101010.00000000 Dirección de Red
     -------------------------- --------
     identificador de red       id. equipo
 ```
 - **Notación decimal punteada:** Dirección ip `204.51.170.85`  con máscara de red `255.255.255.0` 
-- **Notación CIDR(Classless Inter-Domain Routing):** especifica el prefijo con `/n` donde `n` es bits de red. Que consite en situar un sufijo a continuación de la dirección IP, indicando cuántos bits de la máscara de red están a 1  Dirección ip `204.51.170.85/24`
+- **Notación CIDR(Classless Inter-Domain Routing):** especifica el prefijo con `/n` donde `n` es bits de red. Que consite en situar un sufijo a continuación de la dirección IP, indicando cuántos bits de la máscara de red están a 1. Dirección ip `204.51.170.85/24`
 
-#### **Clases de direcciones ip**
-Aunque el identificador de red puede tener una longitud en bits variable, en un principio se establecieron una serie de máscaras de red concretas. Así surgen las clases de direcciones:
+####  5.1.3 Clases de direcciones ip
+
+Aunque el identificador de red puede tener una longitud en bits variable, en un principio se establecieron una serie de máscaras de red concretas. Así surgieron las clases de direcciones:
 
 | Clase | Rango de direcciones IPv4 | Máscara predeterminada | Descripción |
 |---|---|---|---|
@@ -318,9 +495,9 @@ Aunque el identificador de red puede tener una longitud en bits variable, en un 
 
 Las clases son un sistema **histórico** de direccionamiento. Hoy se utiliza **CIDR**, que permite definir redes con prefijos como `/20` o `/27`, sin depender de clases.
 
-#### **Direcciones IPv4 públicas y privadas**
+####  5.1.4 Direcciones IPv4 públicas y privadas
 
-*Las direcciones privadas* se utilizan dentro de redes locales y no se enrutan directamente por Internet. Los rangos privados definidos para IPv4 son:
+- *Las direcciones privadas* se utilizan dentro de redes locales y no se enrutan directamente por Internet. Los rangos privados definidos para IPv4 son:
 
 | Bloque privado | Rango de direcciones | Prefijo |
 |---|---|---|
@@ -328,19 +505,21 @@ Las clases son un sistema **histórico** de direccionamiento. Hoy se utiliza **C
 | `172.16.0.0` | `172.16.0.0`–`172.31.255.255` | `/12` |
 | `192.168.0.0` | `192.168.0.0`–`192.168.255.255` | `/16` |
 
-*Las direcciones públicas* pueden enrutarse por Internet. No todas las direcciones que no pertenecen a los rangos privados son públicas, ya que también existen bloques reservados para otros usos especiales. Para que los dispositivos con direcciones privadas puedan acceder a Internet, normalmente se utiliza **NAT**, que traduce sus direcciones a una dirección pública.
+- *Las direcciones públicas* pueden enrutarse por Internet. No todas las direcciones que no pertenecen a los rangos privados son públicas, ya que también existen bloques reservados para otros usos especiales. Para que los dispositivos con direcciones privadas puedan acceder a Internet, normalmente se utiliza **NAT**, que traduce sus direcciones a una dirección pública.
 
-#### **NAT(Network Address Translation)**
+#### 5.1.5 NAT(Network Address Translation)
 
 La aparición de `los enrutadores` con la cualidad **NAT** permite que se puedan utilizar varias direcciones privadas detrás del router consumiendo solamente una dirección pública de cara a Internet. Esta es una de las medidas que intenta solucionar el problema de la escasez de IPv4.
 
 Este mecanismo permite intercambiar información entre dos redes que a priori son incompatibles, por ejemplo, una LAN y una WAN.
 
 El funcionamiento se basa en el cambio de direcciones origen en cada paquete en tiempo real al pasar por el router. Ello se almacena en una tabla para que el dispositivo pueda recordar los cambios y así devolver la información a quien la generó cuando haya respuesta.
+<div align="center">
+	<img src="img/mapaejemplo.png" alt="mapa ejemplo" width="500">
+</div>
 
-![mapaejemplo](img/mapaejemplo.png)
+#### 5.1.6 Subredes IPv4
 
-#### **Subredes IPv4**
 `Las subredes` son un método para poder crear varios dominios de difusión a partir de una dirección de red, lo cual ayudará a segmentar la red.
 
 `Las subredes IPv4` se crean utilizando uno o más de los bits de host como bits de red. Se amplía la máscara de red para tomar prestados algunos bits de la parte de host de la dirección, con el fin de obtener bits de red adicionales. Cuantos más bits de host se tomen prestados, mayor será la cantidad de subredes que puedan definirse, y se dispondrá de menos direcciones de host por subred.
@@ -364,14 +543,14 @@ La máscara de subred para ambas redes utiliza un 1 en la posición del bit que 
 Dirección:       192.168.1.    	0  000   0000	Red: 192.168.1.0/24
 Máscara:        255.255.255.	0  000   0000	Mask: 255.255.255.0
 
-Red 0:	        192.	168.1.	0  000   0000	Red: 192.168.1.0/25
+Red 0:	        192.168.1.		0  000   0000	Red: 192.168.1.0/25
 Máscara:       255.	255.255.	1  000   0000	Mask: 255.255.255.128
 
 Red 1:            192.168.1.	1  000   0000	Red: 192.168.1.128/25
 Máscara:       255.255.255.		1  000   0000	Mask: 255.255.255.128
 
 ```
-#### **Reglas para cada una de las subredes**
+**Reglas para cada una de las subredes**
 
 - *Dirección de red:* todos los bits de la parte de host de la dirección son 0.
 - *Primera dirección de host:* Todos los bits de la parte de host de la dirección son 0 excepto el bit más a la derecha que es 1.
@@ -388,7 +567,9 @@ Primera dirección de host:	192.  168.  1.  1  000  0001  =  192.168.1.129
 Última dirección de host:	192.  168.  1.  1  111  1110  =  192.168.1.254
 Dirección de difusión:		192.  168.  1.  1  111  1111  =  192.168.1.255
 ```
-#### **Fórmulas para la división en subredes**
+
+**Fórmulas para la división en subredes**
+
 Es posible determinar matemáticamente el número de subredes creadas, así como el número de host por subred teniendo en cuenta el número de bits que se ha tomado prestado para crear las subredes.
 - *Cálculo de subredes:*  2^n (n = número de bits que se han tomado prestados)
 - *Cálculo de hosts:*  2^n – 2 (n = número de bits restantes del campo de host)
@@ -398,7 +579,7 @@ Restamos 2 puesto que los hosts no pueden utilizar la dirección de red ni la di
 En IPv4, las subredes deben ser identificadas por la dirección de red y una máscara de subred.
 
 
-### 3.4 Ejemplos
+**Ejemplos**
 
 Si queremos **crear subredes (subnetting)** tener más redes y menos host por red
 
@@ -448,7 +629,7 @@ Broadcast: 192.168.0.255
 
 Ahora vamos a **crear superredes (supperneting o agregación CIDR)**
 
-Ejemplo: 192.168.0.0/24 -> 192.168.0.0/26  La dirección 192.168.0.0/24  tiene 24 bits de red y 8 bits de host,  permite direccionar 254 hosts (2^8-2).(las dos que se restan son la dirección de red y la de broadcast) 
+Ejemplo: 192.168.0.0/24 -> 192.168.0.0/26  La dirección 192.168.0.0/24  tiene 24 bits de red y 8 bits de host,  permite direccionar 254 hosts (2^8-2).(las dos que se restan son la dirección de red y la de difusión(broadcast)) 
 Con CIDR se consigue que esta dirección de red identifique a más de 254 hosts.
 
 Para pasar de `/24` a `/22`, quitamos 2 bits de la parte de red y los añadimos a la parte de host
@@ -470,7 +651,7 @@ En `/22`
 2^10 -2 =1022 hosts
 ```
 
-Al ser una red `/22` observa que e el tercer octeto los dos últimos bits forman parte de los hosts, por ello el tamaño del bloque es 256-252=4. 2^(24-22)=4 Podemos afirmar que cada red `/22` abarca 4 redes `/24` consecutivas
+Al ser una red `/22` observa que e el tercer octeto los dos últimos bits forman parte de los hosts, por ello el tamaño del bloque es 256-252=4. 2^(24-22)=4 Podemos afirmar que cada red `/22` abarca 4 redes `/24` consecutivas.
 Una red 192.168.0.0/22 engloba exactamente a las siguientes cuatro redes `/24`
 
 ```text
@@ -506,7 +687,7 @@ Para la red 192.168.0.0/22
 - De /24 a /22: robas bits a la red → menos redes, más hosts.
 
 
-**subnetting para 4 VLANs**
+**Otro ejemplo: subnetting para 4 VLANs**
 
 Requerimientos: VLANs con 50, 20, 10 y 5 hosts. Red disponible: `192.168.0.0/24`.
 
@@ -534,7 +715,7 @@ graph LR
 	A --> R["Reservado: 192.168.0.120-192.168.0.255"]
 ```
 
-### 3.5 Direccionamiento lógico IPv6
+### 5.2 Direccionamiento lógico IPv6
 
 *(CE-d: conocimiento y uso de direcciones IPv6 y sus tipos.)*
 
@@ -545,7 +726,8 @@ Una dirección lógica IPv6 consta de 128 bits, agrupados en 8 segmentos de 16 b
 ``` text
 8888:9999:AAAA:BBBB:CCCC:DDDD:EEEE:FFFF(16)
 ```
-#### **Reglas para reducir la notación de direcciones IPv6:**
+
+#### 5.2.1 Reglas para reducir la notación de direcciones IPv6:
 - Se puede omitir cualquier 0 a la izquierda de un hexteto.
     - 01AB -> 1AB
     - 0B00 -> B00
@@ -570,7 +752,7 @@ FF02:0000:0000:0000:FF00:0000:0000:0202
 	::
 ```
 
-#### **Reglas para convertir una dirección IPv4 a IPv6**
+#### 5.2.2 Reglas para convertir una dirección IPv4 a IPv6
 
 - La IPv6 empieza por 0000:0000:0000:0000:0000:FFFF -> ::FFFF
 - Se transforma la IPv4 a hexadecimal y se divide en dos hextetos:
@@ -588,27 +770,28 @@ FF02:0000:0000:0000:FF00:0000:0000:0202
 ```text
     - ::FFFF:C0A8:17D
 ```
-#### **Tipos de direccionamiento IPv6 según su forma de entrega : unicast, anycast y multicast**
+
+#### 5.2.3 Tipos de direccionamiento IPv6 según su forma de entrega : unicast, anycast y multicast
 
 - **Unicast:** identifica a una interfaz de red de un único nodo. Cuando se envía un paquete a una dirección unicast, solo un nodo lo recibirá.
 Ejemplos:
-- Global Unicast (2000::/3)
-- Unique Local Address (fc00::/7)
-- Link-Local (fe80::/10)
-- Loopback (::1)
+  - Global Unicast (2000::/3)
+  - Unique Local Address (fc00::/7)
+  - Link-Local (fe80::/10)
+  - Loopback (::1)
 
 - **Multicast:** identifica a un grupo de interfaces, generalmente de distintos nodos. Cuando se envía un paquete a una dirección multicast, todos los nodos del grupo lo recibirán.
 Ejemplo:
-- ff00::/8
+  - ff00::/8
 
 - **Anycast:** identifica a un grupo de interfaces, pero cuando se envía un paquete a una dirección anycast, solo el nodo más cercano al remitente lo recibirá.
 Usos habituales:
-- Servidores DNS.
-- Balanceo de carga.
-- Servicios distribuidos.
+  - Servidores DNS.
+  - Balanceo de carga.
+  - Servicios distribuidos.
 
 
-#### **Direcciones reservadas y especiales IPv6**
+#### 5.2.4 Direcciones reservadas y especiales IPv6
 
 | Prefijo IPv6 | Nombre | Descripción | tipo |
 |-------------|---------|-------------|------|
@@ -621,7 +804,7 @@ Usos habituales:
 | 2001:db8::/32 | Documentación | Reservadas para ejemplos, documentación y material educativo. | Especial |
 
 
-#### **Configuración automática en IPv6**
+#### 5.2.5 Configuración automática en IPv6
 
 - **SLAAC (Stateless Address Autoconfiguration):** Permite que un dispositivo genere automáticamente su dirección IPv6 a partir del prefijo anunciado por el router.
 - **Router Advertisement (RA):** Mensajes enviados por los routers IPv6 para anunciar:
@@ -650,54 +833,48 @@ Usos habituales:
    ```
    Sin que nadie la haya configurado manualmente
 
-#### **Comandos útiles**
+#### 5.2.7 Comandos útiles
 - Comprobaciones: `ip -6 addr`, `ip -6 route`, `ping6`/`ping -6`.
 
+---
 
-## 4. Direccionamiento dinámico: DHCP, DHCPv6 y SLAAC
+
+## 6. Direccionamiento dinámico: DHCP, DHCPv6 y SLAAC
 
 *(CE-d: uso de sistemas de direccionamiento dinámico.)*
 
-### 4.1 Métodos de asignación de direcciones IP mediante DHCP
+### 6.1 Métodos de asignación de direcciones IP mediante DHCP
 
-- **Asignación manual o estática (Reserva)**
-El administrador asocia una dirección IP concreta a un cliente determinado, normalmente mediante su dirección MAC.
-
+- **Asignación manual o estática (Reserva):** el administrador asocia una dirección IP concreta a un cliente determinado, normalmente mediante su dirección MAC.
 Características:
-- Siempre recibe la misma dirección IP.
-- Permite controlar qué equipos obtienen dirección.
-- Habitual en servidores, impresoras y dispositivos de red.
+  - Siempre recibe la misma dirección IP.
+  - Permite controlar qué equipos obtienen dirección.
+  - Habitual en servidores, impresoras y dispositivos de red.
 
-- **Asignación automática**
-El servidor DHCP asigna una dirección IP permanente al cliente la primera vez que la solicita.
-
+- **Asignación automática:** el servidor DHCP asigna una dirección IP permanente al cliente la primera vez que la solicita.
 Características:
-- La dirección queda reservada para ese cliente.
-- No suele reutilizarse para otros equipos.
-- Actualmente es poco utilizada.
+  - La dirección queda reservada para ese cliente.
+  - No suele reutilizarse para otros equipos.
+  - Actualmente es poco utilizada.
 
-- **Asignación dinámica**
-El servidor DHCP asigna una dirección IP durante un tiempo determinado (lease o concesión).
-
+- **Asignación dinámica:** el servidor DHCP asigna una dirección IP durante un tiempo determinado (lease o concesión).
 Características:
-- Las direcciones IP pueden reutilizarse.
-- Es el método más utilizado actualmente.
-- Permite gestionar eficientemente grandes cantidades de dispositivos.
+  - Las direcciones IP pueden reutilizarse.
+  - Es el método más utilizado actualmente.
+  - Permite gestionar eficientemente grandes cantidades de dispositivos.
 
-- **APIPA (Automatic Private IP Addressing)**
-Si un cliente configurado para obtener una dirección mediante DHCP no encuentra ningún servidor DHCP disponible, Windows puede asignarse automáticamente una dirección del rango:
-
-```text
-169.254.0.1 - 169.254.255.254
-Máscara:
-255.255.0.0 (/16)
-```
+- **APIPA (Automatic Private IP Addressing):** si un cliente configurado para obtener una dirección mediante DHCP no encuentra ningún servidor DHCP disponible, Windows puede asignarse automáticamente una dirección del rango:
+	```text
+	169.254.0.1 - 169.254.255.254
+	Máscara:
+	255.255.0.0 (/16)
+	```
 Características:
-- Permite la comunicación local entre equipos de la misma red.
-- No proporciona acceso a otras redes ni a Internet.
-- Indica habitualmente un problema con el servidor DHCP o la conectividad de red.
+  - Permite la comunicación local entre equipos de la misma red.
+  - No proporciona acceso a otras redes ni a Internet.
+  - Indica habitualmente un problema con el servidor DHCP o la conectividad de red.
 
-### 4.2 Opciones de configuración que puede proporcionar un servidor DHCP
+### 6.2 Opciones de configuración que puede proporcionar un servidor DHCP
 
 - ✅ **Máscara de subred**
   - Muy utilizada actualmente.
@@ -756,14 +933,14 @@ Características:
   - Prácticamente sustituida por DNS.
 
 
-### 4.3 Funcionamiento de DHCP (DORA)
+### 6.3 Funcionamiento de DHCP (DORA)
 
 - **DISCOVER:** el cliente broadcast solicita configuración.
 - **OFFER:** el servidor ofrece una dirección y parámetros.
 - **REQUEST:** el cliente solicita formalmente la oferta elegida.
 - **ACK:** el servidor confirma y asigna la configuración.
 
-#### **Diagrama: proceso DORA (DHCP)**
+#### 6.3.1 Diagrama: proceso DORA (DHCP)
 
 ```mermaid
 sequenceDiagram
@@ -781,218 +958,219 @@ sequenceDiagram
 	B->>C: entrega ACK (config aplicada)
 ```
 
-### 4.4 DHCPv6 y SLAAC
+### 6.4 DHCPv6 y SLAAC
 
-- **DHCPv6:** similar a DHCPv4 pero con diferencias en transporte y opciones; puede actuar en modo estateless (solo opciones) o stateful (asigna direcciones).
+- **DHCPv6:** similar a DHCPv4, pero con diferencias en transporte y opciones. Puede funcionar en modo **stateless** (sin asignar direcciones; proporciona solo opciones adicionales, como DNS) o **stateful** (asigna direcciones IPv6 y proporciona opciones).
 - **SLAAC (Stateless Address Autoconfiguration):** el host genera su propia dirección a partir del prefijo anunciado por el router (RA). Puede combinarse con DHCPv6 para opciones adicionales.
 
+---
 
-## 8. Adaptadores de red: instalación y configuración (alámbricos e inalámbricos)
+## 7. Adaptadores de red: instalación y configuración (alámbricos e inalámbricos)
 
 *(CE-e: configuración de adaptadores de red en distintos sistemas operativos.)*
 
-### 8.1 Tipos de adaptadores y controladores
+Los **adaptadores de red** son elementos que se encargan de unir los ordenadores a la propia red, es decir, conectan el ordenador al medio físico de transmisión, permitiendo transformar la información interna del ordenador que se desea transmitir, en una señal compatible capaz de ser enviada a través del medio de transmisión. También se llaman tarjetas de red, interfaces de red, o NIC.
 
-- Integrados (onboard), tarjeta PCIe, USB‑Ethernet y adaptadores Wi‑Fi (PCIe/USB/M.2).
-- Firmware/driver: importancia de versiones compatibles y firmwares actualizados.
+Los adaptadores pueden estar incluidos en el hardware del equipo, es decir, internos, o ser externos con conexión USB principalmente.
 
-### 8.2 Configuración habitual y parámetros relevantes
+Los adaptadores se distinguen por el *tipo de conexión* a la placa base y por el tipo de conexión al medio de transmisión.
+**Tipo de conexión del adaptador:** indica cómo se conecta físicamente el adaptador al equipo —por ejemplo, integrado, PCIe, USB o M.2— y al medio de transmisión —por ejemplo, cable Ethernet o señal Wi‑Fi—.
 
-- Velocidad/duplex (auto/1000Full/100Half), MTU (p. ej. 1500 o jumbo frames), Wake‑on‑LAN, offloads (TSO, LRO), VLAN tagging en adaptadores avanzados.
-- Priorizar driver del fabricante para funcionalidades avanzadas.
+### 7.1 Tipos de adaptadores y controladores
 
-### 8.3 Comandos y verificaciones por SO
+- **Integrados (onboard):** tarjeta PCIe, USB‑Ethernet y adaptadores Wi‑Fi (PCIe/USB/M.2).
+- **Driver/controlador:** programa que permite al sistema operativo comunicarse con el adaptador.
+- **Firmware:** software interno del propio adaptador que controla algunas de sus funciones. Muy importante que sean versiones compatibles y firmwares actualizados.
 
-- Windows: `ipconfig /all`, `netsh interface show interface`, Device Manager para drivers.
-- Linux: `ip link show`, `ip addr`, `ethtool <iface>` para velocidad/duplex/ethtool options.
-- macOS: `ifconfig`, `networksetup -listallhardwareports`.
+Por ejemplo, un adaptador USB‑Ethernet se conecta al ordenador por USB y a la red mediante un cable Ethernet. El driver permite que el sistema operativo lo use; no es el cable ni la conexión al medio.
 
-### 8.4 Ejemplo práctico: comprobar y configurar en Linux
+### 7.2 Adaptadores alámbricos
 
-1. Listar interfaces: `ip link show`.
-2. Comprobar dirección: `ip addr show eth0`.
-3. Forzar 1 Gbps full duplex (si el driver lo permite): `sudo ethtool -s eth0 speed 1000 duplex full autoneg on`.
-4. Comprobar estado físico y estadísticas: `ethtool eth0` y `cat /sys/class/net/eth0/statistics/rx_packets`.
+Este tipo de adaptadores son los utilizados para conectar los equipos a las redes de cable, a través de conectores BNC (en desuso), RJ45 o de fibra óptica. Hay varios tipos:
+- Tarjeta interna PCI
+- Tarjeta interna PCI- express
+- Adaptador USB. Alternativa a las tarjetas internas, más fácil de instalar 
 
-### 8.5 Buenas prácticas
+**Ejemplos:**
 
-- Documentar versión de driver y firmware al instalar equipos; probar con distintos cables y puertos si hay problemas.
-- Para adaptadores Wi‑Fi, verificar compatibilidad con estándares (802.11ac/ax) y band steering en APs.
+<img src="img/usb.png" alt="usb" width="100"> Es un adaptador USB‑Ethernet externo: se conecta al ordenador por USB‑A y ofrece un puerto RJ‑45 para conectar un cable Ethernet a la red.
+
+<img src="img/PCI.png" alt="PCI" width="150"> Esta es una tarjeta de red Ethernet interna PCIe. Se instala en una ranura de expansión de la placa base y proporciona un puerto RJ‑45 para conectar el cable de red
+
+#### 7.2.1 Instalación alámbrica
+
+Al instalar una tarjeta de red, el sistema operativo debe disponer del driver adecuado para reconocerla y utilizarla. Normalmente lo instala automáticamente; si no, se instala manualmente.
+Una vez reconocido el adaptador, la configuración de red puede obtenerse automáticamente mediante DHCP o introducirse manualmente. Los parámetros habituales son:
+
+- Dirección IP
+- Máscara de red o prefijo
+- Puerta de enlace predeterminada
+- Servidor o servidores DNS
+La puerta de enlace y el DNS suelen ser necesarios para comunicarse con otras redes y resolver nombres de dominio, respectivamente; en una configuración estática se indican según los requisitos de la red.
+
+### 7.3 Adaptadores inalámbricos
+
+Los **adaptadores inalámbricos** se utilizan para el mismo fin que los alámbricos, pero sin necesidad de conectar ningún tipo de cable. Son más cómodos de instalar y más sencillos de configurar.
+
+Tipos de adaptador (por conexión al equipo):
+- Tarjeta PCMCIA. Prácticamente en desuso.
+- Tarjeta interna PCI‑Express.
+- Adaptador USB. Versión para el acceso inalámbrico a través de USB.
+
+**Ejemplos:**
+
+<img src="img/pcmcia.png" alt="pcmcia" width="100"> tarjeta de red inalámbrica Wi‑Fi para ranura CardBus/PC Card (PCMCIA), un formato de expansión que se utilizaba en portátiles antiguos. Se insertaba en la ranura lateral del portátil para añadir conectividad Wi‑Fi; el pequeño elemento que sobresale forma parte de la tarjeta y contiene la antena.
+
+<img src="img/pcie.png" alt="pcie" width="100"> tarjeta de red inalámbrica Wi‑Fi interna PCIe para un ordenador de sobremesa. Se instala en una ranura PCIe de la placa base y sus antenas permiten conectarse a la red por Wi‑Fi.
 
 
-## 9. Integración de dispositivos en redes cableadas e inalámbricas
+#### 7.3.1 Instalación inalámbrica en la WLAN
 
-*(CE-f, CE-g: integración y comprobación funcional de dispositivos en redes.)*
+Al instalar una tarjeta de red, el sistema operativo debe disponer del driver adecuado para reconocerla y utilizarla. Normalmente lo instala automáticamente; si no, se instala manualmente.
 
-### 9.1 Procedimiento general de integración
+Para **conectarse a una red Wi‑Fi** es necesario seleccionar el **SSID (nombre de la red)** y, si procede, proporcionar las credenciales de seguridad. Dependiendo del tipo de red esto puede implicar:
 
-- Preparación: comprobar requisitos (IP, VLAN, puerto switch, cableado) y documentación del dispositivo.
-- Conexión física: comprobar enlace (LED, `ethtool` / Device Manager) y etiquetado del puerto.
-- Configuración inicial: asignar IP (estática o DHCP), nombre de host y parámetros de servicio (DNS, NTP).
-- Pruebas funcionales: ping al gateway, resolución DNS, acceso a servicios (HTTP, SMB, impresión).
+- **WPA2‑PSK / WPA3‑PSK:** clave compartida (contraseña) que se introduce en el cliente.
+- **WPA2/WPA3 Enterprise (802.1X):** autenticación por usuario/contraseña (EAP‑PEAP, EAP‑TTLS) o mediante certificados (EAP‑TLS). Requiere un servidor RADIUS en la red.
 
-### 9.2 Integración de impresoras y periféricos
+A continuación se incluye una tabla comparativa de los métodos de acceso más habituales y un diagrama simple del flujo RADIUS.
 
-- Preferir IP estática o reserva DHCP para impresoras y servidores.
-- Configurar drivers y compartir recursos; registrar nombre y IP en DNS interno.
-- Verificaciones: imprimir página de prueba desde Windows/Linux/macOS y comprobar colas de impresión.
+**Comparativa: métodos de autenticación y acceso en WLAN**
 
-### 9.3 Seguridad inalámbrica y políticas
+| Método | Caso de uso | Nivel de seguridad | Ventajas | Inconvenientes |
+|--------|-------------|--------------------|---------|----------------|
+| Open (sin seguridad) | SSID público/IoT aislado (red de invitados con portal) | ⚪ Muy bajo | Fácil acceso; sin configuración | Sin cifrado ni autenticación; inseguro |
+| Captive Portal (Web) | Redes de invitados en campus y hoteles | ⚪ Bajo/Medio | Control de acceso sencillo, integración con vouchers | Cifrado normalmente solo a nivel de HTTPS; no autentica al enlace 802.1X |
+| WPA2‑PSK / WPA3‑PSK | Redes domésticas / pequeñas oficinas | 🟡 Medio (WPA2) / 🟡→🟠 mejor (WPA3) | Fácil configuración (clave) | Gestión de contraseñas difícil en grandes entornos; PSK compartida por todos |
+| WPA2/WPA3‑Enterprise (802.1X + RADIUS) | Entornos educativos, empresas | 🟠/🔴 Alto (con EAP‑TLS) | Autenticación por usuario/certificado, control centralizado | Requiere infraestructura RADIUS/PKI y mayor complejidad |
 
-- Protocolos: WEP (obsoleto), WPA2 (AES) y WPA3 (mejoras en protección). Usar WPA2/WPA3 según hardware.
-- Autenticación empresarial: 802.1X con servidor RADIUS para control de acceso por usuario/dispositivo.
-- Segmentación: usar VLANs para separar tráfico invitado y dispositivos IoT.
+- *Recomendación general:* evitar WEP y TKIP; preferir AES/CCMP y WPA3 si el hardware lo permite. En entornos con muchos usuarios y control de acceso se recomienda WPA‑Enterprise con EAP‑TLS para máxima seguridad.
 
-### 9.4 Ejemplo práctico
-
-- Caso: añadir una impresora de red con IP fija `192.168.20.30`, gateway `192.168.20.1` y DNS `192.168.20.10`.
-	1. Conectar físicamente y comprobar enlace.
-	2. Configurar IP en panel web de la impresora o por consola.
-	3. Registrar en DNS y crear cola de impresión en servidor o en cada estación.
-	4. Realizar prueba de impresión desde un cliente Windows y un cliente Linux.
-
-#### Diagrama: switch y tabla MAC (visual)
+**Diagrama: flujo básico RADIUS (Autenticación 802.1X)**
 
 ```mermaid
-flowchart LR
-		subgraph SW[Switch]
-			P1[Puerto 1]\n(MAC 00:11:22:33:44:55)
-			P2[Puerto 2]\n(MAC AA:BB:CC:DD:EE:FF)
-			P3[Puerto 3]\n(MAC 00:1A:2B:3C:4D:5E)
-		end
-		P1 -->|trama| P2
-		P3 -->|trama| P1
-		style SW fill:#fff7e6,stroke:#333
+sequenceDiagram
+    participant STA as Cliente (Supplicant)
+    participant AP as Punto de Acceso / Switch (Authenticator / NAS)
+    participant R as RADIUS Server
+    participant DB as Directorio (LDAP/AD)
+
+    STA->>AP: EAPOL-Start / EAP request (802.1X)
+    AP->>R: Access-Request (RADIUS) with EAP payload (shared secret used between AP and RADIUS)
+    R->>DB: (opcional) consulta LDAP/AD para credenciales/certificados
+    DB-->>R: respuesta (usuario válido / certificado OK)
+    R-->>AP: Access-Accept (o Reject) -> AP permite o deniega el acceso al STA
+    AP->>STA: EAP success (o failure)
 ```
 
+> Notas:
+- El AP (o switch) actúa como "authenticator" y no conoce las credenciales: las reenvía al servidor RADIUS.
+- El secreto compartido RADIUS (shared secret) se usa entre AP y RADIUS para proteger mensajes (no sustituye a EAP/TLS en la autenticación cliente‑servidor).
+- EAP‑TLS usa certificados mutuos y proporciona el mayor nivel de confianza.
 
-## 10. Comprobación de conectividad entre dispositivos y adaptadores inalámbricos
+*Parámetros y conceptos relevantes:*
 
-*(CE-g: comprobación de conectividad entre dispositivos y adaptadores inalámbricos.)*
+- `SSID:` nombre de la red. Puede haber SSID para invitados y SSID para administración (separación de tráfico).
+- `Banda y canal:` 2.4 GHz (mayor cobertura y congestión) frente a 5 GHz/6 GHz (mayor capacidad y menor alcance). Elegir canal evita interferencias.
+- `Modos 802.11: b/g/n/ac/ax` — indicar la compatibilidad de adaptador y AP; preferir los modos más modernos cuando el hardware lo soporta.
+- `Seguridad:` evitar WEP y TKIP; preferir AES (CCMP) y WPA3 si es posible.
+- `Potencia/antena y RSSI:` la calidad del enlace depende de la potencia y la antena; medir RSSI o SNR para evaluar cobertura.
 
-### 10.1 Herramientas de diagnóstico y comandos
+*Configuración IP y servicios asociados:*
 
-- Ping y traceroute: comprobación básica de alcance y rutas (`ping`, `traceroute`/`tracert`).
-- Información de interfaz: `ip addr`, `ip link`, `ifconfig`, `ipconfig /all`.
-- Wireless: `netsh wlan show interfaces` (Windows), `iw dev wlan0 link` (Linux), `nmcli` para NetworkManager.
+- Normalmente `la dirección IP, puerta de enlace y DNS` se obtienen por DHCP. En servidores o pruebas puede requerirse IP estática.
+- `DNS y puerta de enlace` son necesarios para acceso a Internet y resolución de nombres.
 
-### 10.2 Pruebas de rendimiento y métricas
+*Autenticación avanzada y certificados:*
 
-- `iperf3` para ancho de banda (TCP/UDP), `ping` para latencia y pérdida, `mtr` para traza continua.
-- Medir jitter y pérdida con `iperf3 -u` y herramientas específicas de VoIP si se necesita.
-
-### 10.3 Procedimiento de prueba
-
-1. Establecer servidor: `iperf3 -s` en el equipo servidor.
-2. Ejecutar cliente: `iperf3 -c <ip_servidor>` en el equipo cliente.
-3. Repetir pruebas en distintos tiempos y canales (para Wi‑Fi) y promediar resultados.
-
-### 10.4 Ejemplo práctico
-
-- Medir ancho de banda entre PC y servidor a través de AP:
-	- En servidor: `iperf3 -s`.
-	- En cliente: `iperf3 -c 192.168.20.10 -t 30` (30 segundos).
-	- Registrar Mbps y comparar con tasa esperada.
+- `802.1X con RADIUS:` usado en entornos educativos y empresariales; permite autenticación por usuario o por certificados. `RADIUS (Remote Authentication Dial-In User Service)` es un protocolo de red usado para autenticar, autorizar y contabilizar (AAA) el acceso de usuarios y dispositivos a redes y servicios.
+- `EAP‑TLS:` método robusto basado en certificados (recomendado para alta seguridad).
 
 
-## 11. Representación del mapa físico y lógico de una red
+### 7.4  parámetros avanzados del adaptador
 
-*(CE-h: uso de aplicaciones para representar el mapa físico y lógico de una red.)*
+Normalmente se dejan con los valores predeterminados.
+- **Velocidad y dúplex:** indican la velocidad del enlace y si puede transmitir y recibir simultáneamente. 1000Full significa 1 Gbit/s en modo full-duplex; 100Half, 100 Mbit/s en half-duplex. En general se deja autonegociación para que el adaptador y el switch acuerden la mejor configuración.
+- **MTU:** tamaño máximo de la unidad de datos que se transmite por la red. En Ethernet suele ser 1500 bytes. Los jumbo frames permiten tamaños mayores, pero solo funcionan correctamente si todos los equipos y enlaces del trayecto los admiten y están configurados igual.
+- **Wake-on-LAN (WoL):** permite encender o reactivar un equipo a través de la red, normalmente mediante un paquete mágico. Requiere compatibilidad del adaptador, la placa base y la configuración de energía.
+- **Offloads (TSO, LRO):** funciones que delegan en la tarjeta de red parte del trabajo de procesar los paquetes, reduciendo carga de la CPU. TSO ayuda con la transmisión; LRO agrupa datos recibidos. Normalmente se dejan activadas según el driver.
+- **VLAN tagging:** permite que el adaptador añada a las tramas una etiqueta 802.1Q para identificar a qué VLAN pertenecen. Se usa en redes configuradas para VLAN y debe coincidir con la configuración del switch.
 
-### 11.1 Qué incluir en los mapas
+### 7.5 Comandos y verificaciones por SO
 
-- Elementos físicos: racks, switches, paneles de parcheo, armarios, trazado de cables y puertos.
-- Elementos lógicos: VLANs, subredes, puertas de enlace, servidores y servicios.
-- Metadatos: versión de firmware, puertos usados, etiquetas de patch panel y responsables.
-
-### 11.2 Herramientas y formatos recomendados
-
-- draw.io (gratuito), Microsoft Visio (comercial), plantillas Markdown con tablas y mapas embebidos.
-- Exportar en PNG/PDF para documentación y en XML/diagrama para edición posterior.
-
-### 11.3 Ejemplo de tabla asociada al mapa
-
-- Tabla: dispositivo, IP, VLAN, puerto switch, puertos físicos, responsable.
-
-### 11.4 Buenas prácticas
-
-- Mantener versionado del mapa (fecha y autor) y guardar copia en repositorio compartido.
-- Realizar revisiones tras cambios físicos o lógicos significativos.
+- Escaneo y estado: `iw dev`, `iwlist scan`, `nmcli device wifi list`.
+- Estadísticas y enlace: `iwconfig`, `iw dev wlan0 link`, `iw wlan0 link` o `nmcli -f ALL device show wlan0`.
+- Señal y ruido: RSSI y SNR (probar en diferentes ubicaciones para medir cobertura).
+- Conectividad: `ping`, `traceroute` / `tracepath`.
+- Windows: `ipconfig /all`, `netsh interface show interface`, Device Manager para drivers.
+- Linux: `ip link show`, `ip addr`, `ethtool <iface>` para velocidad/duplex/ethtool options.
 
 
-## 12. Monitorización de la red mediante SNMP
+**Ejemplos de salida representativos**
+
+Ejemplo simplificado de `iw dev` (interfaz y capacidades):
+
+```text
+$ iw dev
+phy#0
+	Interface wlan0
+		type managed
+		wdev 0x1
+		addr 12:34:56:78:9a:bc
+		ssid MiSSID
+		channel 36 (5180 MHz), width: 80 MHz, center1: 5210 MHz
+```
+
+Ejemplo simplificado de `nmcli device wifi list` (escaneo de SSID):
+
+```text
+$ nmcli device wifi list
+IN-USE  SSID             MODE   CHAN  RATE       SIGNAL  BARS  SECURITY
+        MiSSID           Infra  36    130 Mbit/s 78      ▂▄▆_  WPA2
+        Visitantes        Infra  6     54 Mbit/s  52      ▂▄__  WPA2
+        LibreOpen        Infra  11    54 Mbit/s  30      ▂___  --
+```
+
+Ejemplo de `radtest` y respuesta RADIUS (radtest against FreeRADIUS local server):
+
+```text
+$ radtest usuario password localhost 0 testing123
+Sending Access-Request of id 182 to 127.0.0.1 port 1812
+	User-Name = "usuario"
+	User-Password = "password"
+
+Received Access-Accept Id 182 from 127.0.0.1:1812
+
+# Interpretación: el servidor RADIUS ha aceptado las credenciales y permite el acceso.
+```
+
+(Estas salidas son ejemplos representativos: los encabezados/atributos y detalles reales dependen de la versión de las herramientas y de la configuración del sistema.)
+
+---
+
+## 8. Monitorización de la red mediante SNMP
 
 *(CE-i: monitorización de la red mediante aplicaciones basadas en SNMP.)*
+La **monitorización** de una red es el análisis del estado de los recursos. Para analizar los recursos de una red debemos estructurar nuestro estudio en partes diferenciadas.
+- Establecer que parámetros queremos monitorizar.
+- Conocer los métodos para acceder a los parámetros monitorizados.
+- Gestionar la información recopilada de los parámetros monitorizados.
 
-### 12.1 Fundamentos y versiones
+La monitorización puede ser parcial o total, continua u ocasional y se puede llevar a cabo de manera local o remota. Además, aunque puede ser diferida, la monitorización es conveniente que sea en `tiempo real`.
 
-- Componentes: `manager` (herramienta que consulta), `agent` (servicio en el dispositivo), MIB (modelo de información) y OID (identificadores).
-- Versiones: v1/v2c (comunidad, baja seguridad), v3 (autenticación y cifrado — recomendado en entornos sensibles).
+**SNMP (Protocolo simple de administración de red)** es un protocolo de capa de aplicación utilizado para obtener información y gestionar dispositivos de red. La monitorización suele emplear dos mecanismos:
 
-### 12.2 Métricas útiles y umbrales
+- **Sondeo (polling):** el gestor consulta a los agentes SNMP para obtener datos, periódicamente o bajo demanda. El agente responde a cada consulta.
+- **Notificaciones:** el agente informa al gestor cuando ocurre un evento. Las notificaciones `Trap` se envían de forma asíncrona y normalmente no requieren confirmación; las `Inform` sí solicitan confirmación.
 
-- Interfaces: `ifInOctets`/`ifOutOctets`, errores y drops.
-- Salud de dispositivo: CPU, memoria, temperatura si el equipo lo expone.
-- Umbrales: establecer alertas para utilización > 80% o errores sostenidos.
+**SNMP** suele utilizar `UDP`, un protocolo de transporte no orientado a conexión. Cada dispositivo gestionado ejecuta un agente SNMP, que responde a las consultas del gestor y puede enviarle notificaciones cuando ocurren determinados eventos. 
 
-### 12.3 Herramientas y ejemplos de consultas
+La información accesible se organiza mediante una `MIB (Management Information Base)`, que describe los objetos gestionables y sus identificadores; no es, por sí misma, una base de datos central de mediciones. El gestor puede almacenar los datos recopilados en su propia base de datos.
 
-- Herramientas: `snmpwalk`, `snmpget`, Zabbix, LibreNMS, Observium, Cacti.
-- Ejemplo: `snmpwalk -v2c -c public 192.168.1.1 IF-MIB::ifDescr`.
+La monitorización con SNMP puede realizarse desde la línea de comandos, mediante herramientas específicas, o utilizando aplicaciones con interfaz gráfica.
 
-### 12.4 Ejemplo práctico de monitorización básica
+Una herramienta de software libre utilizada para monitorizar redes mediante SNMP es **Zabbix**. Permite consultar métricas de los dispositivos, visualizar gráficas y configurar alertas. También existen alternativas como **Nagios** y **LibreNMS**.
 
-1. Añadir dispositivo al sistema de monitorización con credenciales SNMPv2c/ community.
-2. Comprobar métricas de interfaz y configurar umbrales de alerta.
-3. Verificar generación de alertas simulando carga o desconectando interfaz.
-
-
-## 13. Cables ópticos: tipos y clasificación según velocidad/distancia
-
-*(CE-j, CE-k: identificación y clasificación de cables ópticos según velocidad y distancia.)*
-
-### 13.1 Tipos y características
-
-- Multimodo (MMF, OM1–OM5): núcleos más grandes, adecuados para enlaces LAN y centros de datos con transceptores VCSEL; OM3/OM4/OM5 para 10 G/40 G/100 G en distancias medias.
-- Monomodo (SMF): núcleo fino, ideal para largas distancias y enlaces troncales (DWDM, 10 G y superiores).
-
-### 13.2 Conectores y pérdidas
-
-- Conectores comunes: LC (pequeño, usado en data center), SC, ST; MPO/MTP para fibras múltiples.
-- Atenuación: se mide en dB; hay que comparar pérdida total con presupuesto de enlace del transceptor.
-
-### 13.3 Pruebas y herramientas
-
-- Medidor de potencia óptica y fuente: medir potencia en Tx/Rx y calcular pérdida.
-- OTDR: diagnóstico de trazado, localización de empalmes/roturas y medida de distancia a fallos.
-
-### 13.4 Buenas prácticas
-
-- Limpiar conectores antes de conectar, evitar dobleces por debajo del radio mínimo, etiquetar fibras y mantener documentación del trazado.
-
-### 13.5 Ejemplo comparativo
-
-- Enlace de 300 m a 10 G: multimodo OM3/OM4 suele ser suficiente.
-- Enlace de 10 km a 10 G: se recomienda monomodo con transceptores apropiados.
-
-## Metodología y actividades
-- Metodología mixta: explicaciones teóricas cortas, laboratorios prácticos, ejercicios de diseño y resolución de problemas.
-- Actividades sugeridas:
-	- Laboratorios de crimpado y verificación de cables.
-	- Talleres de configuración de adaptadores y servicios DHCP.
-	- Prácticas de integración de dispositivos y pruebas de conectividad entre VLANs y WLANs.
-	- Proyecto final: diseñar, montar (simulado o real) y documentar una red pequeña con mapa físico y lógico, direccionamiento IPv4/IPv6, monitorización SNMP y pruebas de rendimiento.
-
-## Evaluación y criterios de comprobación
-- Evaluación continua mediante observación en prácticas, informes técnicos y ejercicios de cálculo de subredes.
-- Pruebas prácticas: montaje y verificación de cables, configuración y verificación de adaptadores, asignación y comprobación de direcciones IP.
-- Proyecto final valorando: corrección técnica, documentación (mapas y tablas IP), resultados de monitorización y pruebas de rendimiento.
-
-## Duración orientativa
-- 25–30 horas lectivas: teoría breve (6–8 h), laboratorios y prácticas (16–20 h), evaluación y proyecto (3–4 h).
-
-## Recursos y herramientas
-- Materiales: cables, crimpadoras, comprobadores, adaptadores de red, puntos de acceso, switch manageable (si es posible), fibras de práctica o simulador.
-- Software: sistemas operativos (Windows/Linux/macOS), Wireshark, iperf, herramientas SNMP (snmpwalk), draw.io, Packet Tracer o GNS3 para simulación.
+![zabbix](img/zabbix.png)
 
 ---
