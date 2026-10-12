@@ -52,7 +52,7 @@ Es la aparición de nuevas señales que no pertenecen a la transmisión. Puede s
   - **Ruido impulsivo:** consiste en pulsos aleatorios de bastante amplitud y corta duración. Ocurren al encender o apagar ciertos dispositivos.
   - **Ruido inducido:** perturbación causada por interferencias electromagnéticas externas que inducen señales no deseadas en el cable, por ejemplo, las generadas por motores o electrodomésticos..
 <div align="center">
-	<img src="img/ruido.png" alt="ruido" width="500">
+	<img src="../img/ruido.png" alt="ruido" width="500">
 </div>
 
 - **Interferencias electromagnéticas (EMI):** fuentes externas que afectan señales eléctricas.
@@ -96,7 +96,7 @@ Para un aula de 25 puestos con servidor local: UTP Cat6 para los puestos (1 Gbps
 	3. Blindaje (malla metálica y/o lámina) que protege frente a interferencias electromagnéticas(EMI) y reduce la radiación de la señal.
 	4. Cubierta exterior (jacket) que protege mecánicamente el conjunto.
 <div align="center">
-	<img src="img/coaxial.png" alt="coaxial" width="300">
+	<img src="../img/coaxial.png" alt="coaxial" width="300">
 </div>
 
  - **Tipos comunes:** RG‑6 (TV, satélite), RG‑59 (vídeo analógico, corto alcance), RG‑11 (menor atenuación, distancias mayores).
@@ -111,7 +111,7 @@ Para un aula de 25 puestos con servidor local: UTP Cat6 para los puestos (1 Gbps
 - El cable típico en las redes de área local y en la conexión final de equipos es el de 4 pares. Los cables multipar pueden tener 25, 50, 100, 200 y 300 pares.
 - Las normativas de cableado estructurado clasifican los diferentes tipos de cable de pares trenzados en categorías de acuerdo con sus características para la transmisión de datos, las cuales vienen fijadas fundamentalmente por la densidad de trenzado del cable (número de vueltas por metro) y los materiales utilizados en el recubrimiento aislante. 
 <div align="center">
-	<img src="img/partrenzado.png" alt="partrenzado" width="300">
+	<img src="../img/partrenzado.png" alt="partrenzado" width="300">
 </div>
 
 - **Tipos según apantallamiento:**
@@ -151,7 +151,7 @@ Los instrumentos que miden estos parámetros:
 - **Certificador/medidor de cable (p. ej. Fluke):** mide atenuación, NEXT y PSNEXT, pérdida de retorno, longitud y mapeo de pares; entrega reportes de conformidad por categoría.
 - **Tester de pares / comprobador de continuidad:** comprueba continuidad, cortocircuitos e inversión (no suele medir NEXT ni pérdida de retorno).
 <div align="center">
-	<img src="img/categoria.png" alt="categoria" width="500">
+	<img src="../img/categoria.png" alt="categoria" width="500">
 </div>
 
 ### 2.3 Conectores y normas de terminación (par trenzado)
@@ -186,7 +186,7 @@ El **cable de fibra óptica** es el medio físico utilizado para transportar la 
 - **El revestimiento:** rodea al núcleo y permite la refracción de la luz. Está hecho de cristal o plástico de diferentes propiedades ópticas distintas a las del núcleo.
 - **El recubrimiento o cubierta:** constituida de material plástico o similar. Se encarga de proteger al conjunto de golpes, abrasiones, humedades, etc.
 <div align="center">
-	<img src="img/cablefibra.png" alt="cable fibra" width="300">
+	<img src="../img/cablefibra.png" alt="cable fibra" width="300">
 </div>
 
 #### 2.6.1 Tipos de fibras ópticas:
@@ -198,7 +198,7 @@ El **cable de fibra óptica** es el medio físico utilizado para transportar la 
 **Ejemplo**
 Comparación: para un enlace entre armarios a 500 m se elegirá fibra multimodo OM4/OM3 si el presupuesto lo permite para 10 Gbps; para enlaces >2 km usar monomodo.
 
-<img src="img/TiposFibra.png" alt="tipos de fibra" width="700">
+<img src="../img/TiposFibra.png" alt="tipos de fibra" width="700">
 
 
 ### 2.6.2 Ventajas de la fibra óptica
@@ -515,7 +515,7 @@ Este mecanismo permite intercambiar información entre dos redes que a priori so
 
 El funcionamiento se basa en el cambio de direcciones origen en cada paquete en tiempo real al pasar por el router. Ello se almacena en una tabla para que el dispositivo pueda recordar los cambios y así devolver la información a quien la generó cuando haya respuesta.
 <div align="center">
-	<img src="img/mapaejemplo.png" alt="mapa ejemplo" width="500">
+	<img src="../img/mapaejemplo.png" alt="mapa ejemplo" width="500">
 </div>
 
 #### 5.1.6 Subredes IPv4
@@ -993,9 +993,9 @@ Este tipo de adaptadores son los utilizados para conectar los equipos a las rede
 
 **Ejemplos:**
 
-<img src="img/usb.png" alt="usb" width="100"> Es un adaptador USB‑Ethernet externo: se conecta al ordenador por USB‑A y ofrece un puerto RJ‑45 para conectar un cable Ethernet a la red.
+<img src="../img/usb.png" alt="usb" width="100"> Es un adaptador USB‑Ethernet externo: se conecta al ordenador por USB‑A y ofrece un puerto RJ‑45 para conectar un cable Ethernet a la red.
 
-<img src="img/PCI.png" alt="PCI" width="150"> Esta es una tarjeta de red Ethernet interna PCIe. Se instala en una ranura de expansión de la placa base y proporciona un puerto RJ‑45 para conectar el cable de red
+<img src="../img/PCI.png" alt="PCI" width="150"> Esta es una tarjeta de red Ethernet interna PCIe. Se instala en una ranura de expansión de la placa base y proporciona un puerto RJ‑45 para conectar el cable de red
 
 #### 7.2.1 Instalación alámbrica
 
@@ -1019,9 +1019,9 @@ Tipos de adaptador (por conexión al equipo):
 
 **Ejemplos:**
 
-<img src="img/pcmcia.png" alt="pcmcia" width="100"> tarjeta de red inalámbrica Wi‑Fi para ranura CardBus/PC Card (PCMCIA), un formato de expansión que se utilizaba en portátiles antiguos. Se insertaba en la ranura lateral del portátil para añadir conectividad Wi‑Fi; el pequeño elemento que sobresale forma parte de la tarjeta y contiene la antena.
+<img src="../img/pcmcia.png" alt="pcmcia" width="100"> tarjeta de red inalámbrica Wi‑Fi para ranura CardBus/PC Card (PCMCIA), un formato de expansión que se utilizaba en portátiles antiguos. Se insertaba en la ranura lateral del portátil para añadir conectividad Wi‑Fi; el pequeño elemento que sobresale forma parte de la tarjeta y contiene la antena.
 
-<img src="img/pcie.png" alt="pcie" width="100"> tarjeta de red inalámbrica Wi‑Fi interna PCIe para un ordenador de sobremesa. Se instala en una ranura PCIe de la placa base y sus antenas permiten conectarse a la red por Wi‑Fi.
+<img src="../img/pcie.png" alt="pcie" width="100"> tarjeta de red inalámbrica Wi‑Fi interna PCIe para un ordenador de sobremesa. Se instala en una ranura PCIe de la placa base y sus antenas permiten conectarse a la red por Wi‑Fi.
 
 
 #### 7.3.1 Instalación inalámbrica en la WLAN
