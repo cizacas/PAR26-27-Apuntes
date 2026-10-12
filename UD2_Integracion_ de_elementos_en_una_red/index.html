@@ -1214,15 +1214,19 @@ Para un aula de 25 puestos con servidor local: UTP Cat6 para los puestos (1 Gbps
 <li><strong>LC/SC/ST/FC</strong> según equipo son típicos en fibra óptica.</li>
 </ul>
 <h3 id="26-fibra-optica-monomodo-vs-multimodo">2.6 Fibra óptica: monomodo vs multimodo<a class="headerlink" href="#26-fibra-optica-monomodo-vs-multimodo" title="Permanent link">&para;</a></h3>
-<p><strong>Un sistema de transmisión por fibra óptica</strong> consta principalmente de tres partes:
-- <strong>Elemento transmisor:</strong> encargado de generar el haz luminoso. Ej.: led, láser…
-- <strong>Medio físico de transmisión:</strong> responsable de guiar la luz desde el origen al destino. Es el cable de fibra óptica.
-- <strong>Elemento receptor:</strong> Es el que recibe la señal y la transforma de forma adecuada para su procesamiento. Son fotodiodos o fotodetectores.</p>
+<p><strong>Un sistema de transmisión por fibra óptica</strong> consta principalmente de tres partes:</p>
+<ul>
+<li><strong>Elemento transmisor:</strong> encargado de generar el haz luminoso. Ej.: led, láser…</li>
+<li><strong>Medio físico de transmisión:</strong> responsable de guiar la luz desde el origen al destino. Es el cable de fibra óptica.</li>
+<li><strong>Elemento receptor:</strong> Es el que recibe la señal y la transforma de forma adecuada para su procesamiento. Son fotodiodos o fotodetectores.</li>
+</ul>
 <p><img alt="fibra" src="../img/fibra.png" /></p>
-<p>El <strong>cable de fibra óptica</strong> es el medio físico utilizado para transportar la luz, de forma que transmita información binaria. Principalmente, se compone de tres partes:
-- <strong>El núcleo:</strong> está formado por una o varias fibras muy finas de cristal o plástico.
-- <strong>El revestimiento:</strong> rodea al núcleo y permite la refracción de la luz. Está hecho de cristal o plástico de diferentes propiedades ópticas distintas a las del núcleo.
-- <strong>El recubrimiento o cubierta:</strong> constituida de material plástico o similar. Se encarga de proteger al conjunto de golpes, abrasiones, humedades, etc.</p>
+<p>El <strong>cable de fibra óptica</strong> es el medio físico utilizado para transportar la luz, de forma que transmita información binaria. Principalmente, se compone de tres partes:</p>
+<ul>
+<li><strong>El núcleo:</strong> está formado por una o varias fibras muy finas de cristal o plástico.</li>
+<li><strong>El revestimiento:</strong> rodea al núcleo y permite la refracción de la luz. Está hecho de cristal o plástico de diferentes propiedades ópticas distintas a las del núcleo.</li>
+<li><strong>El recubrimiento o cubierta:</strong> constituida de material plástico o similar. Se encarga de proteger al conjunto de golpes, abrasiones, humedades, etc.</li>
+</ul>
 <div align="center">
     <img src="../img/cablefibra.png" alt="cable fibra" width="300">
 </div>
@@ -1405,17 +1409,21 @@ No es necesario obtener una licencia del gobierno para operar con sistemas de tr
 <li><strong>WPA/WPA2/WPA3 PSK:</strong> autenticación mediante clave compartida (pre‑shared key). Adecuado para entornos domésticos o pequeños grupos.</li>
 <li><strong>WPA/WPA2/WPA3 Enterprise (802.1X + RADIUS):</strong> autenticación individual mediante servidor RADIUS y EAP. Soporta métodos como EAP‑PEAP (usuario/contraseña) y EAP‑TLS (certificados), y permite aplicar políticas (VLAN, tiempo, etc.).</li>
 </ul>
-<p>Buenas prácticas de seguridad:
-- Evitar WEP y TKIP (obsoletos).
-- Preferir WPA2‑Enterprise o WPA3 cuando sea posible.
-- En captive portals usar HTTPS y, si procede, un túnel VPN para proteger credenciales.
-- Asegurar el servidor RADIUS y usar shared secrets fuertes.</p>
+<p>Buenas prácticas de seguridad:</p>
+<ul>
+<li>Evitar WEP y TKIP (obsoletos).</li>
+<li>Preferir WPA2‑Enterprise o WPA3 cuando sea posible.</li>
+<li>En captive portals usar HTTPS y, si procede, un túnel VPN para proteger credenciales.</li>
+<li>Asegurar el servidor RADIUS y usar shared secrets fuertes.</li>
+</ul>
 <h2 id="4-direccionamiento-fisico-mac-arp-dominios-de-broadcast-y-colision">4. Direccionamiento  físico: Mac, ARP, dominios de broadcast y colisión<a class="headerlink" href="#4-direccionamiento-fisico-mac-arp-dominios-de-broadcast-y-colision" title="Permanent link">&para;</a></h2>
 <p><em>(CE-d: uso del direccionamiento lógico IP para asignar direcciones y máscaras.)</em></p>
 <p>Para poder identificar de forma única los diferentes dispositivos dentro de una red informática se utiliza un mecanismo de identificación llamado direccionamiento.
-En una red de ordenadores hay dos tipos de direcciones: 
-- direcciones físicas 
-- direcciones lógicas</p>
+En una red de ordenadores hay dos tipos de direcciones: </p>
+<ul>
+<li>direcciones físicas </li>
+<li>direcciones lógicas</li>
+</ul>
 <h3 id="41-conceptos-basicos">4.1 Conceptos básicos<a class="headerlink" href="#41-conceptos-basicos" title="Permanent link">&para;</a></h3>
 <ul>
 <li><strong>Dirección IP:</strong> identificador lógico de <strong>una interfaz en una red</strong> (IPv4/IPv6).</li>
@@ -1479,9 +1487,11 @@ En una red de ordenadores hay dos tipos de direcciones:
 </code></pre></div></p>
 <p><strong>Ejemplo Windows PowerShell:</strong>
 <div class="highlight"><pre><span></span><code>PS&gt;<span class="w"> </span>Get-NetAdapter<span class="w"> </span><span class="p">|</span><span class="w"> </span>Format-Table<span class="w"> </span>-Auto<span class="w"> </span>Name,MacAddress,Status
-</code></pre></div>
-- <em>Switches:</em> dispositivos que reenvían tramas usando tablas MAC (CAM) aprendidas por puerto; las direcciones MAC permiten conmutación local sin intervención de routers.
-- <em>Diferencia con IP:</em> la MAC identifica la interfaz física; la IP identifica la interfaz lógica sobre la red y permite enrutamiento entre subredes.</p>
+</code></pre></div></p>
+<ul>
+<li><em>Switches:</em> dispositivos que reenvían tramas usando tablas MAC (CAM) aprendidas por puerto; las direcciones MAC permiten conmutación local sin intervención de routers.</li>
+<li><em>Diferencia con IP:</em> la MAC identifica la interfaz física; la IP identifica la interfaz lógica sobre la red y permite enrutamiento entre subredes.</li>
+</ul>
 <p><strong>Ejemplo:</strong> cuando un host A (192.168.1.10) envía un paquete a 192.168.1.20 en la misma VLAN, encapsula el paquete IPv4 dentro de una trama con la MAC destino correspondiente; si no la conoce, envía una ARP request y recibe la MAC en la ARP reply.</p>
 <h2 id="5-direccionamiento-logico-ipv4ipv6">5 Direccionamiento lógico (IPv4/IPv6)<a class="headerlink" href="#5-direccionamiento-logico-ipv4ipv6" title="Permanent link">&para;</a></h2>
 <p>Una <strong>dirección lógica</strong> identifica de forma única una interfaz de red o tarjeta de red, en un ámbito local o global, es decir, es utilizada por los dispositivos para comunicarse con otros dispositivos de la misma red local o fuera de ella.</p>
@@ -1496,21 +1506,25 @@ Esta no cambia con el tiempo. Los servidores de correo, DNS, FTP públicos y ser
 
 204.51.170.85
 </code></pre></div>
-Las direcciones IP constan de dos partes:
-- <em>Identificador de red:</em> determina la red en la que se encuentra el dispositivo.
-- <em>Identificador de host:</em> determina el host dentro de la red.
-Todos los hosts de una misma red tienen el mismo identificador de red. Las redes grandes tendrán un identificador de red pequeño y las redes pequeñas tendrán un identificador de red grande.</p>
+Las direcciones IP constan de dos partes:</p>
+<ul>
+<li><em>Identificador de red:</em> determina la red en la que se encuentra el dispositivo.</li>
+<li><em>Identificador de host:</em> determina el host dentro de la red.
+Todos los hosts de una misma red tienen el mismo identificador de red. Las redes grandes tendrán un identificador de red pequeño y las redes pequeñas tendrán un identificador de red grande.</li>
+</ul>
 <h4 id="512-mascara-de-red">5.1.2 Máscara de red<a class="headerlink" href="#512-mascara-de-red" title="Permanent link">&para;</a></h4>
 <p>La máscara de red se emplea para diferenciar la parte de dirección IP correspondiente al identificador de red de la parte correspondiente al identificador de host.
 Es un número de 32 bits que define en las posiciones a 1 el identificador de red, y en las posiciones a 0 el identificador de host.</p>
-<p><div class="highlight"><pre><span></span><code>    11001100.00110011.10101010.01010101 Dirección ip
+<div class="highlight"><pre><span></span><code>    11001100.00110011.10101010.01010101 Dirección ip
 AND 11111111.11111111.11111111.00000000 Máscara de red
     11001100.00110011.10101010.00000000 Dirección de Red
     -------------------------- --------
     identificador de red       id. equipo
 </code></pre></div>
-- <strong>Notación decimal punteada:</strong> Dirección ip <code>204.51.170.85</code>  con máscara de red <code>255.255.255.0</code> 
-- <strong>Notación CIDR(Classless Inter-Domain Routing):</strong> especifica el prefijo con <code>/n</code> donde <code>n</code> es bits de red. Que consite en situar un sufijo a continuación de la dirección IP, indicando cuántos bits de la máscara de red están a 1. Dirección ip <code>204.51.170.85/24</code></p>
+<ul>
+<li><strong>Notación decimal punteada:</strong> Dirección ip <code>204.51.170.85</code>  con máscara de red <code>255.255.255.0</code> </li>
+<li><strong>Notación CIDR(Classless Inter-Domain Routing):</strong> especifica el prefijo con <code>/n</code> donde <code>n</code> es bits de red. Que consite en situar un sufijo a continuación de la dirección IP, indicando cuántos bits de la máscara de red están a 1. Dirección ip <code>204.51.170.85/24</code></li>
+</ul>
 <h4 id="513-clases-de-direcciones-ip">5.1.3 Clases de direcciones ip<a class="headerlink" href="#513-clases-de-direcciones-ip" title="Permanent link">&para;</a></h4>
 <p>Aunque el identificador de red puede tener una longitud en bits variable, en un principio se establecieron una serie de máscaras de red concretas. Así surgieron las clases de direcciones:</p>
 <table>
@@ -1636,9 +1650,11 @@ Primera dirección de host:  192.  168.  1.  1  000  0001  =  192.168.1.129
 Dirección de difusión:      192.  168.  1.  1  111  1111  =  192.168.1.255
 </code></pre></div>
 <p><strong>Fórmulas para la división en subredes</strong></p>
-<p>Es posible determinar matemáticamente el número de subredes creadas, así como el número de host por subred teniendo en cuenta el número de bits que se ha tomado prestado para crear las subredes.
-- <em>Cálculo de subredes:</em>  2^n (n = número de bits que se han tomado prestados)
-- <em>Cálculo de hosts:</em>  2^n – 2 (n = número de bits restantes del campo de host)</p>
+<p>Es posible determinar matemáticamente el número de subredes creadas, así como el número de host por subred teniendo en cuenta el número de bits que se ha tomado prestado para crear las subredes.</p>
+<ul>
+<li><em>Cálculo de subredes:</em>  2^n (n = número de bits que se han tomado prestados)</li>
+<li><em>Cálculo de hosts:</em>  2^n – 2 (n = número de bits restantes del campo de host)</li>
+</ul>
 <p>Restamos 2 puesto que los hosts no pueden utilizar la dirección de red ni la dirección de difusión de una subred, luego las 2 direcciones no son válidas para la asignación de host.</p>
 <p>En IPv4, las subredes deben ser identificadas por la dirección de red y una máscara de subred.</p>
 <p><strong>Ejemplos</strong></p>
@@ -1711,18 +1727,22 @@ Las redes `/22` empiezan cada 4 valores del tercer octeto
 192.168.12.0/22
 ...
 </code></pre></div>
-Para la red 192.168.0.0/22
-- Dirección de red: 192.168.0.0
-- Primer host: 192.168.0.1
-- Último host: 192.168.3.254
-- Broadcast: 192.168.3.255</p>
+Para la red 192.168.0.0/22</p>
+<ul>
+<li>Dirección de red: 192.168.0.0</li>
+<li>Primer host: 192.168.0.1</li>
+<li>Último host: 192.168.3.254</li>
+<li>Broadcast: 192.168.3.255</li>
+</ul>
 <p><em>Cálculo del número de hosts</em></p>
 <p>32 bits dirección de red  - 22 bits identificar la red = 10 bits
 2^10=1024 direcciones
 1024 -2 =1022 host utilizables</p>
-<p><strong>Regla fácil para recordar</strong>
-- De /24 a /26: robas bits a los hosts → más redes, menos hosts.
-- De /24 a /22: robas bits a la red → menos redes, más hosts.</p>
+<p><strong>Regla fácil para recordar</strong></p>
+<ul>
+<li>De /24 a /26: robas bits a los hosts → más redes, menos hosts.</li>
+<li>De /24 a /22: robas bits a la red → menos redes, más hosts.</li>
+</ul>
 <p><strong>Otro ejemplo: subnetting para 4 VLANs</strong></p>
 <p>Requerimientos: VLANs con 50, 20, 10 y 5 hosts. Red disponible: <code>192.168.0.0/24</code>.</p>
 <p>1) Ordenar por tamaño: 50, 20, 10, 5. Buscar prefijo mínimo que soporte cada VLAN:
@@ -1780,16 +1800,22 @@ FF02:0000:0000:0000:FF00:0000:0000:0202
 <li>La IPv6 empieza por 0000:0000:0000:0000:0000:FFFF -&gt; ::FFFF</li>
 <li>Se transforma la IPv4 a hexadecimal y se divide en dos hextetos:</li>
 </ul>
-<p><div class="highlight"><pre><span></span><code>    - 192.168.1.125
+<div class="highlight"><pre><span></span><code>    - 192.168.1.125
     - 1100 0000 . 1010 1000 . 0000 0001  . 0111 1101
     -    C 0         A 8    :    0 1     .    7 D
 </code></pre></div>
-- Concatenamos la primera parte de la IPv6 con la IPv4 en hexadecimal:
+<ul>
+<li>
+<p>Concatenamos la primera parte de la IPv6 con la IPv4 en hexadecimal:
 <div class="highlight"><pre><span></span><code>    - 0000:0000:0000:0000:0000:FFFF:C0A8:017D
-</code></pre></div>
-- Transformamos la IPv6 a notación abreviada:
+</code></pre></div></p>
+</li>
+<li>
+<p>Transformamos la IPv6 a notación abreviada:
 <div class="highlight"><pre><span></span><code>    - ::FFFF:C0A8:17D
 </code></pre></div></p>
+</li>
+</ul>
 <h4 id="523-tipos-de-direccionamiento-ipv6-segun-su-forma-de-entrega-unicast-anycast-y-multicast">5.2.3 Tipos de direccionamiento IPv6 según su forma de entrega : unicast, anycast y multicast<a class="headerlink" href="#523-tipos-de-direccionamiento-ipv6-segun-su-forma-de-entrega-unicast-anycast-y-multicast" title="Permanent link">&para;</a></h4>
 <ul>
 <li>
@@ -2098,10 +2124,12 @@ Máscara:
 </ul>
 <p>Por ejemplo, un adaptador USB‑Ethernet se conecta al ordenador por USB y a la red mediante un cable Ethernet. El driver permite que el sistema operativo lo use; no es el cable ni la conexión al medio.</p>
 <h3 id="72-adaptadores-alambricos">7.2 Adaptadores alámbricos<a class="headerlink" href="#72-adaptadores-alambricos" title="Permanent link">&para;</a></h3>
-<p>Este tipo de adaptadores son los utilizados para conectar los equipos a las redes de cable, a través de conectores BNC (en desuso), RJ45 o de fibra óptica. Hay varios tipos:
-- Tarjeta interna PCI
-- Tarjeta interna PCI- express
-- Adaptador USB. Alternativa a las tarjetas internas, más fácil de instalar </p>
+<p>Este tipo de adaptadores son los utilizados para conectar los equipos a las redes de cable, a través de conectores BNC (en desuso), RJ45 o de fibra óptica. Hay varios tipos:</p>
+<ul>
+<li>Tarjeta interna PCI</li>
+<li>Tarjeta interna PCI- express</li>
+<li>Adaptador USB. Alternativa a las tarjetas internas, más fácil de instalar </li>
+</ul>
 <p><strong>Ejemplos:</strong></p>
 <p><img src="../img/usb.png" alt="usb" width="100"> Es un adaptador USB‑Ethernet externo: se conecta al ordenador por USB‑A y ofrece un puerto RJ‑45 para conectar un cable Ethernet a la red.</p>
 <p><img src="../img/PCI.png" alt="PCI" width="150"> Esta es una tarjeta de red Ethernet interna PCIe. Se instala en una ranura de expansión de la placa base y proporciona un puerto RJ‑45 para conectar el cable de red</p>
@@ -2117,10 +2145,12 @@ La puerta de enlace y el DNS suelen ser necesarios para comunicarse con otras re
 </ul>
 <h3 id="73-adaptadores-inalambricos">7.3 Adaptadores inalámbricos<a class="headerlink" href="#73-adaptadores-inalambricos" title="Permanent link">&para;</a></h3>
 <p>Los <strong>adaptadores inalámbricos</strong> se utilizan para el mismo fin que los alámbricos, pero sin necesidad de conectar ningún tipo de cable. Son más cómodos de instalar y más sencillos de configurar.</p>
-<p>Tipos de adaptador (por conexión al equipo):
-- Tarjeta PCMCIA. Prácticamente en desuso.
-- Tarjeta interna PCI‑Express.
-- Adaptador USB. Versión para el acceso inalámbrico a través de USB.</p>
+<p>Tipos de adaptador (por conexión al equipo):</p>
+<ul>
+<li>Tarjeta PCMCIA. Prácticamente en desuso.</li>
+<li>Tarjeta interna PCI‑Express.</li>
+<li>Adaptador USB. Versión para el acceso inalámbrico a través de USB.</li>
+</ul>
 <p><strong>Ejemplos:</strong></p>
 <p><img src="../img/pcmcia.png" alt="pcmcia" width="100"> tarjeta de red inalámbrica Wi‑Fi para ranura CardBus/PC Card (PCMCIA), un formato de expansión que se utilizaba en portátiles antiguos. Se insertaba en la ranura lateral del portátil para añadir conectividad Wi‑Fi; el pequeño elemento que sobresale forma parte de la tarjeta y contiene la antena.</p>
 <p><img src="../img/pcie.png" alt="pcie" width="100"> tarjeta de red inalámbrica Wi‑Fi interna PCIe para un ordenador de sobremesa. Se instala en una ranura PCIe de la placa base y sus antenas permiten conectarse a la red por Wi‑Fi.</p>
@@ -2191,11 +2221,13 @@ La puerta de enlace y el DNS suelen ser necesarios para comunicarse con otras re
     R--&gt;&gt;AP: Access-Accept (o Reject) -&gt; AP permite o deniega el acceso al STA
     AP-&gt;&gt;STA: EAP success (o failure)</code></pre>
 <blockquote>
-<p>Notas:
-- El AP (o switch) actúa como "authenticator" y no conoce las credenciales: las reenvía al servidor RADIUS.
-- El secreto compartido RADIUS (shared secret) se usa entre AP y RADIUS para proteger mensajes (no sustituye a EAP/TLS en la autenticación cliente‑servidor).
-- EAP‑TLS usa certificados mutuos y proporciona el mayor nivel de confianza.</p>
+<p>Notas:</p>
 </blockquote>
+<ul>
+<li>El AP (o switch) actúa como "authenticator" y no conoce las credenciales: las reenvía al servidor RADIUS.</li>
+<li>El secreto compartido RADIUS (shared secret) se usa entre AP y RADIUS para proteger mensajes (no sustituye a EAP/TLS en la autenticación cliente‑servidor).</li>
+<li>EAP‑TLS usa certificados mutuos y proporciona el mayor nivel de confianza.</li>
+</ul>
 <p><em>Parámetros y conceptos relevantes:</em></p>
 <ul>
 <li><code>SSID:</code> nombre de la red. Puede haber SSID para invitados y SSID para administración (separación de tráfico).</li>
@@ -2215,12 +2247,14 @@ La puerta de enlace y el DNS suelen ser necesarios para comunicarse con otras re
 <li><code>EAP‑TLS:</code> método robusto basado en certificados (recomendado para alta seguridad).</li>
 </ul>
 <h3 id="74-parametros-avanzados-del-adaptador">7.4  parámetros avanzados del adaptador<a class="headerlink" href="#74-parametros-avanzados-del-adaptador" title="Permanent link">&para;</a></h3>
-<p>Normalmente se dejan con los valores predeterminados.
-- <strong>Velocidad y dúplex:</strong> indican la velocidad del enlace y si puede transmitir y recibir simultáneamente. 1000Full significa 1 Gbit/s en modo full-duplex; 100Half, 100 Mbit/s en half-duplex. En general se deja autonegociación para que el adaptador y el switch acuerden la mejor configuración.
-- <strong>MTU:</strong> tamaño máximo de la unidad de datos que se transmite por la red. En Ethernet suele ser 1500 bytes. Los jumbo frames permiten tamaños mayores, pero solo funcionan correctamente si todos los equipos y enlaces del trayecto los admiten y están configurados igual.
-- <strong>Wake-on-LAN (WoL):</strong> permite encender o reactivar un equipo a través de la red, normalmente mediante un paquete mágico. Requiere compatibilidad del adaptador, la placa base y la configuración de energía.
-- <strong>Offloads (TSO, LRO):</strong> funciones que delegan en la tarjeta de red parte del trabajo de procesar los paquetes, reduciendo carga de la CPU. TSO ayuda con la transmisión; LRO agrupa datos recibidos. Normalmente se dejan activadas según el driver.
-- <strong>VLAN tagging:</strong> permite que el adaptador añada a las tramas una etiqueta 802.1Q para identificar a qué VLAN pertenecen. Se usa en redes configuradas para VLAN y debe coincidir con la configuración del switch.</p>
+<p>Normalmente se dejan con los valores predeterminados.</p>
+<ul>
+<li><strong>Velocidad y dúplex:</strong> indican la velocidad del enlace y si puede transmitir y recibir simultáneamente. 1000Full significa 1 Gbit/s en modo full-duplex; 100Half, 100 Mbit/s en half-duplex. En general se deja autonegociación para que el adaptador y el switch acuerden la mejor configuración.</li>
+<li><strong>MTU:</strong> tamaño máximo de la unidad de datos que se transmite por la red. En Ethernet suele ser 1500 bytes. Los jumbo frames permiten tamaños mayores, pero solo funcionan correctamente si todos los equipos y enlaces del trayecto los admiten y están configurados igual.</li>
+<li><strong>Wake-on-LAN (WoL):</strong> permite encender o reactivar un equipo a través de la red, normalmente mediante un paquete mágico. Requiere compatibilidad del adaptador, la placa base y la configuración de energía.</li>
+<li><strong>Offloads (TSO, LRO):</strong> funciones que delegan en la tarjeta de red parte del trabajo de procesar los paquetes, reduciendo carga de la CPU. TSO ayuda con la transmisión; LRO agrupa datos recibidos. Normalmente se dejan activadas según el driver.</li>
+<li><strong>VLAN tagging:</strong> permite que el adaptador añada a las tramas una etiqueta 802.1Q para identificar a qué VLAN pertenecen. Se usa en redes configuradas para VLAN y debe coincidir con la configuración del switch.</li>
+</ul>
 <h3 id="75-comandos-y-verificaciones-por-so">7.5 Comandos y verificaciones por SO<a class="headerlink" href="#75-comandos-y-verificaciones-por-so" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Escaneo y estado: <code>iw dev</code>, <code>iwlist scan</code>, <code>nmcli device wifi list</code>.</li>
@@ -2262,10 +2296,12 @@ Received Access-Accept Id 182 from 127.0.0.1:1812
 <hr />
 <h2 id="8-monitorizacion-de-la-red-mediante-snmp">8. Monitorización de la red mediante SNMP<a class="headerlink" href="#8-monitorizacion-de-la-red-mediante-snmp" title="Permanent link">&para;</a></h2>
 <p><em>(CE-i: monitorización de la red mediante aplicaciones basadas en SNMP.)</em>
-La <strong>monitorización</strong> de una red es el análisis del estado de los recursos. Para analizar los recursos de una red debemos estructurar nuestro estudio en partes diferenciadas.
-- Establecer que parámetros queremos monitorizar.
-- Conocer los métodos para acceder a los parámetros monitorizados.
-- Gestionar la información recopilada de los parámetros monitorizados.</p>
+La <strong>monitorización</strong> de una red es el análisis del estado de los recursos. Para analizar los recursos de una red debemos estructurar nuestro estudio en partes diferenciadas.</p>
+<ul>
+<li>Establecer que parámetros queremos monitorizar.</li>
+<li>Conocer los métodos para acceder a los parámetros monitorizados.</li>
+<li>Gestionar la información recopilada de los parámetros monitorizados.</li>
+</ul>
 <p>La monitorización puede ser parcial o total, continua u ocasional y se puede llevar a cabo de manera local o remota. Además, aunque puede ser diferida, la monitorización es conveniente que sea en <code>tiempo real</code>.</p>
 <p><strong>SNMP (Protocolo simple de administración de red)</strong> es un protocolo de capa de aplicación utilizado para obtener información y gestionar dispositivos de red. La monitorización suele emplear dos mecanismos:</p>
 <ul>
