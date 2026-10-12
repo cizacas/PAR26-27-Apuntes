@@ -667,8 +667,7 @@ Una red 192.168.0.0/22 engloba exactamente a las siguientes cuatro redes `/24`
 192.168.1.0/24
 192.168.2.0/24
 192.168.3.0/24
-```text
-
+```
 Las redes `/22` empiezan cada 4 valores del tercer octeto
 
 ```text
@@ -701,19 +700,19 @@ Para la red 192.168.0.0/22
 
 Requerimientos: VLANs con 50, 20, 10 y 5 hosts. Red disponible: `192.168.0.0/24`.
 
-1) Ordenar por tamaño: 50, 20, 10, 5. Buscar prefijo mínimo que soporte cada VLAN:
+1. Ordenar por tamaño: 50, 20, 10, 5. Buscar prefijo mínimo que soporte cada VLAN:
     - 50 hosts → requiere al menos 64 direcciones → prefijo `/26` (62 hosts útiles).
     - 20 hosts → requiere al menos 32 direcciones → prefijo `/27` (30 hosts útiles).
     - 10 hosts → requiere al menos 16 direcciones → prefijo `/28` (14 hosts útiles).
     - 5 hosts → requiere al menos 8 direcciones → prefijo `/29` (6 hosts útiles).
 
-2) Asignación desde `192.168.0.0/24` (ejemplo de tabla):
+2. Asignación desde `192.168.0.0/24` (ejemplo de tabla):
     - VLAN A (50): `192.168.0.0/26` → hosts `192.168.0.1`–`192.168.0.62`, broadcast `192.168.0.63`.
     - VLAN B (20): `192.168.0.64/27` → hosts `192.168.0.65`–`192.168.0.94`, broadcast `192.168.0.95`.
     - VLAN C (10): `192.168.0.96/28` → hosts `192.168.0.97`–`192.168.0.110`, broadcast `192.168.0.111`.
     - VLAN D (5):  `192.168.0.112/29` → hosts `192.168.0.113`–`192.168.0.118`, broadcast `192.168.0.119`.
 
-3) Reserva de espacio para futuros: dejar bloques libres a partir de `192.168.0.120/`.
+3. Reserva de espacio para futuros: dejar bloques libres a partir de `192.168.0.120/`.
 
 
 ```mermaid
