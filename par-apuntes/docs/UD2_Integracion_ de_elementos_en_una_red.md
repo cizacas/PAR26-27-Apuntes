@@ -6,64 +6,63 @@
 funcionamiento y prestaciones.
 
 ---
-## Indice
-- [Indice](#indice)
+## Indice <!-- omit from toc -->
 - [1. Medios físicos y estándares para redes cableadas e inalámbricas](#1-medios-físicos-y-estándares-para-redes-cableadas-e-inalámbricas)
-	- [1.1 Definición y función](#11-definición-y-función)
-	- [1.2 Estándares relevantes](#12-estándares-relevantes)
-	- [1.3 Factores físicos que afectan la transmisión](#13-factores-físicos-que-afectan-la-transmisión)
-	- [1.4 Selección práctica del medio (criterios)](#14-selección-práctica-del-medio-criterios)
+  - [1.1 Definición y función](#11-definición-y-función)
+  - [1.2 Estándares relevantes](#12-estándares-relevantes)
+  - [1.3 Factores físicos que afectan la transmisión](#13-factores-físicos-que-afectan-la-transmisión)
+  - [1.4 Selección práctica del medio (criterios)](#14-selección-práctica-del-medio-criterios)
 - [2. Cables metálicos: tipos, construcción y uso](#2-cables-metálicos-tipos-construcción-y-uso)
-	- [2.1 Coaxial y par trenzado: estructura y propiedades](#21-coaxial-y-par-trenzado-estructura-y-propiedades)
-	- [2.1.1 Cable coaxial: estructura y tipos](#211-cable-coaxial-estructura-y-tipos)
-	- [2.1.2 Par trenzado: estructura, apantallamientos y clasificación](#212-par-trenzado-estructura-apantallamientos-y-clasificación)
-	- [2.2 Categorías UTP y rendimiento](#22-categorías-utp-y-rendimiento)
-		- [2.2.1 Parámetros importantes: atenuación, NEXT (Near‑End Crosstalk), PSNEXT y pérdida de retorno.](#221-parámetros-importantes-atenuación-next-nearend-crosstalk-psnext-y-pérdida-de-retorno)
-	- [2.3 Conectores y normas de terminación (par trenzado)](#23-conectores-y-normas-de-terminación-par-trenzado)
-	- [2.4 Reglas prácticas](#24-reglas-prácticas)
-	- [2.5 Conectores y estándares de terminación](#25-conectores-y-estándares-de-terminación)
-	- [2.6 Fibra óptica: monomodo vs multimodo](#26-fibra-óptica-monomodo-vs-multimodo)
-		- [2.6.1 Tipos de fibras ópticas:](#261-tipos-de-fibras-ópticas)
-	- [2.6.2 Ventajas de la fibra óptica](#262-ventajas-de-la-fibra-óptica)
+  - [2.1 Coaxial y par trenzado: estructura y propiedades](#21-coaxial-y-par-trenzado-estructura-y-propiedades)
+  - [2.1.1 Cable coaxial: estructura y tipos](#211-cable-coaxial-estructura-y-tipos)
+  - [2.1.2 Par trenzado: estructura, apantallamientos y clasificación](#212-par-trenzado-estructura-apantallamientos-y-clasificación)
+  - [2.2 Categorías UTP y rendimiento](#22-categorías-utp-y-rendimiento)
+    - [2.2.1 Parámetros importantes: atenuación, NEXT (Near‑End Crosstalk), PSNEXT y pérdida de retorno.](#221-parámetros-importantes-atenuación-next-nearend-crosstalk-psnext-y-pérdida-de-retorno)
+  - [2.3 Conectores y normas de terminación (par trenzado)](#23-conectores-y-normas-de-terminación-par-trenzado)
+  - [2.4 Reglas prácticas](#24-reglas-prácticas)
+  - [2.5 Conectores y estándares de terminación](#25-conectores-y-estándares-de-terminación)
+  - [2.6 Fibra óptica: monomodo vs multimodo](#26-fibra-óptica-monomodo-vs-multimodo)
+    - [2.6.1 Tipos de fibras ópticas:](#261-tipos-de-fibras-ópticas)
+  - [2.6.2 Ventajas de la fibra óptica](#262-ventajas-de-la-fibra-óptica)
 - [3. Conexión inalámbrica](#3-conexión-inalámbrica)
-	- [3.1 Según  el Medio físico: radiofrecuencia, microondas, infrarrojos](#31-según--el-medio-físico-radiofrecuencia-microondas-infrarrojos)
-	- [3.2 Tipos de conexión inalámbrica (modos de funcionamiento)](#32-tipos-de-conexión-inalámbrica-modos-de-funcionamiento)
-		- [3.2.1 Diagramas: modos y topologías](#321-diagramas-modos-y-topologías)
-	- [3.3 Tipos de autenticación y acceso en WLAN](#33-tipos-de-autenticación-y-acceso-en-wlan)
+  - [3.1 Según  el Medio físico: radiofrecuencia, microondas, infrarrojos](#31-según--el-medio-físico-radiofrecuencia-microondas-infrarrojos)
+  - [3.2 Tipos de conexión inalámbrica (modos de funcionamiento)](#32-tipos-de-conexión-inalámbrica-modos-de-funcionamiento)
+    - [3.2.1 Diagramas: modos y topologías](#321-diagramas-modos-y-topologías)
+  - [3.3 Tipos de autenticación y acceso en WLAN](#33-tipos-de-autenticación-y-acceso-en-wlan)
 - [4. Direccionamiento  físico: Mac, ARP, dominios de broadcast y colisión](#4-direccionamiento--físico-mac-arp-dominios-de-broadcast-y-colisión)
-	- [4.1 Conceptos básicos](#41-conceptos-básicos)
-	- [4.2 Direccionamiento físico: direcciones MAC y ámbito](#42-direccionamiento-físico-direcciones-mac-y-ámbito)
-	- [4.3 Dominios de colisión y de difusión(broadcast)](#43-dominios-de-colisión-y-de-difusiónbroadcast)
-	- [4.4 Comandos útiles para comprobar MAC/ARP](#44-comandos-útiles-para-comprobar-macarp)
+  - [4.1 Conceptos básicos](#41-conceptos-básicos)
+  - [4.2 Direccionamiento físico: direcciones MAC y ámbito](#42-direccionamiento-físico-direcciones-mac-y-ámbito)
+  - [4.3 Dominios de colisión y de difusión(broadcast)](#43-dominios-de-colisión-y-de-difusiónbroadcast)
+  - [4.4 Comandos útiles para comprobar MAC/ARP](#44-comandos-útiles-para-comprobar-macarp)
 - [5 Direccionamiento lógico (IPv4/IPv6)](#5-direccionamiento-lógico-ipv4ipv6)
-	- [5.1 Direccionamiento lógico IPv4](#51-direccionamiento-lógico-ipv4)
-		- [5.1.1 Formato de direcciones ip](#511-formato-de-direcciones-ip)
-		- [5.1.2 Máscara de red](#512-máscara-de-red)
-		- [5.1.3 Clases de direcciones ip](#513-clases-de-direcciones-ip)
-		- [5.1.4 Direcciones IPv4 públicas y privadas](#514-direcciones-ipv4-públicas-y-privadas)
-		- [5.1.5 NAT(Network Address Translation)](#515-natnetwork-address-translation)
-		- [5.1.6 Subredes IPv4](#516-subredes-ipv4)
-	- [5.2 Direccionamiento lógico IPv6](#52-direccionamiento-lógico-ipv6)
-		- [5.2.1 Reglas para reducir la notación de direcciones IPv6:](#521-reglas-para-reducir-la-notación-de-direcciones-ipv6)
-		- [5.2.2 Reglas para convertir una dirección IPv4 a IPv6](#522-reglas-para-convertir-una-dirección-ipv4-a-ipv6)
-		- [5.2.3 Tipos de direccionamiento IPv6 según su forma de entrega : unicast, anycast y multicast](#523-tipos-de-direccionamiento-ipv6-según-su-forma-de-entrega--unicast-anycast-y-multicast)
-		- [5.2.4 Direcciones reservadas y especiales IPv6](#524-direcciones-reservadas-y-especiales-ipv6)
-		- [5.2.5 Configuración automática en IPv6](#525-configuración-automática-en-ipv6)
-		- [5.2.7 Comandos útiles](#527-comandos-útiles)
+  - [5.1 Direccionamiento lógico IPv4](#51-direccionamiento-lógico-ipv4)
+    - [5.1.1 Formato de direcciones ip](#511-formato-de-direcciones-ip)
+    - [5.1.2 Máscara de red](#512-máscara-de-red)
+    - [5.1.3 Clases de direcciones ip](#513-clases-de-direcciones-ip)
+    - [5.1.4 Direcciones IPv4 públicas y privadas](#514-direcciones-ipv4-públicas-y-privadas)
+    - [5.1.5 NAT(Network Address Translation)](#515-natnetwork-address-translation)
+    - [5.1.6 Subredes IPv4](#516-subredes-ipv4)
+  - [5.2 Direccionamiento lógico IPv6](#52-direccionamiento-lógico-ipv6)
+    - [5.2.1 Reglas para reducir la notación de direcciones IPv6:](#521-reglas-para-reducir-la-notación-de-direcciones-ipv6)
+    - [5.2.2 Reglas para convertir una dirección IPv4 a IPv6](#522-reglas-para-convertir-una-dirección-ipv4-a-ipv6)
+    - [5.2.3 Tipos de direccionamiento IPv6 según su forma de entrega : unicast, anycast y multicast](#523-tipos-de-direccionamiento-ipv6-según-su-forma-de-entrega--unicast-anycast-y-multicast)
+    - [5.2.4 Direcciones reservadas y especiales IPv6](#524-direcciones-reservadas-y-especiales-ipv6)
+    - [5.2.5 Configuración automática en IPv6](#525-configuración-automática-en-ipv6)
+    - [5.2.7 Comandos útiles](#527-comandos-útiles)
 - [6. Direccionamiento dinámico: DHCP, DHCPv6 y SLAAC](#6-direccionamiento-dinámico-dhcp-dhcpv6-y-slaac)
-	- [6.1 Métodos de asignación de direcciones IP mediante DHCP](#61-métodos-de-asignación-de-direcciones-ip-mediante-dhcp)
-	- [6.2 Opciones de configuración que puede proporcionar un servidor DHCP](#62-opciones-de-configuración-que-puede-proporcionar-un-servidor-dhcp)
-	- [6.3 Funcionamiento de DHCP (DORA)](#63-funcionamiento-de-dhcp-dora)
-		- [6.3.1 Diagrama: proceso DORA (DHCP)](#631-diagrama-proceso-dora-dhcp)
-	- [6.4 DHCPv6 y SLAAC](#64-dhcpv6-y-slaac)
+  - [6.1 Métodos de asignación de direcciones IP mediante DHCP](#61-métodos-de-asignación-de-direcciones-ip-mediante-dhcp)
+  - [6.2 Opciones de configuración que puede proporcionar un servidor DHCP](#62-opciones-de-configuración-que-puede-proporcionar-un-servidor-dhcp)
+  - [6.3 Funcionamiento de DHCP (DORA)](#63-funcionamiento-de-dhcp-dora)
+    - [6.3.1 Diagrama: proceso DORA (DHCP)](#631-diagrama-proceso-dora-dhcp)
+  - [6.4 DHCPv6 y SLAAC](#64-dhcpv6-y-slaac)
 - [7. Adaptadores de red: instalación y configuración (alámbricos e inalámbricos)](#7-adaptadores-de-red-instalación-y-configuración-alámbricos-e-inalámbricos)
-	- [7.1 Tipos de adaptadores y controladores](#71-tipos-de-adaptadores-y-controladores)
-	- [7.2 Adaptadores alámbricos](#72-adaptadores-alámbricos)
-		- [7.2.1 Instalación alámbrica](#721-instalación-alámbrica)
-	- [7.3 Adaptadores inalámbricos](#73-adaptadores-inalámbricos)
-		- [7.3.1 Instalación inalámbrica en la WLAN](#731-instalación-inalámbrica-en-la-wlan)
-	- [7.4  parámetros avanzados del adaptador](#74--parámetros-avanzados-del-adaptador)
-	- [7.5 Comandos y verificaciones por SO](#75-comandos-y-verificaciones-por-so)
+  - [7.1 Tipos de adaptadores y controladores](#71-tipos-de-adaptadores-y-controladores)
+  - [7.2 Adaptadores alámbricos](#72-adaptadores-alámbricos)
+    - [7.2.1 Instalación alámbrica](#721-instalación-alámbrica)
+  - [7.3 Adaptadores inalámbricos](#73-adaptadores-inalámbricos)
+    - [7.3.1 Instalación inalámbrica en la WLAN](#731-instalación-inalámbrica-en-la-wlan)
+  - [7.4  parámetros avanzados del adaptador](#74--parámetros-avanzados-del-adaptador)
+  - [7.5 Comandos y verificaciones por SO](#75-comandos-y-verificaciones-por-so)
 - [8. Monitorización de la red mediante SNMP](#8-monitorización-de-la-red-mediante-snmp)
 
 
@@ -111,7 +110,7 @@ Es un cambio de forma en la señal. Cuando una señal es compuesta, como las dig
     - **Ruido impulsivo:** consiste en pulsos aleatorios de bastante amplitud y corta duración. Ocurren al encender o apagar ciertos dispositivos.
     - **Ruido inducido:** perturbación causada por interferencias electromagnéticas externas que inducen señales no deseadas en el cable, por ejemplo, las generadas por motores o electrodomésticos.
 <div align="center">
-	<img src="../img/ruido.png" alt="ruido" width="500">
+	<img src="img/ruido.png" alt="ruido" width="500">
 </div>
 
 - **Interferencias electromagnéticas (EMI):** fuentes externas que afectan señales eléctricas.
@@ -155,7 +154,7 @@ Para un aula de 25 puestos con servidor local: UTP Cat6 para los puestos (1 Gbps
     3. Blindaje (malla metálica y/o lámina) que protege frente a interferencias electromagnéticas(EMI) y reduce la radiación de la señal.
     4. Cubierta exterior (jacket) que protege mecánicamente el conjunto.
 <div align="center">
-	<img src="../img/coaxial.png" alt="coaxial" width="300">
+	<img src="img/coaxial.png" alt="coaxial" width="300">
 </div>
 
  - **Tipos comunes:** RG‑6 (TV, satélite), RG‑59 (vídeo analógico, corto alcance), RG‑11 (menor atenuación, distancias mayores).
@@ -170,7 +169,7 @@ Para un aula de 25 puestos con servidor local: UTP Cat6 para los puestos (1 Gbps
 - El cable típico en las redes de área local y en la conexión final de equipos es el de 4 pares. Los cables multipar pueden tener 25, 50, 100, 200 y 300 pares.
 - Las normativas de cableado estructurado clasifican los diferentes tipos de cable de pares trenzados en categorías de acuerdo con sus características para la transmisión de datos, las cuales vienen fijadas fundamentalmente por la densidad de trenzado del cable (número de vueltas por metro) y los materiales utilizados en el recubrimiento aislante. 
 <div align="center">
-	<img src="../img/partrenzado.png" alt="partrenzado" width="300">
+	<img src="img/partrenzado.png" alt="partrenzado" width="300">
 </div>
 
 - **Tipos según apantallamiento:**
@@ -210,7 +209,7 @@ Los instrumentos que miden estos parámetros:
 - **Certificador/medidor de cable (p. ej. Fluke):** mide atenuación, NEXT y PSNEXT, pérdida de retorno, longitud y mapeo de pares; entrega reportes de conformidad por categoría.
 - **Tester de pares / comprobador de continuidad:** comprueba continuidad, cortocircuitos e inversión (no suele medir NEXT ni pérdida de retorno).
 <div align="center">
-	<img src="../img/categoria.png" alt="categoria" width="500">
+	<img src="img/categoria.png" alt="categoria" width="500">
 </div>
 
 ### 2.3 Conectores y normas de terminación (par trenzado)
@@ -247,7 +246,7 @@ El **cable de fibra óptica** es el medio físico utilizado para transportar la 
 - **El revestimiento:** rodea al núcleo y permite la refracción de la luz. Está hecho de cristal o plástico de diferentes propiedades ópticas distintas a las del núcleo.
 - **El recubrimiento o cubierta:** constituida de material plástico o similar. Se encarga de proteger al conjunto de golpes, abrasiones, humedades, etc.
 <div align="center">
-	<img src="../img/cablefibra.png" alt="cable fibra" width="300">
+	<img src="img/cablefibra.png" alt="cable fibra" width="300">
 </div>
 
 #### 2.6.1 Tipos de fibras ópticas:
@@ -259,7 +258,7 @@ El **cable de fibra óptica** es el medio físico utilizado para transportar la 
 **Ejemplo**
 Comparación: para un enlace entre armarios a 500 m se elegirá fibra multimodo OM4/OM3 si el presupuesto lo permite para 10 Gbps; para enlaces >2 km usar monomodo.
 
-<img src="../img/TiposFibra.png" alt="tipos de fibra" width="700">
+<img src="img/TiposFibra.png" alt="tipos de fibra" width="700">
 
 
 ### 2.6.2 Ventajas de la fibra óptica
@@ -581,7 +580,7 @@ Este mecanismo permite intercambiar información entre dos redes que a priori so
 
 El funcionamiento se basa en el cambio de direcciones origen en cada paquete en tiempo real al pasar por el router. Ello se almacena en una tabla para que el dispositivo pueda recordar los cambios y así devolver la información a quien la generó cuando haya respuesta.
 <div align="center">
-	<img src="../img/mapaejemplo.png" alt="mapa ejemplo" width="500">
+	<img src="img/mapaejemplo.png" alt="mapa ejemplo" width="500">
 </div>
 
 #### 5.1.6 Subredes IPv4
@@ -1066,9 +1065,9 @@ Este tipo de adaptadores son los utilizados para conectar los equipos a las rede
 
 **Ejemplos:**
 
-<img src="../img/usb.png" alt="usb" width="100"> Es un adaptador USB‑Ethernet externo: se conecta al ordenador por USB‑A y ofrece un puerto RJ‑45 para conectar un cable Ethernet a la red.
+<img src="img/usb.png" alt="usb" width="100"> Es un adaptador USB‑Ethernet externo: se conecta al ordenador por USB‑A y ofrece un puerto RJ‑45 para conectar un cable Ethernet a la red.
 
-<img src="../img/PCI.png" alt="PCI" width="150"> Esta es una tarjeta de red Ethernet interna PCIe. Se instala en una ranura de expansión de la placa base y proporciona un puerto RJ‑45 para conectar el cable de red
+<img src="img/PCI.png" alt="PCI" width="150"> Esta es una tarjeta de red Ethernet interna PCIe. Se instala en una ranura de expansión de la placa base y proporciona un puerto RJ‑45 para conectar el cable de red
 
 #### 7.2.1 Instalación alámbrica
 
@@ -1093,9 +1092,9 @@ Tipos de adaptador (por conexión al equipo):
 
 **Ejemplos:**
 
-<img src="../img/pcmcia.png" alt="pcmcia" width="100"> tarjeta de red inalámbrica Wi‑Fi para ranura CardBus/PC Card (PCMCIA), un formato de expansión que se utilizaba en portátiles antiguos. Se insertaba en la ranura lateral del portátil para añadir conectividad Wi‑Fi; el pequeño elemento que sobresale forma parte de la tarjeta y contiene la antena.
+<img src="img/pcmcia.png" alt="pcmcia" width="100"> tarjeta de red inalámbrica Wi‑Fi para ranura CardBus/PC Card (PCMCIA), un formato de expansión que se utilizaba en portátiles antiguos. Se insertaba en la ranura lateral del portátil para añadir conectividad Wi‑Fi; el pequeño elemento que sobresale forma parte de la tarjeta y contiene la antena.
 
-<img src="../img/pcie.png" alt="pcie" width="100"> tarjeta de red inalámbrica Wi‑Fi interna PCIe para un ordenador de sobremesa. Se instala en una ranura PCIe de la placa base y sus antenas permiten conectarse a la red por Wi‑Fi.
+<img src="img/pcie.png" alt="pcie" width="100"> tarjeta de red inalámbrica Wi‑Fi interna PCIe para un ordenador de sobremesa. Se instala en una ranura PCIe de la placa base y sus antenas permiten conectarse a la red por Wi‑Fi.
 
 
 #### 7.3.1 Instalación inalámbrica en la WLAN
