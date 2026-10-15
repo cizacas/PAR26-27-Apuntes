@@ -2314,8 +2314,8 @@ Es un número de 32 bits que define en las posiciones a 1 el identificador de re
 <div class="highlight"><pre><span></span><code>    11001100.00110011.10101010.01010101 Dirección ip
 AND 11111111.11111111.11111111.00000000 Máscara de red
     11001100.00110011.10101010.00000000 Dirección de Red
-    -------------------------- --------
-    identificador de red       id. equipo
+    ----------------------------------- --------
+    identificador de red                id. equipo
 </code></pre></div>
 <ul>
 <li><strong>Notación decimal punteada:</strong> Dirección ip <code>204.51.170.85</code>  con máscara de red <code>255.255.255.0</code> </li>
@@ -2414,21 +2414,21 @@ AND 11111111.11111111.11111111.00000000 Máscara de red
 <p><div class="highlight"><pre><span></span><code>Ej.: Red 192.168.1.0/24
 Tiene 24 bits en la parte de red 
 8 bits en la parte de host -&gt; máscara: 255.255.255.0 ó /24.
-Dirección:  192.    168.    1.  0000   0000
-Máscara:    255.    255.    255.    0000   0000
-            Parte de red                Parte de host
+Dirección:  192.     168.     1.       0000 0000
+Máscara:    255.     255.     255.     0000 0000
+            Parte de red (24 bits)     Parte de host (8 bits)
 </code></pre></div>
 Si se toma prestado un bit de la posición más significativa (más a la izquierda) de la parte de host de la dirección IP, se amplía la parte de red a 25 bits.</p>
 <p>Esto crea 2 subredes que se identifican mediante un 0 en el bit prestado para la primera red, y un 1 en el bit prestado para la segunda red.</p>
 <p>La máscara de subred para ambas redes utiliza un 1 en la posición del bit que se ha tomado prestado para indicar que ahora este bit pertenece a la parte de red.</p>
-<p><div class="highlight"><pre><span></span><code>Dirección:       192.168.1.     0  000   0000   Red: 192.168.1.0/24
-Máscara:        255.255.255.      0  000   0000 Mask:255.255.255.0
+<p><div class="highlight"><pre><span></span><code>Dirección:  192.168.1.   0000 0000   Red: 192.168.1.0/24
+Máscara:    255.255.255. 0000 0000   Mask: 255.255.255.0
 
-Red 0:          192.168.1.      0  000   0000   Red: 192.168.1.0/25
-Máscara:       255. 255.255.    1  000   0000   Mask:255.255.255.128
+Red 0:      192.168.1.   0000 0000   Red: 192.168.1.0/25
+Máscara:    255.255.255. 1000 0000   Mask: 255.255.255.128
 
-Red 1:            192.168.1.    1  000   0000   Red: 192.168.1.128/25
-Máscara:       255.255.255.     1  000   0000   Mask:255.255.255.128
+Red 1:      192.168.1.   1000 0000   Red: 192.168.1.128/25
+Máscara:    255.255.255. 1000 0000   Mask: 255.255.255.128
 </code></pre></div>
 <strong>Reglas para cada una de las subredes</strong></p>
 <ul>
@@ -2437,14 +2437,14 @@ Máscara:       255.255.255.     1  000   0000   Mask:255.255.255.128
 <li><em>Última dirección de host:</em> Todos los bits de la parte de host de la dirección son 1 excepto el bit más a la derecha que es 0.</li>
 <li><em>Dirección de difusión:</em> Todos los bits de la parte de host de la dirección son 1.</li>
 </ul>
-<div class="highlight"><pre><span></span><code>Dirección de red (Red 0):   192.  168.  1.  0  000  0000  =  192.168.1.0/25
-Primera dirección de host:192.  168.  1.  0  000  0001  =  192.168.1.1
-Última dirección de host:   192.  168.  1.  0  111  1110  =  192.168.1.126
-Dirección de difusión:      192.  168.  1.  0  111  1111  =  192.168.1.127
-Dirección de red (Red 1):   192.  168.  1.  1  000  0000  =  192.168.1.128/25
-Primera dirección de host:192.  168.  1.  1  000  0001  =  192.168.1.129
-Última dirección de host:   192.  168.  1.  1  111  1110  =  192.168.1.254
-Dirección de difusión:      192.  168.  1.  1  111  1111  =  192.168.1.255
+<div class="highlight"><pre><span></span><code>Dirección de red (Red 0):   192.168.1.  0000 0000  =  192.168.1.0/25
+Primera dirección de host:  192.168.1.  0000 0001  =  192.168.1.1
+Última dirección de host:   192.168.1.  0111 1110  =  192.168.1.126
+Dirección de difusión:      192.168.1.  0111 1111  =  192.168.1.127
+Dirección de red (Red 1):   192.168.1.  1000 0000  =  192.168.1.128/25
+Primera dirección de host:  192.168.1.  1000 0001  =  192.168.1.129
+Última dirección de host:   192.168.1.  1111 1110  =  192.168.1.254
+Dirección de difusión:      192.168.1.  1111 1111  =  192.168.1.255
 </code></pre></div>
 <p><strong>Fórmulas para la división en subredes</strong></p>
 <p>Es posible determinar matemáticamente el número de subredes creadas, así como el número de host por subred teniendo en cuenta el número de bits que se ha tomado prestado para crear las subredes.</p>
