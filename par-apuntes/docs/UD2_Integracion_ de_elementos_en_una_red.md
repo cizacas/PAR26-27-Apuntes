@@ -6,66 +6,6 @@
 funcionamiento y prestaciones.
 
 ---
-## Indice <!-- omit from toc -->
-- [1. Medios físicos y estándares para redes cableadas e inalámbricas](#1-medios-físicos-y-estándares-para-redes-cableadas-e-inalámbricas)
-  - [1.1 Definición y función](#11-definición-y-función)
-  - [1.2 Estándares relevantes](#12-estándares-relevantes)
-  - [1.3 Factores físicos que afectan la transmisión](#13-factores-físicos-que-afectan-la-transmisión)
-  - [1.4 Selección práctica del medio (criterios)](#14-selección-práctica-del-medio-criterios)
-- [2. Cables metálicos: tipos, construcción y uso](#2-cables-metálicos-tipos-construcción-y-uso)
-  - [2.1 Coaxial y par trenzado: estructura y propiedades](#21-coaxial-y-par-trenzado-estructura-y-propiedades)
-  - [2.1.1 Cable coaxial: estructura y tipos](#211-cable-coaxial-estructura-y-tipos)
-  - [2.1.2 Par trenzado: estructura, apantallamientos y clasificación](#212-par-trenzado-estructura-apantallamientos-y-clasificación)
-  - [2.2 Categorías UTP y rendimiento](#22-categorías-utp-y-rendimiento)
-    - [2.2.1 Parámetros importantes: atenuación, NEXT (Near‑End Crosstalk), PSNEXT y pérdida de retorno.](#221-parámetros-importantes-atenuación-next-nearend-crosstalk-psnext-y-pérdida-de-retorno)
-  - [2.3 Conectores y normas de terminación (par trenzado)](#23-conectores-y-normas-de-terminación-par-trenzado)
-  - [2.4 Reglas prácticas](#24-reglas-prácticas)
-  - [2.5 Conectores y estándares de terminación](#25-conectores-y-estándares-de-terminación)
-  - [2.6 Fibra óptica: monomodo vs multimodo](#26-fibra-óptica-monomodo-vs-multimodo)
-    - [2.6.1 Tipos de fibras ópticas:](#261-tipos-de-fibras-ópticas)
-  - [2.6.2 Ventajas de la fibra óptica](#262-ventajas-de-la-fibra-óptica)
-- [3. Conexión inalámbrica](#3-conexión-inalámbrica)
-  - [3.1 Según  el Medio físico: radiofrecuencia, microondas, infrarrojos](#31-según--el-medio-físico-radiofrecuencia-microondas-infrarrojos)
-  - [3.2 Tipos de conexión inalámbrica (modos de funcionamiento)](#32-tipos-de-conexión-inalámbrica-modos-de-funcionamiento)
-    - [3.2.1 Diagramas: modos y topologías](#321-diagramas-modos-y-topologías)
-  - [3.3 Tipos de autenticación y acceso en WLAN](#33-tipos-de-autenticación-y-acceso-en-wlan)
-- [4. Direccionamiento  físico: Mac, ARP, dominios de broadcast y colisión](#4-direccionamiento--físico-mac-arp-dominios-de-broadcast-y-colisión)
-  - [4.1 Conceptos básicos](#41-conceptos-básicos)
-  - [4.2 Direccionamiento físico: direcciones MAC y ámbito](#42-direccionamiento-físico-direcciones-mac-y-ámbito)
-  - [4.3 Dominios de colisión y de difusión(broadcast)](#43-dominios-de-colisión-y-de-difusiónbroadcast)
-  - [4.4 Comandos útiles para comprobar MAC/ARP](#44-comandos-útiles-para-comprobar-macarp)
-- [5 Direccionamiento lógico (IPv4/IPv6)](#5-direccionamiento-lógico-ipv4ipv6)
-  - [5.1 Direccionamiento lógico IPv4](#51-direccionamiento-lógico-ipv4)
-    - [5.1.1 Formato de direcciones ip](#511-formato-de-direcciones-ip)
-    - [5.1.2 Máscara de red](#512-máscara-de-red)
-    - [5.1.3 Clases de direcciones ip](#513-clases-de-direcciones-ip)
-    - [5.1.4 Direcciones IPv4 públicas y privadas](#514-direcciones-ipv4-públicas-y-privadas)
-    - [5.1.5 NAT(Network Address Translation)](#515-natnetwork-address-translation)
-    - [5.1.6 Subredes IPv4](#516-subredes-ipv4)
-  - [5.2 Direccionamiento lógico IPv6](#52-direccionamiento-lógico-ipv6)
-    - [5.2.1 Reglas para reducir la notación de direcciones IPv6:](#521-reglas-para-reducir-la-notación-de-direcciones-ipv6)
-    - [5.2.2 Reglas para convertir una dirección IPv4 a IPv6](#522-reglas-para-convertir-una-dirección-ipv4-a-ipv6)
-    - [5.2.3 Tipos de direccionamiento IPv6 según su forma de entrega : unicast, anycast y multicast](#523-tipos-de-direccionamiento-ipv6-según-su-forma-de-entrega--unicast-anycast-y-multicast)
-    - [5.2.4 Direcciones reservadas y especiales IPv6](#524-direcciones-reservadas-y-especiales-ipv6)
-    - [5.2.5 Configuración automática en IPv6](#525-configuración-automática-en-ipv6)
-    - [5.2.7 Comandos útiles](#527-comandos-útiles)
-- [6. Direccionamiento dinámico: DHCP, DHCPv6 y SLAAC](#6-direccionamiento-dinámico-dhcp-dhcpv6-y-slaac)
-  - [6.1 Métodos de asignación de direcciones IP mediante DHCP](#61-métodos-de-asignación-de-direcciones-ip-mediante-dhcp)
-  - [6.2 Opciones de configuración que puede proporcionar un servidor DHCP](#62-opciones-de-configuración-que-puede-proporcionar-un-servidor-dhcp)
-  - [6.3 Funcionamiento de DHCP (DORA)](#63-funcionamiento-de-dhcp-dora)
-    - [6.3.1 Diagrama: proceso DORA (DHCP)](#631-diagrama-proceso-dora-dhcp)
-  - [6.4 DHCPv6 y SLAAC](#64-dhcpv6-y-slaac)
-- [7. Adaptadores de red: instalación y configuración (alámbricos e inalámbricos)](#7-adaptadores-de-red-instalación-y-configuración-alámbricos-e-inalámbricos)
-  - [7.1 Tipos de adaptadores y controladores](#71-tipos-de-adaptadores-y-controladores)
-  - [7.2 Adaptadores alámbricos](#72-adaptadores-alámbricos)
-    - [7.2.1 Instalación alámbrica](#721-instalación-alámbrica)
-  - [7.3 Adaptadores inalámbricos](#73-adaptadores-inalámbricos)
-    - [7.3.1 Instalación inalámbrica en la WLAN](#731-instalación-inalámbrica-en-la-wlan)
-  - [7.4  parámetros avanzados del adaptador](#74--parámetros-avanzados-del-adaptador)
-  - [7.5 Comandos y verificaciones por SO](#75-comandos-y-verificaciones-por-so)
-- [8. Monitorización de la red mediante SNMP](#8-monitorización-de-la-red-mediante-snmp)
-
-
 
 ## 1. Medios físicos y estándares para redes cableadas e inalámbricas
 
@@ -110,7 +50,7 @@ Es un cambio de forma en la señal. Cuando una señal es compuesta, como las dig
     - **Ruido impulsivo:** consiste en pulsos aleatorios de bastante amplitud y corta duración. Ocurren al encender o apagar ciertos dispositivos.
     - **Ruido inducido:** perturbación causada por interferencias electromagnéticas externas que inducen señales no deseadas en el cable, por ejemplo, las generadas por motores o electrodomésticos.
 <div align="center">
-	<img src="img/ruido.png" alt="ruido" width="500">
+	<img src="../img/ruido.png" alt="ruido" width="500">
 </div>
 
 - **Interferencias electromagnéticas (EMI):** fuentes externas que afectan señales eléctricas.
@@ -154,7 +94,7 @@ Para un aula de 25 puestos con servidor local: UTP Cat6 para los puestos (1 Gbps
     3. Blindaje (malla metálica y/o lámina) que protege frente a interferencias electromagnéticas(EMI) y reduce la radiación de la señal.
     4. Cubierta exterior (jacket) que protege mecánicamente el conjunto.
 <div align="center">
-	<img src="img/coaxial.png" alt="coaxial" width="300">
+	<img src="../img/coaxial.png" alt="coaxial" width="300">
 </div>
 
  - **Tipos comunes:** RG‑6 (TV, satélite), RG‑59 (vídeo analógico, corto alcance), RG‑11 (menor atenuación, distancias mayores).
@@ -169,7 +109,7 @@ Para un aula de 25 puestos con servidor local: UTP Cat6 para los puestos (1 Gbps
 - El cable típico en las redes de área local y en la conexión final de equipos es el de 4 pares. Los cables multipar pueden tener 25, 50, 100, 200 y 300 pares.
 - Las normativas de cableado estructurado clasifican los diferentes tipos de cable de pares trenzados en categorías de acuerdo con sus características para la transmisión de datos, las cuales vienen fijadas fundamentalmente por la densidad de trenzado del cable (número de vueltas por metro) y los materiales utilizados en el recubrimiento aislante. 
 <div align="center">
-	<img src="img/partrenzado.png" alt="partrenzado" width="300">
+	<img src="../img/partrenzado.png" alt="partrenzado" width="300">
 </div>
 
 - **Tipos según apantallamiento:**
@@ -209,7 +149,7 @@ Los instrumentos que miden estos parámetros:
 - **Certificador/medidor de cable (p. ej. Fluke):** mide atenuación, NEXT y PSNEXT, pérdida de retorno, longitud y mapeo de pares; entrega reportes de conformidad por categoría.
 - **Tester de pares / comprobador de continuidad:** comprueba continuidad, cortocircuitos e inversión (no suele medir NEXT ni pérdida de retorno).
 <div align="center">
-	<img src="img/categoria.png" alt="categoria" width="500">
+	<img src="../img/categoria.png" alt="categoria" width="500">
 </div>
 
 ### 2.3 Conectores y normas de terminación (par trenzado)
@@ -246,7 +186,7 @@ El **cable de fibra óptica** es el medio físico utilizado para transportar la 
 - **El revestimiento:** rodea al núcleo y permite la refracción de la luz. Está hecho de cristal o plástico de diferentes propiedades ópticas distintas a las del núcleo.
 - **El recubrimiento o cubierta:** constituida de material plástico o similar. Se encarga de proteger al conjunto de golpes, abrasiones, humedades, etc.
 <div align="center">
-	<img src="img/cablefibra.png" alt="cable fibra" width="300">
+	<img src="../img/cablefibra.png" alt="cable fibra" width="300">
 </div>
 
 #### 2.6.1 Tipos de fibras ópticas:
@@ -258,7 +198,7 @@ El **cable de fibra óptica** es el medio físico utilizado para transportar la 
 **Ejemplo**
 Comparación: para un enlace entre armarios a 500 m se elegirá fibra multimodo OM4/OM3 si el presupuesto lo permite para 10 Gbps; para enlaces >2 km usar monomodo.
 
-<img src="img/TiposFibra.png" alt="tipos de fibra" width="700">
+<img src="../img/TiposFibra.png" alt="tipos de fibra" width="700">
 
 
 ### 2.6.2 Ventajas de la fibra óptica
@@ -468,11 +408,14 @@ En una red de ordenadores hay dos tipos de direcciones:
 - **Un dominio de difusión** es el conjunto de dispositivos que reciben una trama broadcast de capa 2. Una VLAN delimita uno; para comunicar dominios distintos hace falta un router o un dispositivo de capa 3.
 
 A partir de las capas del modelo OSI es posible determinar qué dispositivos extienden o componen los dominios de colisión y difusión. 
+
 1. Dispositivos de la capa 1 OSI (concentradores y repetidores) reenvían todos los datos transmitidos en el medio, por lo tanto, extienden los dominios de colisión. 
 2. Dispositivos de la capa 2 y 3 OSI (conmutadores o swiches) segmentan los dominios de colisión. 
 3. Dispositivos de la capa 3 OSI (routers) segmentan los dominios de colisión y difusión (broadcast). 
 
 ![dominios](img/dominios.png)
+
+En la imagen aparecen: 7 dominios de colisión  y  2 dominios de difusión
 
 ### 4.4 Comandos útiles para comprobar MAC/ARP
 
@@ -580,7 +523,7 @@ Este mecanismo permite intercambiar información entre dos redes que a priori so
 
 El funcionamiento se basa en el cambio de direcciones origen en cada paquete en tiempo real al pasar por el router. Ello se almacena en una tabla para que el dispositivo pueda recordar los cambios y así devolver la información a quien la generó cuando haya respuesta.
 <div align="center">
-	<img src="img/mapaejemplo.png" alt="mapa ejemplo" width="500">
+	<img src="../img/mapaejemplo.png" alt="mapa ejemplo" width="500">
 </div>
 
 #### 5.1.6 Subredes IPv4
@@ -593,10 +536,11 @@ Los bits solo se pueden tomar prestados de la parte de host. El proveedor de ser
 
 ```text
 Ej.: Red 192.168.1.0/24
-Tiene 24 bits en la parte de red y 8 bits en la parte de host -> máscara: 255.255.255.0 ó /24.
-Dirección: 	192.	168.	1.		0000   0000
+Tiene 24 bits en la parte de red 
+8 bits en la parte de host -> máscara: 255.255.255.0 ó /24.
+Dirección: 	192.	168.	1.	0000   0000
 Máscara: 	255.	255.	255.	0000   0000
-			Parte de red			Parte de host
+			Parte de red			    Parte de host
 ```
 Si se toma prestado un bit de la posición más significativa (más a la izquierda) de la parte de host de la dirección IP, se amplía la parte de red a 25 bits.
 
@@ -606,13 +550,13 @@ La máscara de subred para ambas redes utiliza un 1 en la posición del bit que 
 
 ```text
 Dirección:       192.168.1.    	0  000   0000	Red: 192.168.1.0/24
-Máscara:        255.255.255.	0  000   0000	Mask: 255.255.255.0
+Máscara:        255.255.255.	  0  000   0000	Mask:255.255.255.0
 
 Red 0:	        192.168.1.		0  000   0000	Red: 192.168.1.0/25
-Máscara:       255.	255.255.	1  000   0000	Mask: 255.255.255.128
+Máscara:       255.	255.255.	1  000   0000	Mask:255.255.255.128
 
 Red 1:            192.168.1.	1  000   0000	Red: 192.168.1.128/25
-Máscara:       255.255.255.		1  000   0000	Mask: 255.255.255.128
+Máscara:       255.255.255.		1  000   0000	Mask:255.255.255.128
 
 ```
 **Reglas para cada una de las subredes**
@@ -624,11 +568,11 @@ Máscara:       255.255.255.		1  000   0000	Mask: 255.255.255.128
 
 ```text
 Dirección de red (Red 0):	192.  168.  1.  0  000  0000  =  192.168.1.0/25
-Primera dirección de host:	192.  168.  1.  0  000  0001  =  192.168.1.1
+Primera dirección de host:192.  168.  1.  0  000  0001  =  192.168.1.1
 Última dirección de host:	192.  168.  1.  0  111  1110  =  192.168.1.126
 Dirección de difusión:		192.  168.  1.  0  111  1111  =  192.168.1.127
 Dirección de red (Red 1):	192.  168.  1.  1  000  0000  =  192.168.1.128/25
-Primera dirección de host:	192.  168.  1.  1  000  0001  =  192.168.1.129
+Primera dirección de host:192.  168.  1.  1  000  0001  =  192.168.1.129
 Última dirección de host:	192.  168.  1.  1  111  1110  =  192.168.1.254
 Dirección de difusión:		192.  168.  1.  1  111  1111  =  192.168.1.255
 ```
@@ -695,9 +639,9 @@ Broadcast: 192.168.0.255
 
 Ahora vamos a **crear superredes (supperneting o agregación CIDR)**
 
-Ejemplo: 192.168.0.0/24 -> 192.168.0.0/26  La dirección 192.168.0.0/24  tiene 24 bits de red y 8 bits de host,  permite direccionar 254 hosts (2^8-2).(las dos que se restan son la dirección de red y la de difusión(broadcast)) 
+Ejemplo: 192.168.0.0/24 -> 192.168.0.0/22  
+La dirección 192.168.0.0/24  tiene 24 bits de red y 8 bits de host,  permite direccionar 254 hosts (2^8-2).(las dos que se restan son la dirección de red y la de difusión(broadcast)) 
 Con CIDR se consigue que esta dirección de red identifique a más de 254 hosts.
-
 Para pasar de `/24` a `/22`, quitamos 2 bits de la parte de red y los añadimos a la parte de host
 
 En `/24`
@@ -717,7 +661,7 @@ En `/22`
 2^10 -2 =1022 hosts
 ```
 
-Al ser una red `/22` observa que e el tercer octeto los dos últimos bits forman parte de los hosts, por ello el tamaño del bloque es 256-252=4. 2^(24-22)=4 Podemos afirmar que cada red `/22` abarca 4 redes `/24` consecutivas.
+Al ser una red `/22` observa que e el tercer octeto los dos últimos bits forman parte de los hosts, por ello el tamaño del bloque es 256-252=4 o 2^(24-22)=4 Podemos afirmar que cada red `/22` abarca 4 redes `/24` consecutivas.
 Una red 192.168.0.0/22 engloba exactamente a las siguientes cuatro redes `/24`
 
 ```text
@@ -758,20 +702,50 @@ Para la red 192.168.0.0/22
 
 Requerimientos: VLANs con 50, 20, 10 y 5 hosts. Red disponible: `192.168.0.0/24`.
 
-1. Ordenar por tamaño: 50, 20, 10, 5. Buscar prefijo mínimo que soporte cada VLAN:
-    - 50 hosts → requiere al menos 64 direcciones → prefijo `/26` (62 hosts útiles).
-    - 20 hosts → requiere al menos 32 direcciones → prefijo `/27` (30 hosts útiles).
-    - 10 hosts → requiere al menos 16 direcciones → prefijo `/28` (14 hosts útiles).
-    - 5 hosts → requiere al menos 8 direcciones → prefijo `/29` (6 hosts útiles).
+*¿Subredes o hosts primero?*
 
-2. Asignación desde `192.168.0.0/24` (ejemplo de tabla):
+El número de subredes ya viene dado (4 VLANs), así que se empieza por **los hosts de cada subred**. Como los tamaños son muy distintos se usa **VLSM** (máscara variable). Con una máscara única habría que dimensionar todo para 50 hosts (/26) y 4 bloques de 64 consumirían todo el /24.
+
+Si el enunciado pidiera "N subredes iguales" sin dar hosts, se partiría del número de subredes y se tomarían bits prestados.
+
+
+1. Ordenar por tamaño: 50, 20, 10, 5. Buscar prefijo mínimo que soporte cada VLAN, teniendo en cuenta `bits de host (2ⁿ − 2 ≥ hosts)`:
+   
+    - 50 hosts → requiere al menos 64 direcciones → prefijo `/26` ( 2^6 -2= 62 hosts útiles).
+    - 20 hosts → requiere al menos 32 direcciones → prefijo `/27` (2^5 -2 = 30 hosts útiles).
+    - 10 hosts → requiere al menos 16 direcciones → prefijo `/28` (2^4-2 = 14 hosts útiles).
+    - 5 hosts → requiere al menos 8 direcciones → prefijo `/29` (2^3 -2 = 6 hosts útiles).
+  
+    VLAN | Hosts | n | Direcciones | Útiles | Prefijo |
+    |---- |-----|---|---|---|---|
+    | A | 50 | 6 | 64 | 62 | /26 |
+    | B | 20 | 5 | 32 | 30 | /27 |
+    | C | 10 | 4 | 16 | 14 | /28 |
+    | D | 5 | 3 | 8 | 6 | /29 |
+
+Prefijo = 32 − n.
+
+2. Asignación de bloques consecutivos desde `192.168.0.0/24` (ejemplo de tabla):
+   
     - VLAN A (50): `192.168.0.0/26` → hosts `192.168.0.1`–`192.168.0.62`, broadcast `192.168.0.63`.
     - VLAN B (20): `192.168.0.64/27` → hosts `192.168.0.65`–`192.168.0.94`, broadcast `192.168.0.95`.
     - VLAN C (10): `192.168.0.96/28` → hosts `192.168.0.97`–`192.168.0.110`, broadcast `192.168.0.111`.
     - VLAN D (5):  `192.168.0.112/29` → hosts `192.168.0.113`–`192.168.0.118`, broadcast `192.168.0.119`.
 
-3. Reserva de espacio para futuros: dejar bloques libres a partir de `192.168.0.120/`.
+    | VLAN | Red | Máscara | Rango útil | Broadcast |
+    |---|---|---|---|---|
+    | A | 192.168.0.0/26 | 255.255.255.192 | .1 – .62 | .63 |
+    | B | 192.168.0.64/27 | 255.255.255.224 | .65 – .94 | .95 |
+    | C | 192.168.0.96/28 | 255.255.255.240 | .97 – .110 | .111 |
+    | D | 192.168.0.112/29 | 255.255.255.248 | .113 – .118 | .119 |
 
+
+3. Reserva de espacio para futuros: dejar bloques libres a partir de `192.168.0.120/`.
+4. Comprobación:
+   
+    - Direcciones usadas: 64 + 32 + 16 + 8 = 120.
+    - Libres: 136, de `192.168.0.120` a `192.168.0.255`.
+    - Sin solapamientos y todo dentro del /24.
 
 ```mermaid
 graph LR
@@ -797,13 +771,20 @@ Una dirección lógica IPv6 consta de 128 bits, agrupados en 8 segmentos de 16 b
 #### 5.2.1 Reglas para reducir la notación de direcciones IPv6:
 
 - Se puede omitir cualquier 0 a la izquierda de un hexteto.
-    - 01AB -> 1AB
-    - 0B00 -> B00
-    - 0003 -> 3
+```text
+    01AB -> 1AB
+    0B00 -> B00
+    0003 -> 3
+```
 - Se pueden omitir segmentos compuestos por solo ceros UNA VEZ y remplazar por ::
-    - 2001:0DB7:0000:0000:1111:0000:0000:0200
-    -> 2001:DB7:0:0:1111:0:0:200
-	-> 2001:DB7::1111:0:0:200   o bien 2001:DB7:0:0:1111::200
+
+```text    
+    2001:0DB7:0000:0000:1111:0000:0000:0200
+  
+->  2001:DB7:0:0:1111:0:0:200
+
+->  2001:DB7::1111:0:0:200  o bien 2001:DB7:0:0:1111::200
+```
 
 **Ejemplo de transformación de direcciones IPv6 a notación abreviada**
 
@@ -826,19 +807,19 @@ FF02:0000:0000:0000:FF00:0000:0000:0202
 - Se transforma la IPv4 a hexadecimal y se divide en dos hextetos:
 
 ```text
-    - 192.168.1.125
-    - 1100 0000 . 1010 1000 . 0000 0001  . 0111 1101
-    -    C 0         A 8    :    0 1     .    7 D
+      192.168.1.125
+      1100 0000 . 1010 1000 . 0000 0001  . 0111 1101
+         C 0         A 8    :    0 1     .    7 D
 ```
 
 - Concatenamos la primera parte de la IPv6 con la IPv4 en hexadecimal:
 ```text
-    - 0000:0000:0000:0000:0000:FFFF:C0A8:017D
+    0000:0000:0000:0000:0000:FFFF:C0A8:017D
 ```
 
 - Transformamos la IPv6 a notación abreviada:
 ```text
-    - ::FFFF:C0A8:17D
+    ::FFFF:C0A8:17D
 ```
 
 #### 5.2.3 Tipos de direccionamiento IPv6 según su forma de entrega : unicast, anycast y multicast
@@ -1065,9 +1046,9 @@ Este tipo de adaptadores son los utilizados para conectar los equipos a las rede
 
 **Ejemplos:**
 
-<img src="img/usb.png" alt="usb" width="100"> Es un adaptador USB‑Ethernet externo: se conecta al ordenador por USB‑A y ofrece un puerto RJ‑45 para conectar un cable Ethernet a la red.
+<img src="../img/usb.png" alt="usb" width="100"> Es un adaptador USB‑Ethernet externo: se conecta al ordenador por USB‑A y ofrece un puerto RJ‑45 para conectar un cable Ethernet a la red.
 
-<img src="img/PCI.png" alt="PCI" width="150"> Esta es una tarjeta de red Ethernet interna PCIe. Se instala en una ranura de expansión de la placa base y proporciona un puerto RJ‑45 para conectar el cable de red
+<img src="../img/PCI.png" alt="PCI" width="150"> Esta es una tarjeta de red Ethernet interna PCIe. Se instala en una ranura de expansión de la placa base y proporciona un puerto RJ‑45 para conectar el cable de red
 
 #### 7.2.1 Instalación alámbrica
 
@@ -1092,9 +1073,9 @@ Tipos de adaptador (por conexión al equipo):
 
 **Ejemplos:**
 
-<img src="img/pcmcia.png" alt="pcmcia" width="100"> tarjeta de red inalámbrica Wi‑Fi para ranura CardBus/PC Card (PCMCIA), un formato de expansión que se utilizaba en portátiles antiguos. Se insertaba en la ranura lateral del portátil para añadir conectividad Wi‑Fi; el pequeño elemento que sobresale forma parte de la tarjeta y contiene la antena.
+<img src="../img/pcmcia.png" alt="pcmcia" width="100"> tarjeta de red inalámbrica Wi‑Fi para ranura CardBus/PC Card (PCMCIA), un formato de expansión que se utilizaba en portátiles antiguos. Se insertaba en la ranura lateral del portátil para añadir conectividad Wi‑Fi; el pequeño elemento que sobresale forma parte de la tarjeta y contiene la antena.
 
-<img src="img/pcie.png" alt="pcie" width="100"> tarjeta de red inalámbrica Wi‑Fi interna PCIe para un ordenador de sobremesa. Se instala en una ranura PCIe de la placa base y sus antenas permiten conectarse a la red por Wi‑Fi.
+<img src="../img/pcie.png" alt="pcie" width="100"> tarjeta de red inalámbrica Wi‑Fi interna PCIe para un ordenador de sobremesa. Se instala en una ranura PCIe de la placa base y sus antenas permiten conectarse a la red por Wi‑Fi.
 
 
 #### 7.3.1 Instalación inalámbrica en la WLAN
