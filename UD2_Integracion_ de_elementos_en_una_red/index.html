@@ -2253,11 +2253,14 @@ En una red de ordenadores hay dos tipos de direcciones: </p>
 <p><strong>Un dominio de difusión</strong> es el conjunto de dispositivos que reciben una trama broadcast de capa 2. Una VLAN delimita uno; para comunicar dominios distintos hace falta un router o un dispositivo de capa 3.</p>
 </li>
 </ul>
-<p>A partir de las capas del modelo OSI es posible determinar qué dispositivos extienden o componen los dominios de colisión y difusión. 
-1. Dispositivos de la capa 1 OSI (concentradores y repetidores) reenvían todos los datos transmitidos en el medio, por lo tanto, extienden los dominios de colisión. 
-2. Dispositivos de la capa 2 y 3 OSI (conmutadores o swiches) segmentan los dominios de colisión. 
-3. Dispositivos de la capa 3 OSI (routers) segmentan los dominios de colisión y difusión (broadcast). </p>
+<p>A partir de las capas del modelo OSI es posible determinar qué dispositivos extienden o componen los dominios de colisión y difusión. </p>
+<ol>
+<li>Dispositivos de la capa 1 OSI (concentradores y repetidores) reenvían todos los datos transmitidos en el medio, por lo tanto, extienden los dominios de colisión. </li>
+<li>Dispositivos de la capa 2 y 3 OSI (conmutadores o swiches) segmentan los dominios de colisión. </li>
+<li>Dispositivos de la capa 3 OSI (routers) segmentan los dominios de colisión y difusión (broadcast). </li>
+</ol>
 <p><img alt="dominios" src="../img/dominios.png" /></p>
+<p>En la imagen aparecen: 7 dominios de colisión  y  2 dominios de difusión</p>
 <h3 id="44-comandos-utiles-para-comprobar-macarp">4.4 Comandos útiles para comprobar MAC/ARP<a class="headerlink" href="#44-comandos-utiles-para-comprobar-macarp" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Windows:<ul>
@@ -2409,22 +2412,23 @@ AND 11111111.11111111.11111111.00000000 Máscara de red
 <p><code>Las subredes IPv4</code> se crean utilizando uno o más de los bits de host como bits de red. Se amplía la máscara de red para tomar prestados algunos bits de la parte de host de la dirección, con el fin de obtener bits de red adicionales. Cuantos más bits de host se tomen prestados, mayor será la cantidad de subredes que puedan definirse, y se dispondrá de menos direcciones de host por subred.</p>
 <p>Los bits solo se pueden tomar prestados de la parte de host. El proveedor de servicios determina la parte de red de la dirección, la cual no se puede modificar.</p>
 <p><div class="highlight"><pre><span></span><code>Ej.: Red 192.168.1.0/24
-Tiene 24 bits en la parte de red y 8 bits en la parte de host -&gt; máscara: 255.255.255.0 ó /24.
-Dirección:  192.    168.    1.      0000   0000
+Tiene 24 bits en la parte de red 
+8 bits en la parte de host -&gt; máscara: 255.255.255.0 ó /24.
+Dirección:  192.    168.    1.  0000   0000
 Máscara:    255.    255.    255.    0000   0000
-            Parte de red            Parte de host
+            Parte de red                Parte de host
 </code></pre></div>
 Si se toma prestado un bit de la posición más significativa (más a la izquierda) de la parte de host de la dirección IP, se amplía la parte de red a 25 bits.</p>
 <p>Esto crea 2 subredes que se identifican mediante un 0 en el bit prestado para la primera red, y un 1 en el bit prestado para la segunda red.</p>
 <p>La máscara de subred para ambas redes utiliza un 1 en la posición del bit que se ha tomado prestado para indicar que ahora este bit pertenece a la parte de red.</p>
 <p><div class="highlight"><pre><span></span><code>Dirección:       192.168.1.     0  000   0000   Red: 192.168.1.0/24
-Máscara:        255.255.255.    0  000   0000   Mask: 255.255.255.0
+Máscara:        255.255.255.      0  000   0000 Mask:255.255.255.0
 
 Red 0:          192.168.1.      0  000   0000   Red: 192.168.1.0/25
-Máscara:       255. 255.255.    1  000   0000   Mask: 255.255.255.128
+Máscara:       255. 255.255.    1  000   0000   Mask:255.255.255.128
 
 Red 1:            192.168.1.    1  000   0000   Red: 192.168.1.128/25
-Máscara:       255.255.255.     1  000   0000   Mask: 255.255.255.128
+Máscara:       255.255.255.     1  000   0000   Mask:255.255.255.128
 </code></pre></div>
 <strong>Reglas para cada una de las subredes</strong></p>
 <ul>
@@ -2434,11 +2438,11 @@ Máscara:       255.255.255.     1  000   0000   Mask: 255.255.255.128
 <li><em>Dirección de difusión:</em> Todos los bits de la parte de host de la dirección son 1.</li>
 </ul>
 <div class="highlight"><pre><span></span><code>Dirección de red (Red 0):   192.  168.  1.  0  000  0000  =  192.168.1.0/25
-Primera dirección de host:  192.  168.  1.  0  000  0001  =  192.168.1.1
+Primera dirección de host:192.  168.  1.  0  000  0001  =  192.168.1.1
 Última dirección de host:   192.  168.  1.  0  111  1110  =  192.168.1.126
 Dirección de difusión:      192.  168.  1.  0  111  1111  =  192.168.1.127
 Dirección de red (Red 1):   192.  168.  1.  1  000  0000  =  192.168.1.128/25
-Primera dirección de host:  192.  168.  1.  1  000  0001  =  192.168.1.129
+Primera dirección de host:192.  168.  1.  1  000  0001  =  192.168.1.129
 Última dirección de host:   192.  168.  1.  1  111  1110  =  192.168.1.254
 Dirección de difusión:      192.  168.  1.  1  111  1111  =  192.168.1.255
 </code></pre></div>
@@ -2488,9 +2492,10 @@ Hosts:     192.168.0.193 - 192.168.0.254
 Broadcast: 192.168.0.255
 </code></pre></div>
 <p>Ahora vamos a <strong>crear superredes (supperneting o agregación CIDR)</strong></p>
-<p>Ejemplo: 192.168.0.0/24 -&gt; 192.168.0.0/26  La dirección 192.168.0.0/24  tiene 24 bits de red y 8 bits de host,  permite direccionar 254 hosts (2^8-2).(las dos que se restan son la dirección de red y la de difusión(broadcast)) 
-Con CIDR se consigue que esta dirección de red identifique a más de 254 hosts.</p>
-<p>Para pasar de <code>/24</code> a <code>/22</code>, quitamos 2 bits de la parte de red y los añadimos a la parte de host</p>
+<p>Ejemplo: 192.168.0.0/24 -&gt; 192.168.0.0/22<br />
+La dirección 192.168.0.0/24  tiene 24 bits de red y 8 bits de host,  permite direccionar 254 hosts (2^8-2).(las dos que se restan son la dirección de red y la de difusión(broadcast)) 
+Con CIDR se consigue que esta dirección de red identifique a más de 254 hosts.
+Para pasar de <code>/24</code> a <code>/22</code>, quitamos 2 bits de la parte de red y los añadimos a la parte de host</p>
 <p>En <code>/24</code></p>
 <p><div class="highlight"><pre><span></span><code>11111111.11111111.11111111.00000000
 255.255.255.0
@@ -2503,7 +2508,7 @@ En <code>/22</code></p>
 10 bits
 2^10 -2 =1022 hosts
 </code></pre></div>
-<p>Al ser una red <code>/22</code> observa que e el tercer octeto los dos últimos bits forman parte de los hosts, por ello el tamaño del bloque es 256-252=4. 2^(24-22)=4 Podemos afirmar que cada red <code>/22</code> abarca 4 redes <code>/24</code> consecutivas.
+<p>Al ser una red <code>/22</code> observa que e el tercer octeto los dos últimos bits forman parte de los hosts, por ello el tamaño del bloque es 256-252=4 o 2^(24-22)=4 Podemos afirmar que cada red <code>/22</code> abarca 4 redes <code>/24</code> consecutivas.
 Una red 192.168.0.0/22 engloba exactamente a las siguientes cuatro redes <code>/24</code></p>
 <p><div class="highlight"><pre><span></span><code>192.168.0.0/24
 192.168.1.0/24
@@ -2535,27 +2540,128 @@ Para la red 192.168.0.0/22</p>
 </ul>
 <p><strong>Otro ejemplo: subnetting para 4 VLANs</strong></p>
 <p>Requerimientos: VLANs con 50, 20, 10 y 5 hosts. Red disponible: <code>192.168.0.0/24</code>.</p>
+<p><em>¿Subredes o hosts primero?</em></p>
+<p>El número de subredes ya viene dado (4 VLANs), así que se empieza por <strong>los hosts de cada subred</strong>. Como los tamaños son muy distintos se usa <strong>VLSM</strong> (máscara variable). Con una máscara única habría que dimensionar todo para 50 hosts (/26) y 4 bloques de 64 consumirían todo el /24.</p>
+<p>Si el enunciado pidiera "N subredes iguales" sin dar hosts, se partiría del número de subredes y se tomarían bits prestados.</p>
 <ol>
 <li>
-<p>Ordenar por tamaño: 50, 20, 10, 5. Buscar prefijo mínimo que soporte cada VLAN:</p>
+<p>Ordenar por tamaño: 50, 20, 10, 5. Buscar prefijo mínimo que soporte cada VLAN, teniendo en cuenta <code>bits de host (2ⁿ − 2 ≥ hosts)</code>:</p>
 <ul>
-<li>50 hosts → requiere al menos 64 direcciones → prefijo <code>/26</code> (62 hosts útiles).</li>
-<li>20 hosts → requiere al menos 32 direcciones → prefijo <code>/27</code> (30 hosts útiles).</li>
-<li>10 hosts → requiere al menos 16 direcciones → prefijo <code>/28</code> (14 hosts útiles).</li>
-<li>5 hosts → requiere al menos 8 direcciones → prefijo <code>/29</code> (6 hosts útiles).</li>
+<li>50 hosts → requiere al menos 64 direcciones → prefijo <code>/26</code> ( 2^6 -2= 62 hosts útiles).</li>
+<li>20 hosts → requiere al menos 32 direcciones → prefijo <code>/27</code> (2^5 -2 = 30 hosts útiles).</li>
+<li>10 hosts → requiere al menos 16 direcciones → prefijo <code>/28</code> (2^4-2 = 14 hosts útiles).</li>
+<li>5 hosts → requiere al menos 8 direcciones → prefijo <code>/29</code> (2^3 -2 = 6 hosts útiles).</li>
 </ul>
+<table>
+<thead>
+<tr>
+<th>VLAN</th>
+<th>Hosts</th>
+<th>n</th>
+<th>Direcciones</th>
+<th>Útiles</th>
+<th>Prefijo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>50</td>
+<td>6</td>
+<td>64</td>
+<td>62</td>
+<td>/26</td>
+</tr>
+<tr>
+<td>B</td>
+<td>20</td>
+<td>5</td>
+<td>32</td>
+<td>30</td>
+<td>/27</td>
+</tr>
+<tr>
+<td>C</td>
+<td>10</td>
+<td>4</td>
+<td>16</td>
+<td>14</td>
+<td>/28</td>
+</tr>
+<tr>
+<td>D</td>
+<td>5</td>
+<td>3</td>
+<td>8</td>
+<td>6</td>
+<td>/29</td>
+</tr>
+</tbody>
+</table>
 </li>
+</ol>
+<p>Prefijo = 32 − n.</p>
+<ol>
 <li>
-<p>Asignación desde <code>192.168.0.0/24</code> (ejemplo de tabla):</p>
+<p>Asignación de bloques consecutivos desde <code>192.168.0.0/24</code> (ejemplo de tabla):</p>
 <ul>
 <li>VLAN A (50): <code>192.168.0.0/26</code> → hosts <code>192.168.0.1</code>–<code>192.168.0.62</code>, broadcast <code>192.168.0.63</code>.</li>
 <li>VLAN B (20): <code>192.168.0.64/27</code> → hosts <code>192.168.0.65</code>–<code>192.168.0.94</code>, broadcast <code>192.168.0.95</code>.</li>
 <li>VLAN C (10): <code>192.168.0.96/28</code> → hosts <code>192.168.0.97</code>–<code>192.168.0.110</code>, broadcast <code>192.168.0.111</code>.</li>
 <li>VLAN D (5):  <code>192.168.0.112/29</code> → hosts <code>192.168.0.113</code>–<code>192.168.0.118</code>, broadcast <code>192.168.0.119</code>.</li>
 </ul>
+<table>
+<thead>
+<tr>
+<th>VLAN</th>
+<th>Red</th>
+<th>Máscara</th>
+<th>Rango útil</th>
+<th>Broadcast</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>192.168.0.0/26</td>
+<td>255.255.255.192</td>
+<td>.1 – .62</td>
+<td>.63</td>
+</tr>
+<tr>
+<td>B</td>
+<td>192.168.0.64/27</td>
+<td>255.255.255.224</td>
+<td>.65 – .94</td>
+<td>.95</td>
+</tr>
+<tr>
+<td>C</td>
+<td>192.168.0.96/28</td>
+<td>255.255.255.240</td>
+<td>.97 – .110</td>
+<td>.111</td>
+</tr>
+<tr>
+<td>D</td>
+<td>192.168.0.112/29</td>
+<td>255.255.255.248</td>
+<td>.113 – .118</td>
+<td>.119</td>
+</tr>
+</tbody>
+</table>
 </li>
 <li>
 <p>Reserva de espacio para futuros: dejar bloques libres a partir de <code>192.168.0.120/</code>.</p>
+</li>
+<li>
+<p>Comprobación:</p>
+<ul>
+<li>Direcciones usadas: 64 + 32 + 16 + 8 = 120.</li>
+<li>Libres: 136, de <code>192.168.0.120</code> a <code>192.168.0.255</code>.</li>
+<li>Sin solapamientos y todo dentro del /24.</li>
+</ul>
 </li>
 </ol>
 <pre class="mermaid"><code>graph LR
@@ -2572,19 +2678,19 @@ Para la red 192.168.0.0/22</p>
 </code></pre></div>
 <h4 id="521-reglas-para-reducir-la-notacion-de-direcciones-ipv6">5.2.1 Reglas para reducir la notación de direcciones IPv6:<a class="headerlink" href="#521-reglas-para-reducir-la-notacion-de-direcciones-ipv6" title="Permanent link">&para;</a></h4>
 <ul>
-<li>Se puede omitir cualquier 0 a la izquierda de un hexteto.<ul>
-<li>01AB -&gt; 1AB</li>
-<li>0B00 -&gt; B00</li>
-<li>0003 -&gt; 3</li>
+<li>Se puede omitir cualquier 0 a la izquierda de un hexteto.
+<div class="highlight"><pre><span></span><code>    01AB -&gt; 1AB
+    0B00 -&gt; B00
+    0003 -&gt; 3
+</code></pre></div></li>
+<li>Se pueden omitir segmentos compuestos por solo ceros UNA VEZ y remplazar por ::</li>
 </ul>
-</li>
-<li>Se pueden omitir segmentos compuestos por solo ceros UNA VEZ y remplazar por ::<ul>
-<li>2001:0DB7:0000:0000:1111:0000:0000:0200
--&gt; 2001:DB7:0:0:1111:0:0:200
--&gt; 2001:DB7::1111:0:0:200   o bien 2001:DB7:0:0:1111::200</li>
-</ul>
-</li>
-</ul>
+<div class="highlight"><pre><span></span><code>    2001:0DB7:0000:0000:1111:0000:0000:0200
+
+-&gt;  2001:DB7:0:0:1111:0:0:200
+
+-&gt;  2001:DB7::1111:0:0:200  o bien 2001:DB7:0:0:1111::200
+</code></pre></div>
 <p><strong>Ejemplo de transformación de direcciones IPv6 a notación abreviada</strong></p>
 <div class="highlight"><pre><span></span><code>FE80:0000:0000:0000:0123:0123:ABCD:EFFF
     FE80::123:123:ABCD:EFFF
@@ -2602,19 +2708,19 @@ FF02:0000:0000:0000:FF00:0000:0000:0202
 <li>La IPv6 empieza por 0000:0000:0000:0000:0000:FFFF -&gt; ::FFFF</li>
 <li>Se transforma la IPv4 a hexadecimal y se divide en dos hextetos:</li>
 </ul>
-<div class="highlight"><pre><span></span><code>    - 192.168.1.125
-    - 1100 0000 . 1010 1000 . 0000 0001  . 0111 1101
-    -    C 0         A 8    :    0 1     .    7 D
+<div class="highlight"><pre><span></span><code>      192.168.1.125
+      1100 0000 . 1010 1000 . 0000 0001  . 0111 1101
+         C 0         A 8    :    0 1     .    7 D
 </code></pre></div>
 <ul>
 <li>
 <p>Concatenamos la primera parte de la IPv6 con la IPv4 en hexadecimal:
-<div class="highlight"><pre><span></span><code>    - 0000:0000:0000:0000:0000:FFFF:C0A8:017D
+<div class="highlight"><pre><span></span><code>    0000:0000:0000:0000:0000:FFFF:C0A8:017D
 </code></pre></div></p>
 </li>
 <li>
 <p>Transformamos la IPv6 a notación abreviada:
-<div class="highlight"><pre><span></span><code>    - ::FFFF:C0A8:17D
+<div class="highlight"><pre><span></span><code>    ::FFFF:C0A8:17D
 </code></pre></div></p>
 </li>
 </ul>
