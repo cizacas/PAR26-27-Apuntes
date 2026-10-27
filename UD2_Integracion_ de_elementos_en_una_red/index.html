@@ -756,10 +756,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#521-reglas-para-reducir-la-notacion-de-direcciones-ipv6" class="md-nav__link">
+  <a href="#521-reglas-para-abreviar-y-representar-direcciones-ipv6-rfc-5952" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5.2.1 Reglas para reducir la notación de direcciones IPv6:
+        5.2.1 Reglas para abreviar y representar direcciones IPv6 (RFC 5952)
       
     </span>
   </a>
@@ -767,10 +767,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#522-reglas-para-convertir-una-direccion-ipv4-a-ipv6" class="md-nav__link">
+  <a href="#522-representacion-de-direcciones-ipv4-como-ipv4-mapped-ipv6" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5.2.2 Reglas para convertir una dirección IPv4 a IPv6
+        5.2.2 Representación de direcciones IPv4 como IPv4-mapped IPv6
       
     </span>
   </a>
@@ -1507,10 +1507,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#521-reglas-para-reducir-la-notacion-de-direcciones-ipv6" class="md-nav__link">
+  <a href="#521-reglas-para-abreviar-y-representar-direcciones-ipv6-rfc-5952" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5.2.1 Reglas para reducir la notación de direcciones IPv6:
+        5.2.1 Reglas para abreviar y representar direcciones IPv6 (RFC 5952)
       
     </span>
   </a>
@@ -1518,10 +1518,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#522-reglas-para-convertir-una-direccion-ipv4-a-ipv6" class="md-nav__link">
+  <a href="#522-representacion-de-direcciones-ipv4-como-ipv4-mapped-ipv6" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5.2.2 Reglas para convertir una dirección IPv4 a IPv6
+        5.2.2 Representación de direcciones IPv4 como IPv4-mapped IPv6
       
     </span>
   </a>
@@ -2676,54 +2676,53 @@ Para la red 192.168.0.0/22</p>
 <p>Una dirección lógica IPv6 consta de 128 bits, agrupados en 8 segmentos de 16 bits cada uno (8 hextetos), separados por dos puntos y representados en formato hexadecimal.</p>
 <div class="highlight"><pre><span></span><code>8888:9999:AAAA:BBBB:CCCC:DDDD:EEEE:FFFF(16)
 </code></pre></div>
-<h4 id="521-reglas-para-reducir-la-notacion-de-direcciones-ipv6">5.2.1 Reglas para reducir la notación de direcciones IPv6:<a class="headerlink" href="#521-reglas-para-reducir-la-notacion-de-direcciones-ipv6" title="Permanent link">&para;</a></h4>
+<h4 id="521-reglas-para-abreviar-y-representar-direcciones-ipv6-rfc-5952">5.2.1 Reglas para abreviar y representar direcciones IPv6 (RFC 5952)<a class="headerlink" href="#521-reglas-para-abreviar-y-representar-direcciones-ipv6-rfc-5952" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p><strong>Nota:</strong> RFC significa <em>Request for Comments</em> y es una serie de documentos técnicos de Internet. El RFC 5952 contiene recomendaciones para escribir direcciones IPv6 de forma canónica; no es una normativa legal.</p>
+</blockquote>
+<p>Una dirección IPv6 puede tener varias escrituras <strong>válidas</strong> que representan los mismos 128 bits. La <strong>representación canónica</strong> es la forma normalizada recomendada por el RFC 5952; permite expresar una misma dirección de manera uniforme. Por tanto, una escritura puede ser válida sin ser canónica.</p>
+<p>Para obtener la representación canónica:</p>
 <ul>
-<li>Se puede omitir cualquier 0 a la izquierda de un hexteto.
-<div class="highlight"><pre><span></span><code>    01AB -&gt; 1AB
-    0B00 -&gt; B00
-    0003 -&gt; 3
+<li>Escribe en minúsculas las letras hexadecimales.</li>
+<li>Omite los ceros iniciales de cada hexteto, pero conserva un <code>0</code> si el hexteto vale cero.
+  <div class="highlight"><pre><span></span><code>01AB -&gt; 1ab
+0B00 -&gt; b00
+0003 -&gt; 3
+0000 -&gt; 0
 </code></pre></div></li>
-<li>Se pueden omitir segmentos compuestos por solo ceros UNA VEZ y remplazar por ::</li>
+<li>Puedes sustituir por <code>::</code> una secuencia de hextetos consecutivos cuyo valor sea cero. En una dirección solo puede aparecer un <code>::</code>, ya que representa uno o más hextetos y usarlo más de una vez haría ambigua la expansión.</li>
+<li>Para la forma canónica, comprime la secuencia más larga de hextetos cero. Si hay varias secuencias de igual longitud, comprime la primera. No uses <code>::</code> para un único hexteto cero.</li>
 </ul>
-<div class="highlight"><pre><span></span><code>    2001:0DB7:0000:0000:1111:0000:0000:0200
-
--&gt;  2001:DB7:0:0:1111:0:0:200
-
--&gt;  2001:DB7::1111:0:0:200  o bien 2001:DB7:0:0:1111::200
+<p><strong>Ejemplo con dos secuencias de ceros de igual longitud</strong></p>
+<div class="highlight"><pre><span></span><code>2001:0DB7:0000:0000:1111:0000:0000:0200
+-&gt; 2001:db7:0:0:1111:0:0:200
+-&gt; 2001:db7::1111:0:0:200  (forma canónica: se comprime la primera secuencia)
 </code></pre></div>
-<p><strong>Ejemplo de transformación de direcciones IPv6 a notación abreviada</strong></p>
-<div class="highlight"><pre><span></span><code>FE80:0000:0000:0000:0123:0123:ABCD:EFFF
-    FE80::123:123:ABCD:EFFF
-FFF1:0000:0000:0000:0000:0000:0000:0001
-    FFF1::1
-FF02:0000:0000:0000:FF00:0000:0000:0202
-    FF02::FF00:0:0:202
+<p><code>2001:db7:0:0:1111::200</code> también es una escritura válida de la misma dirección, pero no es canónica según el RFC 5952, porque comprime la segunda secuencia en vez de la primera.</p>
+<p><strong>Ejemplos de transformación a la representación canónica</strong></p>
+<div class="highlight"><pre><span></span><code>fe80:0000:0000:0000:0123:0123:abcd:efff
+-&gt; fe80::123:123:abcd:efff
+fff1:0000:0000:0000:0000:0000:0000:0001
+-&gt; fff1::1
+ff02:0000:0000:0000:ff00:0000:0000:0202
+-&gt; ff02::ff00:0:0:202
 0000:0000:0000:0000:0000:0000:0000:0001
-    ::1
+-&gt; ::1
 0000:0000:0000:0000:0000:0000:0000:0000
-    ::
+-&gt; ::
 </code></pre></div>
-<h4 id="522-reglas-para-convertir-una-direccion-ipv4-a-ipv6">5.2.2 Reglas para convertir una dirección IPv4 a IPv6<a class="headerlink" href="#522-reglas-para-convertir-una-direccion-ipv4-a-ipv6" title="Permanent link">&para;</a></h4>
-<ul>
-<li>La IPv6 empieza por 0000:0000:0000:0000:0000:FFFF -&gt; ::FFFF</li>
-<li>Se transforma la IPv4 a hexadecimal y se divide en dos hextetos:</li>
-</ul>
-<div class="highlight"><pre><span></span><code>      192.168.1.125
-      1100 0000 . 1010 1000 . 0000 0001  . 0111 1101
-         C 0         A 8    :    0 1     .    7 D
+<h4 id="522-representacion-de-direcciones-ipv4-como-ipv4-mapped-ipv6">5.2.2 Representación de direcciones IPv4 como IPv4-mapped IPv6<a class="headerlink" href="#522-representacion-de-direcciones-ipv4-como-ipv4-mapped-ipv6" title="Permanent link">&para;</a></h4>
+<p>Una dirección <strong>IPv4-mapped IPv6</strong> es un formato definido para representar una dirección IPv4 dentro del espacio de direcciones IPv6. No es una conversión general de IPv4 a una dirección IPv6 nativa ni sustituye a la asignación de una dirección IPv6. Su prefijo es <code>::ffff:0:0/96</code>: los primeros 80 bits son cero, los 16 siguientes son <code>ffff</code> y los últimos 32 bits contienen la dirección IPv4.</p>
+<p>Para construirla, convierte cada octeto IPv4 a dos cifras hexadecimales y agrupa los cuatro octetos en dos hextetos:</p>
+<div class="highlight"><pre><span></span><code>IPv4:                 192      . 168      . 1        . 125
+Octetos en hexadecimal: C0      . A8       . 01       . 7D
+Dos hextetos:          C0A8    : 017D
 </code></pre></div>
-<ul>
-<li>
-<p>Concatenamos la primera parte de la IPv6 con la IPv4 en hexadecimal:
-<div class="highlight"><pre><span></span><code>    0000:0000:0000:0000:0000:FFFF:C0A8:017D
-</code></pre></div></p>
-</li>
-<li>
-<p>Transformamos la IPv6 a notación abreviada:
-<div class="highlight"><pre><span></span><code>    ::FFFF:C0A8:17D
-</code></pre></div></p>
-</li>
-</ul>
+<p>Añade esos dos hextetos al prefijo IPv4-mapped:</p>
+<div class="highlight"><pre><span></span><code>Forma expandida: 0000:0000:0000:0000:0000:ffff:c0a8:017d
+Forma canónica:  ::ffff:c0a8:17d
+</code></pre></div>
+<p>La forma canónica aplica las reglas del apartado 5.2.1: letras minúsculas, sin ceros iniciales en los hextetos y compresión de la secuencia más larga de ceros.</p>
 <h4 id="523-tipos-de-direccionamiento-ipv6-segun-su-forma-de-entrega-unicast-anycast-y-multicast">5.2.3 Tipos de direccionamiento IPv6 según su forma de entrega : unicast, anycast y multicast<a class="headerlink" href="#523-tipos-de-direccionamiento-ipv6-segun-su-forma-de-entrega-unicast-anycast-y-multicast" title="Permanent link">&para;</a></h4>
 <ul>
 <li>
