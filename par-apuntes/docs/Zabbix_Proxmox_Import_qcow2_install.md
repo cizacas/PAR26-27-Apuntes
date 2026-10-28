@@ -4,8 +4,6 @@ Esta guía describe, paso a paso, cómo importar una imagen KVM/QEMU (.qcow2) de
 
 Sustituir los valores en MAYÚSCULAS por los de tu entorno (VMID, NOMBRE_DE_ALMACENAMIENTO, RUTA_LOCAL, BRIDGE, NOMBRES, etc.).
 
----
-
 ## Resumen del flujo
 
 1. Descargar la imagen .qcow2 desde la web de Zabbix.
@@ -16,8 +14,6 @@ Sustituir los valores en MAYÚSCULAS por los de tu entorno (VMID, NOMBRE_DE_ALMA
 6. Arrancar la VM y realizar comprobaciones/ajustes en el guest.
 7. Apagar la VM, convertirla en plantilla y clonar las instancias necesarias.
 
----
-
 ## Requisitos previos
 
 - Acceso SSH al host Proxmox o a la interfaz web de Proxmox.
@@ -26,7 +22,6 @@ Sustituir los valores en MAYÚSCULAS por los de tu entorno (VMID, NOMBRE_DE_ALMA
 - VMID libre para crear la VM (ej. `9000`).
 - Bridge de red en Proxmox (ej. `vmbr0`).
 
----
 
 ## A. Descargar y subir la imagen (.qcow2)
 
@@ -40,11 +35,12 @@ scp zabbix-7.4.qcow2 root@PROXMOX_HOST:/root/
 
 Opción 2 — usar la interfaz web de Proxmox (Datacenter → Storage → Upload) para subir el .qcow2 directamente al almacenamiento.
 
+En andromeda desplegar el icono de la izquierda, aparece en la parte inferior local(andromeda), al pinchar aparecen las opciones en la parte izquierda, en este caso `Import` y subir la .qcow2`` 
 ---
 
 ## B. Crear VM "placeholder" en Proxmox
 
-Elegir un VMID libre, por ejemplo `9000`.
+Opción 1. Elegir un VMID libre, por ejemplo `9000`.
 
 ```bash
 # Crear VM sin disco grande (solo metadata)
@@ -58,8 +54,12 @@ qm create 9000 \
 
 Ajusta memoria/CPU según lo necesario.
 
----
-
+Opción 2. Crear la VM desde las opciones de proxmox, Create VM
+   No poner sistema operativo, ni disco, en os type  linux 7.x - 2.6 kernel
+   Desde la opcion hardware de la máquina virtual, seleccionar la opcion add-agregar y la opcion import hard Disk, poner import storage:`local`, select image:`.qcow2` y el target storage: `local-lvm`,  en el orden de arranque mirar que el disco cargado sea el primero,  y también cambiar que  iniciar arranque `start boot` a yes
+   Arrancar la máquina  y desde consola  login: root password zabbix ,  comprobamos la ip  - ip addr show  y pongo esa ip en el navegador http://  y desde web el login Admin y zabbix
+Si utilizamos esta opcion no tenemos que realizar el paso C y D y pasamos al E
+   
 ## C. Importar el .qcow2 al almacenamiento con `qm importdisk`
 
 Ejecutar en el host Proxmox:
@@ -72,7 +72,6 @@ qm importdisk 9000 /root/zabbix-7.4.qcow2 STORAGE
 Notas:
 - `qm importdisk` convertirá y colocará el disco en el almacenamiento elegido y lo registrará como un disco asociado a la VMID, pero no lo adjuntará automáticamente.
 
----
 
 ## D. Adjuntar el disco importado como disco de la VM
 
@@ -89,8 +88,6 @@ qm set 9000 --boot order=scsi0
 ```
 
 Sustituye `STORAGE` por `local`, `local-lvm`, `zfs-datastore`, etc., según tu configuración.
-
----
 
 ## E. Arrancar la VM y comprobar
 
@@ -109,18 +106,56 @@ Recomendaciones:
 - Asignar hostname adecuado.
 - Ajustar IP estática o DHCP según el laboratorio.
 
----
 
 ## F. Preparar la VM para clonación (limpieza y agentes)
+
+Para cambiar las configuraciones del teclado temporalmente `loadkeys es`
+de forma permante 
+En Rocky Linux (familia RHEL) se usa localectl, que cambia el teclado de forma permanente y lo aplica al momento.
+`localectl set-keymap es`
+Comprobarlo con
+`localectl status`
 
 Antes de convertir en plantilla, limpiar identificadores y preparar guest:
 
 Dentro del guest (Linux):
 
+Al ser Rocky las sentencias cambian a 
+
+```bash
+# Instalar qemu-guest-agent para mejor integración con Proxmox
+dnf install -y qemu-guest-agent
+systemctl enable --now qemu-guest-agent
+# (Opcional) Eliminar host keys SSH para que no se repitan en clones
+sudo rm -f /etc/ssh/ssh_host_*
+# para regenerarlas 
+ssh-keygen -A
+#  comprobar el servicio correcto
+ls /dev/virtio-ports/
+systemctl start qemu-guest-agent
+systemctl status qemu-guest-agent
+
+# Limpiar logs y history
+sudo truncate -s 0 /var/log/*.log || true
+history -c || true
+
+``` 
+Me falla el agente está instalado, pero la VM no tiene el dispositivo virtio-serial que necesita (/dev/virtio-ports/org.qemu.guest_agent.0). Eso se activa desde Proxmox, no desde dentro de la VM.
+En la interfaz web: VM → Options → QEMU Guest Agent → Edit → marca Use QEMU Guest Agent.
+
+desde el shell del host Proxmox (sustituye VMID por el de tu VM):
+```bash
+qm set VMID --agent enabled=1
+```
+
+
+Lo que figura a continuación no se realiza por ser Rocky es lo realizado en el paso anterior
+
 ```bash
 # Instalar qemu-guest-agent para mejor integración con Proxmox
 sudo apt update && sudo apt install -y qemu-guest-agent
 sudo systemctl enable --now qemu-guest-agent
+
 
 # (Opcional) Eliminar host keys SSH para que no se repitan en clones
 sudo rm -f /etc/ssh/ssh_host_*
@@ -134,8 +169,6 @@ history -c || true
 # (Opcional) usar cloud-init o virt-sysprep para preparar la imagen (si procede)
 ```
 
----
-
 ## G. Apagar y convertir VM en plantilla
 
 ```bash
@@ -147,12 +180,59 @@ qm shutdown 9000
 qm template 9000
 ```
 
----
-
 ## H. Clonar plantilla
 
-Clonar la plantilla a nuevas VMIDs para los alumnos:
+Tengo realizada una plantilla para clonar en  `/root/scripts` denominada `clonar_vms.sh` modicarla para este caso.
 
+```bash
+#!/bin/bash
+
+# id de la plantilla
+TEMPLATE_ID=130
+START_ID=201
+TOTAL_ALUMNOS=30
+
+for i in $(seq 1 $TOTAL_ALUMNOS);do
+        VM_ID=$((START_ID +i -1))
+        VM_NAME=$(printf "zabbix-alumno-%02d" $i)
+        echo "clonando $VM_NAME con ID $VM_ID..."
+        # clon enlazado (--full 0) o clon completo (--full 1)
+        qm clone $TEMPLATE_ID $VM_ID --name $VM_NAME --full 0
+        # Iniciar la maquina
+        qm start $VM_ID
+done 
+```
+El script ya tiene los permisos de ejecución
+
+```bash
+chmod +x  clonar_vms.sh
+
+```
+Ejecutar la plantilla creada
+
+```bash
+./ clonar_vms.sh
+
+```
+Otro scripts para que me muestre las ip que ha creado para cada máquina `sacar_ip_mquinas.sh`
+
+```bash
+#!/bin/bash
+for vmid in $(qm list | awk 'NR>1 {print $1}');do
+        name=$(qm config $vmid | awk '/^name:/{print $2}')
+        ip=$(qm agent $vmid network-get-interfaces 2> /dev/null | grep -oP '"ip-address"\s*:\s*"\K[0-9.]+' | grep -v '>
+        printf "%-8s %-18s %-16s\n" "$vmid" "$name" "${ip:-Sin IP}"
+done
+```
+y lo lanzo para que me cree un fichero ips's. txt
+
+```bash
+./sacar_ip_maquinas.sh >ips.txt
+
+```
+
+
+Clonar la plantilla a nuevas VMIDs para los alumnos:
 ```bash
 # Clonado completo (usa más espacio pero independiente)
 qm clone 9000 9010 --name zabbix-alumno-01 --full true
@@ -216,242 +296,3 @@ qm template 9000
 qm clone 9000 9010 --name zabbix-alumno-01 --full true
 ```
 
----
-
-## K. Resumen: conexiones inalámbricas (Wi‑Fi) — explicación y recomendaciones
-
-Esta sección resume los conceptos y parámetros prácticos que conviene conocer al configurar y evaluar adaptadores inalámbricos en prácticas de laboratorio.
-
-1. Conceptos básicos
-- SSID: nombre visible de la red Wi‑Fi. Seleccionar el SSID correcto para conectarse. 
-- Autenticación y seguridad: tipos habituales:
-  - WEP (obsoleto) — no usar en entornos reales.
-  - WPA2‑PSK (AES) — todavía muy extendido.
-  - WPA3 — más seguro, preferible si el hardware lo soporta.
-  - 802.1X (WPA2/WPA3 Enterprise) — autenticación por usuario/contraseña o certificados (RADIUS).
-- Canal y banda: 2.4 GHz (mayor cobertura, más congestión) vs 5 GHz / 6 GHz (menos congestión, mayor capacidad, menor cobertura).
-
-2. Parámetros del adaptador (qué comprobar)
-- SSID y clave/credenciales: imprescindibles para conectar. En redes empresariales puede requerirse certificado o usuario.
-- Modo (b/g/n/ac/ax): compatibilidad entre adaptador y punto de acceso. Preferir modos más modernos si la infraestructura los soporta.
-- Potencia/antena: algunos adaptadores permiten ajustar la potencia o uso de antenas externas; en prácticas, comprobar recepciones y RSSI.
-- Banda y canal: comprobar interferencias y elegir canales menos congestionados (herramientas: `iwlist`, `nmcli`, aplicaciones de análisis de Wi‑Fi).
-- Seguridad: verificar el tipo de cifrado; evitar WEP y TKIP cuando sea posible.
-
-3. Configuración IP
-- Normalmente la IP se obtiene por DHCP. Para prácticas de laboratorio o servidores puede ser necesario usar IP estática.
-- DNS y puerta de enlace: necesarios para acceso a Internet y resolución de nombres.
-
-4. Autenticación avanzada y certificados
-- 802.1X: para redes de empresa/centros educativos; requiere servidor RADIUS y certificados o credenciales de usuario.
-- EAP-TLS: autenticación por certificados (más segura que EAP‑PEAP/MSCHAPv2).
-
-5. Pruebas prácticas y comprobaciones
-- Ping y traceroute para verificar conectividad.
-- `iwconfig`, `iw dev`, `iwlist scan`, `nmcli` (Linux) para comprobar estado, modo y SSID.
-- Medir RSSI/Signal-to-Noise (SNR) para evaluar calidad de enlace.
-- Probar roaming (si hay varios APs) y band steering si procede.
-
-6. Buenas prácticas para el laboratorio
-- Documentar SSID, tipo de seguridad y credenciales en el material de prácticas.
-- Usar redes separadas (VLANs o SSIDs) para alumnos y administración.
-- Preparar un AP de pruebas con WPA2/WPA3-PSK y, si se enseña 802.1X, un RADIUS en una VM separada.
-- Registrar qué adaptadores del alumnado soportan 802.11ac/ax para ajustar expectativas.
-
----
-
-## L. Ejemplo: montar un RADIUS de prueba (FreeRADIUS) en una VM
-
-Este ejemplo muestra pasos mínimos para desplegar un servidor RADIUS de pruebas usando FreeRADIUS en una VM (Ubuntu Server). Está pensado para prácticas del laboratorio y no como una configuración de producción.
-
-Resumen rápido:
-- Crear una VM (Ubuntu Server) en Proxmox.
-- Instalar FreeRADIUS y utilidades.
-- Configurar un cliente RADIUS (por ejemplo un AP) con una shared secret y añadirlo en `clients.conf`.
-- Añadir un usuario de prueba en `mods-config/files/authorize` o en `users`.
-- Probar con `radtest` o `radclient` desde la VM o desde otra máquina.
-
-Pasos detallados (Ubuntu 22.04 / 24.04 o similar)
-
-1) Crear la VM y acceder por consola/SSH
-- Crear VM en Proxmox (p. ej. 2 vCPU, 2–4 GB RAM, 20 GB disco) e instalar Ubuntu Server.
-- Asegúrate de que la VM tiene conectividad y acceso SSH.
-
-2) Instalar FreeRADIUS
-
-```bash
-# Actualizar paquetes
-sudo apt update && sudo apt upgrade -y
-
-# Instalar freeradius y utilidades
-sudo apt install -y freeradius freeradius-utils
-
-# Comprobar versión y estado
-freeradius -v
-sudo systemctl status freeradius
-```
-
-3) Configurar un cliente RADIUS (punto de acceso)
-- Editar `/etc/freeradius/3.0/clients.conf` o la ruta equivalente según la versión.
-
-Añadir al final (ejemplo):
-
-```
-client laboratorio-ap {
-    ipaddr = 192.168.1.250
-    secret = prueba_shared_secret
-    require_message_authenticator = no
-}
-```
-
-- `ipaddr` puede ser la IP del AP o `0.0.0.0/0` para pruebas (no recomendado en producción).
-- `secret` debe coincidir con la configuración en el AP.
-
-4) Añadir un usuario de prueba
-- Para pruebas sencillas, editar el fichero `mods-config/files/authorize` o el fichero `users` según la estructura de tu instalación.
-
-Ejemplo en `/etc/freeradius/3.0/mods-config/files/authorize` (sintaxis simple):
-
-```
-# usuario : contraseña
-alumno1 Cleartext-Password := "alumno1pass"
-```
-
-O editar `/etc/freeradius/3.0/users` y añadir:
-
-```
-alumno1    Cleartext-Password := "alumno1pass"
-```
-
-5) Reiniciar FreeRADIUS
-
-```bash
-sudo systemctl restart freeradius
-sudo systemctl status freeradius
-```
-
-6) Probar la autenticación con radtest (desde la misma VM o desde otra máquina)
-
-```bash
-# Sintaxis: radtest USER PASSWORD RADIUS_SERVER PORT SECRET
-radtest alumno1 alumno1pass 127.0.0.1 0 prueba_shared_secret
-```
-
-- `127.0.0.1 0` usa el puerto por defecto y localhost; si pruebas desde otra máquina, usa la IP del servidor RADIUS y reemplaza el puerto si procede.
-- Salida esperada: Access-Accept (éxito) o Access-Reject (fallo). Si hay errores, revisar /var/log/freeradius/radius.log o journalctl.
-
-7) Probar desde un AP o desde wpa_supplicant (cliente Wi‑Fi)
-- Configurar en el AP el servidor RADIUS (IP y shared secret) y el método 802.1X.
-- Para pruebas con `wpa_supplicant` en un cliente Linux (PEAP/MSCHAPv2):
-
-Archivo `/etc/wpa_supplicant/wpa_supplicant.conf` mínimo:
-
-```
-network={
-  ssid="SSID_de_prueba"
-  key_mgmt=WPA-EAP
-  eap=PEAP
-  identity="alumno1"
-  password="alumno1pass"
-  phase2="auth=MSCHAPV2"
-}
-```
-
-Arrancar:
-
-```bash
-sudo wpa_supplicant -i wlan0 -c /etc/wpa_supplicant/wpa_supplicant.conf -D nl80211
-sudo dhclient wlan0
-```
-
-8) Logs y depuración
-- Ver logs en `/var/log/freeradius/radius.log` o usar `journalctl -u freeradius -f`.
-- Aumentar el nivel de depuración ejecutando FreeRADIUS en primer plano:
-
-```bash
-sudo systemctl stop freeradius
-sudo freeradius -X
-```
-
-Esto muestra el flujo de EAP/RADIUS en la consola y ayuda a depurar problemas.
-
-9) Consideraciones adicionales para prácticas
-- Para un laboratorio, crear varios usuarios y, si se desea, atributos que asignen VLANs diferentes según el usuario.
-- No usar secretos o contraseñas débiles en entornos productivos.
-- Si se enseña EAP‑TLS, preparar una CA simple (openssl) y emitir certificados para el servidor y clientes.
-- Para alta disponibilidad o replicación real, usar FreeRADIUS con backend LDAP/AD o con réplicas de base de datos.
-
-10) Recursos y lectura
-- FreeRADIUS documentation: https://wiki.freeradius.org/
-- Guía rápida de 802.1X y RADIUS: https://wiki.freeradius.org/guide
-
----
-
-### Comandos de ejemplo (Linux) — crear/consultar conexiones y pruebas
-
-1) Ver interfaces y capacidades:
-
-```bash
-# Mostrar interfaces inalámbricas y capacidades
-iw dev
-# Mostrar drivers y capacidades (listado)
-iw list
-```
-
-2) Escanear redes disponibles:
-
-```bash
-sudo iw dev wlan0 scan | less
-# o con NetworkManager
-nmcli device wifi list
-```
-
-3) Conectarse a una red WPA‑PSK (ejemplo usando nmcli):
-
-```bash
-nmcli device wifi connect "SSID_de_prueba" password "clave_de_prueba"
-```
-
-4) Conectarse a una red 802.1X (PEAP/MSCHAPv2) con wpa_supplicant (archivo mínimo):
-
-```bash
-cat > /etc/wpa_supplicant/wpa_supplicant.conf <<'EOF'
-network={
-  ssid="SSID_de_prueba"
-  key_mgmt=WPA-EAP
-  eap=PEAP
-  identity="alumno1"
-  password="alumno1pass"
-  phase2="auth=MSCHAPV2"
-}
-EOF
-sudo wpa_supplicant -i wlan0 -c /etc/wpa_supplicant/wpa_supplicant.conf -D nl80211 &
-sudo dhclient wlan0
-```
-
-5) Crear un AP sencillo con hostapd (modo infraestructura) — ejemplo mínimo:
-
-```bash
-# /etc/hostapd/hostapd.conf
-interface=wlan0
-ssid=AP_prueba
-channel=6
-hw_mode=g
-wpa=2
-wpa_passphrase=prueba1234
-
-# Iniciar hostapd
-sudo hostapd /etc/hostapd/hostapd.conf
-```
-
-6) Herramientas de diagnóstico:
-
-```bash
-# Comprobar señal y enlace
-iw dev wlan0 link
-# Traceroute/ping para comprobar conectividad
-ping -c 4 8.8.8.8
-traceroute 8.8.8.8
-```
-
----
